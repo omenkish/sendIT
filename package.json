@@ -1,0 +1,36 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "A courier service app that delivers parcels to different destinations",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require babel-core/register test/**/*.test.js ",
+    "build": "babel server.js -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omenkish/sendIT.git"
+  },
+  "author": "Eneojo Omede",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omenkish/sendIT/issues"
+  },
+  "homepage": "https://github.com/omenkish/sendIT#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "moment": "^2.22.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0"
+  }
+}

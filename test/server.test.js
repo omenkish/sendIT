@@ -1,52 +1,53 @@
 import chai from 'chai';
-import chaiHttp from 'chai-http';
 import { expect } from 'chai';
-chai.use(chaiHttp);
+import request from 'supertest';
+//chai.use(chaiHttp);
 
 // local modules
 import server from '../server';
 
 describe('Parcel End Points', () => {
-  before(() => {
 
-  });
-
-  after(() => {
-  });
-
-  const data = {
+  const parcel = {
+    id: 1,
     orderNo: '123dt',
     address: 'Home',
     presentLocation: 'Lagos',
     status: 'completed',
+    description: 'as is',
     price: 123467
   };
   // Test Get /api/v1/orders
   describe('POST api/v1/parcels', () => {
     it('should create new parcel', () => {
-      return chai.request(server)
+      return request(server)
         .post('/api/v1/parcels')
-        .send(data)
+        .send(parcel)
         .then((res) => {
-          expect(res.status).to.equal(201);
+          expect(res.statusCode).to.equal(201);
           expect(res.body).to.have.property('orderNo');
+          expect(res.body.status).to.equal('completed');
         })
         .catch((err) => {
-          expect(err).to.have.status(404);
+          if(err){
+            expect(err.statusCode).to.equal(404);
+          }
         })
     });
 
     // POST - BAD request
     it('should return Bad Request', () => {
-      return chai.request(server)
+      return request(server)
         .post('/api/v1/parcels')
         .type('form')
-        .send(data)
+        .send(parcel)
         .then((res) => {
           chai.assert.throws(() => { throw new Error('Invalid Content Type!') }, Error, 'Invalid Content Type!');
         })
         .catch((err) => {
-          expect(err).to.have.status(404);
+          if(err){
+            expect(err.statusCode).to.equal(404);
+          }
         });
     });
 
@@ -56,25 +57,29 @@ describe('Parcel End Points', () => {
   describe('GET api/v1/parcels', () => {
     // GET all parcels
     it('should get all parcels', () => {
-      return chai.request(server)
+      return request(server)
         .get('/api/v1/parcels')
         .then((res) => {
           expect(res.status).to.equal(200);
         })
         .catch((err) => {
-          expect(err).to.have.status(404);
+          if(err){
+            expect(err.statusCode).to.equal(404);
+          }
         });
     });
 
     // GET - Invalid path
     it('should return Not Found', () => {
-      return chai.request(server)
+      return request(server)
         .get('/INVALID_PATH')
         .then((res) => {
           chai.assert.throws(() => { throw new Error('Path Exists!') }, Error, 'Path Exists!');
         })
         .catch((err) => {
-          expect(err).to.have.status(404);
+          if(err){
+            expect(err.statusCode).to.equal(404);
+          }
         });
     });
   });
@@ -82,14 +87,15 @@ describe('Parcel End Points', () => {
   describe('GET api/v1/parcels/id', () => {
 
     it('should GET a particular parcel', () => {
-      const id = 1;
-      return chai.request(server)
-        .get(`/api/v1/parcels/${id}`)
+      return request(server)
+        .get(`/api/v1/parcels/${parcel.id}`)
         .then((res) => {
           expect(res.status).to.equal(200);
         })
         .catch((err) => {
-          expect(err).to.have.status(404);
+          if(err){
+            expect(err.statusCode).to.equal(404);
+          }
         });
     });
 
@@ -99,18 +105,38 @@ describe('Parcel End Points', () => {
 
     it('should DELETE a particular parcel', () => {
       const id = 1;
-      return chai.request(server)
-        .del(`/api/v1/parcels/${id}`)
+      return request(server)
+        .del(`/api/v1/parcels/${parcel.id}`)
         .then((res) => {
-          expect(res.status).to.equal(204);
+          expect(res.statusCode).to.equal(204);
         })
         .catch((err) => {
           // parcel with ID not found
-          expect(err).to.have.status(404);
+          if(err){
+            expect(err.statusCode).to.equal(404);
+          }
         });
     });
 
   });
 
+  describe('PUT api/v1/parcels/id', () => {
+    it('should UPDATE a particular parcel', () => {
+      return request(server)
+        .put(`/api/v1/parcels/${parcel.id}`)
+        .send(parcel)
+        .then((res) => {
+          expect(res.body.description).to.equal('as is');
+          expect(res.statusCode).to.equal(201);
+          //console.log('Here is the response ', res.body)
+        })
+        .catch((err) => {
+          // parcel with ID not found
+          if(err){
+            expect(err.statusCode).to.equal(404);
+          }
+        })
+    });
+  });
 
 });

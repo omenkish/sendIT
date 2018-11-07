@@ -55,7 +55,7 @@ class ParcelOrder {
   }
 
   update(id, data) {
-    const parcelOrder = this.findOne(parseInt(id));
+    const parcelOrder = this.findOne(id);
     const index = this.parcelOrders.indexOf(parcelOrder);
     this.parcelOrders[index].address = data['address'] || parcelOrder.address;
     this.parcelOrders[index].presentLocation = data['presentLocation'] || parcelOrder.presentLocation;

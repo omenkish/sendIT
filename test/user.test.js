@@ -38,7 +38,7 @@ describe('User End points', () => {
       .get(`/api/v1/users/${user.id}/parcels`)
       .then(res => {
         expect(res.status).to.equal(200);
-        expect(res.body).to.have.property('orderNo');
+        expect(res.body.length).to.equal(0);
       })
       .catch(err => {
         if(err){

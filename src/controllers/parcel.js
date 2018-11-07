@@ -18,6 +18,14 @@ const ParcelOrder = {
       return res.status(404).send({'message: ': 'Order with this ID does not exist.'});
     }
     return res.status(200).send(parcelOrder);
+  },
+  delete(req, res){
+    const parcelOrder = ParcelOrderModel.findOne(req.params.id);
+    if(!parcelOrder){
+      return res.status(404).send({'message': 'Order not found'});
+    }
+    const ref = ParcelOrderModel.delete(req.params.id);
+    return res.status(204).send(ref);
   }
 
 };

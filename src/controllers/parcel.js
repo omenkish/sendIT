@@ -11,6 +11,13 @@ const ParcelOrder = {
   getAll (req, res) {
     const parcelOrders = ParcelOrderModel.findAll();
     return res.status(200).send(parcelOrders);
+  },
+  getOne(req, res){
+    const parcelOrder = ParcelOrderModel.findOne(parseInt(req.params.id));
+    if(!parcelOrder){
+      return res.status(404).send({'message: ': 'Order with this ID does not exist.'});
+    }
+    return res.status(200).send(parcelOrder);
   }
 
 };

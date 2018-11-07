@@ -5,5 +5,6 @@ import ParcelOrder from '../controllers/parcel';
 
 router.post('', ParcelOrder.create);
 router.get('', ParcelOrder.getAll);
+router.get('/:id', ParcelOrder.getOne);
 
 export default router;

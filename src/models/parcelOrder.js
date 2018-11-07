@@ -24,6 +24,7 @@ class ParcelOrder {
   create (data){
     const newParcelOrder = {
       id: this.parcelOrders.length + 1,
+      userId: data.userId || '',
       orderNo: Math.random().toString(36).substring(8),
       address: data.address || '',
       presentLocation: data.presentLocation || '',

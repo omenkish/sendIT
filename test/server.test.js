@@ -79,4 +79,20 @@ describe('Parcel End Points', () => {
     });
   });
 
+  describe('GET api/v1/parcels/id', () => {
+
+    it('should GET a particular parcel', () => {
+      const id = 1;
+      return chai.request(server)
+        .get(`/api/v1/parcels/${id}`)
+        .then((res) => {
+          expect(res.status).to.equal(200);
+        })
+        .catch((err) => {
+          expect(err).to.have.status(404);
+        });
+    });
+
+  });
+
 });

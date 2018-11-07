@@ -1,15 +1,17 @@
 import express from 'express';
+import bodyParser from 'body-parser';
+
+import parcel from './src/routes/parcel';
+
 const app = express();
 
-app.use(express.json());
-const port = process.eventNames.PORT || 8000;
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use('/api/v1/parcels', parcel);
 
-app.get('/', (req,res) => {
-  res.send('Testing connection')
-});
-
-app.listen(port, ()=> {
-  console.log('connected on port ', port);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server up and running on port: ${port}`);
 });
 
 export default app;

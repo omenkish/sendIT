@@ -4,8 +4,9 @@
   "description": "A courier service app that delivers parcels to different destinations",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require babel-core/register test/**/*.test.js ",
-    "build": "babel server.js -d lib"
+    "test": "mocha test/**/*.test.js --require @babel/register || true",
+    "build": "babel server.js -d lib",
+    "dev-start": "nodemon server --exec \"node -r @babel/register\""
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,9 @@
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.5",
+    "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.5",
+    "@babel/register": "^7.0.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
     "eslint": "^5.8.0",

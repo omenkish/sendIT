@@ -95,4 +95,22 @@ describe('Parcel End Points', () => {
 
   });
 
+  describe('DELETE api/v1/parcels/id', () => {
+
+    it('should DELETE a particular parcel', () => {
+      const id = 1;
+      return chai.request(server)
+        .del(`/api/v1/parcels/${id}`)
+        .then((res) => {
+          expect(res.status).to.equal(204);
+        })
+        .catch((err) => {
+          // parcel with ID not found
+          expect(err).to.have.status(404);
+        });
+    });
+
+  });
+
+
 });

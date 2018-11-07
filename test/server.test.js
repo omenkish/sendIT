@@ -52,6 +52,32 @@ describe('Parcel End Points', () => {
 
   });
 
-  
+  // Test Get /api/v1/orders
+  describe('GET api/v1/parcels', () => {
+    // GET all parcels
+    it('should get all parcels', () => {
+      return chai.request(server)
+        .get('/api/v1/parcels')
+        .then((res) => {
+          expect(res.status).to.equal(200);
+        })
+        .catch((err) => {
+          expect(err).to.have.status(404);
+        });
+    });
 
+    // GET - Invalid path
+    it('should return Not Found', () => {
+      return chai.request(server)
+        .get('/INVALID_PATH')
+        .then((res) => {
+          chai.assert.throws(() => { throw new Error('Path Exists!') }, Error, 'Path Exists!');
+        })
+        .catch((err) => {
+          expect(err).to.have.status(404);
+        });
+    });
+  });
+
+  
 });

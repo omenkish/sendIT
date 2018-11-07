@@ -7,6 +7,10 @@ const ParcelOrder = {
     }
     const parcelOrder = ParcelOrderModel.create(req.body);
     return res.status(201).send(parcelOrder);
+  },
+  getAll (req, res) {
+    const parcelOrders = ParcelOrderModel.findAll();
+    return res.status(200).send(parcelOrders);
   }
 
 };

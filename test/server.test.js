@@ -79,5 +79,4 @@ describe('Parcel End Points', () => {
     });
   });
 
-  
 });

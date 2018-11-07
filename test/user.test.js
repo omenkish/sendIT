@@ -31,4 +31,20 @@ describe('User End points', () => {
     });
     
   });
+
+  describe('GET all parcels by user', () => {
+    it('should respond with all parcel orders by the user ', () => {
+      return request(server)
+      .get(`/api/v1/users/${user.id}/parcels`)
+      .then(res => {
+        expect(res.status).to.equal(200);
+        expect(res.body).to.have.property('orderNo');
+      })
+      .catch(err => {
+        if(err){
+          expect(err.status).to.equal(404)
+        }
+      })
+    })
+  })
 });

@@ -7,5 +7,6 @@ router.post('', User.create);
 router.get('/:id/parcels', User.getUserParcels);
 router.get('', User.getUsers);
 router.get('/:id', User.getUser);
+router.put('/:id/cancel', User.delete);
 
 export default router;

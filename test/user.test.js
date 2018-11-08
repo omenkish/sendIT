@@ -105,4 +105,22 @@ describe('User End points', () => {
     });
   });
 
+  describe('DELETE api/v1/users/id', () => {
+
+    it('should DELETE a particular user', () => {
+      return request(server)
+        .put(`/api/v1/users/${user.id}/cancel`)
+        .then((res) => {
+          expect(res.statusCode).to.equal(204);
+        })
+        .catch((err) => {
+          // parcel with ID not found
+          if(err){
+            expect(err.statusCode).to.equal(404);
+          }
+        });
+    });
+
+  });
+
 });

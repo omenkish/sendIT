@@ -20,7 +20,7 @@ const ParcelOrder = {
     return res.status(200).send(parcelOrder);
   },
   update (req, res){
-    const parcelOrder = ParcelOrderModel.findOne(req.params.id);
+    const parcelOrder = ParcelOrderModel.findOne(parseInt(req.params.id));
     if(!parcelOrder){
       return res.status(404).send({'message': ' Order not found'})
     }

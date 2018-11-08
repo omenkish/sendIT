@@ -106,7 +106,7 @@ describe('Parcel End Points', () => {
     it('should DELETE a particular parcel', () => {
       const id = 1;
       return request(server)
-        .del(`/api/v1/parcels/${parcel.id}`)
+        .put(`/api/v1/parcels/${parcel.id}/cancel`)
         .then((res) => {
           expect(res.statusCode).to.equal(204);
         })
@@ -118,25 +118,6 @@ describe('Parcel End Points', () => {
         });
     });
 
-  });
-
-  describe('PUT api/v1/parcels/id', () => {
-    it('should UPDATE a particular parcel', () => {
-      return request(server)
-        .put(`/api/v1/parcels/${parcel.id}`)
-        .send(parcel)
-        .then((res) => {
-          expect(res.body.description).to.equal('as is');
-          expect(res.statusCode).to.equal(201);
-          //console.log('Here is the response ', res.body)
-        })
-        .catch((err) => {
-          // parcel with ID not found
-          if(err){
-            expect(err.statusCode).to.equal(404);
-          }
-        })
-    });
   });
 
 });

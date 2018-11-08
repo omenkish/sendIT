@@ -38,10 +38,19 @@ const User = {
   delete(req, res){
     const user = UserModel.findUser(req.params.id);
     if(!user){
-      return res.status(404).send({'message': 'Order not found'});
+      return res.status(404).send({'message': 'User not found'});
     }
     const ref = UserModel.delete(req.params.id);
     return res.status(204).send(ref);
+  },
+
+  update (req, res){
+    const user = UserModel.findUser(req.params.id);
+    if(!user){
+      return res.status(404).send({'message': ' User not found'})
+    }
+    const updatedUser = UserModel.update(req.params.id, req.body);
+    return res.status(200).send(updatedUser);
   }
 };
 

@@ -25,6 +25,14 @@ const User = {
   getUsers (req,res) {
     const users = UserModel.findUsers();
     return res.status(200).send(users);
+  },
+
+  getUser(req, res) {
+    const user = UserModel.findUser(req.params.id);
+    if(!user){
+      return res.status(404).send('message : No user with this Id found');
+    }
+    return res.status(200).send(user);
   }
 };
 

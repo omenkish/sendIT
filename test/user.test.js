@@ -47,28 +47,14 @@ describe('User End points', () => {
       })
     });
 
-    it('should respond with all parcel orders by the user ', () => {
-      return request(server)
-      .get(`/api/v1/users/${user.id}/parcels`)
-      .then(res => {
-        expect(res.status).to.equal(200);
-        expect(res.body.length).to.equal(0);
-      })
-      .catch(err => {
-        if(err){
-          expect(err.status).to.equal(404)
-        }
-      })
-    });
-
-    it('should return no parcel to the user, and status code 404 if the user does not exist ', () => {
+    it('should return status code 404 if the user does not exist ', () => {
       return request(server)
       .get(`/api/v1/users/${user.id + 3}/parcels`)
       .then(res => {
         expect(res.status).to.equal(404);
       })
       .catch(err => {
-
+        
       });
     })
   })
@@ -93,7 +79,7 @@ describe('User End points', () => {
     it('should return Not Found', () => {
       return request(server)
         .get('/INVALID_PATH')
-        .then((res) => {
+        .then(res => {
           chai.assert.throws(() => { throw new Error('Path Exists!') }, Error, 'Path Exists!');
         })
         .catch((err) => {
@@ -102,5 +88,21 @@ describe('User End points', () => {
           }
         });
     });
+
+    /**
+     * GET user by Id
+     */
+    it('should return a particular user or error code 404 if not found', () => {
+      return request(server)
+        .get(`/api/v1/users/${user.id}`)
+        .then(res => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.be.an('object');
+        })
+        .catch((err) => {
+          expect(err.status).to.equal(404);
+        });
+    });
   });
+
 });

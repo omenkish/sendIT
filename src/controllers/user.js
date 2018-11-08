@@ -12,7 +12,7 @@ const User = {
     }
   },
 
-  getUserParcels(req, res) {
+  getUserParcels (req, res) {
     const parcels = ParcelModel.findAll();
     const userParcels = parcels.filter(parcel => parseInt(parcel.userId) === parseInt(req.params.id));
 
@@ -20,6 +20,11 @@ const User = {
       return res.status(404).send('message: No parcel found for this user.')
     }
     return res.status(200).send(userParcels)
+  },
+
+  getUsers (req,res) {
+    const users = UserModel.findUsers();
+    return res.status(200).send(users);
   }
 };
 

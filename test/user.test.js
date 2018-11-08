@@ -68,8 +68,39 @@ describe('User End points', () => {
         expect(res.status).to.equal(404);
       })
       .catch(err => {
-        
+
       });
     })
   })
+
+  describe('GET api/v1/users', () => {
+    // GET all users
+    it('should get all users', () => {
+      return request(server)
+      .get('/api/v1/users')
+        .then((res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.be.an('array');
+        })
+        .catch((err) => {
+          if(err){
+            expect(err.status).to.equal(404);
+          }
+        });
+    });
+
+    // GET - Invalid path
+    it('should return Not Found', () => {
+      return request(server)
+        .get('/INVALID_PATH')
+        .then((res) => {
+          chai.assert.throws(() => { throw new Error('Path Exists!') }, Error, 'Path Exists!');
+        })
+        .catch((err) => {
+          if(err){
+            expect(err.statusCode).to.equal(404);
+          }
+        });
+    });
+  });
 });

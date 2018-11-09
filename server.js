@@ -9,6 +9,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome to my Home page')
+})
 app.use('/api/v1/parcels', parcel);
 app.use('/api/v1/users', user);
 

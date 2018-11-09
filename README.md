@@ -4,7 +4,7 @@
 
 # sendIT
 ---
-###### 'A courier service app that delivers parcels to different destinations'
+###### `A courier service app that delivers parcels to different destinations`
 
 # Getting Started
 ***

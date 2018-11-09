@@ -1,1 +1,1 @@
-web: npm install && node server.compile.js
+web: npm run start

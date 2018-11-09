@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/**/*.test.js --require @babel/register || true",
+    "prestart": "npm install",
     "start": "node server.compile.js",
     "build": "babel server.js -d lib",
     "heroku-prebuild": "npm install",

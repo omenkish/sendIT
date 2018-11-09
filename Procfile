@@ -1,1 +1,1 @@
-web: node server.compile.js
+web: npm install && node server.compile.js

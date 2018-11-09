@@ -20,7 +20,7 @@
 ## Development
 
 ```
-npm run der-start
+npm run dev-start
 ```
 ## Test
 ```

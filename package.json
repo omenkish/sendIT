@@ -7,6 +7,7 @@
     "test": "mocha test/**/*.test.js --require @babel/register || true",
     "start": "node server.compile.js",
     "build": "babel server.js -d lib",
+    "heroku-prebuild": "npm install",
     "dev-start": "nodemon server --exec \"node -r @babel/register\""
   },
   "repository": {

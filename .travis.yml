@@ -1,16 +1,8 @@
 # single test suite, non-parallel build.
-
-env:
-  global:
-    - CC_TEST_REPORTER_ID=e7072745ef76e64ab5b9c57fe972641c738d7d39612acdff692c1f6f75f4812d
 language: node_js
 node_js:
 - "stable"
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
 script:
   - bundle exec rspec
 after_success: 
-  - npm run coverage
+  npm run coverage

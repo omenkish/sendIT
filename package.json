@@ -4,7 +4,7 @@
   "description": "A courier service app that delivers parcels to different destinations",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha test/**/*.test.js --require @babel/register || true",
+    "test": "nyc mocha test/**/*.test.js --require @babel/register || true",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "babel server.js -d lib",
     "dev-start": "nodemon server --exec \"node -r @babel/register\""
@@ -37,6 +37,7 @@
     "eslint-plugin-import": "^2.14.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^13.1.0",
     "supertest": "^3.3.0"
   }

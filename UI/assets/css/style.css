@@ -1,0 +1,301 @@
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  font:15px/1.5 Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+
+  background-color: #f1f1f1;
+}
+
+/* global*/
+.container {
+  width: 75%;
+  margin: auto;
+  overflow: hidden;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* sidebar */
+#left {
+  margin: 0 10px 0 0;
+  float: left;
+  height: 88vh;
+  padding: 15px;
+  top: 0;
+  bottom: 0;
+  background: #22333d;
+  width: 15%;
+}
+#heading {
+  font:15px/0.9 Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  color: #5F9EA0;
+}
+#left hr {
+  color: #CCC;
+  font-weight: bolder;
+}
+#left span {
+  display: block;
+  padding: 12px 10px;
+}
+#sidebar a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: capitalize;
+
+}
+
+#sidebar a:hover {
+  color: #5f9ea0;
+  cursor: pointer;
+}
+
+aside#sidebar { 
+  margin: 8px 0 0 6px;
+}
+
+/* Main section */
+section#main {
+  padding: 15px;
+}
+
+#main form {
+  padding: 15px;
+  margin: 2px 1%;
+}
+#main legend {
+  text-align: center;
+  font-weight: bolder;
+  color: #5F9EA0;
+}
+#main .form-left {
+  float: left;
+  margin: 6px 10px;
+  text-align: left;
+  width: 45%;
+  padding: 10px;
+}
+/*full width inputs*/
+ input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number] {
+  width: 100%;
+  padding: 7px 20px;
+  margin: 5px 0;
+  display: block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  
+}
+
+/* Set a style for all buttons */
+#main button, #boxes button {
+  background-color: #5F9EA0;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  padding: 8px 14px;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* profile page */
+#profile-title h1 {
+  color: #696969;
+  text-transform: capitalize;
+}
+
+/* boxes */
+#boxes {
+  margin-top: 8px;
+}
+
+#boxes h3 {
+  color: #696969;
+  text-transform: capitalize;
+}
+
+#boxes #transit {
+  text-align: left;
+}
+
+#boxes #transit a {
+  text-decoration: none;
+  color: #5f9ea0;
+  font-weight: bold;
+  margin: 0 12%;
+}
+#boxes .box {
+  float: left;
+  margin: 6px 10px;
+  text-align: center;
+  width: 45%;
+  padding: 10px;
+  border-top: #5f9ea0 solid 3px;
+  border-bottom: #5f9ea0 solid 3px;
+  border-radius: 2%;
+  background: #ffffff
+
+}
+
+#boxes .box img {
+  width: 150px;
+}
+ 
+.imgcontainer {
+  text-align: center;
+  margin:0;
+  border-bottom: #5f9ea0 solid 2px;
+}
+
+img.avatar {
+  height: 20%;
+  width: 25%;
+  border-radius: 50%;
+}
+.submitbtn{
+  float: left;
+}
+#boxes .cancelbtn {
+  background-color: #c71010;
+}
+
+/* order page */
+#boxes .order {
+  width: 60%;
+  margin: 0 12%;
+}
+
+/* Admin Page */
+#deliveries table {
+  margin: 8px 1px;
+  width: 100%;
+  padding: 5px;
+  
+}
+#deliveries table, th, td {
+  border: 2px solid #ccc;
+  border-collapse: collapse;
+}
+#deliveries table button {
+  width: auto;
+}
+#deliveries table a {
+ text-decoration: none;
+ color: #5f9ea0;
+}
+
+/* footer area */
+footer {
+  overflow: hidden;
+  margin: 0;
+  bottom: 0;
+  background: #CCC;
+  max-height: 45px;
+
+}
+footer .container {
+  width: 100%;
+  text-align: left;
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+
+footer p {
+  color: #22333d;
+  font-weight: bold;
+}
+footer a {
+  color: cornflowerblue;
+  text-decoration: none;
+}
+
+/* Change style for span and cancel button on small screen */
+@media screen and (max-width: 764px) {
+  .container,  
+  #left,
+  #sidebar,
+  #main,
+  #boxes,
+  #deliveries
+ {
+    float: none;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    
+  }
+  #left {
+    height: auto;
+    
+  }
+
+  #main form {
+    text-align: left;
+    width: 90%;
+    margin: 0;
+  }
+
+  #main .form-left{
+    width: 94%;
+    margin: 0;
+  }
+
+  #main input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number] {
+    width: 94%;
+  }
+  #boxes input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number] {
+    width: 94%;
+  }
+  
+  #main button {
+    width: 94%;
+  }
+  #boxes button {
+    width: 40%;
+  }
+
+  #boxes .box {
+    float: none;
+    display: inline-block;
+    width: 100%;
+    border: none;  
+  }
+  #profile-title h1 {
+    text-align: center;
+  }
+  #boxes .order  {
+    width: 100%;
+    margin: 0 4%;
+  }
+  #boxes .order button {
+    width: 94%;
+  }
+  #boxes #transit a {
+    margin: 0 15px;
+  }
+
+  #boxes #transit button {
+    width: 29%;
+  }
+
+  #deliveries table{
+    width: 94%;
+  }
+}

@@ -15,26 +15,22 @@
 	</head>
 	
 	<body>
-		<header>
-			<div class="topnav" id="myTopnav">
-        <a href="#home" class="active">Home</a>
-				<a href="#news">News <i class="fa fa-book-open"></i></a>
-				<a href="#messsage">Message <i class="fa fa-envelope"></i></a>
-				<a href="#notification">Notification <i class="fa fa-bell"></i></a>
-
-				<!-- <div class="dropdown">
-					<button class="dropbtn"><i class="fa fa-user-plus"></i>Create order <i class="fa fa-caret-down"></i></button>
-					<div class="dropdown-content">
-						<a href="#">Profile</a>
-						<a href="#">Link 2</a>
-						<a href="#">Setting</a>
-						<a href="#">Logout</a>
-					</div>
-				</div>  -->
-				<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-      </div>
+      <header>
 			
-    </header>
+        <div class="container">
+          <div id="branding">
+            <h1><span class="highlight">Send</span>IT</h1>
+          </div>
+          <nav class="topnav" id="myTopnav">
+            <ul>
+              <li class="current"><a href="../index.html">Home <i class="fa fa-home"></i></a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="#notification">Notification <i class="fa fa-bell"></i></a></li>
+              <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+            </ul>
+          </nav>
+        </div>			
+      </header>
     <section id="left">
       <aside id="sidebar">
         <div class="">
@@ -55,7 +51,7 @@
             <a href="#"><i class="fa fa-cog"></i> setting</a>
           </span>
           <span>
-          <a href="#"><i class="fa fa-power-off"></i> Logout</a>
+          <a href="../index.html"><i class="fa fa-power-off"></i> Logout</a>
           </span>
           
         </div>
@@ -64,6 +60,15 @@
   <div id="profile-title"><h1>Admin section</h1></div>
   <section id="boxes">
     <div class="container">
+
+      <div class="box">
+        <h3>all Orders on transit</h3>
+        <div id="transit"> 
+          <p>1. Order ID : <a href="location.html">py1234ty  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button class="location" type="button"> update location</button></a> </p>
+          <p>2. Order ID : <a href="location.html?id=id">ztwer457  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button class="location" type="button"> update location</button></a></p>
+        </div>
+      </div>
+      
       <div class="box">
         <h3>all Orders </h3>
         <div id="deliveries"> 
@@ -97,13 +102,7 @@
         </div>
       </div>
 
-      <div class="box">
-        <h3>all Orders on transit</h3>
-        <div id="transit"> 
-          <p>1. Order ID : <a href="location.html">py1234ty  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button class="location" type="button"> update location</button></a> </p>
-          <p>2. Order ID : <a href="location.html?id=id">ztwer457  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button class="location" type="button"> update location</button></a></p>
-        </div>
-      </div>
+      
     </div>
   </section>
           

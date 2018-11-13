@@ -16,16 +16,6 @@ span#reg  a, #signup h4 a {
   text-decoration: none;
   color:#5f9ea0;
 }
-.imgcontainer {
-  text-align: center;
-  margin: 18px 0 12px 0;
-}
-
-img.avatar {
-  height: 20%;
-  width: 25%;
-  border-radius: 50%;
-}
 #signin {
   min-height: 580px;
 }
@@ -38,9 +28,9 @@ img.avatar {
   box-shadow:  5px 8px 0 #ccc;
   border-radius: 2%;
   background-color: #ffffff;
-  z-index: -1;
+
 }
-#signin form h1 {
+#signin form h1,  #signup form h1{
   color: #35424a;
   text-align: center;
   border-bottom: #e8491d solid 1px;
@@ -93,16 +83,18 @@ span.psw a {
 
 /* Style the sign up page */
 #signup form {
-  border: 1px solid #b69c9c;
-  padding: 12px 20px; 
-  margin: 1% 25%;
+  padding: 10px 20px; 
+  margin: 2% 25% 3% 25%;
   background-color: #ffffff;
 }
 
-#signup h4 {
-  text-align: center;
-  color: #047c08;
+#signup .spa a {
+   color: #5f9ea0;
 }
+#signup .spa {
+  font-weight: bold;
+}
+
 
 /* Change style for span and cancel button on extra small screen */
 @media screen and (max-width: 764px) {
@@ -140,9 +132,14 @@ span.psw a {
     margin: 8px;
   }
   
-  #signin button {
+  #signin button{
     margin-left: 0;
     width: 30%;
+  }
+
+  #signup button {
+    margin: 8px;
+    width: 94%;
   }
   
 }

@@ -10,24 +10,32 @@
   <title>SendIT | signup</title>
   
   <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/responsive.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/signin.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/index.css" />
   <script src="main.js"></script>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div id="branding">
-        <h1><span class="highlight">Send</span>IT</h1>
-      </div>
-      <span class="text"><i>A smarter way to deliver parcels.......At your convenience.</i></span>
-    </div>
-  </header>
-
+    <header>
+        <div class="container">
+          <div id="branding">
+            <h1><span class="highlight">Send</span>IT <i class="fa fa-shipping-fast"></i></h1>
+          </div>
+          <nav>
+            <u>
+              <li class="current"><a href="../index.html">Home <i class="fa fa-home"></i></a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="admin.html">Admin</a></li>  
+              <li ><a href="signin.html">Login <i class=""></i></a></li>
+            </u>
+          </nav>
+        </div>
+      </header>
   <section id="signup">
     <div class="container">
-        <form>
-            <h4>Already a member? <a href="signin.html">Sign in</a></h4>
-            <hr>
+        <form  action="profile.html">
+            <h1>Create Account <i class="fa fa-plus-circle"></i></a> </h1>
           <label for="username"><b>Username: </b>
             <input type="text" placeholder="Enter Username" name="username" required>
           </label>
@@ -47,9 +55,9 @@
           <label for="password"><b>Confirm Password: </b>
             <input type="password" placeholder="Re-enter your Password" name="password1" required>
           </label>
-
-          <button type="submit"> Create Account</button>
-          
+          <div>
+            <button type="submit" > Create Account</button><span class="spa"> Already a member? <a href="signin.html">Sign in</a></span>
+          </div>
         </form>
     </div>
   </section>

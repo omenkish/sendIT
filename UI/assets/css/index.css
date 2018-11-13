@@ -165,11 +165,30 @@ ul#services li{
 }
 
 footer {
-  padding: 8px;
-  margin-top: 12px;
+  overflow: hidden;
+  margin: 0;
+  bottom: 0;
+  background: #35424a;
+  max-height: 50px;
+  border-top: #e8491d solid 3px;
   text-align: center;
+
+}
+footer .container {
+  width: 100%;
+  text-align: center;
+  clear: both;
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+footer p {
   color: #ffffff;
-  background-color: #e8491d;
+  font-weight: bold;
+}
+footer a {
+  color: #e8491d;
+  text-decoration: none;
 }
 
 /* media queries */

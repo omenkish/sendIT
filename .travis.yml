@@ -1,2 +1,0 @@
-# single test suite, non-parallel build.
-language: node_js

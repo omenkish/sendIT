@@ -16,26 +16,22 @@
 	</head>
 	
 	<body>
-		<header>
-			<div class="topnav" id="myTopnav">
-				<a href="#home" class="active">Home</a>
-				<a href="#news">News <i class="fa fa-book-open"></i></a>
-				<a href="#messsage">Message <i class="fa fa-envelope"></i></a>
-				<a href="#notification">Notification <i class="fa fa-bell"></i></a>
-
-				<!-- <div class="dropdown">
-					<button class="dropbtn"><i class="fa fa-user-plus"></i>Create order <i class="fa fa-caret-down"></i></button>
-					<div class="dropdown-content">
-						<a href="#">Profile</a>
-						<a href="#">Link 2</a>
-						<a href="#">Setting</a>
-						<a href="#">Logout</a>
-					</div>
-				</div>  -->
-				<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-      </div>
+      <header>
 			
-    </header>
+        <div class="container">
+          <div id="branding">
+            <h1><span class="highlight">Send</span>IT</h1>
+          </div>
+          <nav class="topnav" id="myTopnav">
+            <ul>
+              <li class="current"><a href="../index.html">Home <i class="fa fa-home"></i></a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="#notification">Notification <i class="fa fa-bell"></i></a></li>
+              <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+            </ul>
+          </nav>
+        </div>			
+      </header>
     <section id="left">
       <aside id="sidebar">
         <div class="">
@@ -62,6 +58,38 @@
   <div id="profile-title"><h1>All Orders Section</h1></div>
   <section id="boxes">
     <div class="container">
+
+        <div class="box">
+            <h3>Orders on transit</h3>
+            <div id="deliveries"> 
+              <table id="table">
+                <thead>
+                  <tr>
+                    <th>S/n</th>
+                    <th>Order no</th>
+                    <th>Cur. Location</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+    
+                <tbody>
+                  <tr>
+                    <td>1.</td>
+                    <td><a href="order.html?id=id">py1234ty</a></td>
+                    <td>Asaba</td>
+                    <td> <a href="order.html" class="tooltip"><i class="fa fa-pen-square fa-2x"></i></a><span class="tooltiptext">hey</span> &nbsp; &nbsp; &nbsp; <a class="tooltip"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td>2.</td>
+                    <td><a href="order.html?id=id">ztwer457</a></td>
+                    <td>PorHarcourt</td>
+                    <td> <a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                    </tr>
+                </tbody>
+    
+              </table>
+          </div>
+        </div>
       <div class="box">
         <h3>Delivered Orders</h3><hr>
         <div>
@@ -69,13 +97,6 @@
         </div>
       </div>
 
-      <div class="box">
-        <h3>Orders on transit</h3><hr>
-        <div id="transit"> 
-          <p>1. Order ID : <a href="order.html?id=id">py1234ty</a> <button class="cancelbtn" type="button"> Cancel Order</button></p>
-          <p>2. Order ID : <a href="order.html?id=id">ztwer457</a> <button class="cancelbtn" type="button"> Cancel Order</button></p>
-        </div>
-      </div>
     </div>
   </section>
           

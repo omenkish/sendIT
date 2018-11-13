@@ -100,7 +100,7 @@ header a:hover {
   font-size: 20px;
 }
 
-/* search*/
+/* newsletter*/
 #search {
   padding:0 15px;
   color: #ffffff;
@@ -116,8 +116,8 @@ header a:hover {
   margin-top: 20px;
 }
 
-#search input[type="search"] {
-  padding: 6px;
+#search input[type="text"] {
+  padding: 4px;
   height: 25px;
   width: 250px;
 }
@@ -196,11 +196,9 @@ footer a {
  header #branding,
  header nav,
  header nav li,
- #search,
  #boxes .box,
  article#main-col,
- aside#sidebar,
- #showcase .container
+ aside#sidebar
   {
    float: none;
    display: inline-block;

@@ -12,6 +12,11 @@ body {
 }
 
 /* global*/
+header .container {
+  width: 97%;
+  margin: auto;
+  overflow: hidden;
+}
 .container {
   width: 75%;
   margin: auto;
@@ -23,11 +28,60 @@ ul {
   padding: 0;
 }
 
+/*header*/
+header {
+  background: #35424a;
+  color: #ffffff;
+  padding-top: 10px;
+  min-height: 30px;
+  border-bottom: #e8491d 3px solid;
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+header li {
+  float: left;
+  display: inline;
+  padding: 0 10px 0 20px;
+}
+
+header #branding {
+  float: left;
+}
+
+header #branding h1 {
+  margin: 0;
+}
+
+header nav{
+  float: right;
+  margin-top: 6px;
+}
+
+header .highlight, header .current a {
+  color: #e8491d;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: #cccccc;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* Hide the link that should open and close the topnav */
+ header .icon {
+    display: none;
+}
 /* sidebar */
 #left {
   margin: 0 10px 0 0;
   float: left;
-  height: 88vh;
+  height: 87.3vh;
   padding: 15px;
   top: 0;
   bottom: 0;
@@ -100,13 +154,14 @@ section#main {
 
 /* Set a style for all buttons */
 #main button, #boxes button {
-  background-color: #5F9EA0;
+  background-color: #e8491d;
   color: white;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 30%;
   padding: 8px 14px;
+  border-radius: 4px;
 }
 
 /* Add a hover effect for buttons */
@@ -117,12 +172,13 @@ button:hover {
 /* profile page */
 #profile-title h1 {
   color: #696969;
-  text-transform: capitalize;
+  text-transform: capitalize; 
 }
 
 /* boxes */
 #boxes {
   margin-top: 8px;
+  min-height: 72vh
 }
 
 #boxes h3 {
@@ -138,7 +194,7 @@ button:hover {
   text-decoration: none;
   color: #5f9ea0;
   font-weight: bold;
-  margin: 0 12%;
+  margin: 0 ;
 }
 #boxes .box {
   float: left;
@@ -146,8 +202,8 @@ button:hover {
   text-align: center;
   width: 45%;
   padding: 10px;
-  border-top: #5f9ea0 solid 3px;
-  border-bottom: #5f9ea0 solid 3px;
+  border-top: #35424a solid 3px;
+  border-bottom: #35424a solid 3px;
   border-radius: 2%;
   background: #ffffff
 
@@ -160,7 +216,7 @@ button:hover {
 .imgcontainer {
   text-align: center;
   margin:0;
-  border-bottom: #5f9ea0 solid 2px;
+  border-bottom: #35424a solid 2px;
 }
 
 img.avatar {
@@ -171,8 +227,32 @@ img.avatar {
 .submitbtn{
   float: left;
 }
-#boxes .cancelbtn {
-  background-color: #c71010;
+#boxes .cancelbtn, #boxes .edit{
+  background-color: #35424a;
+}
+
+#table .tooltip {
+  position: relative;
+  display: inline-block;
+ 
+}
+
+/* Tooltip text */
+#deliveries table span {
+  display: none;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+#deliveries table a:hover span {
+  display: inline;
 }
 
 /* order page */
@@ -204,28 +284,30 @@ img.avatar {
 footer {
   overflow: hidden;
   margin: 0;
-  bottom: 0;
-  background: #CCC;
+  padding-left: 0;
+  background: #35424a;
   max-height: 45px;
+  border-top: #e8491d solid 3px;
+  text-align: center;
 
 }
 footer .container {
-  width: 100%;
-  text-align: left;
+  width: inherit;
+  text-align: center;
   clear: both;
-  margin: 0;
+  margin-bottom: 12px;
   padding: 0;
+  width: inherit;
 }
 
 footer p {
-  color: #22333d;
+  color: #ffffff;
   font-weight: bold;
 }
 footer a {
-  color: cornflowerblue;
+  color: #e8491d;
   text-decoration: none;
 }
-
 /* Change style for span and cancel button on small screen */
 @media screen and (max-width: 764px) {
   .container,  

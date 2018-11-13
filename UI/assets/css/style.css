@@ -123,6 +123,8 @@ aside#sidebar {
 /* Main section */
 section#main {
   padding: 15px;
+  margin-top: 8px;
+  min-height: 68.1vh
 }
 
 #main form {

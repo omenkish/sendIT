@@ -100,7 +100,7 @@ header a:hover {
   font-size: 20px;
 }
 
-/* newsletter*/
+/* search*/
 #search {
   padding:0 15px;
   color: #ffffff;
@@ -116,8 +116,8 @@ header a:hover {
   margin-top: 20px;
 }
 
-#search input[type="text"] {
-  padding: 4px;
+#search input[type="search"] {
+  padding: 6px;
   height: 25px;
   width: 250px;
 }
@@ -196,11 +196,11 @@ footer a {
  header #branding,
  header nav,
  header nav li,
- #search h1,
- #search form,
+ #search,
  #boxes .box,
  article#main-col,
- aside#sidebar
+ aside#sidebar,
+ #showcase .container
   {
    float: none;
    display: inline-block;
@@ -215,13 +215,19 @@ footer a {
    margin-top: 40px;
  }
 
+ #search form {
+   width: 100%;
+   display: block;
+ }
  #search button, .quote button {
+   text-align: center;
    display: block;
    width: 100%;
  }
 
- #search form input[type="email"], .quote input, .quote textarea {
+ #search form input[type="search"], .quote input, .quote textarea {
    width: 100%;
    margin-bottom: 5px;
+   padding: 8px;
  }
 } 

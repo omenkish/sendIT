@@ -4,7 +4,7 @@ import request from 'supertest';
 //chai.use(chaiHttp);
 
 // local modules
-import server from '../server';
+import server from '../server/server';
 
 describe('Parcel End Points', () => {
 

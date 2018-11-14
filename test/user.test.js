@@ -2,7 +2,7 @@ import chai from 'chai';
 import { expect } from 'chai';
 import request from 'supertest';
 
-import server from '../server';
+import server from '../server/server';
 
 describe('User End points', () => {
 

@@ -15,7 +15,8 @@ class ParcelOrder {
         orderNo: Math.random().toString(36).substring(8),
         address: 'Badagry',
         presentLocation: 'Birom',
-        status: 'Transit',
+        deliveryStatus: 'Active',
+        orderStatus: 'Transit',
         price: 2000,
         description: 'Black leather belt',
         createdDate: this.currentTime(),
@@ -89,8 +90,8 @@ class ParcelOrder {
   delete (id) {
     const parcelOrder = this.findOne(id);
     const index = this.parcelOrders.indexOf(parcelOrder);
-    this.parcelOrders.splice(index,1);
-    return {};
+    this.parcelOrders[index].deliveryStatus = 'Cancelled.';
+    return this.parcelOrders[index];
   }
 }
 

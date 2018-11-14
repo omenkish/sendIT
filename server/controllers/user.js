@@ -14,7 +14,7 @@ const User = {
 
   getUserParcels (req, res) {
     const parcels = ParcelModel.findAll();
-    const userParcels = parcels.filter(parcel => parseInt(parcel.userId) === parseInt(req.params.id));
+    const userParcels = parcels.filter(parcel => parcel.userId === req.params.id);
 
     if(!userParcels){
       return res.status(404).send('message: No parcel found for this user.')

@@ -1,4 +1,5 @@
 import moment from 'moment';
+import uuidv4 from 'uuid/v4';
 
 class User {
 
@@ -7,7 +8,16 @@ class User {
    * @param {object} data
    */
   constructor () {
-    this.users = [];
+    this.users = [
+      {
+        id: uuidv4(),
+        username: 'omenkish',
+        email: 'omenkish@gmail.com',
+        password: 'pass',
+        createdDate: this.currentTime(),
+        modifiedDate: this.currentTime()
+      }
+    ];
   }
 
   /**
@@ -23,7 +33,7 @@ class User {
    */
   create (data){
     const newUser = {
-      id: this.users.length + 1,
+      id: uuidv4(),
       username: data.username || '',
       email: data.email || '',
       password: data.password || '',
@@ -40,7 +50,7 @@ class User {
    * @returns {object} parcel order object
    */
   findUser (id) {
-    return this.users.find(user => user.id === parseInt(id));
+    return this.users.find(user => user.id === id);
   }
 
   /**

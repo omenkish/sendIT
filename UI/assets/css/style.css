@@ -22,7 +22,9 @@ header .container {
   margin: auto;
   overflow: hidden;
 }
-
+.center {
+  
+}
 ul {
   margin: 0;
   padding: 0;

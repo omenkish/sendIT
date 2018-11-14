@@ -1,0 +1,45 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "A courier service app that delivers parcels to different destinations",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.test.js --require @babel/register || true",
+    "start": "node dist/server.js",
+    "build": "npx babel server --out-dir dist ",
+    "heroku-prebuild": "npm install",
+    "dev-start": "nodemon server/server --exec \"node -r @babel/register\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omenkish/sendIT.git"
+  },
+  "author": "Eneojo Omede",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omenkish/sendIT/issues"
+  },
+  "homepage": "https://github.com/omenkish/sendIT#readme",
+  "dependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.5",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/register": "^7.0.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "moment": "^2.22.2",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0",
+    "supertest": "^3.3.0"
+  },
+  "engines": {
+    "node": "10.x"
+  }
+}

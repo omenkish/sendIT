@@ -6,9 +6,9 @@
   "scripts": {
     "test": "mocha test/**/*.test.js --require @babel/register || true",
     "start": "node server.compile.js",
-    "build": "babel server.js -d lib",
+    "build": "npx babel server --out-dir dist ",
     "heroku-prebuild": "npm install",
-    "dev-start": "nodemon server --exec \"node -r @babel/register\""
+    "dev-start": "nodemon server/server --exec \"node -r @babel/register\""
   },
   "repository": {
     "type": "git",

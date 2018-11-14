@@ -25,7 +25,7 @@ var ParcelOrder = {
     return res.status(200).send(parcelOrders);
   },
   getOne: function getOne(req, res) {
-    var parcelOrder = _parcelOrder.default.findOne(parseInt(req.params.id));
+    var parcelOrder = _parcelOrder.default.findOne(req.params.id);
 
     if (!parcelOrder) {
       return res.status(404).send({
@@ -36,7 +36,7 @@ var ParcelOrder = {
     return res.status(200).send(parcelOrder);
   },
   update: function update(req, res) {
-    var parcelOrder = _parcelOrder.default.findOne(parseInt(req.params.id));
+    var parcelOrder = _parcelOrder.default.findOne(req.params.id);
 
     if (!parcelOrder) {
       return res.status(404).send({

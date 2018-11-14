@@ -7,6 +7,8 @@ exports.default = void 0;
 
 var _moment = _interopRequireDefault(require("moment"));
 
+var _v = _interopRequireDefault(require("uuid/v4"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25,7 +27,18 @@ function () {
   function ParcelOrder() {
     _classCallCheck(this, ParcelOrder);
 
-    this.parcelOrders = [];
+    this.parcelOrders = [{
+      id: (0, _v.default)(),
+      userId: 1,
+      orderNo: Math.random().toString(36).substring(8),
+      address: 'Badagry',
+      presentLocation: 'Birom',
+      status: 'Transit',
+      price: 2000,
+      description: 'Black leather belt',
+      createdDate: this.currentTime(),
+      modifiedDate: this.currentTime()
+    }];
   }
   /**
    * 
@@ -46,10 +59,20 @@ function () {
   }, {
     key: "create",
     value: function create(data) {
+      var parcels = this.parcelOrders;
+      var orderNumber = Math.random().toString(36).substring(8);
+      var found = parcels.find(function (parcel) {
+        return parcel.orderNo === orderNumber;
+      });
+
+      if (found) {
+        orderNumber = Math.random().toString(36).substring(8);
+      }
+
       var newParcelOrder = {
-        id: this.parcelOrders.length + 1,
+        id: (0, _v.default)(),
         userId: data.userId || '',
-        orderNo: Math.random().toString(36).substring(8),
+        orderNo: orderNumber,
         address: data.address || '',
         presentLocation: data.presentLocation || '',
         status: data.status || '',
@@ -71,7 +94,7 @@ function () {
     key: "findOne",
     value: function findOne(id) {
       return this.parcelOrders.find(function (parcelOrder) {
-        return parcelOrder.id === parseInt(id);
+        return parcelOrder.id === id;
       });
     }
     /**

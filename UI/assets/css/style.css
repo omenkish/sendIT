@@ -23,7 +23,7 @@ header .container {
   overflow: hidden;
 }
 .center {
-  
+  margin-left: 2px;
 }
 ul {
   margin: 0;

@@ -22,9 +22,7 @@ header .container {
   margin: auto;
   overflow: hidden;
 }
-.center {
-  margin-left: 2px;
-}
+
 ul {
   margin: 0;
   padding: 0;
@@ -130,8 +128,11 @@ section#main {
 }
 
 #main form {
+  position: relative;
   padding: 15px;
   margin: 2px 1%;
+  background-color: #ffffff;
+  z-index: -1;
 }
 #main legend {
   text-align: center;
@@ -168,6 +169,9 @@ section#main {
   border-radius: 4px;
 }
 
+#main form {
+  margin-left: 0;
+}
 /* Add a hover effect for buttons */
 button:hover {
   opacity: 0.8;

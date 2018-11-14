@@ -1,4 +1,6 @@
 import moment from 'moment';
+import uuidv4 from 'uuid/v4';
+
 class ParcelOrder {
 
   /**
@@ -6,7 +8,21 @@ class ParcelOrder {
    * @param {object} data
    */
   constructor () {
-    this.parcelOrders = [];
+    this.parcelOrders = [
+      {
+        id: uuidv4(),
+        userId: 1,
+        orderNo: Math.random().toString(36).substring(8),
+        address: 'Badagry',
+        presentLocation: 'Birom',
+        deliveryStatus: 'Active',
+        orderStatus: 'Transit',
+        price: 2000,
+        description: 'Black leather belt',
+        createdDate: this.currentTime(),
+        modifiedDate: this.currentTime()
+      }
+    ];
   }
 
   /**
@@ -21,10 +37,16 @@ class ParcelOrder {
    * @returns {object} parcel order object
    */
   create (data){
+    const parcels = this.parcelOrders;
+    let orderNumber = Math.random().toString(36).substring(8);
+    const found = parcels.find(parcel => parcel.orderNo === orderNumber);
+    if(found){
+      orderNumber = Math.random().toString(36).substring(8);
+    }
     const newParcelOrder = {
-      id: this.parcelOrders.length + 1,
+      id: uuidv4(),
       userId: data.userId || '',
-      orderNo: Math.random().toString(36).substring(8),
+      orderNo: orderNumber,
       address: data.address || '',
       presentLocation: data.presentLocation || '',
       status: data.status || '',
@@ -43,7 +65,7 @@ class ParcelOrder {
    * @returns {object} parcel order object
    */
   findOne (id) {
-    return this.parcelOrders.find(parcelOrder => parcelOrder.id === parseInt(id));
+    return this.parcelOrders.find(parcelOrder => parcelOrder.id === id);
   }
 
   /**
@@ -68,8 +90,8 @@ class ParcelOrder {
   delete (id) {
     const parcelOrder = this.findOne(id);
     const index = this.parcelOrders.indexOf(parcelOrder);
-    this.parcelOrders.splice(index,1);
-    return {};
+    this.parcelOrders[index].deliveryStatus = 'Cancelled.';
+    return this.parcelOrders[index];
   }
 }
 

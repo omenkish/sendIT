@@ -17,14 +17,11 @@
     <header>
         <div class="container">
           <div id="branding">
-            <h1><span class="highlight">Send</span>IT <i class="fa fa-shipping-fast"></i></h1>
+            <h1><a href="index.html" class="brand"><span class="highlight">Send</span>IT <i class="fa fa-shipping-fast"></i></a></h1>
           </div>
           <nav>
             <u>
-              <li class="current"><a href="../index.html">Home <i class="fa fa-home"></i></a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="profile.html">Profile</a></li>
-              <li><a href="admin.html">Admin</a></li> 
+              <li class="current"><a href="./index.html">Home <i class="fa fa-home"></i></a></li>
               <li ><a href="signup.html">Register</a></li>
             </u>
           </nav>
@@ -34,18 +31,21 @@
     <div class="container">
       <form action="orders.html">
         <div><h1> Sign In <i class="fa fa-arrow-alt-circle-right"></i></h1></div>
-
-        <label for="username"><b>Username: </b>
-          <input type="text" placeholder="Enter Username" name="username" required>
-        </label>
-
-        <label for="password"><b>Password: </b>
-          <input type="password" placeholder="Enter Password" name="password" required>
-        </label>
-
+        <div>
+          <label for="username"><b>Username: </b>
+            <input type="text" placeholder="Enter Username" name="username" required>
+          </label>
+        </div>
+        
+        <div>
+          <label for="password"><b>Password: </b>
+            <input type="password" placeholder="Enter Password" name="password" required>
+          </label>
+        </div>
+      
         <div>
             <a href="profile.html"></a><button type="submit"> Login</button></a>
-            <label>
+            <label id="remember">
               <input type="checkbox" checked="checked" name="Remember"> Remember me
             </label>
         </div>

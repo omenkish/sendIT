@@ -1,16 +1,3 @@
-body {
-  font:15px/1.5 Arial, Helvetica, sans-serif;
-  padding: 0;
-  margin: 0;
-  background-color: #f1f1f1;
-}
-
-/* global*/
-.container {
-  width: 90%;
-  margin: auto;
-  overflow: hidden;
-}
 
 span#reg  a, #signup h4 a {
   text-decoration: none;
@@ -39,8 +26,8 @@ span#reg  a, #signup h4 a {
 input[type=text],input[type=password],input[type=email] {
   width: 70%;
   padding: 12px 20px;
-  margin: 8px 90px;
-  display: block;
+  margin: 8px 18px;
+  display:inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
   
@@ -49,12 +36,12 @@ input[type=text],input[type=password],input[type=email] {
 button {
   background-color: #e8491d;
   color: white;
-  margin: 8px 90px;
+  margin: 8px 98px;
   border: none;
   cursor: pointer;
   width: 25%;
   padding: 8px 14px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 /* Add a hover effect for buttons */
@@ -79,6 +66,7 @@ span.psw a {
 
 .bottom-form-area {
   background-color: #f4f4f4; 
+  margin-left: 90px;
 }
 
 /* Style the sign up page */
@@ -108,7 +96,16 @@ span.psw a {
     width: 100%;
     
   }
-  
+  span.psw
+ {
+    float: none;
+    display: inline-block;    
+  }
+  footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
   header ul {
     padding: 20px;
     margin: 8px;
@@ -116,8 +113,8 @@ span.psw a {
   #signin form, #signup form {
     border: 1px solid #f1f1f1;
     padding: 12px 20px; 
-    width: 86%;
-    margin: 8% 2%;
+    width: 100%;
+    margin: 8% 1%;
     background-color: #ffffff;
     box-shadow: none;
     border-radius: none;
@@ -133,8 +130,9 @@ span.psw a {
   }
   
   #signin button{
-    margin-left: 0;
-    width: 30%;
+    background-color: #35424a;
+    margin: 8px 8px 8px 0;
+    width: 50%;
   }
 
   #signup button {
@@ -142,4 +140,11 @@ span.psw a {
     width: 94%;
   }
   
+  .bottom-form-area {
+    display: inline-block;
+    text-align: left;
+    padding: 8px;
+    margin: 6px;
+  }
 }
+

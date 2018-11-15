@@ -27,7 +27,12 @@ npm run dev-start
 npm run test
 ```
 ## Route
->**base url** = `api\v1\parcels`
+
+### Api Endpoints
+
+##### [App Endpoints](eneojo-sendit.herokuapp.com/)
+
+**base url** = `api\v1\parcels`
 
  Http-Method   | Url           |
  ------------- |:-----------------:| 
@@ -47,6 +52,12 @@ ___
 ##### [Javascript Airbnb](https://github.com/airbnb/javascript)
 
 # Interface
+
+##### [App Ui](https://omenkish.github.io/sendIT/index)
+
+# Project management tool
+
+##### [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2213035)
 
 ##### [App Ui](https://omenkish.github.io/sendIT/index)
 

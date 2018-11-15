@@ -146,6 +146,7 @@ header a:hover {
 /* boxes */
 #boxes {
   margin-top: 20px;
+  padding-bottom: 4%
 }
 
 #boxes .box {

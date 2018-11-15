@@ -17,27 +17,24 @@
 	<body>
       <header>
 			
-        <div class="container">
+          <div class="container">
             <div id="branding">
-              <h1><span class="highlight">Send</span>IT</h1>
+              <h1><a href="index.html" class="brand"><span class="highlight">Send</span>IT <i class="fa fa-shipping-fast"></i></a></h1>
             </div>
             <nav class="topnav" id="myTopnav">
               <ul>
-                <li class="current"><a href="../index.html">Home <i class="fa fa-home"></i></a></li>
+                <li class="current"><a href="index.html">Home <i class="fa fa-home"></i></a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="#notification">Notification <i class="fa fa-bell"></i></a></li>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
               </ul>
             </nav>
           </div>			
-      </header>
-    </header>
+        </header>
 			
     </header>
     <section id="left">
       <aside id="sidebar">
         <div class="">
-          <h1 id="heading">main Navigation</h1><hr>
           <span>
             <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
           </span>
@@ -47,12 +44,9 @@
           <span>
             <a href="orders.html"><i class="fa fa-folder-open"></i> Manage Orders</a>
           </span>
-          <span>
-            <a href="all_orders.html"><i class="fa fa-eye"></i> all orders</a>
-          </span>
-          <span>
+          <!-- <span>
             <a href="#"><i class="fa fa-cog"></i> setting</a>
-          </span>
+          </span> -->
           <span>
           <a href="../index.html"><i class="fa fa-power-off"></i> Logout</a>
           </span>
@@ -65,25 +59,23 @@
     <div class="container">
       <div class="order">
         <form action="profile.html" class="order-form" >
-          <input type="text" value="Receiver name will display here" placeholder="Name" name="name" required disabled>
+          <input type="text" value="Receiver name: Mr Robert Junior" placeholder="Name" name="name" required disabled>
       
-          <input type="tel" value="Number will display here" name="phone" placeholder="234-80-1111-1111" required disabled>
+          <input type="tel" value="0812345678" name="phone" placeholder="234-80-1111-1111" required disabled>
       
-          <textarea name="description" required disabled>item description will display here</textarea>
+          <textarea name="description" required disabled>Parcel Description: 3 iphone X plus</textarea>
           
-          <input type="text" value="Current location will display here" placeholder="Name" name="location" required disabled>
+          <input type="text" value="Current location:  Tin can, Westminster" placeholder="Name" name="location" required disabled>
           
           <input type="number" value="100000"  name="price" min="0"  required disabled>
          
           <input type="number" value="12.5"  name="weight" min="0"  required disabled>
           
-          <input type="text"  name="pickup" value="Pick up location will display here" required>
+          <input type="text"  name="pickup" value="Pickup location: Behind Mr Biggs, kaduna road" required>
 
-          <input type="text"  name="city" value="Destination (City) will display here" required >
+          <input type="text"  name="city" value="Destination (City): Asaba" required >
         
-          <input type="number" value="1234567"  name="zip" min="0" step="1" required>
-        
-          <input type="text" value="State will display here" name="state" required>
+          <input type="text" value="State : Delta State" name="state" required>
         
           <div>
             <button class="submitbtn" type="submit"> Change Destination</button>

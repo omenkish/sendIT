@@ -18,36 +18,31 @@
       <header>
 			
           <div class="container">
-              <div id="branding">
-                <h1><span class="highlight">Send</span>IT</h1>
-              </div>
-              <nav class="topnav" id="myTopnav">
-                <ul>
-                  <li class="current"><a href="../index.html">Home <i class="fa fa-home"></i></a></li>
-                  <li><a href="services.html">Services</a></li>
-                  <li><a href="#notification">Notification <i class="fa fa-bell"></i></a></li>
-                  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-                </ul>
-              </nav>
-            </div>			
+            <div id="branding">
+              <h1><a href="index.html" class="brand"><span class="highlight">Send</span>IT <i class="fa fa-shipping-fast"></i></a></h1>
+            </div>
+            <nav class="topnav" id="myTopnav">
+              <ul>
+                <li class="current"><a href="index.html">Home <i class="fa fa-home"></i></a></li>
+                <li><a href="services.html">Services</a></li>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+              </ul>
+            </nav>
+          </div>			
         </header>
     <section id="left">
       <aside id="sidebar">
-        <h1 id="heading">main Navigation</h1><hr>
         <span>
           <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
         </span>
         <span>
           <a href="orders.html"><i class="fa fa-folder-open"></i> Manage Orders</a>
         </span>
-        <span>
-          <a href="all_orders.html"><i class="fa fa-eye"></i> all orders</a>
-        </span>
-        <span>
+        <!-- <span>
           <a href="#"><i class="fa fa-cog"></i> setting</a>
-        </span>
+        </span> -->
         <span>
-        <a href="../index.html"><i class="fa fa-power-off"></i> Logout</a>
+        <a href="./index.html"><i class="fa fa-power-off"></i> Logout</a>
         </span>
       </aside>
   </section>
@@ -56,62 +51,65 @@
     <div class="container">
         <form action="profile.html">
           <fieldset>
-            <legend><h1>Create Parcel Delivery Order <i class="fa fa-edit"></i></h1></legend>
-            <div class="form-left">
-              <div>
-                <label for="name"><b>Receiver Name: </b>
-                  <input type="text" placeholder="Enter receiver's full name" name="name" required>
-                </label>
-              </div>
-              
-              <div>
-                <label for="item"><b>Item Name: </b>
-                  <input type="text" placeholder="Item Name" name="item" required>
-                </label>
-              </div>
-  
-              <div>
-                <label for="phone"><b>Phone Number: </b>
-                  <input type="tel" name="phone" placeholder="234-80-1111-1111" required>
-                </label>
-              </div>
-  
-              <div>
-                <label for="address"><b>Item description: </b>
-                  <textarea  name="description" required></textarea>
-                </label>
-              </div>
-            </div>
-
-            <div class="form-left">
-              <div>
-                <label for="location"><b>Pickup Location: </b>
-                  <input type="text" placeholder="Enter pickup location" name="location" required>
-                </label>
-              </div>
-              <div>
-                <label for="city"><b>Destination (City): </b>
-                  <input type="text"  name="city" required>
-                </label>
-              </div>
-  
-              <div>
-                <label for="zip"><b>Zip Code: </b>
-                  <input type="number"  name="zip" min="0" step="1" required>
-                </label>
-              </div>
-  
-              <div>
-                <label for="state"><b>State: </b>
-                  <input type="text"  name="state" required>
-                </label>
-              </div>
-              
-            </div>
+            <legend><h2>Create Parcel Delivery Order <i class="fa fa-edit"></i></h2></legend>
+                <div class="form-left">
+                    <div>
+                      <label for="name"><b>Receiver Name: </b>
+                        <input type="text" placeholder="Enter receiver's full name" name="name" required>
+                      </label>
+                    </div>
+                    
+                    <div>
+                      <label for="item"><b>Item Name: </b>
+                        <input type="text" placeholder="Item Name" name="item" required>
+                      </label>
+                    </div>
+        
+                    <div>
+                      <label for="phone"><b>Phone Number: </b>
+                        <input type="tel" name="phone" placeholder="234-80-1111-1111" required>
+                      </label>
+                    </div>
+        
+                    <div>
+                      <label for="address"><b>Item description: </b>
+                        <textarea  name="description" required></textarea>
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <div class="form-left">
+                    <div>
+                      <label for="location"><b>Pickup Location: </b>
+                        <input type="text" placeholder="Enter pickup location" name="location" required>
+                      </label>
+                    </div>
+                    <div>
+                      <label for="city"><b>Destination (City): </b>
+                        <input type="text"  name="city" required>
+                      </label>
+                    </div>
+        
+                    <div>
+                      <label for="zip"><b>Zip Code: </b>
+                        <input type="number"  name="zip" min="0" step="1" required>
+                      </label>
+                    </div>
+        
+                    <div>
+                      <label for="state"><b>State: </b>
+                        <input type="text"  name="state" required>
+                      </label>
+                    </div>
+                    
+                  </div>
+            
             <div class="center">
-              <button class="submitbtn" type="submit"> Create order</button>
-            </div>
-          </fieldset>         
+                <button class="submitbtn" type="submit"> Create order</button>
+            </div>        
+           
+          </fieldset>   
+              
         </form>
       
     </div>

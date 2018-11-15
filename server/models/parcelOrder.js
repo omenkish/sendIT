@@ -1,6 +1,4 @@
 import moment from 'moment';
-import uuidv4 from 'uuid/v4';
-
 class ParcelOrder {
 
   /**
@@ -10,7 +8,7 @@ class ParcelOrder {
   constructor () {
     this.parcelOrders = [
       {
-        id: uuidv4(),
+        id: this.randomDigits(5),
         userId: 1,
         orderNo: Math.random().toString(36).substring(8),
         address: 'Badagry',
@@ -32,6 +30,19 @@ class ParcelOrder {
   currentTime () {
     return moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
   }
+
+  /**
+   * @param {length} length of number 
+   * @returns {integer} digits of size length
+   */
+
+  randomDigits(length) {
+    const chars = '0123456789'
+     let result =""
+    for (let i = length; i > 0; --i)
+        result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return parseInt(result);
+}
   /**
    * 
    * @returns {object} parcel order object
@@ -44,7 +55,7 @@ class ParcelOrder {
       orderNumber = Math.random().toString(36).substring(8);
     }
     const newParcelOrder = {
-      id: uuidv4(),
+      id: this.randomDigits(5),
       userId: data.userId || '',
       orderNo: orderNumber,
       address: data.address || '',
@@ -65,7 +76,7 @@ class ParcelOrder {
    * @returns {object} parcel order object
    */
   findOne (id) {
-    return this.parcelOrders.find(parcelOrder => parcelOrder.id === id);
+    return this.parcelOrders.find(parcelOrder => parcelOrder.id === parseInt(id));
   }
 
   /**

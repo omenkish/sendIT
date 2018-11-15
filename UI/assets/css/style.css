@@ -2,12 +2,20 @@ html {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 body {
+  position: relative;
   font:15px/1.5 Arial, Helvetica, sans-serif;
-  padding: 0;
+  padding:0;
   margin: 0;
-
+  min-height: 100%;
   background-color: #f1f1f1;
 }
 
@@ -40,12 +48,11 @@ header {
 header a {
   color: #ffffff;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 16px;
 }
 
 header li {
-  float: left;
   display: inline;
   padding: 0 10px 0 20px;
 }
@@ -57,7 +64,9 @@ header #branding {
 header #branding h1 {
   margin: 0;
 }
-
+header #branding a {
+ font-size: 30px;
+}
 header nav{
   float: right;
   margin-top: 6px;
@@ -81,7 +90,7 @@ header a:hover {
 #left {
   margin: 0 10px 0 0;
   float: left;
-  height: 87.3vh;
+  min-height: 91.6vh;
   padding: 15px;
   top: 0;
   bottom: 0;
@@ -124,7 +133,6 @@ aside#sidebar {
 section#main {
   padding: 15px;
   margin-top: 8px;
-  min-height: 68.1vh
 }
 
 #main form {
@@ -186,7 +194,6 @@ button:hover {
 /* boxes */
 #boxes {
   margin-top: 8px;
-  min-height: 72.5vh
 }
 
 #boxes h3 {
@@ -291,6 +298,10 @@ img.avatar {
 /* footer area */
 footer {
   overflow: hidden;
+  position: absolute;
+  width: 85%;
+  bottom: 0;
+  right: 0;
   margin: 0;
   padding-left: 0;
   background: #35424a;

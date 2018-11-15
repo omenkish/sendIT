@@ -15,6 +15,7 @@ span#reg  a, #signup h4 a {
   box-shadow:  5px 8px 0 #ccc;
   border-radius: 2%;
   background-color: #ffffff;
+  text-align: center;
   z-index: 1;
 
 }
@@ -24,6 +25,12 @@ span#reg  a, #signup h4 a {
   border-bottom: #e8491d solid 1px;
 }
 
+
+#signin form input[type=text], #signin form input[type=password]{
+  margin-left: 8%;
+ margin-top: 12px;
+  width: 75%;
+}
 input[type=text],input[type=password],input[type=email] {
   width: 70%;
   padding: 12px 20px;
@@ -130,12 +137,12 @@ span.psw a {
     min-height: 100%;
   }
 
-  #signup form input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number]{
+  #signup form input[type=text], #signup form input[type=password], #signup form input[type=email],#signup form input[type=tel], #signup form textarea, #signup form input[type=number]{
     width: 94%;
     margin: 8px;
   }
   
-  input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number] {
+  #signin form input[type=text], #signin form input[type=password] {
     width: 94%;
     margin: 8px;
   }

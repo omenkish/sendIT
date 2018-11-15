@@ -53,13 +53,11 @@ ___
 
 # Interface
 
-##### [App Ui](https://omenkish.github.io/sendIT/index)
+##### [App Ui](https://omenkish.github.io/sendIT/UI/index)
 
 # Project management tool
 
 ##### [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2213035)
-
-##### [App Ui](https://omenkish.github.io/sendIT/index)
 
 ##  Authors
 ##### `Eneojo K. Omede`

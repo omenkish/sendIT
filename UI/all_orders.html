@@ -11,43 +11,45 @@
 		<link rel="stylesheet" href="./assets/css/style.css">
 		<link rel="stylesheet" href="./assets/css/nav.css">
     <title>SendIT | allOrders</title>
-		<script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/custom.js"></script>
 	</head>
 	
 	<body>
-      <header>
+    <header>
 			
-          <div class="container">
-              <div id="branding">
-                <h1><span class="highlight">Send</span>IT</h1>
-              </div>
-              <nav class="topnav" id="myTopnav">
-                <ul>
-                  <li class="current"><a href="../index.html">Home <i class="fa fa-home"></i></a></li>
-                  <li><a href="services.html">Services</a></li>
-                  <li><a href="#notification">Notification <i class="fa fa-bell"></i></a></li>
-                  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-                </ul>
-              </nav>
-            </div>			
-        </header>
+      <div class="container">
+        <div id="branding">
+          <h1><a href="index.html" class="brand"><span class="highlight">Send</span>IT <i class="fa fa-shipping-fast"></i></a></h1>
+        </div>
+        <nav class="topnav" id="myTopnav">
+          <ul>
+            <li class="current"><a href="index.html">Home <i class="fa fa-home"></i></a></li>
+            <li><a href="services.html">Services</a></li>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+          </ul>
+        </nav>
+      </div>			
+    </header>
     <section id="left">
       <aside id="sidebar">
         <h1 id="heading">main Navigation</h1><hr>
+
+        <span>
+          <a href="admin.html"><i class="fa fa-user-plus"></i> Admin Home</a>
+        </span>
+
         <span>
           <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
         </span>
         <span>
-          <a href="orders.html"><i class="fa fa-folder-open"></i> Manage Orders</a>
-        </span>
-        <span>
           <a href="all_orders.html"><i class="fa fa-eye"></i> all orders</a>
         </span>
-        <span>
+        <!-- <span>
           <a href="#"><i class="fa fa-cog"></i> setting</a>
-        </span>
+        </span> -->
         <span>
-        <a href="../index.html"><i class="fa fa-power-off"></i> Logout</a>
+        <a href="./index.html"><i class="fa fa-power-off"></i> Logout</a>
         </span>
       </aside>
   </section>
@@ -73,14 +75,14 @@
                       <td>1.</td>
                       <td><a href="order.html?id=id">py1234ty</a></td>
                       <td>Asaba</td>
-                      <td> <a href="order.html" class="tooltip"><i class="fa fa-pen-square fa-2x"></i></a><span class="tooltiptext">hey</span> &nbsp; &nbsp; &nbsp; <a class="tooltip"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                      <td> <a href="order.html" class="tooltip"><i class="fa fa-pen-square fa-2x"></i></a><span class="tooltiptext">hey</span> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();" class="tooltip"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
                     </tr>
                     <tr>
                       <td>2.</td>
                       <td><a href="order.html?id=id">ztwer457</a></td>
                       <td>PorHarcourt</td>
-                      <td> <a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a> <i class="fa fa-trash-alt fa-2x"></i></a></td>
-                      </tr>
+                      <td> <a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                    </tr>
                   </tbody>
       
                 </table>

@@ -31,6 +31,10 @@ header .container {
   overflow: hidden;
 }
 
+.hide{
+  display: none;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -133,6 +137,7 @@ aside#sidebar {
 section#main {
   padding: 15px;
   margin-top: 8px;
+  padding-bottom: 6%;
 }
 
 #main form {
@@ -194,8 +199,12 @@ button:hover {
 /* boxes */
 #boxes {
   margin-top: 8px;
+  padding-bottom: 6%;
 }
 
+#boxes div#pro-box{
+  margin-left: 25%;
+}
 #boxes h3 {
   color: #696969;
   text-transform: capitalize;
@@ -343,7 +352,7 @@ footer a {
     
   }
   #left {
-    height: auto;
+    min-height: inherit;
     
   }
 
@@ -385,6 +394,12 @@ footer a {
     width: 100%;
     margin: 0 4%;
   }
+  #boxes {
+    width: 98%;
+  }
+  #boxes div#pro-box{
+    margin-left: 15px;
+  }
   #boxes .order button {
     width: 94%;
   }
@@ -398,5 +413,9 @@ footer a {
 
   #deliveries table{
     width: 94%;
+  }
+
+  footer{
+    width: 100%;
   }
 }

@@ -11,30 +11,29 @@
 		<link rel="stylesheet" href="./assets/css/style.css">
 		<link rel="stylesheet" href="./assets/css/nav.css">
     <title>SendIT | Profile</title>
-		<script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/custom.js"></script>
 	</head>
 	
 	<body>
 		<header>
 			
       <div class="container">
-          <div id="branding">
-            <h1><span class="highlight">Send</span>IT</h1>
-          </div>
-          <nav class="topnav" id="myTopnav">
-            <ul>
-              <li class="current"><a href="../index.html">Home <i class="fa fa-home"></i></a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="#notification">Notification <i class="fa fa-bell"></i></a></li>
-              <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-            </ul>
-          </nav>
-        </div>			
+        <div id="branding">
+          <h1><a href="index.html" class="brand"><span class="highlight">Send</span>IT <i class="fa fa-shipping-fast"></i></a></h1>
+        </div>
+        <nav class="topnav" id="myTopnav">
+          <ul>
+            <li class="current"><a href="index.html">Home <i class="fa fa-home"></i></a></li>
+            <li><a href="services.html">Services</a></li>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+          </ul>
+        </nav>
+      </div>			
     </header>
   <section id="left">
     <aside id="sidebar">
       <div class="">
-        <h1 id="heading">main Navigation</h1><hr>
         <span>
           <a href="dashboard.html"><i class="fa fa-plus"></i> Create order</a>
         </span>
@@ -44,9 +43,9 @@
         <span>
           <a href="all_orders.html"><i class="fa fa-eye"></i> all orders</a>
         </span>
-        <span>
+        <!-- <span>
           <a href="#"><i class="fa fa-cog"></i> setting</a>
-        </span>
+        </span> -->
         <span>
         <a href="../index.html"><i class="fa fa-power-off"></i> Logout</a>
         </span>
@@ -58,38 +57,7 @@
   <section id="boxes">
     <div class="container">
 
-      <div class="box">
-        <h3>Orders on transit</h3>
-        <div id="deliveries"> 
-          <table id="table">
-            <thead>
-              <tr>
-                <th>S/n</th>
-                <th>Order no</th>
-                <th>Cur. Location</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>1.</td>
-                <td><a href="order.html?id=id">py1234ty</a></td>
-                <td>Asaba</td>
-                <td> <a href="order.html" class="tooltip"><i class="fa fa-pen-square fa-2x"></i></a><span class="tooltiptext">hey</span> &nbsp; &nbsp; &nbsp; <a class="tooltip"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
-              </tr>
-              <tr>
-                <td>2.</td>
-                <td><a href="order.html?id=id">ztwer457</a></td>
-                <td>PorHarcourt</td>
-                <td> <a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a> <i class="fa fa-trash-alt fa-2x"></i></a></td>
-                </tr>
-            </tbody>
-
-          </table>
-      </div>
-      </div>
-      <div class="box">
+      <div class="box" id="pro-box">
         <div class = "imgcontainer">
           <img src="./assets/images/top.PNG" alt="top" class = "avatar" >
         </div>

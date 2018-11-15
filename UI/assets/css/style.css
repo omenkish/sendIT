@@ -282,9 +282,12 @@ img.avatar {
 /* order page */
 #boxes .order {
   width: 60%;
-  margin: 0 12%;
+  margin: 4% 12%;
 }
 
+#boxes .order form input, textarea{
+  font-size: 20px;
+}
 /* Admin Page */
 #deliveries table {
   margin: 8px 1px;
@@ -393,6 +396,7 @@ footer a {
   #boxes .order  {
     width: 100%;
     margin: 0 4%;
+    padding-bottom: 20%
   }
   #boxes {
     width: 98%;
@@ -411,6 +415,9 @@ footer a {
     width: 29%;
   }
 
+  #boxes .order form input, textarea{
+    font-size: 15px;
+  }
   #deliveries table{
     width: 94%;
   }

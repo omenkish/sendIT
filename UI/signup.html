@@ -16,45 +16,46 @@
   <script src="main.js"></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-          <div id="branding">
-            <h1><span class="highlight">Send</span>IT <i class="fa fa-shipping-fast"></i></h1>
-          </div>
-          <nav>
-            <u>
-              <li class="current"><a href="../index.html">Home <i class="fa fa-home"></i></a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="profile.html">Profile</a></li>
-              <li><a href="admin.html">Admin</a></li>  
-              <li ><a href="signin.html">Login <i class=""></i></a></li>
-            </u>
-          </nav>
-        </div>
-      </header>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1><a href="index.html" class="brand"><span class="highlight">Send</span>IT <i class="fa fa-shipping-fast"></i></a></h1>
+      </div>
+      <nav>
+        <u>
+          <li class="current"><a href="./index.html">Home <i class="fa fa-home"></i></a></li>
+          <li ><a href="signin.html">Signin</a></li>
+        </u>
+      </nav>
+    </div>
+  </header>
   <section id="signup">
     <div class="container">
         <form  action="orders.html">
             <h1>Create Account <i class="fa fa-plus-circle"></i></a> </h1>
-          <label for="username"><b>Username: </b>
+          <div>
             <input type="text" placeholder="Enter Username" name="username" required>
-          </label>
+          </div>
 
-          <label for="name"><b>Name: </b>
-            <input type="text" placeholder="Enter your full name" name="name" required>
-          </label>
-
-          <label for="email"><b>Email: </b>
-            <input type="email" placeholder="Enter a valid email" name="email" required>
-          </label>
-
-          <label for="password"><b>Password: </b>
-            <input type="password" placeholder="Enter Password" name="password" required>
-          </label>
-
-          <label for="password"><b>Confirm Password: </b>
-            <input type="password" placeholder="Re-enter your Password" name="password1" required>
-          </label>
+          <div>
+              <input type="text" placeholder="Enter your full name" name="name" required>
+          </div>
+          
+          <div>
+              <input type="password" placeholder="Enter Password" name="password" required>
+          </div>
+          <div>
+              <input type="email" placeholder="Enter a valid email" name="email" required>
+          </div>
+          
+          <div>
+              <input type="password" placeholder="Enter Password" name="password" required>
+          </div>
+          
+          <div>
+              <input type="password" placeholder="Re-enter your Password" name="password1" required>
+          </div>
+          
           <div>
             <button type="submit"> Create Account</button><span class="spa"> Already a member? <a href="signin.html">Sign in</a></span>
           </div>

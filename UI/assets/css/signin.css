@@ -15,6 +15,7 @@ span#reg  a, #signup h4 a {
   box-shadow:  5px 8px 0 #ccc;
   border-radius: 2%;
   background-color: #ffffff;
+  z-index: 1;
 
 }
 #signin form h1,  #signup form h1{
@@ -71,11 +72,16 @@ span.psw a {
 
 /* Style the sign up page */
 #signup form {
+  display: block;
   padding: 10px 20px; 
   margin: 2% 25% 3% 25%;
   background-color: #ffffff;
+  z-index: 1;
 }
 
+#signup form input[type=text],input[type=password],input[type=email]{
+  margin-left: 17%;
+}
 #signup .spa a {
    color: #5f9ea0;
 }
@@ -122,6 +128,11 @@ span.psw a {
 
   #signin {
     min-height: 100%;
+  }
+
+  #signup form input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number]{
+    width: 94%;
+    margin: 8px;
   }
   
   input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number] {

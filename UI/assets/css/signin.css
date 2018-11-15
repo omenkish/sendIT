@@ -28,8 +28,12 @@ span#reg  a, #signup h4 a {
 
 #signin form input[type=text], #signin form input[type=password]{
   margin-left: 8%;
- margin-top: 12px;
+  margin-top: 12px;
   width: 75%;
+}
+#signin form button {
+  margin: 8px 8px 8px 0;
+  width: 40%;
 }
 input[type=text],input[type=password],input[type=email] {
   width: 70%;
@@ -71,7 +75,12 @@ span.psw {
 span.psw a {
   color: #5f9ea0;;
 }
-
+#signin .bottom-form-area {
+  background-color: #f4f4f4; 
+  margin-left: 60px;
+  text-align: left;
+  padding: 10px;
+}
 .bottom-form-area {
   background-color: #f4f4f4; 
   margin-left: 90px;
@@ -147,7 +156,7 @@ span.psw a {
     margin: 8px;
   }
   
-  #signin button{
+  #signin form button {
     background-color: #35424a;
     margin: 8px 8px 8px 0;
     width: 50%;
@@ -158,7 +167,7 @@ span.psw a {
     width: 94%;
   }
   
-  .bottom-form-area {
+  #signin .bottom-form-area {
     display: inline-block;
     text-align: left;
     padding: 8px;

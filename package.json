@@ -4,12 +4,12 @@
   "description": "A courier service app that delivers parcels to different destinations",
   "main": "index.js",
   "scripts": {
-    "tests": "mocha server/test/**/*.js --require @babel/register || true",
-    "test": "cross-env NODE_ENV=test nyc mocha server/test/**/*.js --require @babel/register --timeout 10000 --exit",
+    "tests": "mocha server/test/**/*.test.js --require @babel/register || true",
+    "test": "cross-env NODE_ENV=test nyc mocha server/test/**/*.test.js --require @babel/register || true",
     "start": "node dist/server.js",
     "build": "npx babel server --out-dir dist ",
     "heroku-prebuild": "npm install",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc report --reporter=text-lcov || coveralls",
     "dev-start": "nodemon server/server --exec \"node -r @babel/register\""
   },
   "nyc": {
@@ -43,7 +43,6 @@
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.5",
     "@babel/register": "^7.0.0",
-    "babel-plugin-istanbul": "^5.1.0",
     "body-parser": "^1.18.3",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",

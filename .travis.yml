@@ -1,5 +1,6 @@
 # single test suite, non-parallel build.
 language: node_js
+
 node_js: "stable"
 install: 
   - npm install
@@ -12,6 +13,6 @@ cache:
     - "node_modules"
 branches:
   only:
-    - gh-pages
+    - develop
 after_success:
  - npm run coverage

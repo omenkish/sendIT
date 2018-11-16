@@ -2,8 +2,9 @@ import express from 'express';
 const router = express.Router();
 
 import ParcelOrder from '../controllers/parcel';
+import { CreateParcelValidationMiddleware } from '../middleware/vallidation'
 
-router.post('/', ParcelOrder.create);
+router.post('/', CreateParcelValidationMiddleware, ParcelOrder.create);
 router.get('/', ParcelOrder.getAll);
 router.get('/:id', ParcelOrder.getOne);
 router.put('/:id', ParcelOrder.update);

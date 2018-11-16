@@ -4,7 +4,7 @@
   "description": "A courier service app that delivers parcels to different destinations",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/**/*.test.js --require @babel/register || true",
+    "test": "mocha server/test/**/*.test.js --require @babel/register || true",
     "start": "node dist/server.js",
     "build": "npx babel server --out-dir dist ",
     "heroku-prebuild": "npm install",

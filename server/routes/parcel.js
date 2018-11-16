@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 
 import ParcelOrder from '../controllers/parcel';
-import { CreateParcelValidationMiddleware } from '../middleware/vallidation'
+import CreateParcelValidationMiddleware from '../middleware/vallidation'
 
 router.post('/', CreateParcelValidationMiddleware, ParcelOrder.create);
 router.get('/', ParcelOrder.getAll);

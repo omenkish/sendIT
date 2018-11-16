@@ -1,5 +1,5 @@
-import UserModel from '../models/userModel';
-import ParcelModel from '../models/parcelOrder';
+import UserModel from '../models/user';
+import ParcelModel from '../models/parcel';
 
 const User = {
   create (req, res) {

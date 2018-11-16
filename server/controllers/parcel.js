@@ -1,4 +1,4 @@
-import ParcelOrderModel from '../models/parcelOrder';
+import ParcelOrderModel from '../models/parcel';
 
 class ParcelOrder  {
   

@@ -1,18 +1,17 @@
 # single test suite, non-parallel build.
 language: node_js
-
 node_js: "stable"
 install: 
   - npm install
 script:
   - npm test
 env:
-  NODE_ENV = test
+  NODE_ENV=test
 cache:
   directories:
     - "node_modules"
 branches:
   only:
-    - develop
+    - gh-pages
 after_success:
  - npm run coverage

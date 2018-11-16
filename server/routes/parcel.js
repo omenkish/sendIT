@@ -2,20 +2,20 @@ import express from 'express';
 const router = express.Router();
 
 import ParcelOrder from '../controllers/parcel';
-import CreateParcelValidationMiddleware from '../middleware/vallidation'
-
-// router.post('/', CreateParcelValidationMiddleware, ParcelOrder.create);
-// router.get('/', ParcelOrder.getAll);
-// router.get('/:id', ParcelOrder.getOne);
-// router.put('/:id', ParcelOrder.update);
-// router.put('/:id/cancel', ParcelOrder.delete);
+import Validate from '../middleware/vallidation'
 
 router.route('/')
 .get(ParcelOrder.getAll())
-.all(CreateParcelValidationMiddleware)
-.post(ParcelOrder.create());
-route.route('/:id')
+.all(Validate.createParcel())
+.post(ParcelOrder.create())
+
+router.route('/:id')
+.all(Validate.getUserById())
 .get(ParcelOrder.getOne())
 .put(ParcelOrder.update());
+
+router.route(':id/cancel')
+.all(Validate.getUserById())
+.put(ParcelOrder.cancel());
 
 export default router;

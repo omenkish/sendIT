@@ -11,7 +11,11 @@ import CreateParcelValidationMiddleware from '../middleware/vallidation'
 // router.put('/:id/cancel', ParcelOrder.delete);
 
 router.route('/')
+.get(ParcelOrder.getAll())
 .all(CreateParcelValidationMiddleware)
-.post(ParcelOrder.create())
+.post(ParcelOrder.create());
+route.route('/:id')
+.get(ParcelOrder.getOne())
+.put(ParcelOrder.update());
 
 export default router;

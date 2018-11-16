@@ -5,32 +5,27 @@
   "main": "index.js",
   "scripts": {
     "tests": "mocha server/test/**/*.test.js --require @babel/register || true",
-    "test": " cross-env NODE_ENV = test nyc mocha server/test/**/*.test.js --require @babel/register || true",
+    "test": "cross-env NODE_ENV=test nyc mocha server/test/**/*.test.js --require @babel/register || true",
     "start": "node dist/server.js",
     "build": "npx babel server --out-dir dist ",
     "heroku-prebuild": "npm install",
-    "coverage" : "nyc report --reporter=text-lcov || coveralls",
+    "coverage": "nyc report --reporter=text-lcov || coveralls",
     "dev-start": "nodemon server/server --exec \"node -r @babel/register\""
   },
-
   "nyc": {
     "exclude": [
       "UI",
       "server/test"
     ],
-
     "require": [
       "@babel/register"
     ],
-
     "reporter": [
       "lcov",
       "text"
     ],
-
     "sourceMap": false,
     "instrument": false
-    
   },
   "repository": {
     "type": "git",

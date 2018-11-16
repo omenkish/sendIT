@@ -7,7 +7,7 @@ install:
 script:
   - npm test
 env:
-  NODE_ENV = test
+  NODE_ENV=test
 cache:
   directories:
     - "node_modules"

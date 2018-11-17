@@ -5,7 +5,7 @@ class User {
 
   /**
    * 
-   * 
+   * @returns {object} user object 
    */
   static create() {
     return (req, res) => {
@@ -14,6 +14,10 @@ class User {
     }
   }
 
+  /**
+   * 
+   * @returns {array of objects} user parcels objects
+   */
   static getUserParcels() {
     return (req, res) => {
       const parcels = ParcelModel.findAll();
@@ -26,6 +30,10 @@ class User {
     }
   }
 
+  /**
+   * 
+   * @returns {array of objects} user objects
+   */
   static getUsers() {
     return (req, res) => {
       const users = UserModel.findUsers();
@@ -33,6 +41,10 @@ class User {
     }
   }
 
+  /**
+   * 
+   * @returns {object} user object 
+   */
   static getUser() {
     return (req, res) => {
       const user = UserModel.findUser(req.params.id);
@@ -43,6 +55,7 @@ class User {
     }
   }
 
+  /** method to delete a user */
   static delete() {
     return (req, res) => {
       const user = UserModel.findUser(req.params.id);
@@ -54,6 +67,10 @@ class User {
     }
   }
 
+  /**
+   * 
+   * @returns {object} user object 
+   */
   static update(){
     return (req, res) => {
       const user = UserModel.findUser(req.params.id);

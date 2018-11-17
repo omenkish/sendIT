@@ -1,6 +1,7 @@
 import ParcelOrderModel from '../models/parcel';
 
 class ParcelOrder {
+  
   /**
    * 
    * @returns {Object} created parcel order
@@ -65,7 +66,7 @@ class ParcelOrder {
       if (!parcelOrder) {
         return res.status(404).send({ 'message': 'Order not found' });
       }
-      const ref = ParcelOrderModel.delete(req.params.id);
+      const ref = ParcelOrderModel.cancel(req.params.id);
       return res.status(204).send(ref);
     }
   }

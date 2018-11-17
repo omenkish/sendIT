@@ -3,7 +3,7 @@ class ParcelOrder {
 
   /**
    * class constructor
-   * @param {object} data
+   * @constructor {object} data
    */
   constructor () {
     this.parcelOrders = [
@@ -32,7 +32,7 @@ class ParcelOrder {
   }
 
   /**
-   * @param {length} length of number 
+   * @param length of number 
    * @returns {integer} digits of size length
    */
 
@@ -88,6 +88,12 @@ class ParcelOrder {
     return this.parcelOrders;
   }
 
+  /**
+   * 
+   * @param  id
+   * @param  data
+   * @returns {object} parcel order object
+   */
   update(id, data) {
     const parcelOrder = this.findOne(id);
     const index = this.parcelOrders.indexOf(parcelOrder);
@@ -99,7 +105,7 @@ class ParcelOrder {
     return this.parcelOrders[index];
   }
 
-  delete (id) {
+  cancel (id) {
     const parcelOrder = this.findOne(id);
     const index = this.parcelOrders.indexOf(parcelOrder);
     this.parcelOrders[index].deliveryStatus = 'Cancelled.';

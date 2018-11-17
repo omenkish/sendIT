@@ -5,7 +5,7 @@ class User {
 
   /**
    * class constructor
-   * @param {object} data
+   * @constructor
    */
   constructor () {
     this.users = [

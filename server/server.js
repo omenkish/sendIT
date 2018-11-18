@@ -14,6 +14,9 @@ app.get('/', (req, res) => {
 })
 app.use('/api/v1/parcels', parcel);
 app.use('/api/v1/users', user);
+app.use('**', (req, res) => {
+  return res.status(404).json('Invalid Route');
+})
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

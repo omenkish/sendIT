@@ -1,76 +1,66 @@
 import ParcelOrderModel from '../models/parcel';
+const parcelOrderModel = new ParcelOrderModel();
 
 class ParcelOrder {
-  
   /**
    * 
    * @returns {Object} created parcel order
    */
-  static create() {
-    return (req, res) => {
-      const parcelOrder = ParcelOrderModel.create(req.body);
+  static create(req, res){
+      const parcelOrder = parcelOrderModel.create(req.body);
       return res.status(201).send(parcelOrder);
-    }
   }
 
   /**
    * 
    * @returns [array] all parcel orders
    */
-  static getAll() {
-    return (req, res) => {
-      const parcelOrders = ParcelOrderModel.findAll();
-      return res.status(200).send(parcelOrders);
-    }
+  static getAll(req, res){
+    const parcelOrders = parcelOrderModel.findAll();
+    return res.status(200).send(parcelOrders);
   }
 
 
   /**
-   * 
+   * This is a description of the getOne method
    * @returns {Object} particular parcel order
    */
-  static getOne() {
-    return (req, res) => {
-      const parcelOrder = ParcelOrderModel.findOne(parseInt(req.params.id));
-      if (!parcelOrder) {
-        return res.status(404).send({ 'message: ': 'Order with this ID does not exist.' });
-      }
-      return res.status(200).send(parcelOrder);
+  static getOne(req, res){
+    const parcelOrder = parcelOrderModel.findOne(parseInt(req.params.id));
+    if (!parcelOrder) {
+      return res.status(404).send({ 'message: ': 'Order with this ID does not exist.' });
     }
+    return res.status(200).send(parcelOrder);
+    
   }
 
   /**
    * 
-   * @returns {Object} updated parcel order
+   * @returns {Object} - object updated parcel order
    */
-  static update() {
-    return (req, res) => {
-      if (!Number(req.params.id)) {
-        return res.status(400).json("This Id is not a number")
-      }
-      const parcelOrder = ParcelOrderModel.findOne(req.params.id);
-      if (!parcelOrder) {
-        return res.status(404).send({ 'message': ' Order not found' })
-      }
-      const updatedParcelOrder = ParcelOrderModel.update(req.params.id, req.body);
-      return res.status(200).send(updatedParcelOrder);
+  static updateLocation(req, res) {
+    const parcelOrder = parcelOrderModel.findOne(req.params.id);
+    if (!parcelOrder) {
+      return res.status(404).send({ 'message': ' Order not found' })
     }
+    const updatedParcelOrder = parcelOrderModel.update(req.params.id, req.body);
+    return res.status(201).send(updatedParcelOrder); 
   }
+
   /**
-   * Cancel a particular order
-   * 
+   * method cancel 
+   * cancels a particular order
    */
-  static cancel() {
-    return (req, res) => {
-      const parcelOrder = ParcelOrderModel.findOne(req.params.id);
+  static cancel(req, res) {
+    
+      const parcelOrder = parcelOrderModel.findOne(req.params.id);
       if (!parcelOrder) {
         return res.status(404).send({ 'message': 'Order not found' });
       }
-      const ref = ParcelOrderModel.cancel(req.params.id);
-      return res.status(204).send(ref);
+      const ref = parcelOrderModel.cancel(req.params.id);
+      return res.status(201).send(ref);
     }
   }
 
-}
 
 export default ParcelOrder;

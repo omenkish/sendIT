@@ -1,53 +1,63 @@
 import chai from 'chai';
 import { expect } from 'chai';
 import request from 'supertest';
-import uuidv4 from 'uuid/v4';
-//chai.use(chaiHttp);
+import moment from 'moment';
 
 // local modules
 import server from '../server';
+import ParcelOrder from '../models/parcel';
 
 describe('Parcel End Points', () => {
-
-  const parcel = {
-    id: uuidv4(),
-    orderNo: '123dt',
-    address: 'Home',
-    presentLocation: 'Lagos',
-    status: 'completed',
-    description: 'as is',
-    price: 123467
-  };
+  const parcelObj = new ParcelOrder();
+  const validParcel = new ParcelOrder().parcelOrders[0];
+  const currTime = parcelObj.currentTime();
+  
   // Test Get /api/v1/orders
   describe('POST api/v1/parcels', () => {
-    // it('should create new parcel', () => {
+    it('should create new parcel',  () => {
+      return request(server)
+        .post('/api/v1/parcels/')
+        .send(validParcel)
+        .then(res => {
+          expect(res.status).to.equal(201);
+          expect(res.body).to.have.property('orderNo');
+          expect(res.body.orderStatus).to.equal('Active');
+        })
+    });
+
+    // it('should return http code 400 if destination is empty', function () {
     //   return request(server)
-    //     .post('/api/v1/parcels/')
-    //     .send(parcel)
-    //     .then((res) => {
-    //       expect(res.statusCode).to.equal(201);
-    //       expect(res.body).to.have.property('orderNo');
-    //      // expect(res.body.status).to.equal('completed');
+    //     .post('api/v1/parcels')
+    //     .send({
+    //       id: 12345,
+    //       userId: 1,
+    //       orderNo: validParcel.orderNo,
+    //       destination: 'Badagry',
+    //       presentLocation: validParcel.presentLocation,
+    //       deliveryStatus: validParcel.deliveryStatus,
+    //       orderStatus: validParcel.orderStatus,
+    //       price: validParcel.price,
+    //       description: validParcel.description,
+    //       createdDate: validParcel.createdDate,
+    //       modifiedDate: validParcel.modifiedDate
     //     })
-    //     .catch((err) => {
-    //       if(err){
-    //         expect(err.statusCode).to.equal(404);
-    //       }
+    //     .then(res => {
+    //       expect(res.statusCode).to.equal(400);
     //     })
     // });
 
     // POST - BAD request
     it('should return Bad Request', () => {
       return request(server)
-        .post('/api/v1/parcels/')
+        .post('/api/v1/parcels/iuu8yg')
         .type('form')
-        .send(parcel)
+        .send(validParcel)
         .then((res) => {
-          chai.assert.throws(() => { throw new Error('Invalid Content Type!') }, Error, 'Invalid Content Type!');
+          expect(res.statusCode).to.equal(404);
         })
         .catch((err) => {
           if(err){
-            expect(err.statusCode).to.equal(404);
+            expect(err).to.have.property('message');
           }
         });
     });
@@ -64,24 +74,17 @@ describe('Parcel End Points', () => {
           expect(res.status).to.equal(200);
         })
         .catch((err) => {
-          if(err){
-            expect(err.statusCode).to.equal(404);
-          }
+          expect(err).to.have.property('statusCode');
         });
     });
 
     // GET - Invalid path
     it('should return Not Found', () => {
       return request(server)
-        .get('/INVALID_PATH')
+        .get('/api/v1/parcels/ooiytrt33')
         .then((res) => {
-          chai.assert.throws(() => { throw new Error('Path Exists!') }, Error, 'Path Exists!');
+          expect(res.statusCode).to.equal(404);
         })
-        .catch((err) => {
-          if(err){
-            expect(err.statusCode).to.equal(404);
-          }
-        });
     });
   });
 
@@ -89,14 +92,12 @@ describe('Parcel End Points', () => {
 
     it('should GET a particular parcel', () => {
       return request(server)
-        .get(`/api/v1/parcels/op-0098`)
+        .get(`/api/v1/parcels/${validParcel.id}`)
         .then((res) => {
-          //expect(res.status).to.equal(200);
+          expect(res.status).to.equal(200);
         })
         .catch((err) => {
-          if(err){
-            expect(err.statusCode).to.equal(404);
-          }
+          expect(err).to.have.property('statusCode');
         });
     });
 
@@ -105,20 +106,35 @@ describe('Parcel End Points', () => {
   describe('DELETE api/v1/parcels/id', () => {
 
     it('should DELETE a particular parcel', () => {
-      const id = 1;
       return request(server)
-        .put(`/api/v1/parcels/${parcel.id}/cancel`)
-        .then((res) => {
-          //expect(res.statusCode).to.equal(204);
+        .put(`/api/v1/parcels/${validParcel.id}/cancel`)
+        .then(res => {
+          expect(res.statusCode).to.equal(204);
+          expect(res.body.deliveryStatus).to.equal('Cancelled');
         })
-        .catch((err) => {
-          // parcel with ID not found
-          if(err){
-            expect(err.statusCode).to.equal(404);
-          }
-        });
+        .catch(err => {
+          expect(err).to.have.property('message');
+        })
     });
 
   });
+
+  describe('UPDATE /api/v1/parcels', () => {
+    it('Should return http code of 201', () => {
+      return request(server)
+        .put(`/api/v1/parcels/${validParcel.id}`)
+        .send({
+          destination: 'PortHarcourt',
+          orderStatus: 'Active',
+          price: 2000,
+          description: 'Black leather belt',
+          modifiedDate: currTime
+        })
+        .then(res => {
+          expect(res.statusCode).to.equal(201);
+          expect(res.body.destination).to.equal('PortHarcourt');
+        })
+    })
+  })
 
 });

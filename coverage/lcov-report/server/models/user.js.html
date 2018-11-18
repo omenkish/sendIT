@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">10.53% </span>
+        <span class="strong">42.11% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/19</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>0/12</span>
+        <span class='fraction'>8/19</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">25% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>2/8</span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">11.11% </span>
+        <span class="strong">75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">38.89% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/18</span>
+        <span class='fraction'>7/18</span>
       </div>
     </div>
     <p class="quiet">
@@ -167,23 +167,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,16 +182,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -241,12 +241,12 @@ class User {
 &nbsp;
   /**
    * class constructor
-   * @param {object} data
+   * @constructor
    */
   constructor () {
     this.users = [
       {
-        id: uuidv4(),
+        id: 1,
         username: 'omenkish',
         email: 'omenkish@gmail.com',
         password: 'pass',
@@ -267,17 +267,17 @@ class User {
    * 
    * @returns {object} user object
    */
-<span class="fstat-no" title="function not covered" >  cr</span>eate (data){
-    const newUser = <span class="cstat-no" title="statement not covered" >{</span>
+  create (data){
+    const newUser = {
       id: uuidv4(),
-      username: data.username || '',
-      email: data.email || '',
-      password: data.password || '',
+      username: data.username || <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
+      email: data.email || <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
+      password: data.password || <span class="branch-1 cbranch-no" title="branch not covered" >'',</span>
       createdDate: this.currentTime(),
       modifiedDate: this.currentTime()
     };
-<span class="cstat-no" title="statement not covered" >    this.users.push(newUser);</span>
-<span class="cstat-no" title="statement not covered" >    return newUser;</span>
+    this.users.push(newUser);
+    return newUser;
   }
 &nbsp;
   /**
@@ -285,16 +285,16 @@ class User {
    * @param  id
    * @returns {object} parcel order object
    */
-<span class="fstat-no" title="function not covered" >  fi</span>ndUser (id) {
-<span class="cstat-no" title="statement not covered" >    return this.users.find(<span class="fstat-no" title="function not covered" >us</span>er =&gt; <span class="cstat-no" title="statement not covered" >user.id === id)</span>;</span>
+  findUser (id) {
+    return this.users.find(user =&gt; user.id === id);
   }
 &nbsp;
   /**
    * 
    * @returns {object} all parcel order objects
    */
-<span class="fstat-no" title="function not covered" >  fi</span>ndUsers (){
-<span class="cstat-no" title="statement not covered" >    return this.users;</span>
+  findUsers (){
+    return this.users;
   }
 &nbsp;
   /**
@@ -334,7 +334,7 @@ export default new User();
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Nov 16 2018 19:20:17 GMT+0100 (West Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Nov 18 2018 08:28:17 GMT+0100 (West Africa Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

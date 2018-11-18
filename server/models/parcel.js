@@ -5,13 +5,13 @@ class ParcelOrder {
    * class constructor
    * @constructor {object} data
    */
-  constructor () {
-    this.parcelOrders = [
+  constructor (data) {
+    this.parcelOrders = data ? data : [
       {
-        id: this.randomDigits(5),
+        id: 12345,
         userId: 1,
         orderNo: Math.random().toString(36).substring(8),
-        address: 'Badagry',
+        destination: 'Badagry',
         presentLocation: 'Birom',
         deliveryStatus: 'Transit',
         orderStatus: 'Active',
@@ -58,7 +58,7 @@ class ParcelOrder {
       id: this.randomDigits(5),
       userId: data.userId || '',
       orderNo: orderNumber,
-      address: data.address || '',
+      destination: data.address || '',
       presentLocation: data.presentLocation || '',
       deliveryStatus: data.status || 'Transit',
       orderStatus: data.status || 'Active',
@@ -77,7 +77,8 @@ class ParcelOrder {
    * @returns {object} parcel order object
    */
   findOne (id) {
-    return this.parcelOrders.find(parcelOrder => parcelOrder.id === parseInt(id));
+    const result = this.parcelOrders.find(parcelOrder => parcelOrder.id === parseInt(id));
+    return result;
   }
 
   /**
@@ -97,10 +98,25 @@ class ParcelOrder {
   update(id, data) {
     const parcelOrder = this.findOne(id);
     const index = this.parcelOrders.indexOf(parcelOrder);
-    this.parcelOrders[index].address = data['address'] || parcelOrder.address;
-    this.parcelOrders[index].presentLocation = data['presentLocation'] || parcelOrder.presentLocation;
-    this.parcelOrders[index].status = data['status'] || parcelOrder.status;
+    this.parcelOrders[index].destination = data['destination'] || parcelOrder.destination;
+    this.parcelOrders[index].orderStatus = data['orderStatus'] || parcelOrder.orderStatus;
     this.parcelOrders[index].description = data['description'] || parcelOrder.description;
+    this.parcelOrders[index].modifiedDate = this.currentTime();
+    return this.parcelOrders[index];
+  }
+
+  changeDestination(id, data) {
+    const parcelOrder = this.findOne(id);
+    const index = this.parcelOrders.indexOf(parcelOrder);
+    this.parcelOrders[index].destination = data['destination'] || parcelOrder.destination;
+    this.parcelOrders[index].modifiedDate = this.currentTime();
+    return this.parcelOrders[index];
+  }
+
+  changeLocation(id, data) {
+    const parcelOrder = this.findOne(id);
+    const index = this.parcelOrders.indexOf(parcelOrder);
+    this.parcelOrders[index].presentLocation = data['presentLocation'] || parcelOrder.presentLocation;
     this.parcelOrders[index].modifiedDate = this.currentTime();
     return this.parcelOrders[index];
   }
@@ -113,5 +129,5 @@ class ParcelOrder {
   }
 }
 
-export default new ParcelOrder();
+export default ParcelOrder;
 

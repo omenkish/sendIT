@@ -2,24 +2,22 @@ import Validator from 'validatorjs';
 
 class Validate {
 
-  static createParcel(){
-    return (req, res, next) => {
-      const CreateParcelRules = {
-        userId: 'required|digits:5',
-        address: 'required',
-        presentLocation: 'required',
-        price: 'required|numeric',
-        description: 'required'
-      }
-      
-      const validator = new Validator(req.body, CreateParcelRules);
-      console.log(req.body);
-      if (validator.fails()) {
-          return res.status(400).json(validator.errors.all());
-      }
+  static createParcel(req, res, next){
+    const CreateParcelRules = {
+      id: 'required|digits:5',
+      destination: 'required',
+      presentLocation: 'required',
+      price: 'required|numeric',
+      description: 'required'
+    }
     
-      return next();
-    };
+    const validator = new Validator(req.body, CreateParcelRules);
+    console.log(req.body);
+    if (validator.fails()) {
+        return res.status(400).json(validator.errors.all());
+    }
+  
+    return next();
   } 
 
   static getUserById(){

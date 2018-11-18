@@ -5,17 +5,18 @@ import ParcelOrder from '../controllers/parcel';
 import Validate from '../middleware/vallidation'
 
 router.route('/')
-.get(ParcelOrder.getAll())
-.all(Validate.createParcel())
-.post(ParcelOrder.create())
+.get(ParcelOrder.getAll)
+.post(Validate.createParcel, ParcelOrder.create)
 
 router.route('/:id')
-.all(Validate.getUserById())
-.get(ParcelOrder.getOne())
-.put(ParcelOrder.update());
+.get(ParcelOrder.getOne)
+.put(ParcelOrder.updateLocation);
 
 router.route(':id/cancel')
-.all(Validate.getUserById())
-.put(ParcelOrder.cancel());
+.put(ParcelOrder.cancel);
+
+router.route('**', (req, res) => {
+  return res.status(404).json({message: 'This route doesn\'t exist'});
+});
 
 export default router;

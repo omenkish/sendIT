@@ -337,7 +337,9 @@ img.avatar {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-
+#myModal .modal-body h3{
+  color: red;
+}
 /* The Close Button */
 .close {
   color: #aaa;
@@ -363,7 +365,7 @@ img.avatar {
 /* Modal Body */
 .modal-body {
   padding: 2px 16px;
-  min-height: 150px
+  min-height: 70px
 }
 
 /* Modal Content */
@@ -388,10 +390,15 @@ div.modal-footer {
 }
 
 #myModal button{
-  width: 18%;
-  
+  width: 18%;  
 }
 
+#myModal button#cancelbtn{
+  width: 18%;
+  background-color: #696969;
+  margin-left:50%; 
+  
+}
 #myModal button#delete{
   background-color: red;
 }

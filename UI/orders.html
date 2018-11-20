@@ -59,23 +59,22 @@
         <div class="box">
             <h3>Orders on transit</h3>
             <div id="deliveries"> 
-
                <!-- The Modal -->
                <div id="myModal" class="modal">
 
                   <!-- Modal content -->
                   <div class="modal-content">
                     <div class="modal-header">
-                      <span class="close">&times;</span>
-                      <h3>Delete Modal <i class="fa fa-trash"></i></h3>
+                      <span class="close" onclick="document.getElementById('myModal').style.display = 'none'">&times;</span>
+                      <h3>Delete Parcel Order <i class="fa fa-trash"></i></h3>
                     </div>
                     <div class="modal-body">
-                      <h3>Sure you want to delete</h3>
+                      <h3>Sure you want to delete this order?</h3>
                       
                     </div>
                     <div class="modal-footer">
-                      <button id="cancelbtn">Cancel</button>
-                      <button id="delete">Delete</button>
+                      <button id="cancelbtn" onclick="document.getElementById('myModal').style.display = 'none'">Cancel</button>
+                      <button id="delete" >Delete</button>
                     </div>
                   </div>
                 
@@ -98,15 +97,15 @@
                     <td>Asaba</td>
                     <td><a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp;&nbsp;&nbsp;<a href="order.html">
                       <i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a id = "" href=""> <i class="fa fa-trash-alt fa-2x" id="myBtn"></i></a></td>
+                      <a id="myBtn" href="#" onclick="document.getElementById('myModal').style.display = 'block'"> <i class="fa fa-trash-alt fa-2x" ></i></a></td>
                   </tr>
                   <tr>
                     <td>2.</td>
                     <td><a href="order.html?id=id">ztwer457</a></td>
                     <td>PorHarcourt</td>
                     <td> <a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp;&nbsp;&nbsp;<a href="order.html">
-                      <i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();"> 
-                        <i class="fa fa-trash-alt fa-2x"></i></a>
+                      <i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; 
+                      <a id="myBtn" href="#" onclick="document.getElementById('myModal').style.display = 'block'"> <i class="fa fa-trash-alt fa-2x" ></i></a>
                     </td>
                     </tr>
 
@@ -114,25 +113,37 @@
                         <td>3.</td>
                         <td><a href="order.html?id=id">py1234ty</a></td>
                         <td>Asaba</td>
-                        <td><a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp; &nbsp;&nbsp;<a href="order.html" class="tooltip"><i class="fa fa-pen-square fa-2x"></i></a><span class="tooltiptext">hey</span> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();" class="tooltip"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                        <td> <a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp;&nbsp;&nbsp;<a href="order.html">
+                            <i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; 
+                            <a id="myBtn" href="#" onclick="document.getElementById('myModal').style.display = 'block'"> <i class="fa fa-trash-alt fa-2x" ></i></a>
+                          </td>
                       </tr>
                       <tr>
                         <td>4.</td>
                         <td><a href="order.html?id=id">ztwer457</a></td>
                         <td>PorHarcourt</td>
-                        <td><a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp; &nbsp;&nbsp;<a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                        <td> <a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp;&nbsp;&nbsp;<a href="order.html">
+                            <i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; 
+                            <a id="myBtn" href="#" onclick="document.getElementById('myModal').style.display = 'block'"> <i class="fa fa-trash-alt fa-2x" ></i></a>
+                          </td>
                       </tr>
                       <tr>
                           <td>5.</td>
                           <td><a href="order.html?id=id">py1234ty</a></td>
                           <td>Asaba</td>
-                          <td><a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp; &nbsp;&nbsp;<a href="order.html" class="tooltip"><i class="fa fa-pen-square fa-2x"></i></a><span class="tooltiptext">hey</span> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();" class="tooltip"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                          <td> <a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp;&nbsp;&nbsp;<a href="order.html">
+                              <i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; 
+                              <a id="myBtn" href="#" onclick="document.getElementById('myModal').style.display = 'block'"> <i class="fa fa-trash-alt fa-2x" ></i></a>
+                            </td>
                         </tr>
                         <tr>
                           <td>6.</td>
                           <td><a href="order.html?id=id">ztwer457</a></td>
                           <td>PorHarcourt</td>
-                          <td> <a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp; &nbsp;&nbsp;<a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                          <td> <a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp;&nbsp;&nbsp;<a href="order.html">
+                              <i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; 
+                              <a id="myBtn" href="#" onclick="document.getElementById('myModal').style.display = 'block'"> <i class="fa fa-trash-alt fa-2x" ></i></a>
+                            </td>
                           </tr>
                 </tbody>
     
@@ -142,10 +153,11 @@
       <div class="box">
         <h3>Delivered Orders</h3><hr>
         <div>
-          <p><strong>Delivered orders will show here</strong></p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        </div>
-      </div>
+          <p><strong>These orders have been marked delivered</strong></p>
+          <p><label><strong>Order No: </strong></label> py1234 </p>
+          <p><label><strong>Order No: </strong></label> asdfghjk </p>
+          <p><label><strong>Order No: </strong></label> uiopoiutre </p>
+          <p><label><strong>Order No: </strong></label> poiuytresdf </p>
 
     </div>
   </section>

@@ -59,6 +59,27 @@
         <div class="box">
             <h3>Orders on transit</h3>
             <div id="deliveries"> 
+
+               <!-- The Modal -->
+               <div id="myModal" class="modal">
+
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <span class="close">&times;</span>
+                      <h3>Delete Modal <i class="fa fa-trash"></i></h3>
+                    </div>
+                    <div class="modal-body">
+                      <h3>Sure you want to delete</h3>
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button id="cancelbtn">Cancel</button>
+                      <button id="delete">Delete</button>
+                    </div>
+                  </div>
+                
+                </div>
               <table id="table">
                 <thead>
                   <tr>
@@ -70,42 +91,48 @@
                 </thead>
     
                 <tbody>
+                 
                   <tr>
                     <td>1.</td>
                     <td><a href="order.html?id=id">py1234ty</a></td>
                     <td>Asaba</td>
-                    <td> <a href="order.html" class="tooltip"><i class="fa fa-pen-square fa-2x"></i></a><span class="tooltiptext">hey</span> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();" class="tooltip"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                    <td><a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp;&nbsp;&nbsp;<a href="order.html">
+                      <i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp;
+                      <a id = "" href=""> <i class="fa fa-trash-alt fa-2x" id="myBtn"></i></a></td>
                   </tr>
                   <tr>
                     <td>2.</td>
                     <td><a href="order.html?id=id">ztwer457</a></td>
                     <td>PorHarcourt</td>
-                    <td> <a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                    <td> <a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp;&nbsp;&nbsp;<a href="order.html">
+                      <i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();"> 
+                        <i class="fa fa-trash-alt fa-2x"></i></a>
+                    </td>
                     </tr>
 
                     <tr>
                         <td>3.</td>
                         <td><a href="order.html?id=id">py1234ty</a></td>
                         <td>Asaba</td>
-                        <td> <a href="order.html" class="tooltip"><i class="fa fa-pen-square fa-2x"></i></a><span class="tooltiptext">hey</span> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();" class="tooltip"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                        <td><a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp; &nbsp;&nbsp;<a href="order.html" class="tooltip"><i class="fa fa-pen-square fa-2x"></i></a><span class="tooltiptext">hey</span> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();" class="tooltip"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
                       </tr>
                       <tr>
                         <td>4.</td>
                         <td><a href="order.html?id=id">ztwer457</a></td>
                         <td>PorHarcourt</td>
-                        <td> <a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                        <td><a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp; &nbsp;&nbsp;<a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
                       </tr>
                       <tr>
                           <td>5.</td>
                           <td><a href="order.html?id=id">py1234ty</a></td>
                           <td>Asaba</td>
-                          <td> <a href="order.html" class="tooltip"><i class="fa fa-pen-square fa-2x"></i></a><span class="tooltiptext">hey</span> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();" class="tooltip"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                          <td><a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp; &nbsp;&nbsp;<a href="order.html" class="tooltip"><i class="fa fa-pen-square fa-2x"></i></a><span class="tooltiptext">hey</span> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();" class="tooltip"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
                         </tr>
                         <tr>
                           <td>6.</td>
                           <td><a href="order.html?id=id">ztwer457</a></td>
                           <td>PorHarcourt</td>
-                          <td> <a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
+                          <td> <a href="order.html" ><i class="fa fa-eye fa-2x"></i></a>&nbsp; &nbsp;&nbsp;<a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a onclick=" confirmDelete();"> <i class="fa fa-trash-alt fa-2x"></i></a></td>
                           </tr>
                 </tbody>
     

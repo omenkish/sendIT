@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 
 import ParcelOrder from '../controllers/parcel';
-import Validate from '../middleware/vallidation'
+import Validate from '../middleware/vallidation';
 
 router.route('/')
 .get(ParcelOrder.getAll)

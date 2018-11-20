@@ -4,7 +4,6 @@
   "description": "A courier service app that delivers parcels to different destinations",
   "main": "index.js",
   "scripts": {
-    "tests": "mocha server/test/**/*.js --require @babel/register --timeout 10000 --exit",
     "test": "cross-env NODE_ENV=test nyc mocha server/test/**/*.js --require @babel/register  --exit",
     "start": "node dist/server.js",
     "build": "npx babel server --out-dir dist ",
@@ -15,8 +14,7 @@
   "nyc": {
     "exclude": [
       "UI",
-      "server/test",
-      "server/controllers"
+      "server/test"
     ],
     "require": [
       "@babel/register"

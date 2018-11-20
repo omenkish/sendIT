@@ -4,7 +4,7 @@ class Validate {
 
   static createParcel(req, res, next){
     const CreateParcelRules = {
-      id: 'required|digits:5',
+      // id: 'required|digits:5',
       destination: 'required',
       presentLocation: 'required',
       price: 'required|numeric',

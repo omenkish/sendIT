@@ -7,8 +7,8 @@ class User {
    * class constructor
    * @constructor
    */
-  constructor () {
-    this.users = [
+  constructor (data) {
+    this.users = data? data : [
       {
         id: 1,
         username: 'omenkish',
@@ -33,7 +33,7 @@ class User {
    */
   create (data){
     const newUser = {
-      id: uuidv4(),
+      id: this.users.length + 1,
       username: data.username || '',
       email: data.email || '',
       password: data.password || '',
@@ -50,7 +50,7 @@ class User {
    * @returns {object} parcel order object
    */
   findUser (id) {
-    return this.users.find(user => user.id === id);
+    return this.users.find(user => user.id === parseInt(id));
   }
 
   /**
@@ -67,7 +67,7 @@ class User {
    * @returns {object} all parcel order objects
    */
   update(id, data) {
-    const user = this.findUser(id);
+    const user = this.findUser(parseInt(id));
     const index = this.users.indexOf(user);
     this.users[index].username = data['username'] || user.username;
     this.users[index].email = data['email'] || user.email;
@@ -90,5 +90,5 @@ class User {
   }
 }
 
-export default new User();
+export default User;
 

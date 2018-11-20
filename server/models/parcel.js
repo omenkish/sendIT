@@ -58,7 +58,7 @@ class ParcelOrder {
       id: this.randomDigits(5),
       userId: data.userId || '',
       orderNo: orderNumber,
-      destination: data.address || '',
+      destination: data.destination || '',
       presentLocation: data.presentLocation || '',
       deliveryStatus: data.status || 'Transit',
       orderStatus: data.status || 'Active',

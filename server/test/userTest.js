@@ -1,27 +1,22 @@
-import chai from 'chai';
 import { expect } from 'chai';
 import request from 'supertest';
 
 import server from '../server';
+import User from '../models/user';
+const userObj = new User();
+const validUser = userObj.users[0];
 
-describe('User End points', () => {
 
-  const user = {
-    id : 1,
-    username : 'Omenkish',
-    email : 'omenkish@gmail.com',
-    password : '12345'
-
-  };
-
+describe('User End points', () => {  
+console.log(validUser);
   describe('POST user route', () => {
     it('should create a new user', () => {
       return request(server)
         .post('/api/v1/users')
-        .send(user)
+        .send(validUser)
         .then(res => {
-        expect(res.status).to.equal(201);
-        expect(res.body).to.have.property('username');
+          expect(res.status).to.equal(201);
+          expect(res.body).to.have.property('username');
         })
         
     });
@@ -31,27 +26,13 @@ describe('User End points', () => {
   describe('GET all parcels by user', () => {
     it('should respond with all parcel orders by the user ', () => {
       return request(server)
-      .get(`/api/v1/users/${user.id}/parcels`)
+      .get(`/api/v1/users/${validUser.id}/parcels`)
       .then(res => {
         expect(res.status).to.equal(200);
-        expect(res.body.length).to.equal(0);
+        expect(res.body.length).to.equal(1);
       })
-      .catch(err => {
-        console.log('========================', err)
-        
-      });
+      
     });
-
-    it('should return status code 404 if the user does not exist ', () => {
-      return request(server)
-      .get(`/api/v1/users/${user.id + 3}/parcels`)
-      .then(res => {
-        expect(res.status).to.equal(404);
-      })
-      .catch(err => {
-        
-      });
-    })
   })
 
   describe('GET api/v1/users', () => {
@@ -63,40 +44,27 @@ describe('User End points', () => {
           expect(res.status).to.equal(200);
           expect(res.body).to.be.an('array');
         })
-        .catch((err) => {
-          if(err){
-            expect(err.status).to.equal(404);
-          }
-        });
     });
 
     // GET - Invalid path
     it('should return Not Found', () => {
       return request(server)
-        .get('/INVALID_PATH')
+        .get('/api/v1/oiuygbnjuh')
         .then(res => {
-          chai.assert.throws(() => { throw new Error('Path Exists!') }, Error, 'Path Exists!');
+          expect(res.statusCode).to.equal(404);
         })
-        .catch((err) => {
-          if(err){
-            expect(err.statusCode).to.equal(404);
-          }
-        });
     });
 
     /**
      * GET user by Id
      */
-    it('should return a particular user or error code 404 if not found', () => {
+    it('should return a particular user', () => {
       return request(server)
-        .get(`/api/v1/users/${user.id}`)
+        .get(`/api/v1/users/${validUser.id}`)
         .then(res => {
-          //expect(res.status).to.equal(200);
-          // expect(res.body).to.be.an('object');
+          expect(res.status).to.equal(200);
+          expect(res.body).to.be.an('object');
         })
-        .catch((err) => {
-          expect(err.status).to.equal(404);
-        });
     });
   });
 
@@ -104,18 +72,49 @@ describe('User End points', () => {
 
     it('should DELETE a particular user', () => {
       return request(server)
-        .put(`/api/v1/users/${user.id}/cancel`)
-        .then((res) => {
-          //expect(res.statusCode).to.equal(204);
+        .put(`/api/v1/users/${validUser.id}/cancel`)
+        .then(res => {
+          expect(res.statusCode).to.equal(204);
         })
-        .catch((err) => {
-          // parcel with ID not found
-          if(err){
-            expect(err.statusCode).to.equal(404);
-          }
-        });
+        
     });
 
+    it('should return 404 on invalid ID', () => {
+      return request(server)
+        .put(`/api/v1/users/${validUser.username}/cancel`)
+        .then(res => {
+
+        })
+    });
+
+  });
+
+  describe('UPDATE api/v1/users/id', () => {
+
+    // it('should Update a particular user', () => {
+    //   return request(server)
+    //     .put(`/api/v1/users/${validUser.id}`)
+    //     .send({
+    //       id: 2,
+    //       username: 'Rukus',
+    //       email: 'omenkish@gmail.com',
+    //       password: 'pass'
+    //     })
+    //     .then(res => {
+    //       console.log(`'===================', ${res.body}`)
+    //       expect(res.statusCode).to.equal(200);
+    //     })
+        
+    // });
+
+    it('should return 404 on invalid ID', () => {
+      return request(server)
+        .put(`/api/v1/users/poiuhjk`)
+        .then(res => {
+          expect(res.statusCode).to.equal(404);
+        })
+        
+    });
   });
 
 });

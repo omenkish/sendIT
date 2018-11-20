@@ -1,6 +1,9 @@
 import UserModel from '../models/user';
 import ParcelModel from '../models/parcel';
 
+const parcelObj = new ParcelModel();
+const userObj = new UserModel();
+
 class User {
 
   /**
@@ -8,17 +11,17 @@ class User {
    * @returns {object} user object 
    */
   static create(req, res) {
-      const user = UserModel.create(req.body);
+      const user = userObj.create(req.body);
       return res.status(201).send(user);   
   }
 
   /**
    * 
    * @returns {array of objects} user parcels objects
-   */
+   */ 
   static getUserParcels(req, res) {
-    const parcels = ParcelModel.findAll();
-    const userParcels = parcels.filter(parcel => parcel.userId === req.params.id);
+    const parcels = parcelObj.findAll();
+    const userParcels = parcels.filter(parcel => parcel.userId === parseInt(req.params.id));
 
     if (!userParcels) {
       return res.status(404).send('message: No parcel found for this user.')
@@ -31,7 +34,7 @@ class User {
    * @returns {array of objects} user objects
    */
   static getUsers(req, res) {
-    const users = UserModel.findUsers();
+    const users = userObj.findUsers();
     return res.status(200).send(users);  
   }
 
@@ -40,7 +43,7 @@ class User {
    * @returns {object} user object 
    */
   static getUser(req, res) {
-    const user = UserModel.findUser(req.params.id);
+    const user = userObj.findUser(parseInt(req.params.id));
     if (!user) {
       return res.status(404).send('message : No user with this Id found');
     }
@@ -50,11 +53,11 @@ class User {
 
   /** method to delete a user */
   static delete(req, res) {
-    const user = UserModel.findUser(req.params.id);
+    const user = userObj.findUser(req.params.id);
     if (!user) {
       return res.status(404).send({ 'message': 'User not found' });
     }
-    const ref = UserModel.delete(req.params.id);
+    const ref = userObj.delete(req.params.id);
     return res.status(204).send(ref);
   }
 
@@ -63,11 +66,11 @@ class User {
    * @returns {object} user object 
    */
   static update(req, res){
-    const user = UserModel.findUser(req.params.id);
+    const user = userObj.findUser(parseInt(req.params.id));
     if (!user) {
       return res.status(404).send({ 'message': ' User not found' })
     }
-    const updatedUser = UserModel.update(req.params.id, req.body);
+    const updatedUser = userObj.update(req.params.id, req.body);
     return res.status(200).send(updatedUser);
   };
   

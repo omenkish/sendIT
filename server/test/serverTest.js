@@ -25,27 +25,6 @@ describe('Parcel End Points', () => {
         })
     });
 
-    it('should return http code 400 if destination is empty', () => {
-      return request(server)
-        .post('api/v1/parcels')
-        .send({
-          id: 12345,
-          userId: 1,
-          orderNo: validParcel.orderNo,
-          destination: '',
-          presentLocation: validParcel.presentLocation,
-          deliveryStatus: validParcel.deliveryStatus,
-          orderStatus: validParcel.orderStatus,
-          price: validParcel.price,
-          description: validParcel.description,
-          createdDate: validParcel.createdDate,
-          modifiedDate: validParcel.modifiedDate
-        })
-        .then(res => {
-          expect(res.statusCode).to.equal(400);
-        })
-    });
-
     // POST - BAD request
     it('should return Bad Request', () => {
       return request(server)
@@ -99,13 +78,6 @@ describe('Parcel End Points', () => {
         });
     });
 
-    it('should return a 404 http on wrong ID', () => {
-      return request(server)
-      .get(`api/v1/parcels/${validParcel.id + 3}`)
-      .then(res => {
-        expect(res.statusCode).to.equal(404);
-      })
-    })
 
   });
 
@@ -143,13 +115,4 @@ describe('Parcel End Points', () => {
     })
   })
 
-  describe('invalid routes', () => {
-    it('Should return http code of 404', () => {
-      return request(server)
-        .get(`**`)
-        .then(res => {
-          expect(res.statusCode).to.equal(404);
-        })
-    })
-  })
 });

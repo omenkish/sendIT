@@ -241,6 +241,10 @@ button:hover {
 
 }
 
+h2#fa-text{
+  background-color: #f1f1f1;
+}
+
 #boxes .box img {
   width: 150px;
 }

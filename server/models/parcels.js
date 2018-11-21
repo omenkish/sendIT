@@ -9,7 +9,10 @@ const pool = new Pool ({connectionString});
 class Parcels {
 
   constructor(){
-    Parcels.createAllTables();
+    Parcels.dropUsersTable();
+    Parcels.dropParcelsTable();
+    Parcels.createUsersTable();
+    Parcels.createParcelsTable();
   }
   static createUsersTable() {
     const sqlText = `CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, 
@@ -83,21 +86,5 @@ class Parcels {
       });
   }
 
-   /**
-   * Create All Tables
-  */
- static createAllTables() {
-  Parcels.createUsersTable();
-  Parcels.createParcelsTable();
 }
-  
-/**
-   * Drop All Tables
-   *
-   * */
-  static dropAllTables() {
-    Parcels.dropUsersTable();
-    Parcels.dropParcelsTable();
-  }
-
-}export default Parcels;
+export default new Parcels();

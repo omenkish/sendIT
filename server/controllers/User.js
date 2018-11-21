@@ -55,15 +55,15 @@ class User {
     const sqlQuery = 'SELECT * FROM users WHERE email = $1';
 
     try{
-      const { rows } = await db.query(sqlQuery, [request.params.email]);
+      const { rows } = await db.query(sqlQuery, [request.body.email]);
       if (!rows[0]) {
         return response.status(400).json({'Status':'400','message': 'The credentials you provided is incorrect'});
       }
       if(!Helper.comparePassword(rows[0].password, request.body.password)){
-        return response.status(400).json({'Status': '400','Message': 'This credential is incorrect'});
+        return response.status(400).json({'Status': '400','Message': 'This password is incorrect'});
       }
       const token = Helper.generateToken(rows[0].email, rows[0].id);
-      return response.status(200).json(token);
+      return response.status(200).json({'Status': 200, 'Copy this TOKEN ': token});
     }catch(error){
       return response.status(400).json(`{'Status': '400','Error': ${error}}`);
     }

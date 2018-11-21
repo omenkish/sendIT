@@ -1,6 +1,6 @@
 import db from '../db';
 import Helper from '../helpers/helper';
-
+import '@babel/polyfill';
 
 
 class User {
@@ -13,7 +13,7 @@ class User {
   static async createUser(request, response) {
     const hashPassword = Helper.hashPassword(request.body.password);
 
-    const sqltext = `INSERT INTO users (firstname, lastname, othernames, email, phone, password)
+    const sqltext = `INSERT INTO users(firstname, lastname, othernames, email, phone, password)
       VALUES($1, $2, $3, $4, $5, $6)
       returning *`;
     const values = [
@@ -37,7 +37,6 @@ class User {
       return response.status(400).json({'Error': `${error}`});
     }
   }
-
   
 }
 

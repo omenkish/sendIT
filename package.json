@@ -9,7 +9,8 @@
     "build": "npx babel server --out-dir dist ",
     "heroku-prebuild": "npm install",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "dev-start": "nodemon server/server --exec \"node -r @babel/register\""
+    "dev-start": "nodemon server/server --exec \"node -r @babel/register\"",
+    "dev-db": "nodemon server/models/parcels --exec \"node -r @babel/register\""
   },
   "nyc": {
     "exclude": [

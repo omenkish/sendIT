@@ -100,5 +100,4 @@ class Parcels {
     Parcels.dropParcelsTable();
   }
 
-}
-export default Parcels;
+}export default Parcels;

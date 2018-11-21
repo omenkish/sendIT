@@ -30,6 +30,8 @@ class Parcel {
       return response.status(400).json({'Status': 400, 'Error': `${error}`});
     }
   }
+
+  
   
 }
 

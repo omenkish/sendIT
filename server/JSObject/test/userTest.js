@@ -13,7 +13,14 @@ console.log(validUser);
     it('should create a new user', () => {
       return request(server)
         .post('/api/v1/users')
-        .send(validUser)
+        .set('x-access-token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9tZW5raXNoQGdtYWlsLmNvbSIsImlkIjoyLCJpYXQiOjE1NDI4MjE3MjIsImV4cCI6MTU0MjgyNTMyMn0.p-_Uk-5ofTZaGEVPUfRU4Xhxem0Ncgb5SM_MnPb4iYw')
+        .send({
+          firstname: 'boss',
+          lastname:'omede',
+          othernames:'kevin',
+          email:'omenkish@gmail.com',
+          
+        })
         .then(res => {
           expect(res.status).to.equal(201);
           expect(res.body).to.have.property('username');

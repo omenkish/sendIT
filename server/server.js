@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import '@babel/polyfill';
 
+import parcel from './routes/parcel';
 import user from './routes/user';
 
 const app = express();
@@ -13,7 +14,7 @@ app.get('/', (req, res) => {
   res.status(200).send('Welcome to my Home page')
 });
 
-
+app.use('/api/v1/parcels', parcel);
 app.use('/api/v1/users', user);
 
 const port = process.env.PORT || 5000;

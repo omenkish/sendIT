@@ -3,7 +3,7 @@ const router = express.Router();
 
 import User from '../controllers/User';
 import Auth from '../middleware/authMiddleware';
-import Validator from '../middleware/validateUser';
+import Validator from '../middleware/validate';
 
 router.route('/auth/signup')
 .post(Validator.createUser, User.createUser);

@@ -20,6 +20,20 @@ class UserValidator {
     return next();
   } 
 
+  static login(request, response, next){
+    const CreateLoginRules = {
+      
+      email: 'required|email',
+      password: 'required'
+    }
+    
+    const validator = new Validator(request.body, CreateLoginRules);
+    if (validator.fails()) {
+      return response.status(415).json(validator.errors.all());
+    }
+  
+    return next();
+  } 
   static adminOnly(request, response, next){
     const id = request.user.id;
     const sqlQuery = "SELECT is_admin FROM users WHERE id=$1"

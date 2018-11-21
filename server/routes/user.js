@@ -7,4 +7,7 @@ import Validator from '../middleware/validateUser';
 
 router.route('/auth/signup')
 .post(Validator.createUser, User.createUser);
+
+router.route('/auth/login')
+.post(Validator.login, User.login);
 export default router;

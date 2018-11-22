@@ -94,7 +94,7 @@ class Parcel {
     const getParcelQuery = 'SELECT * FROM parcels WHERE id=$1';
     try{
       const { rows, rowCount } = await db.query(getParcelQuery, [request.params.id]);
-      if( rowCount < 1 ){
+      if( rowCount === 0 ){
         return response.status(404).json({'Status':'404', 'message':' Order not found'});
       }
       return response.status(200).json({'status': 200, 'Data': rows[0]}) ;     
@@ -180,7 +180,7 @@ class Parcel {
     ];
     try{
         const { rowCount } = await db.query(findParcelQuery, [request.params.id, request.user.id]);
-      if(rowCount < 1){
+      if(rowCount === 0){
         return response.status(404).json({'Status': 404,'Message': 'Order not found'});
       }
 

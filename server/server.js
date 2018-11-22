@@ -24,9 +24,11 @@ app.get('/', (req, res) => {
 app.use('/api/v1/parcels', parcel);
 app.use('/api/v1/users', user);
 app.use('/api/v1/', authUser);
-
-app.use('**', (request, response, next) => {
-  res.status(404).json({'Status': 404, 'ERROR':'Invalid Route!!!'});
+app.use('/api', (request, response) => {
+  return response.status(200).json({'Status': 404, 'ERROR':'Invalid Route!!!'});
+});
+app.use('**', (request, response) => {
+  return response.status(404).json('ERROR: Invalid Route!!!');
 })
 
 const port = process.env.PORT || 5000;

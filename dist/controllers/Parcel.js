@@ -1465,7 +1465,7 @@ function () {
                 rowCount = _ref4.rowCount;
                 cov_cvibu03c9.s[28]++;
 
-                if (!(rowCount < 1)) {
+                if (!(rowCount === 0)) {
                   _context4.next = 17;
                   break;
                 }
@@ -1709,7 +1709,7 @@ function () {
                 rowCount = _ref7.rowCount;
                 cov_cvibu03c9.s[56]++;
 
-                if (!(rowCount < 1)) {
+                if (!(rowCount === 0)) {
                   _context7.next = 18;
                   break;
                 }

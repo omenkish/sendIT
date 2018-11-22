@@ -4,10 +4,10 @@
   "description": "A courier service app that delivers parcels to different destinations",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test nyc mocha server/test/**/*.js --require @babel/register  --exit",
+    "test": "cross-env NODE_ENV=test nyc mocha server/test/**/*.js --require @babel/register --timeout 6000 --exit",
     "start": "node dist/server.js",
     "build": "npx babel server --out-dir dist ",
-    "heroku-prebuild": "npm install",
+    "heroku-prebuild": "npm install & server/models/parcel --exec \"node -r @babel/register\"",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dev-start": "nodemon server/server --exec \"node -r @babel/register\"",
     "dev-db": "nodemon server/models/parcels --exec \"node -r @babel/register\""

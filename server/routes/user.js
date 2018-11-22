@@ -14,4 +14,6 @@ router.route('/auth/login')
 
 router.route('/:id/parcels')
 .get(Auth, Parcel.getUserParcels);
+
+router.get('/',Auth, Validator.adminOnly, User.getUsers)
 export default router;

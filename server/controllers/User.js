@@ -3,6 +3,7 @@ import Helper from '../helpers/helper';
 import '@babel/polyfill';
 
 
+
 class User {
   /**
  * Create A User
@@ -68,6 +69,23 @@ class User {
       return response.status(400).json(`{'Status': '400','Error': ${error}}`);
     }
 
+  }
+
+  /**
+   * 
+   * @param {object} request 
+   * @param {object} response 
+   * @returns {Array} users
+   */
+  static async getUsers(request, response) {
+    const  findUsersSql = 'SELECT * FROM users'; 
+    try {
+      const { rows, rowCount } = await db.query(findUsersSql);
+      return response.status(200).json({'Data': rows, 'Rows Affected': rowCount });
+    }
+    catch(error){
+      response.status(400).json({'Status': 400,'Error': `${error}}`});
+    }
   }
   
 }

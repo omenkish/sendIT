@@ -26,9 +26,6 @@ class Helper {
    * @param {string} email
    * @returns {Boolean} True or False
    */
-  static isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
-  }
 
   /**
    * Gnerate Token

@@ -125,12 +125,12 @@ class Parcel {
    * method to update parcel delivery location
    * @param {object} request 
    * @param {object} response 
-   * @returns {object} parcel orders
+   * @returns {object} updated parcel order
    */
 
    static async updateCurrentLocation(request, response){
 
-    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1';
+    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 ';
     const updateParcelQuery = `UPDATE parcels SET current_location=$1, 
           modified_at=NOW() WHERE id=$2 returning *`;
 
@@ -154,14 +154,34 @@ class Parcel {
    }
 
   /**
-   * method to update parcel delivery location
+   * method to change parcel delivery location
    * @param {object} request 
    * @param {object} response 
    * @returns {object} parcel orders
    */
 
-   static async updatedeDestination(){
-     
+   static async changeDestination(request, response){
+    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 AND placed_by = $2 AND status <> "delivered"';
+    const updateParcelQuery = `UPDATE parcels SET receiver_address=$1, 
+          modified_at=NOW() WHERE id=$2 returning *`;
+
+    const values = [
+      request.body.receiver_address,
+      request.params.id
+    ];
+    try{
+        const { rowCount } = await db.query(findParcelQuery, [request.params.id, request.user.id]);
+      if(rowCount < 1){
+        return response.status(404).json({'Status': 404,'Message': 'Order not found'});
+      }
+
+      const result = await db.query(updateParcelQuery, values);
+      return response.status(200).json({'Status': 200,'Message':'destination updated successfully','Data': result.rows[0]});
+  
+    }
+    catch(error){
+      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+    }
    }
 }
 

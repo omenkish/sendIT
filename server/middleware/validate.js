@@ -42,7 +42,7 @@ class UserValidator {
       
       const { rows } = await  db.query(sqlQuery, [request.user.id]);
         if(rows[0].is_admin === false){
-        return response.status(401).json({'message': 'You do not have permission to access this route!'});
+        return response.status(401).json({'Status':401, 'message': 'You do not have permission to access this route!'});
          }
       next();
     }

@@ -1,13 +1,13 @@
 "use strict";
 
-var cov_1drc5hkhtx = function () {
-  var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\routes\\user.js",
-      hash = "00a253b5f85dfd2d9e7e06d1ed027c33bf1c21c7",
+var cov_2gecbkjp5r = function () {
+  var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\routes\\auth.js",
+      hash = "590cd969b6d571a676f908c88fddda30ad64bf0f",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
       coverageData = {
-    path: "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\routes\\user.js",
+    path: "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\routes\\auth.js",
     statementMap: {
       "0": {
         start: {
@@ -21,22 +21,22 @@ var cov_1drc5hkhtx = function () {
       },
       "1": {
         start: {
-          line: 9,
+          line: 7,
           column: 0
         },
         end: {
-          line: 10,
-          column: 34
+          line: 8,
+          column: 45
         }
       },
       "2": {
         start: {
-          line: 12,
+          line: 10,
           column: 0
         },
         end: {
-          line: 12,
-          column: 56
+          line: 11,
+          column: 35
         }
       }
     },
@@ -70,18 +70,14 @@ var _express = _interopRequireDefault(require("express"));
 
 var _User = _interopRequireDefault(require("../controllers/User"));
 
-var _Parcel = _interopRequireDefault(require("../controllers/Parcel"));
-
-var _authMiddleware = _interopRequireDefault(require("../middleware/authMiddleware"));
-
 var _validate = _interopRequireDefault(require("../middleware/validate"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var router = (cov_1drc5hkhtx.s[0]++, _express.default.Router());
-cov_1drc5hkhtx.s[1]++;
-router.route('/:id/parcels').get(_authMiddleware.default, _Parcel.default.getUserParcels);
-cov_1drc5hkhtx.s[2]++;
-router.get('/', _authMiddleware.default, _validate.default.adminOnly, _User.default.getUsers);
+var router = (cov_2gecbkjp5r.s[0]++, _express.default.Router());
+cov_2gecbkjp5r.s[1]++;
+router.route('/auth/signup').post(_validate.default.createUser, _User.default.createUser);
+cov_2gecbkjp5r.s[2]++;
+router.route('/auth/login').post(_validate.default.login, _User.default.login);
 var _default = router;
 exports.default = _default;

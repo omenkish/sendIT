@@ -2,7 +2,7 @@
 
 var cov_cvibu03c9 = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\controllers\\Parcel.js",
-      hash = "2d3b6395c9edb6b7a320ae01304c47622784477f",
+      hash = "d79f044252cc9ed64e5c0e0d897caae966eaaf4f",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -96,506 +96,526 @@ var cov_cvibu03c9 = function () {
         },
         end: {
           line: 45,
-          column: 34
+          column: 44
         }
       },
       "9": {
         start: {
-          line: 47,
-          column: 30
+          line: 46,
+          column: 6
         },
         end: {
-          line: 47,
-          column: 72
+          line: 62,
+          column: 7
         }
       },
       "10": {
         start: {
-          line: 49,
-          column: 6
+          line: 47,
+          column: 32
         },
         end: {
-          line: 59,
-          column: 7
+          line: 47,
+          column: 74
         }
       },
       "11": {
         start: {
-          line: 50,
-          column: 34
+          line: 48,
+          column: 8
         },
         end: {
-          line: 50,
-          column: 84
+          line: 58,
+          column: 9
         }
       },
       "12": {
         start: {
-          line: 52,
-          column: 8
+          line: 49,
+          column: 36
         },
         end: {
-          line: 54,
-          column: 9
+          line: 49,
+          column: 86
         }
       },
       "13": {
         start: {
-          line: 53,
+          line: 51,
           column: 10
         },
         end: {
           line: 53,
-          column: 105
+          column: 11
         }
       },
       "14": {
         start: {
-          line: 55,
-          column: 8
+          line: 52,
+          column: 12
         },
         end: {
-          line: 55,
-          column: 93
+          line: 52,
+          column: 107
         }
       },
       "15": {
         start: {
-          line: 58,
-          column: 8
+          line: 54,
+          column: 10
         },
         end: {
-          line: 58,
-          column: 79
+          line: 54,
+          column: 95
         }
       },
       "16": {
         start: {
-          line: 71,
-          column: 28
+          line: 57,
+          column: 10
         },
         end: {
-          line: 71,
-          column: 51
+          line: 57,
+          column: 81
         }
       },
       "17": {
         start: {
-          line: 72,
-          column: 4
+          line: 61,
+          column: 8
         },
         end: {
-          line: 81,
-          column: 5
+          line: 61,
+          column: 91
         }
       },
       "18": {
         start: {
-          line: 73,
-          column: 32
+          line: 77,
+          column: 28
         },
         end: {
-          line: 73,
-          column: 63
+          line: 77,
+          column: 51
         }
       },
       "19": {
         start: {
-          line: 74,
-          column: 6
+          line: 78,
+          column: 4
         },
         end: {
-          line: 76,
-          column: 7
+          line: 87,
+          column: 5
         }
       },
       "20": {
         start: {
-          line: 75,
-          column: 8
+          line: 79,
+          column: 32
         },
         end: {
-          line: 75,
-          column: 108
+          line: 79,
+          column: 63
         }
       },
       "21": {
         start: {
-          line: 77,
+          line: 80,
           column: 6
         },
         end: {
-          line: 77,
-          column: 93
+          line: 82,
+          column: 7
         }
       },
       "22": {
         start: {
-          line: 80,
-          column: 6
+          line: 81,
+          column: 8
         },
         end: {
-          line: 80,
-          column: 77
+          line: 81,
+          column: 108
         }
       },
       "23": {
         start: {
-          line: 91,
-          column: 27
+          line: 83,
+          column: 6
         },
         end: {
-          line: 91,
-          column: 62
+          line: 83,
+          column: 93
         }
       },
       "24": {
         start: {
-          line: 92,
-          column: 4
+          line: 86,
+          column: 6
         },
         end: {
-          line: 101,
-          column: 5
+          line: 86,
+          column: 77
         }
       },
       "25": {
         start: {
-          line: 93,
-          column: 33
+          line: 97,
+          column: 27
         },
         end: {
-          line: 93,
-          column: 84
+          line: 97,
+          column: 62
         }
       },
       "26": {
         start: {
-          line: 94,
-          column: 6
+          line: 98,
+          column: 4
         },
         end: {
-          line: 96,
-          column: 7
+          line: 107,
+          column: 5
         }
       },
       "27": {
         start: {
-          line: 95,
-          column: 8
+          line: 99,
+          column: 33
         },
         end: {
-          line: 95,
-          column: 89
+          line: 99,
+          column: 84
         }
       },
       "28": {
         start: {
-          line: 97,
+          line: 100,
           column: 6
         },
         end: {
-          line: 97,
-          column: 74
+          line: 102,
+          column: 7
         }
       },
       "29": {
         start: {
-          line: 100,
-          column: 6
+          line: 101,
+          column: 8
         },
         end: {
-          line: 100,
-          column: 77
+          line: 101,
+          column: 89
         }
       },
       "30": {
         start: {
-          line: 112,
-          column: 28
+          line: 103,
+          column: 6
         },
         end: {
-          line: 112,
-          column: 82
+          line: 103,
+          column: 74
         }
       },
       "31": {
         start: {
-          line: 113,
-          column: 30
+          line: 106,
+          column: 6
         },
         end: {
-          line: 114,
-          column: 52
+          line: 106,
+          column: 77
         }
       },
       "32": {
         start: {
-          line: 115,
-          column: 4
+          line: 118,
+          column: 28
         },
         end: {
-          line: 127,
-          column: 5
+          line: 118,
+          column: 82
         }
       },
       "33": {
         start: {
-          line: 116,
-          column: 35
+          line: 119,
+          column: 30
         },
         end: {
-          line: 116,
-          column: 104
+          line: 120,
+          column: 52
         }
       },
       "34": {
         start: {
-          line: 117,
-          column: 6
+          line: 121,
+          column: 4
         },
         end: {
-          line: 119,
-          column: 7
+          line: 133,
+          column: 5
         }
       },
       "35": {
         start: {
-          line: 118,
-          column: 8
+          line: 122,
+          column: 35
         },
         end: {
-          line: 118,
-          column: 122
+          line: 122,
+          column: 104
         }
       },
       "36": {
         start: {
-          line: 121,
-          column: 21
+          line: 123,
+          column: 6
         },
         end: {
-          line: 121,
-          column: 75
+          line: 125,
+          column: 7
         }
       },
       "37": {
         start: {
-          line: 122,
-          column: 6
+          line: 124,
+          column: 8
         },
         end: {
-          line: 122,
-          column: 79
+          line: 124,
+          column: 122
         }
       },
       "38": {
         start: {
-          line: 126,
-          column: 6
+          line: 127,
+          column: 21
         },
         end: {
-          line: 126,
-          column: 77
+          line: 127,
+          column: 75
         }
       },
       "39": {
         start: {
-          line: 139,
-          column: 28
+          line: 128,
+          column: 6
         },
         end: {
-          line: 139,
-          column: 66
+          line: 128,
+          column: 79
         }
       },
       "40": {
         start: {
-          line: 140,
-          column: 30
+          line: 132,
+          column: 6
         },
         end: {
-          line: 141,
-          column: 52
+          line: 132,
+          column: 77
         }
       },
       "41": {
         start: {
-          line: 143,
-          column: 19
+          line: 145,
+          column: 28
         },
         end: {
-          line: 146,
-          column: 5
+          line: 145,
+          column: 66
         }
       },
       "42": {
         start: {
-          line: 147,
-          column: 4
+          line: 146,
+          column: 30
         },
         end: {
-          line: 159,
-          column: 5
+          line: 147,
+          column: 52
         }
       },
       "43": {
         start: {
-          line: 148,
-          column: 29
+          line: 149,
+          column: 19
         },
         end: {
-          line: 148,
-          column: 81
+          line: 152,
+          column: 5
         }
       },
       "44": {
         start: {
-          line: 149,
-          column: 6
+          line: 153,
+          column: 4
         },
         end: {
-          line: 151,
-          column: 7
+          line: 165,
+          column: 5
         }
       },
       "45": {
         start: {
-          line: 150,
-          column: 8
+          line: 154,
+          column: 29
         },
         end: {
-          line: 150,
-          column: 87
+          line: 154,
+          column: 81
         }
       },
       "46": {
         start: {
-          line: 153,
-          column: 21
+          line: 155,
+          column: 6
         },
         end: {
-          line: 153,
-          column: 62
+          line: 157,
+          column: 7
         }
       },
       "47": {
         start: {
-          line: 154,
-          column: 6
+          line: 156,
+          column: 8
         },
         end: {
-          line: 154,
-          column: 121
+          line: 156,
+          column: 87
         }
       },
       "48": {
         start: {
-          line: 158,
-          column: 6
+          line: 159,
+          column: 21
         },
         end: {
-          line: 158,
-          column: 77
+          line: 159,
+          column: 62
         }
       },
       "49": {
         start: {
-          line: 170,
-          column: 28
+          line: 160,
+          column: 6
         },
         end: {
-          line: 170,
-          column: 110
+          line: 160,
+          column: 121
         }
       },
       "50": {
         start: {
-          line: 171,
-          column: 30
+          line: 164,
+          column: 6
         },
         end: {
-          line: 172,
-          column: 52
+          line: 164,
+          column: 77
         }
       },
       "51": {
         start: {
-          line: 174,
-          column: 19
+          line: 176,
+          column: 28
         },
         end: {
-          line: 177,
-          column: 5
+          line: 176,
+          column: 110
         }
       },
       "52": {
         start: {
-          line: 178,
-          column: 4
+          line: 177,
+          column: 30
         },
         end: {
-          line: 190,
-          column: 5
+          line: 178,
+          column: 52
         }
       },
       "53": {
         start: {
-          line: 179,
-          column: 29
+          line: 180,
+          column: 19
         },
         end: {
-          line: 179,
-          column: 98
+          line: 183,
+          column: 5
         }
       },
       "54": {
         start: {
-          line: 180,
-          column: 6
+          line: 184,
+          column: 4
         },
         end: {
-          line: 182,
-          column: 7
+          line: 196,
+          column: 5
         }
       },
       "55": {
         start: {
-          line: 181,
-          column: 8
+          line: 185,
+          column: 29
         },
         end: {
-          line: 181,
-          column: 87
+          line: 185,
+          column: 98
         }
       },
       "56": {
         start: {
-          line: 184,
-          column: 21
+          line: 186,
+          column: 6
         },
         end: {
-          line: 184,
-          column: 62
+          line: 188,
+          column: 7
         }
       },
       "57": {
         start: {
-          line: 185,
-          column: 6
+          line: 187,
+          column: 8
         },
         end: {
-          line: 185,
-          column: 124
+          line: 187,
+          column: 87
         }
       },
       "58": {
         start: {
-          line: 189,
+          line: 190,
+          column: 21
+        },
+        end: {
+          line: 190,
+          column: 62
+        }
+      },
+      "59": {
+        start: {
+          line: 191,
           column: 6
         },
         end: {
-          line: 189,
+          line: 191,
+          column: 124
+        }
+      },
+      "60": {
+        start: {
+          line: 195,
+          column: 6
+        },
+        end: {
+          line: 195,
           column: 77
         }
       }
@@ -643,7 +663,7 @@ var cov_cvibu03c9 = function () {
             column: 48
           },
           end: {
-            line: 61,
+            line: 67,
             column: 3
           }
         },
@@ -653,121 +673,121 @@ var cov_cvibu03c9 = function () {
         name: "(anonymous_2)",
         decl: {
           start: {
-            line: 70,
+            line: 76,
             column: 2
           },
           end: {
-            line: 70,
+            line: 76,
             column: 3
           }
         },
         loc: {
           start: {
-            line: 70,
+            line: 76,
             column: 47
           },
           end: {
-            line: 82,
+            line: 88,
             column: 3
           }
         },
-        line: 70
+        line: 76
       },
       "3": {
         name: "(anonymous_3)",
         decl: {
           start: {
-            line: 90,
+            line: 96,
             column: 2
           },
           end: {
-            line: 90,
+            line: 96,
             column: 3
           }
         },
         loc: {
           start: {
-            line: 90,
+            line: 96,
             column: 47
           },
           end: {
-            line: 102,
+            line: 108,
             column: 3
           }
         },
-        line: 90
+        line: 96
       },
       "4": {
         name: "(anonymous_4)",
         decl: {
           start: {
-            line: 111,
+            line: 117,
             column: 2
           },
           end: {
-            line: 111,
+            line: 117,
             column: 3
           }
         },
         loc: {
           start: {
-            line: 111,
+            line: 117,
             column: 51
           },
           end: {
-            line: 128,
+            line: 134,
             column: 3
           }
         },
-        line: 111
+        line: 117
       },
       "5": {
         name: "(anonymous_5)",
         decl: {
           start: {
-            line: 137,
+            line: 143,
             column: 3
           },
           end: {
-            line: 137,
+            line: 143,
             column: 4
           }
         },
         loc: {
           start: {
-            line: 137,
+            line: 143,
             column: 56
           },
           end: {
-            line: 160,
+            line: 166,
             column: 4
           }
         },
-        line: 137
+        line: 143
       },
       "6": {
         name: "(anonymous_6)",
         decl: {
           start: {
-            line: 169,
+            line: 175,
             column: 3
           },
           end: {
-            line: 169,
+            line: 175,
             column: 4
           }
         },
         loc: {
           start: {
-            line: 169,
+            line: 175,
             column: 52
           },
           end: {
-            line: 191,
+            line: 197,
             column: 4
           }
         },
-        line: 169
+        line: 175
       }
     },
     branchMap: {
@@ -807,200 +827,233 @@ var cov_cvibu03c9 = function () {
       "1": {
         loc: {
           start: {
-            line: 52,
-            column: 8
+            line: 46,
+            column: 6
           },
           end: {
-            line: 54,
-            column: 9
+            line: 62,
+            column: 7
           }
         },
         type: "if",
         locations: [{
           start: {
-            line: 52,
-            column: 8
+            line: 46,
+            column: 6
           },
           end: {
-            line: 54,
-            column: 9
+            line: 62,
+            column: 7
           }
         }, {
           start: {
-            line: 52,
-            column: 8
+            line: 46,
+            column: 6
           },
           end: {
-            line: 54,
-            column: 9
+            line: 62,
+            column: 7
           }
         }],
-        line: 52
+        line: 46
       },
       "2": {
         loc: {
           start: {
-            line: 74,
-            column: 6
+            line: 51,
+            column: 10
           },
           end: {
-            line: 76,
-            column: 7
+            line: 53,
+            column: 11
           }
         },
         type: "if",
         locations: [{
           start: {
-            line: 74,
-            column: 6
+            line: 51,
+            column: 10
           },
           end: {
-            line: 76,
-            column: 7
+            line: 53,
+            column: 11
           }
         }, {
           start: {
-            line: 74,
-            column: 6
+            line: 51,
+            column: 10
           },
           end: {
-            line: 76,
-            column: 7
+            line: 53,
+            column: 11
           }
         }],
-        line: 74
+        line: 51
       },
       "3": {
         loc: {
           start: {
-            line: 94,
+            line: 80,
             column: 6
           },
           end: {
-            line: 96,
+            line: 82,
             column: 7
           }
         },
         type: "if",
         locations: [{
           start: {
-            line: 94,
+            line: 80,
             column: 6
           },
           end: {
-            line: 96,
+            line: 82,
             column: 7
           }
         }, {
           start: {
-            line: 94,
+            line: 80,
             column: 6
           },
           end: {
-            line: 96,
+            line: 82,
             column: 7
           }
         }],
-        line: 94
+        line: 80
       },
       "4": {
         loc: {
           start: {
-            line: 117,
+            line: 100,
             column: 6
           },
           end: {
-            line: 119,
+            line: 102,
             column: 7
           }
         },
         type: "if",
         locations: [{
           start: {
-            line: 117,
+            line: 100,
             column: 6
           },
           end: {
-            line: 119,
+            line: 102,
             column: 7
           }
         }, {
           start: {
-            line: 117,
+            line: 100,
             column: 6
           },
           end: {
-            line: 119,
+            line: 102,
             column: 7
           }
         }],
-        line: 117
+        line: 100
       },
       "5": {
         loc: {
           start: {
-            line: 149,
+            line: 123,
             column: 6
           },
           end: {
-            line: 151,
+            line: 125,
             column: 7
           }
         },
         type: "if",
         locations: [{
           start: {
-            line: 149,
+            line: 123,
             column: 6
           },
           end: {
-            line: 151,
+            line: 125,
             column: 7
           }
         }, {
           start: {
-            line: 149,
+            line: 123,
             column: 6
           },
           end: {
-            line: 151,
+            line: 125,
             column: 7
           }
         }],
-        line: 149
+        line: 123
       },
       "6": {
         loc: {
           start: {
-            line: 180,
+            line: 155,
             column: 6
           },
           end: {
-            line: 182,
+            line: 157,
             column: 7
           }
         },
         type: "if",
         locations: [{
           start: {
-            line: 180,
+            line: 155,
             column: 6
           },
           end: {
-            line: 182,
+            line: 157,
             column: 7
           }
         }, {
           start: {
-            line: 180,
+            line: 155,
             column: 6
           },
           end: {
-            line: 182,
+            line: 157,
             column: 7
           }
         }],
-        line: 180
+        line: 155
+      },
+      "7": {
+        loc: {
+          start: {
+            line: 186,
+            column: 6
+          },
+          end: {
+            line: 188,
+            column: 7
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 186,
+            column: 6
+          },
+          end: {
+            line: 188,
+            column: 7
+          }
+        }, {
+          start: {
+            line: 186,
+            column: 6
+          },
+          end: {
+            line: 188,
+            column: 7
+          }
+        }],
+        line: 186
       }
     },
     s: {
@@ -1062,7 +1115,9 @@ var cov_cvibu03c9 = function () {
       "55": 0,
       "56": 0,
       "57": 0,
-      "58": 0
+      "58": 0,
+      "59": 0,
+      "60": 0
     },
     f: {
       "0": 0,
@@ -1080,7 +1135,8 @@ var cov_cvibu03c9 = function () {
       "3": [0, 0],
       "4": [0, 0],
       "5": [0, 0],
-      "6": [0, 0]
+      "6": [0, 0],
+      "7": [0, 0]
     },
     _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184"
   },
@@ -1220,58 +1276,78 @@ function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 cov_cvibu03c9.f[1]++;
-                id = (cov_cvibu03c9.s[8]++, request.params.id);
-                getParcelsQuery = (cov_cvibu03c9.s[9]++, 'SELECT * FROM parcels WHERE placed_by=$1');
-                cov_cvibu03c9.s[10]++;
-                _context2.prev = 4;
-                cov_cvibu03c9.s[11]++;
-                _context2.next = 8;
-                return _index.default.query(getParcelsQuery, [request.user.id]);
+                id = (cov_cvibu03c9.s[8]++, parseInt(request.params.id));
+                cov_cvibu03c9.s[9]++;
 
-              case 8:
-                _ref2 = _context2.sent;
-                rows = _ref2.rows;
-                rowCount = _ref2.rowCount;
-                cov_cvibu03c9.s[12]++;
-
-                if (!(rowCount === 0)) {
-                  _context2.next = 18;
+                if (!(id === parseInt(request.user.id))) {
+                  _context2.next = 32;
                   break;
                 }
 
                 cov_cvibu03c9.b[1][0]++;
+                getParcelsQuery = (cov_cvibu03c9.s[10]++, 'SELECT * FROM parcels WHERE placed_by=$1');
+                cov_cvibu03c9.s[11]++;
+                _context2.prev = 7;
+                cov_cvibu03c9.s[12]++;
+                _context2.next = 11;
+                return _index.default.query(getParcelsQuery, [request.user.id]);
+
+              case 11:
+                _ref2 = _context2.sent;
+                rows = _ref2.rows;
+                rowCount = _ref2.rowCount;
                 cov_cvibu03c9.s[13]++;
+
+                if (!(rowCount === 0)) {
+                  _context2.next = 21;
+                  break;
+                }
+
+                cov_cvibu03c9.b[2][0]++;
+                cov_cvibu03c9.s[14]++;
                 return _context2.abrupt("return", response.status(404).json({
                   'Status': 404,
                   'Message': 'No parcels found for this user'
                 }));
 
-              case 18:
-                cov_cvibu03c9.b[1][1]++;
+              case 21:
+                cov_cvibu03c9.b[2][1]++;
 
-              case 19:
-                cov_cvibu03c9.s[14]++;
+              case 22:
+                cov_cvibu03c9.s[15]++;
                 return _context2.abrupt("return", response.status(200).json({
                   'Status': 200,
                   Data: rows,
                   'Count': "".concat(rowCount)
                 }));
 
-              case 23:
-                _context2.prev = 23;
-                _context2.t0 = _context2["catch"](4);
-                cov_cvibu03c9.s[15]++;
+              case 26:
+                _context2.prev = 26;
+                _context2.t0 = _context2["catch"](7);
+                cov_cvibu03c9.s[16]++;
                 return _context2.abrupt("return", response.status(400).json({
                   'Status': 400,
                   'Error': "".concat(_context2.t0)
                 }));
 
-              case 27:
+              case 30:
+                _context2.next = 35;
+                break;
+
+              case 32:
+                cov_cvibu03c9.b[1][1]++;
+                cov_cvibu03c9.s[17]++;
+                return _context2.abrupt("return", response.status(404).json({
+                  'Status': 404,
+                  'Message': 'specify a valid id'
+                }));
+
+              case 35:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[4, 23]]);
+        }, _callee2, this, [[7, 26]]);
       }));
 
       return function getUserParcels(_x3, _x4) {
@@ -1283,7 +1359,7 @@ function () {
      *
      * @param {object} request 
      * @param {object} response 
-     * @returns {Array} all parcel orders belonging to a particular user
+     * @returns {Array} all parcel orders
      */
 
   }, {
@@ -1299,10 +1375,10 @@ function () {
             switch (_context3.prev = _context3.next) {
               case 0:
                 cov_cvibu03c9.f[2]++;
-                getParcelsQuery = (cov_cvibu03c9.s[16]++, 'SELECT * FROM parcels');
-                cov_cvibu03c9.s[17]++;
+                getParcelsQuery = (cov_cvibu03c9.s[18]++, 'SELECT * FROM parcels');
+                cov_cvibu03c9.s[19]++;
                 _context3.prev = 3;
-                cov_cvibu03c9.s[18]++;
+                cov_cvibu03c9.s[20]++;
                 _context3.next = 7;
                 return _index.default.query(getParcelsQuery);
 
@@ -1310,25 +1386,25 @@ function () {
                 _ref3 = _context3.sent;
                 rows = _ref3.rows;
                 rowCount = _ref3.rowCount;
-                cov_cvibu03c9.s[19]++;
+                cov_cvibu03c9.s[21]++;
 
                 if (!(rowCount === 0)) {
                   _context3.next = 17;
                   break;
                 }
 
-                cov_cvibu03c9.b[2][0]++;
-                cov_cvibu03c9.s[20]++;
+                cov_cvibu03c9.b[3][0]++;
+                cov_cvibu03c9.s[22]++;
                 return _context3.abrupt("return", response.status(404).json({
                   'Status': '404',
                   'message': ' You currently have no parcel order'
                 }));
 
               case 17:
-                cov_cvibu03c9.b[2][1]++;
+                cov_cvibu03c9.b[3][1]++;
 
               case 18:
-                cov_cvibu03c9.s[21]++;
+                cov_cvibu03c9.s[23]++;
                 return _context3.abrupt("return", response.status(200).json({
                   'Status': 200,
                   'Data': rows,
@@ -1338,7 +1414,7 @@ function () {
               case 22:
                 _context3.prev = 22;
                 _context3.t0 = _context3["catch"](3);
-                cov_cvibu03c9.s[22]++;
+                cov_cvibu03c9.s[24]++;
                 return _context3.abrupt("return", response.status(400).json({
                   'Status': 400,
                   'Error': "".concat(_context3.t0)
@@ -1376,10 +1452,10 @@ function () {
             switch (_context4.prev = _context4.next) {
               case 0:
                 cov_cvibu03c9.f[3]++;
-                getParcelQuery = (cov_cvibu03c9.s[23]++, 'SELECT * FROM parcels WHERE id=$1');
-                cov_cvibu03c9.s[24]++;
+                getParcelQuery = (cov_cvibu03c9.s[25]++, 'SELECT * FROM parcels WHERE id=$1');
+                cov_cvibu03c9.s[26]++;
                 _context4.prev = 3;
-                cov_cvibu03c9.s[25]++;
+                cov_cvibu03c9.s[27]++;
                 _context4.next = 7;
                 return _index.default.query(getParcelQuery, [request.params.id]);
 
@@ -1387,25 +1463,25 @@ function () {
                 _ref4 = _context4.sent;
                 rows = _ref4.rows;
                 rowCount = _ref4.rowCount;
-                cov_cvibu03c9.s[26]++;
+                cov_cvibu03c9.s[28]++;
 
                 if (!(rowCount < 1)) {
                   _context4.next = 17;
                   break;
                 }
 
-                cov_cvibu03c9.b[3][0]++;
-                cov_cvibu03c9.s[27]++;
+                cov_cvibu03c9.b[4][0]++;
+                cov_cvibu03c9.s[29]++;
                 return _context4.abrupt("return", response.status(404).json({
                   'Status': '404',
                   'message': ' Order not found'
                 }));
 
               case 17:
-                cov_cvibu03c9.b[3][1]++;
+                cov_cvibu03c9.b[4][1]++;
 
               case 18:
-                cov_cvibu03c9.s[28]++;
+                cov_cvibu03c9.s[30]++;
                 return _context4.abrupt("return", response.status(200).json({
                   'status': 200,
                   'Data': rows[0]
@@ -1414,7 +1490,7 @@ function () {
               case 22:
                 _context4.prev = 22;
                 _context4.t0 = _context4["catch"](3);
-                cov_cvibu03c9.s[29]++;
+                cov_cvibu03c9.s[31]++;
                 return _context4.abrupt("return", response.status(400).json({
                   'Status': 400,
                   'Error': "".concat(_context4.t0)
@@ -1452,11 +1528,11 @@ function () {
             switch (_context5.prev = _context5.next) {
               case 0:
                 cov_cvibu03c9.f[4]++;
-                findParcelQuery = (cov_cvibu03c9.s[30]++, 'SELECT * FROM parcels WHERE id = $1 AND placed_by=$2');
-                updateParcelQuery = (cov_cvibu03c9.s[31]++, "UPDATE parcels SET cancelled=true, \n          modified_at=NOW() WHERE id=$1 returning *");
-                cov_cvibu03c9.s[32]++;
+                findParcelQuery = (cov_cvibu03c9.s[32]++, 'SELECT * FROM parcels WHERE id = $1 AND placed_by=$2');
+                updateParcelQuery = (cov_cvibu03c9.s[33]++, "UPDATE parcels SET cancelled=true, \n          modified_at=NOW() WHERE id=$1 returning *");
+                cov_cvibu03c9.s[34]++;
                 _context5.prev = 4;
-                cov_cvibu03c9.s[33]++;
+                cov_cvibu03c9.s[35]++;
                 _context5.next = 8;
                 return _index.default.query(findParcelQuery, [request.params.id, request.user.id]);
 
@@ -1464,31 +1540,31 @@ function () {
                 _ref5 = _context5.sent;
                 rows = _ref5.rows;
                 rowCount = _ref5.rowCount;
-                cov_cvibu03c9.s[34]++;
+                cov_cvibu03c9.s[36]++;
 
                 if (!(rowCount === 1)) {
                   _context5.next = 18;
                   break;
                 }
 
-                cov_cvibu03c9.b[4][0]++;
-                cov_cvibu03c9.s[35]++;
+                cov_cvibu03c9.b[5][0]++;
+                cov_cvibu03c9.s[37]++;
                 return _context5.abrupt("return", response.status(404).json({
                   'Status': 404,
                   'Message': 'No order with the specified id exists for the user'
                 }));
 
               case 18:
-                cov_cvibu03c9.b[4][1]++;
+                cov_cvibu03c9.b[5][1]++;
 
               case 19:
-                cov_cvibu03c9.s[36]++;
+                cov_cvibu03c9.s[38]++;
                 _context5.next = 22;
                 return _index.default.query(updateParcelQuery, [request.params.id]);
 
               case 22:
                 result = _context5.sent;
-                cov_cvibu03c9.s[37]++;
+                cov_cvibu03c9.s[39]++;
                 return _context5.abrupt("return", response.status(200).json({
                   'Status': 200,
                   'Data': result.rows[0]
@@ -1497,7 +1573,7 @@ function () {
               case 27:
                 _context5.prev = 27;
                 _context5.t0 = _context5["catch"](4);
-                cov_cvibu03c9.s[38]++;
+                cov_cvibu03c9.s[40]++;
                 return _context5.abrupt("return", response.status(400).json({
                   'Status': 400,
                   'Error': "".concat(_context5.t0)
@@ -1535,43 +1611,43 @@ function () {
             switch (_context6.prev = _context6.next) {
               case 0:
                 cov_cvibu03c9.f[5]++;
-                findParcelQuery = (cov_cvibu03c9.s[39]++, 'SELECT * FROM parcels WHERE id = $1 ');
-                updateParcelQuery = (cov_cvibu03c9.s[40]++, "UPDATE parcels SET current_location=$1, \n          modified_at=NOW() WHERE id=$2 returning *");
-                values = (cov_cvibu03c9.s[41]++, [request.body.current_location, request.params.id]);
-                cov_cvibu03c9.s[42]++;
+                findParcelQuery = (cov_cvibu03c9.s[41]++, 'SELECT * FROM parcels WHERE id = $1 ');
+                updateParcelQuery = (cov_cvibu03c9.s[42]++, "UPDATE parcels SET current_location=$1, \n          modified_at=NOW() WHERE id=$2 returning *");
+                values = (cov_cvibu03c9.s[43]++, [request.body.current_location, request.params.id]);
+                cov_cvibu03c9.s[44]++;
                 _context6.prev = 5;
-                cov_cvibu03c9.s[43]++;
+                cov_cvibu03c9.s[45]++;
                 _context6.next = 9;
                 return _index.default.query(findParcelQuery, [request.params.id]);
 
               case 9:
                 _ref6 = _context6.sent;
                 rowCount = _ref6.rowCount;
-                cov_cvibu03c9.s[44]++;
+                cov_cvibu03c9.s[46]++;
 
                 if (!(rowCount < 1)) {
                   _context6.next = 18;
                   break;
                 }
 
-                cov_cvibu03c9.b[5][0]++;
-                cov_cvibu03c9.s[45]++;
+                cov_cvibu03c9.b[6][0]++;
+                cov_cvibu03c9.s[47]++;
                 return _context6.abrupt("return", response.status(404).json({
                   'Status': 404,
                   'Message': 'Order not found'
                 }));
 
               case 18:
-                cov_cvibu03c9.b[5][1]++;
+                cov_cvibu03c9.b[6][1]++;
 
               case 19:
-                cov_cvibu03c9.s[46]++;
+                cov_cvibu03c9.s[48]++;
                 _context6.next = 22;
                 return _index.default.query(updateParcelQuery, values);
 
               case 22:
                 result = _context6.sent;
-                cov_cvibu03c9.s[47]++;
+                cov_cvibu03c9.s[49]++;
                 return _context6.abrupt("return", response.status(200).json({
                   'Status': 200,
                   'Message': 'Location updated successfully',
@@ -1581,7 +1657,7 @@ function () {
               case 27:
                 _context6.prev = 27;
                 _context6.t0 = _context6["catch"](5);
-                cov_cvibu03c9.s[48]++;
+                cov_cvibu03c9.s[50]++;
                 return _context6.abrupt("return", response.status(400).json({
                   'Status': 400,
                   'Error': "".concat(_context6.t0)
@@ -1619,43 +1695,43 @@ function () {
             switch (_context7.prev = _context7.next) {
               case 0:
                 cov_cvibu03c9.f[6]++;
-                findParcelQuery = (cov_cvibu03c9.s[49]++, 'SELECT * FROM parcels WHERE id = $1 AND placed_by = $2 AND status != "delivered"');
-                updateParcelQuery = (cov_cvibu03c9.s[50]++, "UPDATE parcels SET receiver_address=$1, \n          modified_at=NOW() WHERE id=$2 returning *");
-                values = (cov_cvibu03c9.s[51]++, [request.body.receiver_address, request.params.id]);
-                cov_cvibu03c9.s[52]++;
+                findParcelQuery = (cov_cvibu03c9.s[51]++, 'SELECT * FROM parcels WHERE id = $1 AND placed_by = $2 AND status != "delivered"');
+                updateParcelQuery = (cov_cvibu03c9.s[52]++, "UPDATE parcels SET receiver_address=$1, \n          modified_at=NOW() WHERE id=$2 returning *");
+                values = (cov_cvibu03c9.s[53]++, [request.body.receiver_address, request.params.id]);
+                cov_cvibu03c9.s[54]++;
                 _context7.prev = 5;
-                cov_cvibu03c9.s[53]++;
+                cov_cvibu03c9.s[55]++;
                 _context7.next = 9;
                 return _index.default.query(findParcelQuery, [request.params.id, request.user.id]);
 
               case 9:
                 _ref7 = _context7.sent;
                 rowCount = _ref7.rowCount;
-                cov_cvibu03c9.s[54]++;
+                cov_cvibu03c9.s[56]++;
 
                 if (!(rowCount < 1)) {
                   _context7.next = 18;
                   break;
                 }
 
-                cov_cvibu03c9.b[6][0]++;
-                cov_cvibu03c9.s[55]++;
+                cov_cvibu03c9.b[7][0]++;
+                cov_cvibu03c9.s[57]++;
                 return _context7.abrupt("return", response.status(404).json({
                   'Status': 404,
                   'Message': 'Order not found'
                 }));
 
               case 18:
-                cov_cvibu03c9.b[6][1]++;
+                cov_cvibu03c9.b[7][1]++;
 
               case 19:
-                cov_cvibu03c9.s[56]++;
+                cov_cvibu03c9.s[58]++;
                 _context7.next = 22;
                 return _index.default.query(updateParcelQuery, values);
 
               case 22:
                 result = _context7.sent;
-                cov_cvibu03c9.s[57]++;
+                cov_cvibu03c9.s[59]++;
                 return _context7.abrupt("return", response.status(200).json({
                   'Status': 200,
                   'Message': 'destination updated successfully',
@@ -1665,7 +1741,7 @@ function () {
               case 27:
                 _context7.prev = 27;
                 _context7.t0 = _context7["catch"](5);
-                cov_cvibu03c9.s[58]++;
+                cov_cvibu03c9.s[60]++;
                 return _context7.abrupt("return", response.status(400).json({
                   'Status': 400,
                   'Error': "".concat(_context7.t0)

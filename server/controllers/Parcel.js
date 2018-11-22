@@ -60,9 +60,6 @@ class Parcel {
       else{
         return response.status(404).json({'Status': 404, 'Message': 'specify a valid id'});
       }
-      
-    
-      
         
   }
 

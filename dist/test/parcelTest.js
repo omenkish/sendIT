@@ -32,10 +32,8 @@ var signup = {
 describe('ROUTES FOR PARCELS', function () {
   describe('POST {when a parcel is being created}', function () {
     it('should return status code 201', function () {
-      return (0, _supertest.default)(_server.default).post('/api/v1/parcels').send(validParcel).set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9tZW5raXNoMTIzQGdtYWlsLmNvbSIsImlkIjo0LCJpYXQiOjE1NDI4NDM5MjcsImV4cCI6MTU0MzAxNjcyN30.S8AuF2RzVxjV8-4bCQfwB0WUDxjokmS_nq7nIWjWW-M').then(function (res) {
+      return (0, _supertest.default)(_server.default).post('/api/v1/parcels').send(validParcel).set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lQGdtYWlsLmNvbSIsImlkIjo1LCJpYXQiOjE1NDI5MDg5OTAsImV4cCI6MTU0MzA4MTc5MH0.ZfZXyqfXybCOuFo4K5IW7CvdW-_qVPw-0XS5FJHGdYA').then(function (res) {
         (0, _chai.expect)(res.status).to.equal(201);
-      }).catch(function (err) {
-        console.log('=================> Error', err);
       });
     });
   });

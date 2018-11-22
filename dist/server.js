@@ -2,7 +2,7 @@
 
 var cov_2f18ur6zp7 = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\server.js",
-      hash = "206b6c04c50267d0f871b49e82cd80a94413aaee",
+      hash = "ba7f0c41f84ab6d93264280172a474d700386641",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -11,121 +11,151 @@ var cov_2f18ur6zp7 = function () {
     statementMap: {
       "0": {
         start: {
-          line: 10,
+          line: 11,
           column: 0
         },
         end: {
-          line: 12,
+          line: 13,
           column: 1
         }
       },
       "1": {
         start: {
-          line: 11,
+          line: 12,
           column: 2
         },
         end: {
-          line: 11,
+          line: 12,
           column: 29
         }
       },
       "2": {
         start: {
-          line: 14,
+          line: 15,
           column: 12
         },
         end: {
-          line: 14,
+          line: 15,
           column: 21
         }
       },
       "3": {
         start: {
-          line: 16,
+          line: 17,
           column: 0
         },
         end: {
-          line: 16,
+          line: 17,
           column: 51
         }
       },
       "4": {
         start: {
-          line: 17,
+          line: 18,
           column: 0
         },
         end: {
-          line: 17,
+          line: 18,
           column: 27
         }
       },
       "5": {
         start: {
-          line: 19,
+          line: 20,
           column: 0
         },
         end: {
-          line: 21,
+          line: 22,
           column: 3
         }
       },
       "6": {
         start: {
-          line: 20,
+          line: 21,
           column: 2
         },
         end: {
-          line: 20,
+          line: 21,
           column: 49
         }
       },
       "7": {
         start: {
-          line: 23,
+          line: 24,
           column: 0
         },
         end: {
-          line: 23,
+          line: 24,
           column: 35
         }
       },
       "8": {
         start: {
-          line: 24,
+          line: 25,
           column: 0
         },
         end: {
-          line: 24,
+          line: 25,
           column: 31
         }
       },
       "9": {
         start: {
           line: 26,
-          column: 13
+          column: 0
         },
         end: {
           line: 26,
-          column: 37
+          column: 30
         }
       },
       "10": {
         start: {
-          line: 27,
+          line: 28,
           column: 0
         },
         end: {
-          line: 29,
-          column: 3
+          line: 30,
+          column: 2
         }
       },
       "11": {
         start: {
-          line: 28,
+          line: 29,
           column: 2
         },
         end: {
-          line: 28,
+          line: 29,
+          column: 68
+        }
+      },
+      "12": {
+        start: {
+          line: 32,
+          column: 13
+        },
+        end: {
+          line: 32,
+          column: 37
+        }
+      },
+      "13": {
+        start: {
+          line: 33,
+          column: 0
+        },
+        end: {
+          line: 35,
+          column: 3
+        }
+      },
+      "14": {
+        start: {
+          line: 34,
+          column: 2
+        },
+        end: {
+          line: 34,
           column: 56
         }
       }
@@ -135,117 +165,141 @@ var cov_2f18ur6zp7 = function () {
         name: "(anonymous_0)",
         decl: {
           start: {
-            line: 19,
+            line: 20,
             column: 13
           },
           end: {
-            line: 19,
+            line: 20,
             column: 14
           }
         },
         loc: {
           start: {
-            line: 19,
+            line: 20,
             column: 27
           },
           end: {
-            line: 21,
+            line: 22,
             column: 1
           }
         },
-        line: 19
+        line: 20
       },
       "1": {
         name: "(anonymous_1)",
         decl: {
           start: {
-            line: 27,
+            line: 28,
+            column: 14
+          },
+          end: {
+            line: 28,
+            column: 15
+          }
+        },
+        loc: {
+          start: {
+            line: 28,
+            column: 43
+          },
+          end: {
+            line: 30,
+            column: 1
+          }
+        },
+        line: 28
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 33,
             column: 17
           },
           end: {
-            line: 27,
+            line: 33,
             column: 18
           }
         },
         loc: {
           start: {
-            line: 27,
+            line: 33,
             column: 23
           },
           end: {
-            line: 29,
+            line: 35,
             column: 1
           }
         },
-        line: 27
+        line: 33
       }
     },
     branchMap: {
       "0": {
         loc: {
           start: {
-            line: 10,
+            line: 11,
             column: 0
           },
           end: {
-            line: 12,
+            line: 13,
             column: 1
           }
         },
         type: "if",
         locations: [{
           start: {
-            line: 10,
+            line: 11,
             column: 0
           },
           end: {
-            line: 12,
+            line: 13,
             column: 1
           }
         }, {
           start: {
-            line: 10,
+            line: 11,
             column: 0
           },
           end: {
-            line: 12,
+            line: 13,
             column: 1
           }
         }],
-        line: 10
+        line: 11
       },
       "1": {
         loc: {
           start: {
-            line: 26,
+            line: 32,
             column: 13
           },
           end: {
-            line: 26,
+            line: 32,
             column: 37
           }
         },
         type: "binary-expr",
         locations: [{
           start: {
-            line: 26,
+            line: 32,
             column: 13
           },
           end: {
-            line: 26,
+            line: 32,
             column: 29
           }
         }, {
           start: {
-            line: 26,
+            line: 32,
             column: 33
           },
           end: {
-            line: 26,
+            line: 32,
             column: 37
           }
         }],
-        line: 26
+        line: 32
       }
     },
     s: {
@@ -260,11 +314,15 @@ var cov_2f18ur6zp7 = function () {
       "8": 0,
       "9": 0,
       "10": 0,
-      "11": 0
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0
     },
     f: {
       "0": 0,
-      "1": 0
+      "1": 0,
+      "2": 0
     },
     b: {
       "0": [0, 0],
@@ -296,6 +354,8 @@ require("@babel/polyfill");
 var _parcel = _interopRequireDefault(require("./routes/parcel"));
 
 var _user = _interopRequireDefault(require("./routes/user"));
+
+var _auth = _interopRequireDefault(require("./routes/auth"));
 
 var _parcels = _interopRequireDefault(require("./models/parcels"));
 
@@ -330,11 +390,22 @@ cov_2f18ur6zp7.s[7]++;
 app.use('/api/v1/parcels', _parcel.default);
 cov_2f18ur6zp7.s[8]++;
 app.use('/api/v1/users', _user.default);
-var port = (cov_2f18ur6zp7.s[9]++, (cov_2f18ur6zp7.b[1][0]++, process.env.PORT) || (cov_2f18ur6zp7.b[1][1]++, 5000));
+cov_2f18ur6zp7.s[9]++;
+app.use('/api/v1/', _auth.default);
 cov_2f18ur6zp7.s[10]++;
-app.listen(port, function () {
+app.use('**', function (request, response, next) {
   cov_2f18ur6zp7.f[1]++;
   cov_2f18ur6zp7.s[11]++;
+  res.status(404).json({
+    'Status': 404,
+    'ERROR': 'Invalid Route!!!'
+  });
+});
+var port = (cov_2f18ur6zp7.s[12]++, (cov_2f18ur6zp7.b[1][0]++, process.env.PORT) || (cov_2f18ur6zp7.b[1][1]++, 5000));
+cov_2f18ur6zp7.s[13]++;
+app.listen(port, function () {
+  cov_2f18ur6zp7.f[2]++;
+  cov_2f18ur6zp7.s[14]++;
   console.log("Server up and running on port: ".concat(port));
 });
 var _default = app;

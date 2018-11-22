@@ -22,24 +22,16 @@ class Helper {
   }
 
   /**
-   * isValidEmail helper method
-   * @param {string} email
-   * @returns {Boolean} True or False
-   */
-  static isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
-  }
-
-  /**
    * Gnerate Token
-   * @param {string} id
-   * @returns {string} token
+   * @param {integer} id
+   * @param {string} email
+   * @returns {Object} token
    */
   static generateToken(email, id) {
     const token = jwt.sign({
       email, id
     },
-      process.env.JWT_SECRET, { expiresIn: '1h' }
+      process.env.JWT_SECRET, { expiresIn: '2d' }
     );
     return token;
   }

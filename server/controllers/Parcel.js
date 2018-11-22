@@ -14,13 +14,13 @@ class Parcel {
           sender_address, receiver_address, current_location) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`;
 
     const values = [
-      request.body.placed_by,
+      request.user.id,
       request.body.receiver_number,
       request.body.weight,
       request.body.weight_metric,
-      request.body.sender_address,
-      request.body.receiver_address,
-      request.body.current_location
+      request.body.sender_address.toLowerCase(),
+      request.body.receiver_address.toLowerCase(),
+      request.body.current_location.toLowerCase()
     ];
     try {
       const { rows } = await db.query(createParcelQuery, values);
@@ -31,7 +31,33 @@ class Parcel {
     }
   }
 
-  
+  /**
+   * method to fetch all parcel orders for a particular user
+   * Can be accessed by only the owner
+   * @param {object} request 
+   * @param {object} response 
+   * @returns {Array} all parcel orders
+   */
+  static async getAllParcels(request, response){
+    
+    
+      const getParcelsQuery = 'SELECT * FROM parcels WHERE placed_by=$1';
+    
+      try{
+        const { rows, rowCount} = await db.query(getParcelsQuery, [request.user.id]);
+
+        if(rowCount === 0){
+          return response.status(404).json({'Status': 404, 'Message': rows});
+        }
+        return response.status(200).json({'Status': 200, Data: rows, 'Count': `${rowCount}`})
+      }
+      catch(error){
+        return response.status(400).json({'Status': 400, 'Error': `${error}`});
+      }
+    
+    
+  }
+
   
 }
 

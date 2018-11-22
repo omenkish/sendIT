@@ -48,7 +48,6 @@ class UserValidator {
 
   static createParcel(request, response, next){
     const CreateParcelRules = {
-      placed_by: 'required|integer',
       receiver_number: 'required|string',
       weight: 'required|numeric',
       weight_metric: 'required|string',

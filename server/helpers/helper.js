@@ -39,7 +39,7 @@ class Helper {
     const token = jwt.sign({
       email, id
     },
-      process.env.JWT_SECRET, { expiresIn: '1h' }
+      process.env.JWT_SECRET, { expiresIn: '2d' }
     );
     return token;
   }

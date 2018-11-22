@@ -2,7 +2,7 @@
 
 var cov_1qyigafre7 = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\helpers\\helper.js",
-      hash = "7184c45339a06ec95639b44a8834aa37c6f923ce",
+      hash = "3d8107d53b4a8b891a2e733999421522e3d5e7d5",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -31,21 +31,21 @@ var cov_1qyigafre7 = function () {
       },
       "2": {
         start: {
-          line: 36,
+          line: 31,
           column: 18
         },
         end: {
-          line: 40,
+          line: 35,
           column: 5
         }
       },
       "3": {
         start: {
-          line: 41,
+          line: 36,
           column: 4
         },
         end: {
-          line: 41,
+          line: 36,
           column: 17
         }
       }
@@ -103,25 +103,25 @@ var cov_1qyigafre7 = function () {
         name: "(anonymous_2)",
         decl: {
           start: {
-            line: 35,
+            line: 30,
             column: 2
           },
           end: {
-            line: 35,
+            line: 30,
             column: 3
           }
         },
         loc: {
           start: {
-            line: 35,
+            line: 30,
             column: 34
           },
           end: {
-            line: 42,
+            line: 37,
             column: 3
           }
         },
-        line: 35
+        line: 30
       }
     },
     branchMap: {},
@@ -201,15 +201,10 @@ function () {
       return _bcrypt.default.compareSync(password, hashPassword);
     }
     /**
-     * isValidEmail helper method
-     * @param {string} email
-     * @returns {Boolean} True or False
-     */
-
-    /**
      * Gnerate Token
-     * @param {string} id
-     * @returns {string} token
+     * @param {integer} id
+     * @param {string} email
+     * @returns {Object} token
      */
 
   }, {

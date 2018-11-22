@@ -2,7 +2,7 @@
 
 var cov_1kmjp5g00d = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\models\\parcels.js",
-      hash = "5f973088728e53116ba4a5769dc5320aed0ba3e3",
+      hash = "5d6ad7ed141ac439630ec70c75d6c1b2c511672e",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -26,7 +26,7 @@ var cov_1kmjp5g00d = function () {
         },
         end: {
           line: 6,
-          column: 77
+          column: 105
         }
       },
       "2": {
@@ -614,7 +614,41 @@ var cov_1kmjp5g00d = function () {
         line: 83
       }
     },
-    branchMap: {},
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 6,
+            column: 25
+          },
+          end: {
+            line: 6,
+            column: 105
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 6,
+            column: 25
+          },
+          end: {
+            line: 6,
+            column: 49
+          }
+        }, {
+          start: {
+            line: 6,
+            column: 53
+          },
+          end: {
+            line: 6,
+            column: 105
+          }
+        }],
+        line: 6
+      }
+    },
     s: {
       "0": 0,
       "1": 0,
@@ -661,7 +695,9 @@ var cov_1kmjp5g00d = function () {
       "11": 0,
       "12": 0
     },
-    b: {},
+    b: {
+      "0": [0, 0]
+    },
     _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184"
   },
       coverage = global[gcv] || (global[gcv] = {});
@@ -697,7 +733,7 @@ cov_1kmjp5g00d.s[0]++;
 
 _dotenv.default.config();
 
-var connectionString = (cov_1kmjp5g00d.s[1]++, 'postgres://postgres:postgres@127.0.0.1:5432/sendit');
+var connectionString = (cov_1kmjp5g00d.s[1]++, (cov_1kmjp5g00d.b[0][0]++, process.env.DATABASE_URL) || (cov_1kmjp5g00d.b[0][1]++, 'postgres://postgres:postgres@127.0.0.1:5432/sendit'));
 var pool = (cov_1kmjp5g00d.s[2]++, new _pg.Pool({
   connectionString: connectionString
 }));

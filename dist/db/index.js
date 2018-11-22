@@ -2,7 +2,7 @@
 
 var cov_190ox26wfs = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\db\\index.js",
-      hash = "7ed707ad8fcfd28ef9185e45b2c88671d288af5a",
+      hash = "99747aa6e55ecff5fa73e55bb2940d05ea4bf5c1",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -22,11 +22,11 @@ var cov_190ox26wfs = function () {
       "1": {
         start: {
           line: 5,
-          column: 26
+          column: 25
         },
         end: {
           line: 5,
-          column: 123
+          column: 105
         }
       },
       "2": {
@@ -178,7 +178,41 @@ var cov_190ox26wfs = function () {
         line: 21
       }
     },
-    branchMap: {},
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 5,
+            column: 25
+          },
+          end: {
+            line: 5,
+            column: 105
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 5,
+            column: 25
+          },
+          end: {
+            line: 5,
+            column: 49
+          }
+        }, {
+          start: {
+            line: 5,
+            column: 53
+          },
+          end: {
+            line: 5,
+            column: 105
+          }
+        }],
+        line: 5
+      }
+    },
     s: {
       "0": 0,
       "1": 0,
@@ -194,7 +228,9 @@ var cov_190ox26wfs = function () {
       "2": 0,
       "3": 0
     },
-    b: {},
+    b: {
+      "0": [0, 0]
+    },
     _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184"
   },
       coverage = global[gcv] || (global[gcv] = {});
@@ -222,7 +258,7 @@ cov_190ox26wfs.s[0]++;
 
 _dotenv.default.config();
 
-var connectionString = (cov_190ox26wfs.s[1]++, 'postgres://lquxwgaw:RgsKAn2mJNGS3y_4jd90R85DqI-6e8mS@pellefant.db.elephantsql.com:5432/lquxwgaw');
+var connectionString = (cov_190ox26wfs.s[1]++, (cov_190ox26wfs.b[0][0]++, process.env.DATABASE_URL) || (cov_190ox26wfs.b[0][1]++, 'postgres://postgres:postgres@127.0.0.1:5432/sendit'));
 var pool = (cov_190ox26wfs.s[2]++, new _pg.Pool({
   connectionString: connectionString
 }));

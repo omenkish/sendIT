@@ -2,7 +2,7 @@
 
 var cov_2hhazphapa = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\controllers\\User.js",
-      hash = "8b9ed01d73335eaa9a05e68653d491304eb14c7d",
+      hash = "3a73b7f6b5e665170b37cab70c9244ad5a402107",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -112,31 +112,31 @@ var cov_2hhazphapa = function () {
       "10": {
         start: {
           line: 50,
-          column: 4
+          column: 21
         },
         end: {
-          line: 52,
-          column: 5
+          line: 50,
+          column: 59
         }
       },
       "11": {
         start: {
-          line: 51,
-          column: 6
+          line: 52,
+          column: 4
         },
         end: {
-          line: 51,
-          column: 95
+          line: 64,
+          column: 5
         }
       },
       "12": {
         start: {
           line: 53,
-          column: 4
+          column: 23
         },
         end: {
-          line: 55,
-          column: 5
+          line: 53,
+          column: 69
         }
       },
       "13": {
@@ -145,58 +145,58 @@ var cov_2hhazphapa = function () {
           column: 6
         },
         end: {
-          line: 54,
-          column: 108
+          line: 56,
+          column: 7
         }
       },
       "14": {
         start: {
-          line: 56,
-          column: 21
+          line: 55,
+          column: 8
         },
         end: {
-          line: 56,
-          column: 59
+          line: 55,
+          column: 114
         }
       },
       "15": {
         start: {
-          line: 58,
-          column: 4
+          line: 57,
+          column: 6
         },
         end: {
-          line: 70,
-          column: 5
+          line: 59,
+          column: 7
         }
       },
       "16": {
         start: {
-          line: 59,
-          column: 23
+          line: 58,
+          column: 8
         },
         end: {
-          line: 59,
-          column: 69
+          line: 58,
+          column: 100
         }
       },
       "17": {
         start: {
           line: 60,
-          column: 6
+          column: 20
         },
         end: {
-          line: 62,
-          column: 7
+          line: 60,
+          column: 67
         }
       },
       "18": {
         start: {
           line: 61,
-          column: 8
+          column: 6
         },
         end: {
           line: 61,
-          column: 114
+          column: 83
         }
       },
       "19": {
@@ -205,97 +205,57 @@ var cov_2hhazphapa = function () {
           column: 6
         },
         end: {
-          line: 65,
-          column: 7
+          line: 63,
+          column: 78
         }
       },
       "20": {
         start: {
-          line: 64,
-          column: 8
+          line: 75,
+          column: 26
         },
         end: {
-          line: 64,
-          column: 100
+          line: 75,
+          column: 47
         }
       },
       "21": {
         start: {
-          line: 66,
-          column: 20
+          line: 76,
+          column: 4
         },
         end: {
-          line: 66,
-          column: 67
+          line: 82,
+          column: 5
         }
       },
       "22": {
         start: {
-          line: 67,
-          column: 6
+          line: 77,
+          column: 33
         },
         end: {
-          line: 67,
-          column: 83
+          line: 77,
+          column: 61
         }
       },
       "23": {
         start: {
-          line: 69,
+          line: 78,
           column: 6
         },
         end: {
-          line: 69,
-          column: 78
+          line: 78,
+          column: 75
         }
       },
       "24": {
         start: {
           line: 81,
-          column: 26
+          column: 6
         },
         end: {
           line: 81,
-          column: 47
-        }
-      },
-      "25": {
-        start: {
-          line: 82,
-          column: 4
-        },
-        end: {
-          line: 88,
-          column: 5
-        }
-      },
-      "26": {
-        start: {
-          line: 83,
-          column: 33
-        },
-        end: {
-          line: 83,
-          column: 61
-        }
-      },
-      "27": {
-        start: {
-          line: 84,
-          column: 6
-        },
-        end: {
-          line: 84,
-          column: 83
-        }
-      },
-      "28": {
-        start: {
-          line: 87,
-          column: 6
-        },
-        end: {
-          line: 87,
           column: 70
         }
       }
@@ -343,7 +303,7 @@ var cov_2hhazphapa = function () {
             column: 39
           },
           end: {
-            line: 72,
+            line: 66,
             column: 3
           }
         },
@@ -353,25 +313,25 @@ var cov_2hhazphapa = function () {
         name: "(anonymous_2)",
         decl: {
           start: {
-            line: 80,
+            line: 74,
             column: 2
           },
           end: {
-            line: 80,
+            line: 74,
             column: 3
           }
         },
         loc: {
           start: {
-            line: 80,
+            line: 74,
             column: 43
           },
           end: {
-            line: 89,
+            line: 83,
             column: 3
           }
         },
-        line: 80
+        line: 74
       }
     },
     branchMap: {
@@ -411,167 +371,68 @@ var cov_2hhazphapa = function () {
       "1": {
         loc: {
           start: {
-            line: 50,
-            column: 4
+            line: 54,
+            column: 6
           },
           end: {
-            line: 52,
-            column: 5
+            line: 56,
+            column: 7
           }
         },
         type: "if",
         locations: [{
           start: {
-            line: 50,
-            column: 4
+            line: 54,
+            column: 6
           },
           end: {
-            line: 52,
-            column: 5
+            line: 56,
+            column: 7
           }
         }, {
           start: {
-            line: 50,
-            column: 4
+            line: 54,
+            column: 6
           },
           end: {
-            line: 52,
-            column: 5
+            line: 56,
+            column: 7
           }
         }],
-        line: 50
+        line: 54
       },
       "2": {
         loc: {
           start: {
-            line: 50,
-            column: 7
-          },
-          end: {
-            line: 50,
-            column: 52
-          }
-        },
-        type: "binary-expr",
-        locations: [{
-          start: {
-            line: 50,
-            column: 7
-          },
-          end: {
-            line: 50,
-            column: 26
-          }
-        }, {
-          start: {
-            line: 50,
-            column: 30
-          },
-          end: {
-            line: 50,
-            column: 52
-          }
-        }],
-        line: 50
-      },
-      "3": {
-        loc: {
-          start: {
-            line: 53,
-            column: 4
-          },
-          end: {
-            line: 55,
-            column: 5
-          }
-        },
-        type: "if",
-        locations: [{
-          start: {
-            line: 53,
-            column: 4
-          },
-          end: {
-            line: 55,
-            column: 5
-          }
-        }, {
-          start: {
-            line: 53,
-            column: 4
-          },
-          end: {
-            line: 55,
-            column: 5
-          }
-        }],
-        line: 53
-      },
-      "4": {
-        loc: {
-          start: {
-            line: 60,
+            line: 57,
             column: 6
           },
           end: {
-            line: 62,
+            line: 59,
             column: 7
           }
         },
         type: "if",
         locations: [{
           start: {
-            line: 60,
+            line: 57,
             column: 6
           },
           end: {
-            line: 62,
+            line: 59,
             column: 7
           }
         }, {
           start: {
-            line: 60,
+            line: 57,
             column: 6
           },
           end: {
-            line: 62,
+            line: 59,
             column: 7
           }
         }],
-        line: 60
-      },
-      "5": {
-        loc: {
-          start: {
-            line: 63,
-            column: 6
-          },
-          end: {
-            line: 65,
-            column: 7
-          }
-        },
-        type: "if",
-        locations: [{
-          start: {
-            line: 63,
-            column: 6
-          },
-          end: {
-            line: 65,
-            column: 7
-          }
-        }, {
-          start: {
-            line: 63,
-            column: 6
-          },
-          end: {
-            line: 65,
-            column: 7
-          }
-        }],
-        line: 63
+        line: 57
       }
     },
     s: {
@@ -599,11 +460,7 @@ var cov_2hhazphapa = function () {
       "21": 0,
       "22": 0,
       "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0
+      "24": 0
     },
     f: {
       "0": 0,
@@ -613,10 +470,7 @@ var cov_2hhazphapa = function () {
     b: {
       "0": [0, 0],
       "1": [0, 0],
-      "2": [0, 0],
-      "3": [0, 0],
-      "4": [0, 0],
-      "5": [0, 0]
+      "2": [0, 0]
     },
     _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184"
   },
@@ -754,107 +608,71 @@ function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 cov_2hhazphapa.f[1]++;
-                cov_2hhazphapa.s[10]++;
-
-                if (!((cov_2hhazphapa.b[2][0]++, !request.body.email) || (cov_2hhazphapa.b[2][1]++, !request.body.password))) {
-                  _context2.next = 8;
-                  break;
-                }
-
-                cov_2hhazphapa.b[1][0]++;
+                sqlQuery = (cov_2hhazphapa.s[10]++, 'SELECT * FROM users WHERE email = $1');
                 cov_2hhazphapa.s[11]++;
-                return _context2.abrupt("return", response.status(415).json({
-                  'Status': '415',
-                  'message': 'Some values are missing'
-                }));
-
-              case 8:
-                cov_2hhazphapa.b[1][1]++;
-
-              case 9:
+                _context2.prev = 3;
                 cov_2hhazphapa.s[12]++;
+                _context2.next = 7;
+                return _db.default.query(sqlQuery, [request.body.email]);
 
-                if (_helper.default.isValidEmail(request.body.email)) {
+              case 7:
+                _ref2 = _context2.sent;
+                rows = _ref2.rows;
+                cov_2hhazphapa.s[13]++;
+
+                if (rows[0]) {
                   _context2.next = 16;
                   break;
                 }
 
-                cov_2hhazphapa.b[3][0]++;
-                cov_2hhazphapa.s[13]++;
-                return _context2.abrupt("return", response.status(400).json({
-                  'Status': '400',
-                  'message': 'Please enter a valid email address'
-                }));
-
-              case 16:
-                cov_2hhazphapa.b[3][1]++;
-
-              case 17:
-                sqlQuery = (cov_2hhazphapa.s[14]++, 'SELECT * FROM users WHERE email = $1');
-                cov_2hhazphapa.s[15]++;
-                _context2.prev = 19;
-                cov_2hhazphapa.s[16]++;
-                _context2.next = 23;
-                return _db.default.query(sqlQuery, [request.body.email]);
-
-              case 23:
-                _ref2 = _context2.sent;
-                rows = _ref2.rows;
-                cov_2hhazphapa.s[17]++;
-
-                if (rows[0]) {
-                  _context2.next = 32;
-                  break;
-                }
-
-                cov_2hhazphapa.b[4][0]++;
-                cov_2hhazphapa.s[18]++;
+                cov_2hhazphapa.b[1][0]++;
+                cov_2hhazphapa.s[14]++;
                 return _context2.abrupt("return", response.status(400).json({
                   'Status': '400',
                   'message': 'The credentials you provided is incorrect'
                 }));
 
-              case 32:
-                cov_2hhazphapa.b[4][1]++;
+              case 16:
+                cov_2hhazphapa.b[1][1]++;
 
-              case 33:
-                cov_2hhazphapa.s[19]++;
+              case 17:
+                cov_2hhazphapa.s[15]++;
 
                 if (_helper.default.comparePassword(rows[0].password, request.body.password)) {
-                  _context2.next = 40;
+                  _context2.next = 24;
                   break;
                 }
 
-                cov_2hhazphapa.b[5][0]++;
-                cov_2hhazphapa.s[20]++;
+                cov_2hhazphapa.b[2][0]++;
+                cov_2hhazphapa.s[16]++;
                 return _context2.abrupt("return", response.status(400).json({
                   'Status': '400',
                   'Message': 'This password is incorrect'
                 }));
 
-              case 40:
-                cov_2hhazphapa.b[5][1]++;
+              case 24:
+                cov_2hhazphapa.b[2][1]++;
 
-              case 41:
-                token = (cov_2hhazphapa.s[21]++, _helper.default.generateToken(rows[0].email, rows[0].id));
-                cov_2hhazphapa.s[22]++;
+              case 25:
+                token = (cov_2hhazphapa.s[17]++, _helper.default.generateToken(rows[0].email, rows[0].id));
+                cov_2hhazphapa.s[18]++;
                 return _context2.abrupt("return", response.status(200).json({
                   'Status': 200,
                   'Copy this TOKEN ': token
                 }));
 
-              case 46:
-                _context2.prev = 46;
-                _context2.t0 = _context2["catch"](19);
-                cov_2hhazphapa.s[23]++;
+              case 30:
+                _context2.prev = 30;
+                _context2.t0 = _context2["catch"](3);
+                cov_2hhazphapa.s[19]++;
                 return _context2.abrupt("return", response.status(400).json("{'Status': '400','Error': ".concat(_context2.t0, "}")));
 
-              case 50:
+              case 34:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[19, 46]]);
+        }, _callee2, this, [[3, 30]]);
       }));
 
       return function login(_x3, _x4) {
@@ -881,10 +699,10 @@ function () {
             switch (_context3.prev = _context3.next) {
               case 0:
                 cov_2hhazphapa.f[2]++;
-                findUsersSql = (cov_2hhazphapa.s[24]++, 'SELECT * FROM users');
-                cov_2hhazphapa.s[25]++;
+                findUsersSql = (cov_2hhazphapa.s[20]++, 'SELECT * FROM users');
+                cov_2hhazphapa.s[21]++;
                 _context3.prev = 3;
-                cov_2hhazphapa.s[26]++;
+                cov_2hhazphapa.s[22]++;
                 _context3.next = 7;
                 return _db.default.query(findUsersSql);
 
@@ -892,16 +710,16 @@ function () {
                 _ref3 = _context3.sent;
                 rows = _ref3.rows;
                 rowCount = _ref3.rowCount;
-                cov_2hhazphapa.s[27]++;
+                cov_2hhazphapa.s[23]++;
                 return _context3.abrupt("return", response.status(200).json({
                   'Data': rows,
-                  'Rows Affected': rowCount
+                  'Count': rowCount
                 }));
 
               case 14:
                 _context3.prev = 14;
                 _context3.t0 = _context3["catch"](3);
-                cov_2hhazphapa.s[28]++;
+                cov_2hhazphapa.s[24]++;
                 response.status(400).json({
                   'Status': 400,
                   'Error': "".concat(_context3.t0, "}")

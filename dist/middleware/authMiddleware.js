@@ -2,7 +2,7 @@
 
 var cov_nro72sqz5 = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\middleware\\authMiddleware.js",
-      hash = "9828deb8e0c498f00017c0d6b65ca602f0de96cc",
+      hash = "635a87c04ed12950100fab8cb73d7f39585293d2",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -15,7 +15,7 @@ var cov_nro72sqz5 = function () {
           column: 0
         },
         end: {
-          line: 17,
+          line: 20,
           column: 1
         }
       },
@@ -25,78 +25,98 @@ var cov_nro72sqz5 = function () {
           column: 2
         },
         end: {
-          line: 15,
+          line: 18,
           column: 3
         }
       },
       "2": {
         start: {
           line: 5,
-          column: 18
+          column: 4
         },
         end: {
-          line: 5,
-          column: 61
+          line: 7,
+          column: 5
         }
       },
       "3": {
         start: {
           line: 6,
-          column: 4
+          column: 8
         },
         end: {
-          line: 8,
-          column: 5
+          line: 6,
+          column: 133
         }
       },
       "4": {
         start: {
-          line: 7,
-          column: 6
+          line: 8,
+          column: 18
         },
         end: {
-          line: 7,
-          column: 69
+          line: 8,
+          column: 61
         }
       },
       "5": {
         start: {
           line: 9,
-          column: 20
+          column: 4
         },
         end: {
-          line: 9,
-          column: 61
+          line: 11,
+          column: 5
         }
       },
       "6": {
         start: {
           line: 10,
-          column: 4
+          column: 6
         },
         end: {
           line: 10,
-          column: 27
+          column: 85
         }
       },
       "7": {
         start: {
-          line: 11,
-          column: 4
+          line: 12,
+          column: 20
         },
         end: {
-          line: 11,
-          column: 11
+          line: 12,
+          column: 61
         }
       },
       "8": {
+        start: {
+          line: 13,
+          column: 4
+        },
+        end: {
+          line: 13,
+          column: 27
+        }
+      },
+      "9": {
         start: {
           line: 14,
           column: 4
         },
         end: {
           line: 14,
-          column: 72
+          column: 11
+        }
+      },
+      "10": {
+        start: {
+          line: 17,
+          column: 4
+        },
+        end: {
+          line: 17,
+          column: 74
         }
       }
     },
@@ -119,7 +139,7 @@ var cov_nro72sqz5 = function () {
             column: 46
           },
           end: {
-            line: 17,
+            line: 20,
             column: 1
           }
         },
@@ -130,35 +150,68 @@ var cov_nro72sqz5 = function () {
       "0": {
         loc: {
           start: {
-            line: 6,
+            line: 5,
             column: 4
           },
           end: {
-            line: 8,
+            line: 7,
             column: 5
           }
         },
         type: "if",
         locations: [{
           start: {
-            line: 6,
+            line: 5,
             column: 4
           },
           end: {
-            line: 8,
+            line: 7,
             column: 5
           }
         }, {
           start: {
-            line: 6,
+            line: 5,
             column: 4
           },
           end: {
-            line: 8,
+            line: 7,
             column: 5
           }
         }],
-        line: 6
+        line: 5
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 9,
+            column: 4
+          },
+          end: {
+            line: 11,
+            column: 5
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 9,
+            column: 4
+          },
+          end: {
+            line: 11,
+            column: 5
+          }
+        }, {
+          start: {
+            line: 9,
+            column: 4
+          },
+          end: {
+            line: 11,
+            column: 5
+          }
+        }],
+        line: 9
       }
     },
     s: {
@@ -170,13 +223,16 @@ var cov_nro72sqz5 = function () {
       "5": 0,
       "6": 0,
       "7": 0,
-      "8": 0
+      "8": 0,
+      "9": 0,
+      "10": 0
     },
     f: {
       "0": 0
     },
     b: {
-      "0": [0, 0]
+      "0": [0, 0],
+      "1": [0, 0]
     },
     _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184"
   },
@@ -201,29 +257,43 @@ module.exports = function (request, response, next) {
   cov_nro72sqz5.s[1]++;
 
   try {
-    var token = (cov_nro72sqz5.s[2]++, request.headers.authorization.split(" ")[1]);
-    cov_nro72sqz5.s[3]++;
+    cov_nro72sqz5.s[2]++;
 
-    if (!token) {
+    if (!request.headers.authorization) {
       cov_nro72sqz5.b[0][0]++;
-      cov_nro72sqz5.s[4]++;
+      cov_nro72sqz5.s[3]++;
       return response.status(404).json({
-        'message': 'Invalid Token'
+        'status': 401,
+        ' Message': 'You do not have access to this page. Provide a valid token'
       });
     } else {
       cov_nro72sqz5.b[0][1]++;
     }
 
-    var decoded = (cov_nro72sqz5.s[5]++, _jsonwebtoken.default.verify(token, process.env.JWT_SECRET));
-    cov_nro72sqz5.s[6]++;
+    var token = (cov_nro72sqz5.s[4]++, request.headers.authorization.split(" ")[1]);
+    cov_nro72sqz5.s[5]++;
+
+    if (!token) {
+      cov_nro72sqz5.b[1][0]++;
+      cov_nro72sqz5.s[6]++;
+      return response.status(404).json({
+        'status': 400,
+        'message ': 'Invalid Token'
+      });
+    } else {
+      cov_nro72sqz5.b[1][1]++;
+    }
+
+    var decoded = (cov_nro72sqz5.s[7]++, _jsonwebtoken.default.verify(token, process.env.JWT_SECRET));
+    cov_nro72sqz5.s[8]++;
     request.user = decoded;
-    cov_nro72sqz5.s[7]++;
+    cov_nro72sqz5.s[9]++;
     next();
   } catch (error) {
-    cov_nro72sqz5.s[8]++;
+    cov_nro72sqz5.s[10]++;
     return response.status(401).json({
       status: 401,
-      Error: "".concat(error, "}")
+      'Error': "".concat(error, "}")
     });
   }
 };

@@ -2,7 +2,7 @@
 
 var cov_cdbeuwstd = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\routes\\parcel.js",
-      hash = "92320d922bcb79e6a4402c17ba5c85ceb92218ce",
+      hash = "1d7b0e15abd60b3540d0b1ff30c5d64d44bae741",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -66,7 +66,7 @@ var cov_cdbeuwstd = function () {
         },
         end: {
           line: 18,
-          column: 72
+          column: 69
         }
       }
     },
@@ -119,6 +119,6 @@ router.put('/:id/cancel', _authMiddleware.default, _Parcel.default.cancelParcelO
 cov_cdbeuwstd.s[4]++;
 router.put('/:id/location', _authMiddleware.default, _validate.default.adminOnly, _Parcel.default.updateCurrentLocation);
 cov_cdbeuwstd.s[5]++;
-router.put('/:id/destination', _authMiddleware.default, _Parcel.default.updateCurrentLocation);
+router.put('/:id/destination', _authMiddleware.default, _Parcel.default.changeDestination);
 var _default = router;
 exports.default = _default;

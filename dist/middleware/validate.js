@@ -2,7 +2,7 @@
 
 var cov_25r04gii2u = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\middleware\\validate.js",
-      hash = "f86d3c7b8d62b7410a1a3dcd0e100fcc87d08315",
+      hash = "75c474edbf83aa15890a0d1bb0a253f04a986126",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -156,7 +156,7 @@ var cov_25r04gii2u = function () {
         },
         end: {
           line: 45,
-          column: 120
+          column: 121
         }
       },
       "15": {

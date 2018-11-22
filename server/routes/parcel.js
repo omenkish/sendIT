@@ -11,11 +11,11 @@ router.route('/')
 .get(validate.adminOnly, Parcel.getAllParcels)
 
 router.route('/:id')
-.get(VerifyToken, validate.adminOnly, validate.getById, Parcel.getParcelById)
+.get(VerifyToken, validate.getById, Parcel.getParcelById)
 
 router.put('/:id/cancel', VerifyToken, Parcel.cancelParcelOrder);
 router.put('/:id/location',VerifyToken,validate.adminOnly, Parcel.updateCurrentLocation);
-router.put('/:id/destination',VerifyToken, Parcel.changeDestination);
+router.put('/:id/destination',VerifyToken, Parcel.changeDestination);//not working
 
 // update status;
 

@@ -2,7 +2,7 @@
 
 var cov_cdbeuwstd = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\routes\\parcel.js",
-      hash = "1d7b0e15abd60b3540d0b1ff30c5d64d44bae741",
+      hash = "e103ad46563d8025293062368c01e906a22ea2f7",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -36,7 +36,7 @@ var cov_cdbeuwstd = function () {
         },
         end: {
           line: 14,
-          column: 77
+          column: 57
         }
       },
       "3": {
@@ -113,12 +113,14 @@ var router = (cov_cdbeuwstd.s[0]++, _express.default.Router());
 cov_cdbeuwstd.s[1]++;
 router.route('/').all(_authMiddleware.default).post(_validate.default.createParcel, _Parcel.default.createParcelOrder).get(_validate.default.adminOnly, _Parcel.default.getAllParcels);
 cov_cdbeuwstd.s[2]++;
-router.route('/:id').get(_authMiddleware.default, _validate.default.adminOnly, _validate.default.getById, _Parcel.default.getParcelById);
+router.route('/:id').get(_authMiddleware.default, _validate.default.getById, _Parcel.default.getParcelById);
 cov_cdbeuwstd.s[3]++;
 router.put('/:id/cancel', _authMiddleware.default, _Parcel.default.cancelParcelOrder);
 cov_cdbeuwstd.s[4]++;
 router.put('/:id/location', _authMiddleware.default, _validate.default.adminOnly, _Parcel.default.updateCurrentLocation);
 cov_cdbeuwstd.s[5]++;
-router.put('/:id/destination', _authMiddleware.default, _Parcel.default.changeDestination);
+router.put('/:id/destination', _authMiddleware.default, _Parcel.default.changeDestination); //not working
+// update status;
+
 var _default = router;
 exports.default = _default;

@@ -1,4 +1,5 @@
 import Validator from 'validatorjs';
+import db from '../db/index';
 
 class UserValidator {
 
@@ -35,14 +36,19 @@ class UserValidator {
     return next();
   } 
 
-  static adminOnly(request, response, next){
+  static async adminOnly(request, response, next){
     const sqlQuery = "SELECT is_admin FROM users WHERE id=$1";
-    
-      const {rows} = db.query(sqlQuery, [request.user.id]);
-      if(rows[0].is_admin === False){
-        return response.status(404).json({'Status': '401','Message': 'You do not have permission to access this route'});
-      }
+    try{
+      
+      const { rows } = await  db.query(sqlQuery, [request.user.id]);
+        if(rows[0].is_admin === false){
+        return response.status(401).json({'message': 'You do not have permission to access this route!'});
+         }
       next();
+    }
+    catch(error){
+      return response.send(error);
+    }
 
   }
 

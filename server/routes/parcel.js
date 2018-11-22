@@ -6,6 +6,8 @@ import Auth from '../middleware/authMiddleware';
 import validate from '../middleware/validate';
 
 router.route('/')
-.post(Auth, validate.createParcel, Parcel.createParcelOrder);
+.all(Auth)
+.post(validate.createParcel, Parcel.createParcelOrder)
+.get(validate.adminOnly, Parcel.getAllParcels)
 
 export default router;

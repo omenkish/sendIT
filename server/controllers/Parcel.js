@@ -38,7 +38,7 @@ class Parcel {
    * @param {object} response 
    * @returns {Array} all parcel orders
    */
-  static async getAllParcels(request, response){
+  static async getUserParcels(request, response){
     
     
       const getParcelsQuery = 'SELECT * FROM parcels WHERE placed_by=$1';
@@ -54,8 +54,25 @@ class Parcel {
       catch(error){
         return response.status(400).json({'Status': 400, 'Error': `${error}`});
       }
-    
-    
+        
+  }
+
+  /**
+   * method to fetch all parcel orders of a user
+   *
+   * @param {object} request 
+   * @param {object} response 
+   * @returns {Array} all parcel orders belonging to a particular user
+   */
+  static async getAllParcels(request, response){
+    const getParcelsQuery = 'SELECT * FROM parcels';
+    try{
+      const { rows, rowCount} = await db.query(getParcelsQuery);
+      return response.status(200).json({'Status': 200, 'Data': rows, 'Count': `${rowCount}`})
+    }
+    catch(error){
+      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+    }
   }
 
   

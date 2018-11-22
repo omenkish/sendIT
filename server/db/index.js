@@ -2,7 +2,7 @@ import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
-const connectionString =  'postgres://lquxwgaw:RgsKAn2mJNGS3y_4jd90R85DqI-6e8mS@pellefant.db.elephantsql.com:5432/lquxwgaw';
+const connectionString = process.env.DATABASE_URL || 'postgres://postgres:postgres@127.0.0.1:5432/sendit';
 const pool = new Pool ({connectionString});
 
 export default {

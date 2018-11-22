@@ -11,8 +11,7 @@ class Parcel {
    */
   static async createParcelOrder(request, response){
     const createParcelQuery = `INSERT INTO parcels(placed_by, receiver_number, weight, weight_metric, 
-          sender_address, receiver_address, current_location) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`;
-
+          sender_address, receiver_address, current_location) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`;
     const values = [
       request.user.id,
       request.body.receiver_number,
@@ -23,6 +22,9 @@ class Parcel {
       request.body.current_location.toLowerCase()
     ];
     try {
+      if(!request.user.id){
+        return response.status(401).json({'Status': 401, 'Message': `${error}`});
+      }
       const { rows } = await db.query(createParcelQuery, values);
       return response.status(201).json({'Status':'201', 'Message':'Parcel inserted successfully', 'Data': rows[0] });
     }
@@ -68,6 +70,9 @@ class Parcel {
     const getParcelsQuery = 'SELECT * FROM parcels';
     try{
       const { rows, rowCount} = await db.query(getParcelsQuery);
+      if(rowCount < 1){
+        return response.status(404).json({'Status':'404', 'message':' You currently have no parcel order'});
+      }
       return response.status(200).json({'Status': 200, 'Data': rows, 'Count': `${rowCount}`})
     }
     catch(error){

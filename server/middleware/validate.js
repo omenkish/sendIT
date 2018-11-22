@@ -70,14 +70,11 @@ class UserValidator {
     return next();
   } 
 
-  static getUserById(request, response, next){
-      if(!Number(request.user.id)){
+  static getById(request, response, next){
+      if(!Number(request.params.id)){
         return response.status(400).json({'Status': 400,'ERROR Message':'id must be a number'});
       }
-      if(!request.params.id){
-        return response.status(404).json({'Status': 404,'ERROR Message':'Parcel Order not found'});
-      }
-
+      
       return next();   
   }
 

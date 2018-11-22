@@ -10,4 +10,7 @@ router.route('/')
 .post(validate.createParcel, Parcel.createParcelOrder)
 .get(validate.adminOnly, Parcel.getAllParcels)
 
+router.route('/:id')
+.get(validate.getById, Parcel.getParcelById)
+
 export default router;

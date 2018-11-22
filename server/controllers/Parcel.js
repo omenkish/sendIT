@@ -75,6 +75,26 @@ class Parcel {
     }
   }
 
+  /**
+   * method to fetch particular parcel order
+   * @param {object} request 
+   * @param {object} response 
+   * @returns {object} particular parcel
+   */
+  static async getParcelById(request, response){
+    const getParcelQuery = 'SELECT * FROM parcels WHERE id=$1';
+    try{
+      const { rows, rowCount } = await db.query(getParcelQuery, [request.params.id]);
+      if( rowCount < 1 ){
+        return response.status(404).json({'Status':'404', 'message':' Order not found'});
+      }
+      return response.status(200).json({'status': 200, 'Data': rows[0]}) ;     
+    }
+    catch(error){
+      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+    }
+  }
+
   
 }
 

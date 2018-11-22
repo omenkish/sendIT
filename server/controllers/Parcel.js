@@ -42,7 +42,8 @@ class Parcel {
    */
   static async getUserParcels(request, response){
     
-    
+      const id = request.params.id;
+
       const getParcelsQuery = 'SELECT * FROM parcels WHERE placed_by=$1';
     
       try{
@@ -166,7 +167,7 @@ class Parcel {
    */
 
    static async changeDestination(request, response){
-    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 AND placed_by = $2 AND status <> "delivered"';
+    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 AND placed_by = $2 AND status != "delivered"';
     const updateParcelQuery = `UPDATE parcels SET receiver_address=$1, 
           modified_at=NOW() WHERE id=$2 returning *`;
 

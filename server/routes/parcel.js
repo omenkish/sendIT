@@ -17,5 +17,8 @@ router.put('/:id/cancel', VerifyToken, Parcel.cancelParcelOrder);
 router.put('/:id/location',VerifyToken,validate.adminOnly, Parcel.updateCurrentLocation);
 router.put('/:id/destination',VerifyToken, Parcel.changeDestination);
 
+// update status;
+
+
 
 export default router;

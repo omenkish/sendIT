@@ -119,6 +119,7 @@ router.put('/:id/cancel', _authMiddleware.default, _Parcel.default.cancelParcelO
 cov_cdbeuwstd.s[4]++;
 router.put('/:id/location', _authMiddleware.default, _validate.default.adminOnly, _Parcel.default.updateCurrentLocation);
 cov_cdbeuwstd.s[5]++;
-router.put('/:id/destination', _authMiddleware.default, _Parcel.default.changeDestination);
+router.put('/:id/destination', _authMiddleware.default, _Parcel.default.changeDestination); // update status;
+
 var _default = router;
 exports.default = _default;

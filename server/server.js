@@ -4,6 +4,7 @@ import '@babel/polyfill';
 
 import parcel from './routes/parcel';
 import user from './routes/user';
+import authUser from './routes/auth';
 import Model from './models/parcels';
 
 // Create tables automatically
@@ -22,6 +23,11 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/parcels', parcel);
 app.use('/api/v1/users', user);
+app.use('/api/v1/', authUser);
+
+app.use('**', (request, response, next) => {
+  res.status(404).json({'Status': 404, 'ERROR':'Invalid Route!!!'});
+})
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

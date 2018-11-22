@@ -22,7 +22,7 @@ const signup = {
   lastname: 'kev',
   othernames: 'kev',
   email: 'omenkish@gmail.com',
-  
+
 }
 
 describe('ROUTES FOR PARCELS', () => {
@@ -33,13 +33,11 @@ describe('ROUTES FOR PARCELS', () => {
       return request(server)
         .post('/api/v1/parcels')
         .send(validParcel)
-        .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9tZW5raXNoMTIzQGdtYWlsLmNvbSIsImlkIjo0LCJpYXQiOjE1NDI4NDM5MjcsImV4cCI6MTU0MzAxNjcyN30.S8AuF2RzVxjV8-4bCQfwB0WUDxjokmS_nq7nIWjWW-M')
+        .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lQGdtYWlsLmNvbSIsImlkIjo1LCJpYXQiOjE1NDI5MDg5OTAsImV4cCI6MTU0MzA4MTc5MH0.ZfZXyqfXybCOuFo4K5IW7CvdW-_qVPw-0XS5FJHGdYA')
         .then(res => {
           expect(res.status).to.equal(201);
         })
-        .catch(err => {
-          console.log('=================> Error', err);
-        })
+        
     })
   })
 });

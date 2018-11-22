@@ -15,7 +15,7 @@ router.route('/:id')
 
 router.put('/:id/cancel', VerifyToken, Parcel.cancelParcelOrder);
 router.put('/:id/location',VerifyToken,validate.adminOnly, Parcel.updateCurrentLocation);
-router.put('/:id/destination',VerifyToken, Parcel.changeDestination);
+router.put('/:id/destination',VerifyToken, Parcel.changeDestination);//not working
 
 // update status;
 

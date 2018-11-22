@@ -13,6 +13,7 @@ router.route('/')
 router.route('/:id')
 .get(VerifyToken, validate.adminOnly, validate.getById, Parcel.getParcelById)
 
-router.put('/:id/cancel', VerifyToken, Parcel.cancelParcelOrder)
+router.put('/:id/cancel', VerifyToken, Parcel.cancelParcelOrder);
+router.put('/:id/location',VerifyToken,validate.adminOnly, Parcel.updateCurrentLocation)
 
 export default router;

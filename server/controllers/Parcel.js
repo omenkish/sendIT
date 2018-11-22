@@ -99,7 +99,7 @@ class Parcel {
    * method to cancel a parcel delivery order
    * @param {object} request 
    * @param {object} response 
-   * @returns {object} all parcel orders
+   * @returns {object} parcel orders
    */
 
   static async cancelParcelOrder(request, response){
@@ -109,11 +109,11 @@ class Parcel {
     try{
         const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id, request.user.id]);
       if(rowCount < 1){
-        return response.status(404).json({'Status': '404','Message': 'No order with the specified id exists for the user'});
+        return response.status(404).json({'Status': 404,'Message': 'No order with the specified id exists for the user'});
       }
 
       const result = await db.query(updateParcelQuery, [request.params.id]);
-      return response.status(200).json({'Status': '200','Data': result.rows[0]});
+      return response.status(200).json({'Status': 200,'Data': result.rows[0]});
   
     }
     catch(error){
@@ -121,8 +121,48 @@ class Parcel {
     }
   }
 
+  /**
+   * method to update parcel delivery location
+   * @param {object} request 
+   * @param {object} response 
+   * @returns {object} parcel orders
+   */
 
+   static async updateCurrentLocation(request, response){
+
+    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1';
+    const updateParcelQuery = `UPDATE parcels SET current_location=$1, 
+          modified_at=NOW() WHERE id=$2 returning *`;
+
+    const values = [
+      request.body.current_location,
+      request.params.id
+    ];
+    try{
+        const { rowCount } = await db.query(findParcelQuery, [request.params.id]);
+      if(rowCount < 1){
+        return response.status(404).json({'Status': 404,'Message': 'Order not found'});
+      }
+
+      const result = await db.query(updateParcelQuery, values);
+      return response.status(200).json({'Status': 200,'Message':'Location updated successfully','Data': result.rows[0]});
   
+    }
+    catch(error){
+      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+    }
+   }
+
+  /**
+   * method to update parcel delivery location
+   * @param {object} request 
+   * @param {object} response 
+   * @returns {object} parcel orders
+   */
+
+   static async updatedeDestination(){
+     
+   }
 }
 
 export default Parcel;

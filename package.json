@@ -9,7 +9,8 @@
     "build": "npx babel server --out-dir dist ",
     "heroku-prebuild": "npm install",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "dev-start": "nodemon server/server --exec \"node -r @babel/register\""
+    "dev-start": "nodemon server/server --exec \"node -r @babel/register\"",
+    "dev-db": "nodemon server/models/parcels --exec \"node -r @babel/register\""
   },
   "nyc": {
     "exclude": [
@@ -43,11 +44,15 @@
     "@babel/preset-env": "^7.1.5",
     "@babel/register": "^7.0.0",
     "babel-plugin-istanbul": "^5.1.0",
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "cross-env": "^5.2.0",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "istanbul": "^0.4.5",
+    "jsonwebtoken": "^8.4.0",
     "moment": "^2.22.2",
+    "pg": "^7.6.1",
     "uuid": "^3.3.2",
     "validatorjs": "^3.15.1"
   },

@@ -95,6 +95,33 @@ class Parcel {
     }
   }
 
+  /**
+   * method to cancel a parcel delivery order
+   * @param {object} request 
+   * @param {object} response 
+   * @returns {object} all parcel orders
+   */
+
+  static async cancelParcelOrder(request, response){
+    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 AND placed_by=$2';
+    const updateParcelQuery = `UPDATE parcels SET cancelled=true, 
+          modified_at=NOW() WHERE id=$1 returning *`;
+    try{
+        const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id, request.user.id]);
+      if(rowCount < 1){
+        return response.status(404).json({'Status': '404','Message': 'No order with the specified id exists for the user'});
+      }
+
+      const result = await db.query(updateParcelQuery, [request.params.id]);
+      return response.status(200).json({'Status': '200','Data': result.rows[0]});
+  
+    }
+    catch(error){
+      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+    }
+  }
+
+
   
 }
 

@@ -49,7 +49,7 @@ class Parcel {
         const { rows, rowCount} = await db.query(getParcelsQuery, [request.user.id]);
 
         if(rowCount === 0){
-          return response.status(404).json({'Status': 404, 'Message': rows});
+          return response.status(404).json({'Status': 404, 'Message': 'No parcels found for this user'});
         }
         return response.status(200).json({'Status': 200, Data: rows, 'Count': `${rowCount}`})
       }
@@ -70,7 +70,7 @@ class Parcel {
     const getParcelsQuery = 'SELECT * FROM parcels';
     try{
       const { rows, rowCount} = await db.query(getParcelsQuery);
-      if(rowCount < 1){
+      if(rowCount === 0){
         return response.status(404).json({'Status':'404', 'message':' You currently have no parcel order'});
       }
       return response.status(200).json({'Status': 200, 'Data': rows, 'Count': `${rowCount}`})
@@ -113,7 +113,7 @@ class Parcel {
           modified_at=NOW() WHERE id=$1 returning *`;
     try{
         const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id, request.user.id]);
-      if(rowCount < 1){
+      if(rowCount === 1){
         return response.status(404).json({'Status': 404,'Message': 'No order with the specified id exists for the user'});
       }
 

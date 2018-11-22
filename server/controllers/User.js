@@ -47,12 +47,6 @@ class User {
    */
 
   static async login(request, response){
-    if(!request.body.email || !request.body.password){
-      return response.status(415).json({'Status': '415','message': 'Some values are missing'});
-    }
-    if (!Helper.isValidEmail(request.body.email)) {
-      return response.status(400).json({ 'Status': '400','message': 'Please enter a valid email address' });
-    }
     const sqlQuery = 'SELECT * FROM users WHERE email = $1';
 
     try{
@@ -81,7 +75,7 @@ class User {
     const  findUsersSql = 'SELECT * FROM users'; 
     try {
       const { rows, rowCount } = await db.query(findUsersSql);
-      return response.status(200).json({'Data': rows, 'Rows Affected': rowCount });
+      return response.status(200).json({'Data': rows, 'Count': rowCount });
     }
     catch(error){
       response.status(400).json({'Status': 400,'Error': `${error}}`});

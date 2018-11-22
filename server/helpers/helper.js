@@ -22,15 +22,10 @@ class Helper {
   }
 
   /**
-   * isValidEmail helper method
-   * @param {string} email
-   * @returns {Boolean} True or False
-   */
-
-  /**
    * Gnerate Token
-   * @param {string} id
-   * @returns {string} token
+   * @param {integer} id
+   * @param {string} email
+   * @returns {Object} token
    */
   static generateToken(email, id) {
     const token = jwt.sign({

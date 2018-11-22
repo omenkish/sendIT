@@ -3,7 +3,7 @@ import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
-const connectionString = process.env.DATABASE_URL || 'postgres://postgres:postgres@127.0.0.1:5432/sendit';
+const connectionString = 'postgres://postgres:postgres@127.0.0.1:5432/sendit';
 const pool = new Pool ({connectionString});
 
 class Parcels {

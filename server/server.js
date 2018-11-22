@@ -6,7 +6,10 @@ import parcel from './routes/parcel';
 import user from './routes/user';
 import Model from './models/parcels';
 
-new Model(); // Create tables automatically.
+// Create tables automatically
+if(Model.createUsersTable()){
+  Model.createParcelsTable();
+}
 
 const app = express();
 

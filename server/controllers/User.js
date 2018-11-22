@@ -37,6 +37,38 @@ class User {
       return response.status(400).json({'Error': `${error}`});
     }
   }
+
+  /**
+   * Login
+   * @param {object} request
+   * @param {object} response
+   * @returns {object} user object 
+   */
+
+  static async login(request, response){
+    if(!request.body.email || !request.body.password){
+      return response.status(415).json({'Status': '415','message': 'Some values are missing'});
+    }
+    if (!Helper.isValidEmail(request.body.email)) {
+      return response.status(400).json({ 'Status': '400','message': 'Please enter a valid email address' });
+    }
+    const sqlQuery = 'SELECT * FROM users WHERE email = $1';
+
+    try{
+      const { rows } = await db.query(sqlQuery, [request.body.email]);
+      if (!rows[0]) {
+        return response.status(400).json({'Status':'400','message': 'The credentials you provided is incorrect'});
+      }
+      if(!Helper.comparePassword(rows[0].password, request.body.password)){
+        return response.status(400).json({'Status': '400','Message': 'This password is incorrect'});
+      }
+      const token = Helper.generateToken(rows[0].email, rows[0].id);
+      return response.status(200).json({'Status': 200, 'Copy this TOKEN ': token});
+    }catch(error){
+      return response.status(400).json(`{'Status': '400','Error': ${error}}`);
+    }
+
+  }
   
 }
 

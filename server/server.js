@@ -4,6 +4,9 @@ import '@babel/polyfill';
 
 import parcel from './routes/parcel';
 import user from './routes/user';
+import Model from './models/parcels';
+
+new Model(); // Create tables automatically.
 
 const app = express();
 

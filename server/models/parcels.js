@@ -87,4 +87,4 @@ class Parcels {
   }
 
 }
-export default new Parcels();
+export default Parcels;

@@ -2,7 +2,7 @@
 
 var cov_2f18ur6zp7 = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\server.js",
-      hash = "2e3e90551fa11bb7e3a1c5921ae4b762f23cd603",
+      hash = "93d7ae1271c914ab3215beb202ba2c4a203f5ea0",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -111,71 +111,31 @@ var cov_2f18ur6zp7 = function () {
       },
       "10": {
         start: {
-          line: 27,
-          column: 0
+          line: 28,
+          column: 13
         },
         end: {
-          line: 29,
-          column: 3
+          line: 28,
+          column: 37
         }
       },
       "11": {
         start: {
-          line: 28,
-          column: 2
+          line: 29,
+          column: 0
         },
         end: {
-          line: 28,
-          column: 80
+          line: 31,
+          column: 3
         }
       },
       "12": {
         start: {
           line: 30,
-          column: 0
-        },
-        end: {
-          line: 32,
-          column: 2
-        }
-      },
-      "13": {
-        start: {
-          line: 31,
           column: 2
         },
         end: {
-          line: 31,
-          column: 62
-        }
-      },
-      "14": {
-        start: {
-          line: 34,
-          column: 13
-        },
-        end: {
-          line: 34,
-          column: 37
-        }
-      },
-      "15": {
-        start: {
-          line: 35,
-          column: 0
-        },
-        end: {
-          line: 37,
-          column: 3
-        }
-      },
-      "16": {
-        start: {
-          line: 36,
-          column: 2
-        },
-        end: {
-          line: 36,
+          line: 30,
           column: 56
         }
       }
@@ -209,73 +169,25 @@ var cov_2f18ur6zp7 = function () {
         name: "(anonymous_1)",
         decl: {
           start: {
-            line: 27,
-            column: 16
-          },
-          end: {
-            line: 27,
+            line: 29,
             column: 17
-          }
-        },
-        loc: {
-          start: {
-            line: 27,
-            column: 39
           },
           end: {
             line: 29,
-            column: 1
-          }
-        },
-        line: 27
-      },
-      "2": {
-        name: "(anonymous_2)",
-        decl: {
-          start: {
-            line: 30,
-            column: 14
-          },
-          end: {
-            line: 30,
-            column: 15
-          }
-        },
-        loc: {
-          start: {
-            line: 30,
-            column: 37
-          },
-          end: {
-            line: 32,
-            column: 1
-          }
-        },
-        line: 30
-      },
-      "3": {
-        name: "(anonymous_3)",
-        decl: {
-          start: {
-            line: 35,
-            column: 17
-          },
-          end: {
-            line: 35,
             column: 18
           }
         },
         loc: {
           start: {
-            line: 35,
+            line: 29,
             column: 23
           },
           end: {
-            line: 37,
+            line: 31,
             column: 1
           }
         },
-        line: 35
+        line: 29
       }
     },
     branchMap: {
@@ -315,35 +227,35 @@ var cov_2f18ur6zp7 = function () {
       "1": {
         loc: {
           start: {
-            line: 34,
+            line: 28,
             column: 13
           },
           end: {
-            line: 34,
+            line: 28,
             column: 37
           }
         },
         type: "binary-expr",
         locations: [{
           start: {
-            line: 34,
+            line: 28,
             column: 13
           },
           end: {
-            line: 34,
+            line: 28,
             column: 29
           }
         }, {
           start: {
-            line: 34,
+            line: 28,
             column: 33
           },
           end: {
-            line: 34,
+            line: 28,
             column: 37
           }
         }],
-        line: 34
+        line: 28
       }
     },
     s: {
@@ -359,17 +271,11 @@ var cov_2f18ur6zp7 = function () {
       "9": 0,
       "10": 0,
       "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0
+      "12": 0
     },
     f: {
       "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0
+      "1": 0
     },
     b: {
       "0": [0, 0],
@@ -439,26 +345,11 @@ cov_2f18ur6zp7.s[8]++;
 app.use('/api/v1/users', _user.default);
 cov_2f18ur6zp7.s[9]++;
 app.use('/api/v1/', _auth.default);
-cov_2f18ur6zp7.s[10]++;
-app.use('/api', function (request, response) {
-  cov_2f18ur6zp7.f[1]++;
-  cov_2f18ur6zp7.s[11]++;
-  return response.status(200).json({
-    'Status': 404,
-    'ERROR': 'Invalid Route!!!'
-  });
-});
-cov_2f18ur6zp7.s[12]++;
-app.use('**', function (request, response) {
-  cov_2f18ur6zp7.f[2]++;
-  cov_2f18ur6zp7.s[13]++;
-  return response.status(404).json('ERROR: Invalid Route!!!');
-});
-var port = (cov_2f18ur6zp7.s[14]++, (cov_2f18ur6zp7.b[1][0]++, process.env.PORT) || (cov_2f18ur6zp7.b[1][1]++, 5000));
-cov_2f18ur6zp7.s[15]++;
+var port = (cov_2f18ur6zp7.s[10]++, (cov_2f18ur6zp7.b[1][0]++, process.env.PORT) || (cov_2f18ur6zp7.b[1][1]++, 5000));
+cov_2f18ur6zp7.s[11]++;
 app.listen(port, function () {
-  cov_2f18ur6zp7.f[3]++;
-  cov_2f18ur6zp7.s[16]++;
+  cov_2f18ur6zp7.f[1]++;
+  cov_2f18ur6zp7.s[12]++;
   console.log("Server up and running on port: ".concat(port));
 });
 var _default = app;

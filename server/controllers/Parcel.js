@@ -122,7 +122,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, [request.params.id]);
-      return response.status(204).json({'Status': 204,'Data': result.rows[0]});
+      return response.status(201).json({'Status': 201,'Data': result.rows[0]});
   
     }
     catch(error){
@@ -154,7 +154,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(204).json({'Status': 204,'Message':'Location updated successfully','Data': result.rows[0]});
+      return response.status(201).json({'Status': 201,'Message':'Location updated successfully','Data': result.rows[0]});
   
     }
     catch(error){
@@ -185,7 +185,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(204).json({'Status': 204,'Message':'destination updated successfully','Data': result.rows[0]});
+      return response.status(201).json({'Status': 201,'Message':'destination updated successfully','Data': result.rows[0]});
   
     }
     catch(error){
@@ -208,7 +208,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(204).json({'Status': 204,'Message':'Parcel successfully delivered','Data': result.rows[0]});
+      return response.status(201).json({'Status': 201,'Message':'Parcel successfully delivered','Data': result.rows[0]});
   
     }
     catch(error){

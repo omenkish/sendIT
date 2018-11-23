@@ -2,7 +2,7 @@
 
 var cov_cvibu03c9 = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\controllers\\Parcel.js",
-      hash = "06f4eb9dfe3f6db5fb71e1230e761db951557cd4",
+      hash = "f5b7af81fbdde5734e043a7fb5a754b5b9f03633",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -645,77 +645,77 @@ var cov_cvibu03c9 = function () {
           column: 19
         },
         end: {
-          line: 204,
+          line: 203,
           column: 5
         }
       },
       "64": {
         start: {
-          line: 205,
+          line: 204,
           column: 4
         },
         end: {
-          line: 217,
+          line: 216,
           column: 5
         }
       },
       "65": {
         start: {
-          line: 206,
+          line: 205,
           column: 29
         },
         end: {
-          line: 206,
+          line: 205,
           column: 81
         }
       },
       "66": {
         start: {
-          line: 207,
+          line: 206,
           column: 6
         },
         end: {
-          line: 209,
+          line: 208,
           column: 7
         }
       },
       "67": {
         start: {
-          line: 208,
+          line: 207,
           column: 8
         },
         end: {
-          line: 208,
+          line: 207,
           column: 87
         }
       },
       "68": {
         start: {
-          line: 211,
+          line: 210,
           column: 21
         },
         end: {
-          line: 211,
+          line: 210,
           column: 62
         }
       },
       "69": {
         start: {
-          line: 212,
+          line: 211,
           column: 6
         },
         end: {
-          line: 212,
+          line: 211,
           column: 121
         }
       },
       "70": {
         start: {
-          line: 216,
+          line: 215,
           column: 6
         },
         end: {
-          line: 216,
+          line: 215,
           column: 77
         }
       }
@@ -907,7 +907,7 @@ var cov_cvibu03c9 = function () {
             column: 50
           },
           end: {
-            line: 218,
+            line: 217,
             column: 4
           }
         },
@@ -1182,35 +1182,35 @@ var cov_cvibu03c9 = function () {
       "8": {
         loc: {
           start: {
-            line: 207,
+            line: 206,
             column: 6
           },
           end: {
-            line: 209,
+            line: 208,
             column: 7
           }
         },
         type: "if",
         locations: [{
           start: {
-            line: 207,
+            line: 206,
             column: 6
           },
           end: {
-            line: 209,
+            line: 208,
             column: 7
           }
         }, {
           start: {
-            line: 207,
+            line: 206,
             column: 6
           },
           end: {
-            line: 209,
+            line: 208,
             column: 7
           }
         }],
-        line: 207
+        line: 206
       }
     },
     s: {
@@ -1734,8 +1734,8 @@ function () {
               case 22:
                 result = _context5.sent;
                 cov_cvibu03c9.s[39]++;
-                return _context5.abrupt("return", response.status(200).json({
-                  'Status': 200,
+                return _context5.abrupt("return", response.status(204).json({
+                  'Status': 204,
                   'Data': result.rows[0]
                 }));
 
@@ -1817,8 +1817,8 @@ function () {
               case 22:
                 result = _context6.sent;
                 cov_cvibu03c9.s[49]++;
-                return _context6.abrupt("return", response.status(200).json({
-                  'Status': 200,
+                return _context6.abrupt("return", response.status(204).json({
+                  'Status': 204,
                   'Message': 'Location updated successfully',
                   'Data': result.rows[0]
                 }));
@@ -1901,8 +1901,8 @@ function () {
               case 22:
                 result = _context7.sent;
                 cov_cvibu03c9.s[59]++;
-                return _context7.abrupt("return", response.status(200).json({
-                  'Status': 200,
+                return _context7.abrupt("return", response.status(204).json({
+                  'Status': 204,
                   'Message': 'destination updated successfully',
                   'Data': result.rows[0]
                 }));
@@ -1942,8 +1942,8 @@ function () {
               case 0:
                 cov_cvibu03c9.f[7]++;
                 findParcelQuery = (cov_cvibu03c9.s[61]++, 'SELECT * FROM parcels WHERE id = $1 AND status = \'transiting\'');
-                updateParcelQuery = (cov_cvibu03c9.s[62]++, "UPDATE parcels SET status='delivered', \n          modified_at=NOW() WHERE id=$2 returning *");
-                values = (cov_cvibu03c9.s[63]++, [request.body.receiver_address, request.params.id]);
+                updateParcelQuery = (cov_cvibu03c9.s[62]++, "UPDATE parcels SET status='delivered', \n          modified_at=NOW() WHERE id=$1 returning *");
+                values = (cov_cvibu03c9.s[63]++, [request.params.id]);
                 cov_cvibu03c9.s[64]++;
                 _context8.prev = 5;
                 cov_cvibu03c9.s[65]++;
@@ -1978,8 +1978,8 @@ function () {
               case 22:
                 result = _context8.sent;
                 cov_cvibu03c9.s[69]++;
-                return _context8.abrupt("return", response.status(200).json({
-                  'Status': 200,
+                return _context8.abrupt("return", response.status(204).json({
+                  'Status': 204,
                   'Message': 'Parcel successfully delivered',
                   'Data': result.rows[0]
                 }));

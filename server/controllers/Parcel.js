@@ -122,7 +122,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, [request.params.id]);
-      return response.status(200).json({'Status': 200,'Data': result.rows[0]});
+      return response.status(204).json({'Status': 204,'Data': result.rows[0]});
   
     }
     catch(error){
@@ -154,7 +154,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(200).json({'Status': 200,'Message':'Location updated successfully','Data': result.rows[0]});
+      return response.status(204).json({'Status': 204,'Message':'Location updated successfully','Data': result.rows[0]});
   
     }
     catch(error){
@@ -185,7 +185,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(200).json({'Status': 200,'Message':'destination updated successfully','Data': result.rows[0]});
+      return response.status(204).json({'Status': 204,'Message':'destination updated successfully','Data': result.rows[0]});
   
     }
     catch(error){
@@ -196,10 +196,9 @@ class Parcel {
    static async markAsDelivered(request, response){
     const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 AND status = \'transiting\'';
     const updateParcelQuery = `UPDATE parcels SET status='delivered', 
-          modified_at=NOW() WHERE id=$2 returning *`;
+          modified_at=NOW() WHERE id=$1 returning *`;
 
     const values = [
-      request.body.receiver_address,
       request.params.id
     ];
     try{
@@ -209,7 +208,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(200).json({'Status': 200,'Message':'Parcel successfully delivered','Data': result.rows[0]});
+      return response.status(204).json({'Status': 204,'Message':'Parcel successfully delivered','Data': result.rows[0]});
   
     }
     catch(error){

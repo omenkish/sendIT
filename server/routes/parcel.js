@@ -11,7 +11,7 @@ router.route('/')
 .get(Parcel.getAllParcels)
 
 router.route('/:id')
-.get(VerifyToken, validate.getById, Parcel.getParcelById)
+.get(Parcel.getParcelById)
 
 router.put('/:id/cancel', VerifyToken, Parcel.cancelParcelOrder);
 router.put('/:id/location',VerifyToken,validate.adminOnly, Parcel.updateCurrentLocation);

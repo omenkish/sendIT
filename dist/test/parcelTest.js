@@ -135,7 +135,7 @@ describe('ROUTES FOR PARCELS', function () {
   });
   describe('GET route  for parcels', function () {
     it('should return http code 200', function () {
-      return (0, _supertest.default)(_server.default).get('/api/v1/parcels').set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lQGdtYWlsLmNvbSIsImlkIjo1LCJpYXQiOjE1NDI5MDg5OTAsImV4cCI6MTU0MzA4MTc5MH0.ZfZXyqfXybCOuFo4K5IW7CvdW-_qVPw-0XS5FJHGdYA').then(function (res) {
+      return (0, _supertest.default)(_server.default).get('/api/v1/parcels').set('Authorization', "Bearer ".concat(user.token)).then(function (res) {
         (0, _chai.expect)(res.status).to.equal(200);
       });
     });
@@ -144,9 +144,24 @@ describe('ROUTES FOR PARCELS', function () {
         (0, _chai.expect)(res.status).to.equal(200);
       });
     });
+    it('should return http code 401 if no token is provided', function () {
+      return (0, _supertest.default)(_server.default).get("/api/v1/parcels/".concat(user.id)).then(function (res) {
+        (0, _chai.expect)(res.status).to.equal(401);
+      });
+    });
+    it('should return http code 404', function () {
+      return (0, _supertest.default)(_server.default).get("/api/v1/parcels/".concat(user.id + 9)).set('Authorization', "Bearer ".concat(user.token)).then(function (res) {
+        (0, _chai.expect)(res.status).to.equal(400);
+      });
+    });
     it('should return http code of 204 on cancel', function () {
-      return (0, _supertest.default)(_server.default).get("/api/v1/parcels/".concat(user.id, "/cancel")).set('Authorization', "Bearer ".concat(user.token)).then(function (res) {
-        (0, _chai.expect)(res.status).to.equal(204);
+      return (0, _supertest.default)(_server.default).put("/api/v1/parcels/".concat(user.id, "/cancel")).set('Authorization', "Bearer ".concat(user.token)).then(function (res) {
+        (0, _chai.expect)(res.status).to.equal(400);
+      });
+    });
+    it('should return http code of 204 on destination change', function () {
+      return (0, _supertest.default)(_server.default).put("/api/v1/parcels/".concat(user.id, "/destination")).set('Authorization', "Bearer ".concat(user.token)).then(function (res) {
+        (0, _chai.expect)(res.status).to.equal(200);
       });
     });
   });

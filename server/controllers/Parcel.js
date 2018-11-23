@@ -122,7 +122,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, [request.params.id]);
-      return response.status(200).json({'Status': 200,'Data': result.rows[0]});
+      return response.status(204).json({'Status': 204,'Data': result.rows[0]});
   
     }
     catch(error){
@@ -149,12 +149,12 @@ class Parcel {
     ];
     try{
         const { rowCount } = await db.query(findParcelQuery, [request.params.id]);
-      if(rowCount < 1){
+      if(rowCount === 0){
         return response.status(404).json({'Status': 404,'Message': 'Order not found'});
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(200).json({'Status': 200,'Message':'Location updated successfully','Data': result.rows[0]});
+      return response.status(204).json({'Status': 204,'Message':'Location updated successfully','Data': result.rows[0]});
   
     }
     catch(error){
@@ -185,7 +185,30 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(200).json({'Status': 200,'Message':'destination updated successfully','Data': result.rows[0]});
+      return response.status(204).json({'Status': 204,'Message':'destination updated successfully','Data': result.rows[0]});
+  
+    }
+    catch(error){
+      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+    }
+   }
+
+   static async markAsDelivered(request, response){
+    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 AND status = \'transiting\'';
+    const updateParcelQuery = `UPDATE parcels SET status='delivered', 
+          modified_at=NOW() WHERE id=$1 returning *`;
+
+    const values = [
+      request.params.id
+    ];
+    try{
+        const { rowCount } = await db.query(findParcelQuery, [request.params.id]);
+      if(rowCount === 0){
+        return response.status(404).json({'Status': 404,'Message': 'Order not found'});
+      }
+
+      const result = await db.query(updateParcelQuery, values);
+      return response.status(204).json({'Status': 204,'Message':'Parcel successfully delivered','Data': result.rows[0]});
   
     }
     catch(error){

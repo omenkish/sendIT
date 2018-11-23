@@ -29,7 +29,7 @@ class User {
     try {
       const { rows } = await db.query(sqltext, values);
       const token = Helper.generateToken(rows[0].email, rows[0].id)
-      return response.status(201).json(`{'Status': '201','Message': 'Signup successful. Please copy your token','Token': ${token}}`);
+      return response.status(201).json({'Status': '201','Message': 'Signup successful. Please copy your token',token: token});
     } 
     catch(error) {
       if (error.routine === '_bt_check_unique') {
@@ -58,7 +58,7 @@ class User {
         return response.status(400).json({'Status': '400','Message': 'This password is incorrect'});
       }
       const token = Helper.generateToken(rows[0].email, rows[0].id);
-      return response.status(200).json({'Status': 200, 'Copy this TOKEN ': token});
+      return response.status(200).json({'Status': 200, token: token});
     }catch(error){
       return response.status(400).json(`{'Status': '400','Error': ${error}}`);
     }
@@ -75,7 +75,7 @@ class User {
     const  findUsersSql = 'SELECT * FROM users'; 
     try {
       const { rows, rowCount } = await db.query(findUsersSql);
-      return response.status(200).json({'Data': rows, 'Count': rowCount });
+      return response.status(200).json({Data: rows, Count: rowCount });
     }
     catch(error){
       response.status(400).json({'Status': 400,'Error': `${error}}`});

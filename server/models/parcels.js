@@ -86,5 +86,24 @@ class Parcels {
       });
   }
 
+  static clearTables(){
+    const usersTable = 'DELETE * FROM users';
+    const parcelsTable = 'DELETE * FROM parcels';
+    pool.query(parcelsTable)
+      .then(res => {
+        pool.query(usersTable)
+        .then(res=>{
+          console.log('Tables successfully cleared')
+          pool.end();
+        }).catch(err => {
+          console.log('--------------------- deep catch', err);
+          pool.end();
+        });
+       
+      }).catch(err => {
+        console.log('......................outer catch', err);
+      })
+  }
+
 }
 export default Parcels;

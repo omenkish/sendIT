@@ -2,7 +2,7 @@
 
 var cov_2hhazphapa = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\controllers\\User.js",
-      hash = "3a73b7f6b5e665170b37cab70c9244ad5a402107",
+      hash = "0a781a32d38b742e71726ea042ac6a83a55dceea",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -76,7 +76,7 @@ var cov_2hhazphapa = function () {
         },
         end: {
           line: 32,
-          column: 133
+          column: 126
         }
       },
       "7": {
@@ -196,7 +196,7 @@ var cov_2hhazphapa = function () {
         },
         end: {
           line: 61,
-          column: 83
+          column: 70
         }
       },
       "19": {
@@ -246,7 +246,7 @@ var cov_2hhazphapa = function () {
         },
         end: {
           line: 78,
-          column: 75
+          column: 71
         }
       },
       "24": {
@@ -548,7 +548,11 @@ function () {
                 rows = _ref.rows;
                 token = (cov_2hhazphapa.s[5]++, _helper.default.generateToken(rows[0].email, rows[0].id));
                 cov_2hhazphapa.s[6]++;
-                return _context.abrupt("return", response.status(201).json("{'Status': '201','Message': 'Signup successful. Please copy your token','Token': ".concat(token, "}")));
+                return _context.abrupt("return", response.status(201).json({
+                  'Status': '201',
+                  'Message': 'Signup successful. Please copy your token',
+                  token: token
+                }));
 
               case 16:
                 _context.prev = 16;
@@ -658,7 +662,7 @@ function () {
                 cov_2hhazphapa.s[18]++;
                 return _context2.abrupt("return", response.status(200).json({
                   'Status': 200,
-                  'Copy this TOKEN ': token
+                  token: token
                 }));
 
               case 30:
@@ -712,8 +716,8 @@ function () {
                 rowCount = _ref3.rowCount;
                 cov_2hhazphapa.s[23]++;
                 return _context3.abrupt("return", response.status(200).json({
-                  'Data': rows,
-                  'Count': rowCount
+                  Data: rows,
+                  Count: rowCount
                 }));
 
               case 14:

@@ -44,7 +44,7 @@ class UserValidator {
         if(rows[0].is_admin === false){
         return response.status(401).json({'Status': 401, 'message': 'You do not have permission to access this route!'});
          }
-      next();
+      return next();
     }
     catch(error){
       return response.send(error);

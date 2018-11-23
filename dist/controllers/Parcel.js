@@ -2,7 +2,7 @@
 
 var cov_cvibu03c9 = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\controllers\\Parcel.js",
-      hash = "fbafcad326170fc8125e6668cdd2e628a71cfc71",
+      hash = "f5b7af81fbdde5734e043a7fb5a754b5b9f03633",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -618,6 +618,106 @@ var cov_cvibu03c9 = function () {
           line: 192,
           column: 77
         }
+      },
+      "61": {
+        start: {
+          line: 197,
+          column: 28
+        },
+        end: {
+          line: 197,
+          column: 93
+        }
+      },
+      "62": {
+        start: {
+          line: 198,
+          column: 30
+        },
+        end: {
+          line: 199,
+          column: 52
+        }
+      },
+      "63": {
+        start: {
+          line: 201,
+          column: 19
+        },
+        end: {
+          line: 203,
+          column: 5
+        }
+      },
+      "64": {
+        start: {
+          line: 204,
+          column: 4
+        },
+        end: {
+          line: 216,
+          column: 5
+        }
+      },
+      "65": {
+        start: {
+          line: 205,
+          column: 29
+        },
+        end: {
+          line: 205,
+          column: 81
+        }
+      },
+      "66": {
+        start: {
+          line: 206,
+          column: 6
+        },
+        end: {
+          line: 208,
+          column: 7
+        }
+      },
+      "67": {
+        start: {
+          line: 207,
+          column: 8
+        },
+        end: {
+          line: 207,
+          column: 87
+        }
+      },
+      "68": {
+        start: {
+          line: 210,
+          column: 21
+        },
+        end: {
+          line: 210,
+          column: 62
+        }
+      },
+      "69": {
+        start: {
+          line: 211,
+          column: 6
+        },
+        end: {
+          line: 211,
+          column: 121
+        }
+      },
+      "70": {
+        start: {
+          line: 215,
+          column: 6
+        },
+        end: {
+          line: 215,
+          column: 77
+        }
       }
     },
     fnMap: {
@@ -788,6 +888,30 @@ var cov_cvibu03c9 = function () {
           }
         },
         line: 172
+      },
+      "7": {
+        name: "(anonymous_7)",
+        decl: {
+          start: {
+            line: 196,
+            column: 3
+          },
+          end: {
+            line: 196,
+            column: 4
+          }
+        },
+        loc: {
+          start: {
+            line: 196,
+            column: 50
+          },
+          end: {
+            line: 217,
+            column: 4
+          }
+        },
+        line: 196
       }
     },
     branchMap: {
@@ -1054,6 +1178,39 @@ var cov_cvibu03c9 = function () {
           }
         }],
         line: 183
+      },
+      "8": {
+        loc: {
+          start: {
+            line: 206,
+            column: 6
+          },
+          end: {
+            line: 208,
+            column: 7
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 206,
+            column: 6
+          },
+          end: {
+            line: 208,
+            column: 7
+          }
+        }, {
+          start: {
+            line: 206,
+            column: 6
+          },
+          end: {
+            line: 208,
+            column: 7
+          }
+        }],
+        line: 206
       }
     },
     s: {
@@ -1117,7 +1274,17 @@ var cov_cvibu03c9 = function () {
       "57": 0,
       "58": 0,
       "59": 0,
-      "60": 0
+      "60": 0,
+      "61": 0,
+      "62": 0,
+      "63": 0,
+      "64": 0,
+      "65": 0,
+      "66": 0,
+      "67": 0,
+      "68": 0,
+      "69": 0,
+      "70": 0
     },
     f: {
       "0": 0,
@@ -1126,7 +1293,8 @@ var cov_cvibu03c9 = function () {
       "3": 0,
       "4": 0,
       "5": 0,
-      "6": 0
+      "6": 0,
+      "7": 0
     },
     b: {
       "0": [0, 0],
@@ -1136,7 +1304,8 @@ var cov_cvibu03c9 = function () {
       "4": [0, 0],
       "5": [0, 0],
       "6": [0, 0],
-      "7": [0, 0]
+      "7": [0, 0],
+      "8": [0, 0]
     },
     _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184"
   },
@@ -1565,8 +1734,8 @@ function () {
               case 22:
                 result = _context5.sent;
                 cov_cvibu03c9.s[39]++;
-                return _context5.abrupt("return", response.status(200).json({
-                  'Status': 200,
+                return _context5.abrupt("return", response.status(204).json({
+                  'Status': 204,
                   'Data': result.rows[0]
                 }));
 
@@ -1625,7 +1794,7 @@ function () {
                 rowCount = _ref6.rowCount;
                 cov_cvibu03c9.s[46]++;
 
-                if (!(rowCount < 1)) {
+                if (!(rowCount === 0)) {
                   _context6.next = 18;
                   break;
                 }
@@ -1648,8 +1817,8 @@ function () {
               case 22:
                 result = _context6.sent;
                 cov_cvibu03c9.s[49]++;
-                return _context6.abrupt("return", response.status(200).json({
-                  'Status': 200,
+                return _context6.abrupt("return", response.status(204).json({
+                  'Status': 204,
                   'Message': 'Location updated successfully',
                   'Data': result.rows[0]
                 }));
@@ -1732,8 +1901,8 @@ function () {
               case 22:
                 result = _context7.sent;
                 cov_cvibu03c9.s[59]++;
-                return _context7.abrupt("return", response.status(200).json({
-                  'Status': 200,
+                return _context7.abrupt("return", response.status(204).json({
+                  'Status': 204,
                   'Message': 'destination updated successfully',
                   'Data': result.rows[0]
                 }));
@@ -1757,6 +1926,83 @@ function () {
 
       return function changeDestination(_x13, _x14) {
         return _changeDestination.apply(this, arguments);
+      };
+    }()
+  }, {
+    key: "markAsDelivered",
+    value: function () {
+      var _markAsDelivered = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee8(request, response) {
+        var findParcelQuery, updateParcelQuery, values, _ref8, rowCount, result;
+
+        return regeneratorRuntime.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                cov_cvibu03c9.f[7]++;
+                findParcelQuery = (cov_cvibu03c9.s[61]++, 'SELECT * FROM parcels WHERE id = $1 AND status = \'transiting\'');
+                updateParcelQuery = (cov_cvibu03c9.s[62]++, "UPDATE parcels SET status='delivered', \n          modified_at=NOW() WHERE id=$1 returning *");
+                values = (cov_cvibu03c9.s[63]++, [request.params.id]);
+                cov_cvibu03c9.s[64]++;
+                _context8.prev = 5;
+                cov_cvibu03c9.s[65]++;
+                _context8.next = 9;
+                return _index.default.query(findParcelQuery, [request.params.id]);
+
+              case 9:
+                _ref8 = _context8.sent;
+                rowCount = _ref8.rowCount;
+                cov_cvibu03c9.s[66]++;
+
+                if (!(rowCount === 0)) {
+                  _context8.next = 18;
+                  break;
+                }
+
+                cov_cvibu03c9.b[8][0]++;
+                cov_cvibu03c9.s[67]++;
+                return _context8.abrupt("return", response.status(404).json({
+                  'Status': 404,
+                  'Message': 'Order not found'
+                }));
+
+              case 18:
+                cov_cvibu03c9.b[8][1]++;
+
+              case 19:
+                cov_cvibu03c9.s[68]++;
+                _context8.next = 22;
+                return _index.default.query(updateParcelQuery, values);
+
+              case 22:
+                result = _context8.sent;
+                cov_cvibu03c9.s[69]++;
+                return _context8.abrupt("return", response.status(204).json({
+                  'Status': 204,
+                  'Message': 'Parcel successfully delivered',
+                  'Data': result.rows[0]
+                }));
+
+              case 27:
+                _context8.prev = 27;
+                _context8.t0 = _context8["catch"](5);
+                cov_cvibu03c9.s[70]++;
+                return _context8.abrupt("return", response.status(400).json({
+                  'Status': 400,
+                  'Error': "".concat(_context8.t0)
+                }));
+
+              case 31:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8, this, [[5, 27]]);
+      }));
+
+      return function markAsDelivered(_x15, _x16) {
+        return _markAsDelivered.apply(this, arguments);
       };
     }()
   }]);

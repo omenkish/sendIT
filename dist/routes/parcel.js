@@ -2,7 +2,7 @@
 
 var cov_cdbeuwstd = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\routes\\parcel.js",
-      hash = "e103ad46563d8025293062368c01e906a22ea2f7",
+      hash = "66408ce474c80151a6400191cd3376b3614cd5f6",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -68,6 +68,16 @@ var cov_cdbeuwstd = function () {
           line: 18,
           column: 69
         }
+      },
+      "6": {
+        start: {
+          line: 19,
+          column: 0
+        },
+        end: {
+          line: 19,
+          column: 64
+        }
       }
     },
     fnMap: {},
@@ -78,7 +88,8 @@ var cov_cdbeuwstd = function () {
       "2": 0,
       "3": 0,
       "4": 0,
-      "5": 0
+      "5": 0,
+      "6": 0
     },
     f: {},
     b: {},
@@ -119,8 +130,9 @@ router.put('/:id/cancel', _authMiddleware.default, _Parcel.default.cancelParcelO
 cov_cdbeuwstd.s[4]++;
 router.put('/:id/location', _authMiddleware.default, _validate.default.adminOnly, _Parcel.default.updateCurrentLocation);
 cov_cdbeuwstd.s[5]++;
-router.put('/:id/destination', _authMiddleware.default, _Parcel.default.changeDestination); //not working
-// update status;
+router.put('/:id/destination', _authMiddleware.default, _Parcel.default.changeDestination);
+cov_cdbeuwstd.s[6]++;
+router.put('/:id/deliver', _authMiddleware.default, _Parcel.default.markAsDelivered); // update status;
 
 var _default = router;
 exports.default = _default;

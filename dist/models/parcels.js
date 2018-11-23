@@ -2,7 +2,7 @@
 
 var cov_1kmjp5g00d = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\models\\parcels.js",
-      hash = "5d6ad7ed141ac439630ec70c75d6c1b2c511672e",
+      hash = "3687acfed814f8966ab40103561995e073bc2097",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -297,6 +297,96 @@ var cov_1kmjp5g00d = function () {
         end: {
           line: 85,
           column: 19
+        }
+      },
+      "29": {
+        start: {
+          line: 90,
+          column: 23
+        },
+        end: {
+          line: 90,
+          column: 44
+        }
+      },
+      "30": {
+        start: {
+          line: 91,
+          column: 25
+        },
+        end: {
+          line: 91,
+          column: 48
+        }
+      },
+      "31": {
+        start: {
+          line: 92,
+          column: 4
+        },
+        end: {
+          line: 105,
+          column: 8
+        }
+      },
+      "32": {
+        start: {
+          line: 94,
+          column: 8
+        },
+        end: {
+          line: 101,
+          column: 11
+        }
+      },
+      "33": {
+        start: {
+          line: 96,
+          column: 10
+        },
+        end: {
+          line: 96,
+          column: 52
+        }
+      },
+      "34": {
+        start: {
+          line: 97,
+          column: 10
+        },
+        end: {
+          line: 97,
+          column: 21
+        }
+      },
+      "35": {
+        start: {
+          line: 99,
+          column: 10
+        },
+        end: {
+          line: 99,
+          column: 63
+        }
+      },
+      "36": {
+        start: {
+          line: 100,
+          column: 10
+        },
+        end: {
+          line: 100,
+          column: 21
+        }
+      },
+      "37": {
+        start: {
+          line: 104,
+          column: 8
+        },
+        end: {
+          line: 104,
+          column: 62
         }
       }
     },
@@ -612,6 +702,126 @@ var cov_1kmjp5g00d = function () {
           }
         },
         line: 83
+      },
+      "13": {
+        name: "(anonymous_13)",
+        decl: {
+          start: {
+            line: 89,
+            column: 2
+          },
+          end: {
+            line: 89,
+            column: 3
+          }
+        },
+        loc: {
+          start: {
+            line: 89,
+            column: 22
+          },
+          end: {
+            line: 106,
+            column: 3
+          }
+        },
+        line: 89
+      },
+      "14": {
+        name: "(anonymous_14)",
+        decl: {
+          start: {
+            line: 93,
+            column: 12
+          },
+          end: {
+            line: 93,
+            column: 13
+          }
+        },
+        loc: {
+          start: {
+            line: 93,
+            column: 19
+          },
+          end: {
+            line: 103,
+            column: 7
+          }
+        },
+        line: 93
+      },
+      "15": {
+        name: "(anonymous_15)",
+        decl: {
+          start: {
+            line: 95,
+            column: 14
+          },
+          end: {
+            line: 95,
+            column: 15
+          }
+        },
+        loc: {
+          start: {
+            line: 95,
+            column: 19
+          },
+          end: {
+            line: 98,
+            column: 9
+          }
+        },
+        line: 95
+      },
+      "16": {
+        name: "(anonymous_16)",
+        decl: {
+          start: {
+            line: 98,
+            column: 17
+          },
+          end: {
+            line: 98,
+            column: 18
+          }
+        },
+        loc: {
+          start: {
+            line: 98,
+            column: 24
+          },
+          end: {
+            line: 101,
+            column: 9
+          }
+        },
+        line: 98
+      },
+      "17": {
+        name: "(anonymous_17)",
+        decl: {
+          start: {
+            line: 103,
+            column: 15
+          },
+          end: {
+            line: 103,
+            column: 16
+          }
+        },
+        loc: {
+          start: {
+            line: 103,
+            column: 22
+          },
+          end: {
+            line: 105,
+            column: 7
+          }
+        },
+        line: 103
       }
     },
     branchMap: {
@@ -678,7 +888,16 @@ var cov_1kmjp5g00d = function () {
       "25": 0,
       "26": 0,
       "27": 0,
-      "28": 0
+      "28": 0,
+      "29": 0,
+      "30": 0,
+      "31": 0,
+      "32": 0,
+      "33": 0,
+      "34": 0,
+      "35": 0,
+      "36": 0,
+      "37": 0
     },
     f: {
       "0": 0,
@@ -693,7 +912,12 @@ var cov_1kmjp5g00d = function () {
       "9": 0,
       "10": 0,
       "11": 0,
-      "12": 0
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0,
+      "16": 0,
+      "17": 0
     },
     b: {
       "0": [0, 0]
@@ -838,6 +1062,35 @@ function () {
         console.log(err);
         cov_1kmjp5g00d.s[28]++;
         pool.end();
+      });
+    }
+  }, {
+    key: "clearTables",
+    value: function clearTables() {
+      cov_1kmjp5g00d.f[13]++;
+      var usersTable = (cov_1kmjp5g00d.s[29]++, 'DELETE * FROM users');
+      var parcelsTable = (cov_1kmjp5g00d.s[30]++, 'DELETE * FROM parcels');
+      cov_1kmjp5g00d.s[31]++;
+      pool.query(parcelsTable).then(function (res) {
+        cov_1kmjp5g00d.f[14]++;
+        cov_1kmjp5g00d.s[32]++;
+        pool.query(usersTable).then(function (res) {
+          cov_1kmjp5g00d.f[15]++;
+          cov_1kmjp5g00d.s[33]++;
+          console.log('Tables successfully cleared');
+          cov_1kmjp5g00d.s[34]++;
+          pool.end();
+        }).catch(function (err) {
+          cov_1kmjp5g00d.f[16]++;
+          cov_1kmjp5g00d.s[35]++;
+          console.log('--------------------- deep catch', err);
+          cov_1kmjp5g00d.s[36]++;
+          pool.end();
+        });
+      }).catch(function (err) {
+        cov_1kmjp5g00d.f[17]++;
+        cov_1kmjp5g00d.s[37]++;
+        console.log('......................outer catch', err);
       });
     }
   }]);

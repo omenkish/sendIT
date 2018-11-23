@@ -2,7 +2,7 @@
 
 var cov_cdbeuwstd = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\routes\\parcel.js",
-      hash = "66408ce474c80151a6400191cd3376b3614cd5f6",
+      hash = "5813296e3aadf152b5b915b065582a86d1ac7e4d",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -26,7 +26,7 @@ var cov_cdbeuwstd = function () {
         },
         end: {
           line: 11,
-          column: 46
+          column: 26
         }
       },
       "2": {
@@ -122,7 +122,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var router = (cov_cdbeuwstd.s[0]++, _express.default.Router());
 cov_cdbeuwstd.s[1]++;
-router.route('/').all(_authMiddleware.default).post(_validate.default.createParcel, _Parcel.default.createParcelOrder).get(_validate.default.adminOnly, _Parcel.default.getAllParcels);
+router.route('/').all(_authMiddleware.default).post(_validate.default.createParcel, _Parcel.default.createParcelOrder).get(_Parcel.default.getAllParcels);
 cov_cdbeuwstd.s[2]++;
 router.route('/:id').get(_authMiddleware.default, _validate.default.getById, _Parcel.default.getParcelById);
 cov_cdbeuwstd.s[3]++;

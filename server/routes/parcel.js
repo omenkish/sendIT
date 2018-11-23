@@ -8,7 +8,7 @@ import validate from '../middleware/validate';
 router.route('/')
 .all(VerifyToken)
 .post(validate.createParcel, Parcel.createParcelOrder)
-.get(validate.adminOnly, Parcel.getAllParcels)
+.get(Parcel.getAllParcels)
 
 router.route('/:id')
 .get(VerifyToken, validate.getById, Parcel.getParcelById)

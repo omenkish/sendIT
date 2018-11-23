@@ -29,7 +29,19 @@ const signup = {
 }
 
 describe('ROUTES FOR PARCELS', () => {
+  // let user;
+  // before('add user to db and log him in before test', async () => {
+  //   await request(server).post('/api/v1/auth/signup').send(signup);
+  //   const login = await request(server).post('/api/v1/auth/login')
+  //     .send({ email: signup.email, password: signup.password });
+  //     console.log(login);
+  //   user = login.body;
+  //   console.log(user);
+  // });
 
+   after('Clear db after test', () => {
+     ParcelOrder.clearTables();
+   })
 
   describe('POST {when a parcel is being created}', () => {
     it('should return status code 201', () =>{
@@ -60,16 +72,27 @@ describe('ROUTES FOR PARCELS', () => {
         .then(res => {
           expect(res.status).to.equal(415);
         })
+    });
+    it('should return status code 200 ', () => {
+      return request(server)
+        .post('/api/auth/signup')
+        .send(signup)
+        .then(res => {
+          expect(res.status).to.equal(200);
+        })
+    });
+
+    it('should return status code 201 ', () => {
+      return request(server)
+        .post('/api/auth/login')
+        .send({email:signup.email, password: signup.password})
+        .then(res => {
+          expect(res.status).to.equal(200);
+        })
     })
   })
 
   describe('POST route  for user', () => {
-    it('should return status code 201 ')
-    return request(server)
-    .post('/api/auth/signup')
-    .send(signup)
-    .then(res => {
-      expect(res.status).to.equal(201);
-    })
+    
   })
 });

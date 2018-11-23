@@ -2,7 +2,7 @@
 
 var cov_25r04gii2u = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\middleware\\validate.js",
-      hash = "75c474edbf83aa15890a0d1bb0a253f04a986126",
+      hash = "14e0ae70a7d4bd60ef4c3d7d353a3a5a09dd1d30",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -166,7 +166,7 @@ var cov_25r04gii2u = function () {
         },
         end: {
           line: 47,
-          column: 13
+          column: 20
         }
       },
       "16": {
@@ -720,9 +720,7 @@ function () {
 
               case 17:
                 cov_25r04gii2u.s[15]++;
-                next();
-                _context.next = 25;
-                break;
+                return _context.abrupt("return", next());
 
               case 21:
                 _context.prev = 21;

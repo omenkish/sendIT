@@ -8,9 +8,8 @@ import authUser from './routes/auth';
 import Model from './models/parcels';
 
 // Create tables automatically
-if(Model.createUsersTable()){
-  Model.createParcelsTable();
-}
+Model.createUsersTable();
+Model.createParcelsTable();
 
 const app = express();
 

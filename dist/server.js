@@ -2,7 +2,7 @@
 
 var cov_2f18ur6zp7 = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\server.js",
-      hash = "93d7ae1271c914ab3215beb202ba2c4a203f5ea0",
+      hash = "18dc38879225b33c1ac3a8ccf603c586ca467c93",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -15,127 +15,127 @@ var cov_2f18ur6zp7 = function () {
           column: 0
         },
         end: {
-          line: 13,
-          column: 1
+          line: 11,
+          column: 25
         }
       },
       "1": {
         start: {
           line: 12,
-          column: 2
+          column: 0
         },
         end: {
           line: 12,
-          column: 29
+          column: 27
         }
       },
       "2": {
         start: {
-          line: 15,
+          line: 14,
           column: 12
         },
         end: {
-          line: 15,
+          line: 14,
           column: 21
         }
       },
       "3": {
         start: {
-          line: 17,
+          line: 16,
           column: 0
         },
         end: {
-          line: 17,
+          line: 16,
           column: 51
         }
       },
       "4": {
         start: {
-          line: 18,
+          line: 17,
           column: 0
         },
         end: {
-          line: 18,
+          line: 17,
           column: 27
         }
       },
       "5": {
         start: {
-          line: 20,
+          line: 19,
           column: 0
         },
         end: {
-          line: 22,
+          line: 21,
           column: 3
         }
       },
       "6": {
         start: {
-          line: 21,
+          line: 20,
           column: 2
         },
         end: {
-          line: 21,
+          line: 20,
           column: 49
         }
       },
       "7": {
         start: {
-          line: 24,
+          line: 23,
           column: 0
         },
         end: {
-          line: 24,
+          line: 23,
           column: 35
         }
       },
       "8": {
         start: {
-          line: 25,
+          line: 24,
           column: 0
         },
         end: {
-          line: 25,
+          line: 24,
           column: 31
         }
       },
       "9": {
         start: {
-          line: 26,
+          line: 25,
           column: 0
         },
         end: {
-          line: 26,
+          line: 25,
           column: 30
         }
       },
       "10": {
         start: {
-          line: 28,
+          line: 27,
           column: 13
         },
         end: {
-          line: 28,
+          line: 27,
           column: 37
         }
       },
       "11": {
         start: {
-          line: 29,
+          line: 28,
           column: 0
         },
         end: {
-          line: 31,
+          line: 30,
           column: 3
         }
       },
       "12": {
         start: {
-          line: 30,
+          line: 29,
           column: 2
         },
         end: {
-          line: 30,
+          line: 29,
           column: 56
         }
       }
@@ -145,117 +145,84 @@ var cov_2f18ur6zp7 = function () {
         name: "(anonymous_0)",
         decl: {
           start: {
-            line: 20,
+            line: 19,
             column: 13
           },
           end: {
-            line: 20,
+            line: 19,
             column: 14
           }
         },
         loc: {
           start: {
-            line: 20,
+            line: 19,
             column: 27
           },
           end: {
-            line: 22,
+            line: 21,
             column: 1
           }
         },
-        line: 20
+        line: 19
       },
       "1": {
         name: "(anonymous_1)",
         decl: {
           start: {
-            line: 29,
+            line: 28,
             column: 17
           },
           end: {
-            line: 29,
+            line: 28,
             column: 18
           }
         },
         loc: {
           start: {
-            line: 29,
+            line: 28,
             column: 23
           },
           end: {
-            line: 31,
+            line: 30,
             column: 1
           }
         },
-        line: 29
+        line: 28
       }
     },
     branchMap: {
       "0": {
         loc: {
           start: {
-            line: 11,
-            column: 0
-          },
-          end: {
-            line: 13,
-            column: 1
-          }
-        },
-        type: "if",
-        locations: [{
-          start: {
-            line: 11,
-            column: 0
-          },
-          end: {
-            line: 13,
-            column: 1
-          }
-        }, {
-          start: {
-            line: 11,
-            column: 0
-          },
-          end: {
-            line: 13,
-            column: 1
-          }
-        }],
-        line: 11
-      },
-      "1": {
-        loc: {
-          start: {
-            line: 28,
+            line: 27,
             column: 13
           },
           end: {
-            line: 28,
+            line: 27,
             column: 37
           }
         },
         type: "binary-expr",
         locations: [{
           start: {
-            line: 28,
+            line: 27,
             column: 13
           },
           end: {
-            line: 28,
+            line: 27,
             column: 29
           }
         }, {
           start: {
-            line: 28,
+            line: 27,
             column: 33
           },
           end: {
-            line: 28,
+            line: 27,
             column: 37
           }
         }],
-        line: 28
+        line: 27
       }
     },
     s: {
@@ -278,8 +245,7 @@ var cov_2f18ur6zp7 = function () {
       "1": 0
     },
     b: {
-      "0": [0, 0],
-      "1": [0, 0]
+      "0": [0, 0]
     },
     _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184"
   },
@@ -317,14 +283,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 cov_2f18ur6zp7.s[0]++;
 
 // Create tables automatically
-if (_parcels.default.createUsersTable()) {
-  cov_2f18ur6zp7.b[0][0]++;
-  cov_2f18ur6zp7.s[1]++;
+_parcels.default.createUsersTable();
 
-  _parcels.default.createParcelsTable();
-} else {
-  cov_2f18ur6zp7.b[0][1]++;
-}
+cov_2f18ur6zp7.s[1]++;
+
+_parcels.default.createParcelsTable();
 
 var app = (cov_2f18ur6zp7.s[2]++, (0, _express.default)());
 cov_2f18ur6zp7.s[3]++;
@@ -345,7 +308,7 @@ cov_2f18ur6zp7.s[8]++;
 app.use('/api/v1/users', _user.default);
 cov_2f18ur6zp7.s[9]++;
 app.use('/api/v1/', _auth.default);
-var port = (cov_2f18ur6zp7.s[10]++, (cov_2f18ur6zp7.b[1][0]++, process.env.PORT) || (cov_2f18ur6zp7.b[1][1]++, 5000));
+var port = (cov_2f18ur6zp7.s[10]++, (cov_2f18ur6zp7.b[0][0]++, process.env.PORT) || (cov_2f18ur6zp7.b[0][1]++, 5000));
 cov_2f18ur6zp7.s[11]++;
 app.listen(port, function () {
   cov_2f18ur6zp7.f[1]++;

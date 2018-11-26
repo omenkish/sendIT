@@ -10,16 +10,17 @@ class Parcel {
    * @returns {} parcel order
    */
   static async createParcelOrder(request, response){
+    const current_location = 'warehouse';
     const createParcelQuery = `INSERT INTO parcels(placed_by, receiver_number, weight, weight_metric, 
           sender_address, receiver_address, current_location) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`;
     const values = [
       request.user.id,
       request.body.receiver_number,
       request.body.weight,
-      request.body.weight_metric,
+      request.body.weight_metric.toLowerCase(),
       request.body.sender_address.toLowerCase(),
       request.body.receiver_address.toLowerCase(),
-      request.body.current_location.toLowerCase()
+      current_location.toLowerCase()
     ];
     try {
       if(!request.user.id){

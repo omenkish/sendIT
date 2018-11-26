@@ -102,7 +102,7 @@ header a:hover {
   width: 15%;
 }
 #heading {
-  font:15px/0.9 Arial, Helvetica, sans-serif;
+  font:15px/0.9 "Times New Roman", Times, serif;
   text-align: center;
   padding: 0;
   margin: 0;
@@ -161,7 +161,7 @@ section#main {
  
 }
 /*full width inputs*/
- input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number] {
+ input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric'] {
   width: 100%;
   padding: 7px 20px;
   margin: 5px 0;
@@ -472,10 +472,10 @@ footer a {
     margin: 0;
   }
 
-  #main input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number] {
+  #main input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric']{
     width: 94%;
   }
-  #boxes input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number] {
+  #boxes input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number],select[name='metric'] {
     width: 94%;
   }
   
@@ -517,7 +517,7 @@ footer a {
     width: 29%;
   }
 
-  #boxes .order form input, textarea{
+  #boxes .order form input, textarea, select{
     font-size: 15px;
   }
   #deliveries table{

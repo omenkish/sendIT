@@ -1,22 +1,25 @@
 import express from 'express';
 const router = express.Router();
 
-import ParcelOrder from '../controllers/parcel';
-import Validate from '../middleware/vallidation';
+import Parcel from '../controllers/Parcel';
+import VerifyToken from '../middleware/authMiddleware';
+import validate from '../middleware/validate';
 
 router.route('/')
-.get(ParcelOrder.getAll)
-.post(Validate.createParcel, ParcelOrder.create)
+.all(VerifyToken)
+.post(validate.createParcel, Parcel.createParcelOrder)
+.get(Parcel.getAllParcels)
 
 router.route('/:id')
-.get(ParcelOrder.getOne)
-.put(ParcelOrder.updateLocation);
+.get(validate.getById,Parcel.getParcelById)
 
-router.route(':id/cancel')
-.put(ParcelOrder.cancel);
+router.put('/:id/cancel', VerifyToken, Parcel.cancelParcelOrder);
+router.put('/:id/location',VerifyToken,validate.getById, validate.adminOnly, Parcel.updateCurrentLocation);
+router.put('/:id/destination',VerifyToken, validate.getById, Parcel.changeDestination);
+router.put('/:id/deliver', VerifyToken, Parcel.markAsDelivered);
 
-router.route('**', (req, res) => {
-  return res.status(404).json({message: 'This route doesn\'t exist'});
-});
+// update status;
+
+
 
 export default router;

@@ -15,7 +15,8 @@
   "nyc": {
     "exclude": [
       "UI",
-      "server/test"
+      "server/test",
+      "server/JSObject"
     ],
     "require": [
       "@babel/register"

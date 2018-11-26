@@ -10,16 +10,17 @@ class Parcel {
    * @returns {} parcel order
    */
   static async createParcelOrder(request, response){
+    const current_location = 'warehouse';
     const createParcelQuery = `INSERT INTO parcels(placed_by, receiver_number, weight, weight_metric, 
           sender_address, receiver_address, current_location) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`;
     const values = [
       request.user.id,
       request.body.receiver_number,
       request.body.weight,
-      request.body.weight_metric,
+      request.body.weight_metric.toLowerCase(),
       request.body.sender_address.toLowerCase(),
       request.body.receiver_address.toLowerCase(),
-      request.body.current_location.toLowerCase()
+      current_location.toLowerCase()
     ];
     try {
       if(!request.user.id){
@@ -122,7 +123,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, [request.params.id]);
-      return response.status(204).json({'Status': 204,'Data': result.rows[0]});
+      return response.status(201).json({'Status': 201,'Data': result.rows[0]});
   
     }
     catch(error){
@@ -154,7 +155,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(204).json({'Status': 204,'Message':'Location updated successfully','Data': result.rows[0]});
+      return response.status(201).json({'Status': 201,'Message':'Location updated successfully','Data': result.rows[0]});
   
     }
     catch(error){
@@ -185,7 +186,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(204).json({'Status': 204,'Message':'destination updated successfully','Data': result.rows[0]});
+      return response.status(201).json({'Status': 201,'Message':'destination updated successfully','Data': result.rows[0]});
   
     }
     catch(error){
@@ -208,7 +209,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(204).json({'Status': 204,'Message':'Parcel successfully delivered','Data': result.rows[0]});
+      return response.status(201).json({'Status': 201,'Message':'Parcel successfully delivered','Data': result.rows[0]});
   
     }
     catch(error){

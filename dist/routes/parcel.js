@@ -2,7 +2,7 @@
 
 var cov_cdbeuwstd = function () {
   var path = "C:\\Users\\Eneojo\\Desktop\\Branches\\develop\\server\\routes\\parcel.js",
-      hash = "66408ce474c80151a6400191cd3376b3614cd5f6",
+      hash = "07c9a97e4874f74ca1f2d4a44ccd6118d2782e37",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
@@ -26,7 +26,7 @@ var cov_cdbeuwstd = function () {
         },
         end: {
           line: 11,
-          column: 46
+          column: 26
         }
       },
       "2": {
@@ -36,7 +36,7 @@ var cov_cdbeuwstd = function () {
         },
         end: {
           line: 14,
-          column: 57
+          column: 43
         }
       },
       "3": {
@@ -56,7 +56,7 @@ var cov_cdbeuwstd = function () {
         },
         end: {
           line: 17,
-          column: 89
+          column: 107
         }
       },
       "5": {
@@ -66,7 +66,7 @@ var cov_cdbeuwstd = function () {
         },
         end: {
           line: 18,
-          column: 69
+          column: 87
         }
       },
       "6": {
@@ -122,15 +122,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var router = (cov_cdbeuwstd.s[0]++, _express.default.Router());
 cov_cdbeuwstd.s[1]++;
-router.route('/').all(_authMiddleware.default).post(_validate.default.createParcel, _Parcel.default.createParcelOrder).get(_validate.default.adminOnly, _Parcel.default.getAllParcels);
+router.route('/').all(_authMiddleware.default).post(_validate.default.createParcel, _Parcel.default.createParcelOrder).get(_Parcel.default.getAllParcels);
 cov_cdbeuwstd.s[2]++;
-router.route('/:id').get(_authMiddleware.default, _validate.default.getById, _Parcel.default.getParcelById);
+router.route('/:id').get(_validate.default.getById, _Parcel.default.getParcelById);
 cov_cdbeuwstd.s[3]++;
 router.put('/:id/cancel', _authMiddleware.default, _Parcel.default.cancelParcelOrder);
 cov_cdbeuwstd.s[4]++;
-router.put('/:id/location', _authMiddleware.default, _validate.default.adminOnly, _Parcel.default.updateCurrentLocation);
+router.put('/:id/location', _authMiddleware.default, _validate.default.getById, _validate.default.adminOnly, _Parcel.default.updateCurrentLocation);
 cov_cdbeuwstd.s[5]++;
-router.put('/:id/destination', _authMiddleware.default, _Parcel.default.changeDestination);
+router.put('/:id/destination', _authMiddleware.default, _validate.default.getById, _Parcel.default.changeDestination);
 cov_cdbeuwstd.s[6]++;
 router.put('/:id/deliver', _authMiddleware.default, _Parcel.default.markAsDelivered); // update status;
 

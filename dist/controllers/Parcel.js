@@ -1734,8 +1734,8 @@ function () {
               case 22:
                 result = _context5.sent;
                 cov_cvibu03c9.s[39]++;
-                return _context5.abrupt("return", response.status(204).json({
-                  'Status': 204,
+                return _context5.abrupt("return", response.status(201).json({
+                  'Status': 201,
                   'Data': result.rows[0]
                 }));
 
@@ -1817,8 +1817,8 @@ function () {
               case 22:
                 result = _context6.sent;
                 cov_cvibu03c9.s[49]++;
-                return _context6.abrupt("return", response.status(204).json({
-                  'Status': 204,
+                return _context6.abrupt("return", response.status(201).json({
+                  'Status': 201,
                   'Message': 'Location updated successfully',
                   'Data': result.rows[0]
                 }));
@@ -1901,8 +1901,8 @@ function () {
               case 22:
                 result = _context7.sent;
                 cov_cvibu03c9.s[59]++;
-                return _context7.abrupt("return", response.status(204).json({
-                  'Status': 204,
+                return _context7.abrupt("return", response.status(201).json({
+                  'Status': 201,
                   'Message': 'destination updated successfully',
                   'Data': result.rows[0]
                 }));
@@ -1978,8 +1978,8 @@ function () {
               case 22:
                 result = _context8.sent;
                 cov_cvibu03c9.s[69]++;
-                return _context8.abrupt("return", response.status(204).json({
-                  'Status': 204,
+                return _context8.abrupt("return", response.status(201).json({
+                  'Status': 201,
                   'Message': 'Parcel successfully delivered',
                   'Data': result.rows[0]
                 }));

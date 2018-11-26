@@ -10,7 +10,7 @@ html {
 }
 body {
   position: relative;
-  font:15px/1.5 Arial, Helvetica, sans-serif;
+  font:15px/1.5 "Times New Roman", Times, serif;
   padding: 4% 0;
   margin: 0;
   min-height: 100%;
@@ -102,7 +102,7 @@ header a:hover {
 /* Showcase */
 #showcase {
   min-height: 450px;
-  background: url('../images/page.JPG') no-repeat 0 -250px;
+  background: url('../images/Rapid-Line.jpg') no-repeat ;
   -webkit-backgroud-size: cover;
   -moz-background-size: cover;
   -moz-background-size: cover;
@@ -154,7 +154,7 @@ section#boxes {
 #boxes .box {
   float: left;
   text-align: center;
-  width: 30%;
+  width: 33%;
   padding: 10px;
 
 }

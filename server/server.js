@@ -8,9 +8,8 @@ import authUser from './routes/auth';
 import Model from './models/parcels';
 
 // Create tables automatically
-if(Model.createUsersTable()){
-  Model.createParcelsTable();
-}
+Model.createUsersTable();
+Model.createParcelsTable();
 
 const app = express();
 
@@ -24,12 +23,6 @@ app.get('/', (req, res) => {
 app.use('/api/v1/parcels', parcel);
 app.use('/api/v1/users', user);
 app.use('/api/v1/', authUser);
-app.use('/api', (request, response) => {
-  return response.status(200).json({'Status': 404, 'ERROR':'Invalid Route!!!'});
-});
-app.use('**', (request, response) => {
-  return response.status(404).json('ERROR: Invalid Route!!!');
-})
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

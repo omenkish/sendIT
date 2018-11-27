@@ -11,7 +11,7 @@ module.exports = (request, response, next) => {
     }
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     request.user = decoded;
-    next();
+    return next();
   }
   catch(error){
     return response.status(401).json({status: 401, 'Error': `${error}}`});

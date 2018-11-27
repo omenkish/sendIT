@@ -9,8 +9,6 @@ const pool = new Pool ({connectionString});
 class Parcels {
 
   constructor(){
-    Parcels.dropUsersTable();
-    Parcels.dropParcelsTable();
     Parcels.createUsersTable();
     Parcels.createParcelsTable();
   }

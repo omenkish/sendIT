@@ -37,12 +37,13 @@ class UserValidator {
   } 
 
   static async adminOnly(request, response, next){
+    
     const sqlQuery = "SELECT is_admin FROM users WHERE id=$1";
     try{
       
       const { rows } = await  db.query(sqlQuery, [request.user.id]);
         if(rows[0].is_admin === false){
-        return response.status(401).json({'Status': 401, 'message': 'You do not have permission to access this route!'});
+        return response.status(401).json({status: 401, message: 'You do not have permission to access this route!'});
          }
       return next();
     }

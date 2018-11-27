@@ -9,5 +9,5 @@ import Validator from '../middleware/validate';
 router.route('/:id/parcels')
 .get(Auth, Parcel.getUserParcels);
 
-router.get('/',Auth, Validator.adminOnly, User.getUsers)
+router.get('/user', Auth, Validator.adminOnly, User.getUsers)
 export default router;

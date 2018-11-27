@@ -1,15 +1,16 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import '@babel/polyfill';
+import dotenv from 'dotenv';
 
 import parcel from './routes/parcel';
 import user from './routes/user';
 import authUser from './routes/auth';
-import Model from './models/parcels';
+import Model from './helpers/createTables';
+dotenv.config();
 
 // Create tables automatically
-Model.createUsersTable();
-Model.createParcelsTable();
+
 
 const app = express();
 

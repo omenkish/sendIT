@@ -29,7 +29,7 @@ class User {
     try {
       const { rows } = await db.query(sqltext, values);
       const token = Helper.generateToken(rows[0].email, rows[0].id)
-      return response.status(201).json({'Status': '201','Message': 'Signup successful. Please copy your token',token: token});
+      return response.status(201).json({status: 201, message: 'Signup successful. Please copy your token',token: token});
     } 
     catch(error) {
       if (error.routine === '_bt_check_unique') {
@@ -72,6 +72,18 @@ class User {
    * @returns {Array} users
    */
   static async getUsers(request, response) {
+    const  findUsersSql = 'SELECT * FROM users'; 
+    try {
+      const { rows, rowCount } = await db.query(findUsersSql);
+      return response.status(200).json({Data: rows, Count: rowCount });
+    }
+    catch(error){
+      response.status(400).json({'Status': 400,'Error': `${error}}`});
+    }
+  }
+
+  static async getUser(request, response) {
+    const userId = request.user.id
     const  findUsersSql = 'SELECT * FROM users'; 
     try {
       const { rows, rowCount } = await db.query(findUsersSql);

@@ -3,7 +3,7 @@ import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
-const connectionString = process.env.DATABASE_URL || 'postgres://postgres:postgres@127.0.0.1:5432/sendit';
+const connectionString = process.env.NODE_ENV === 'test' ? process.env.DATABASE_URL_TEST  :  process.env.DATABASE_URL;
 const pool = new Pool ({connectionString});
 
 class Parcels {
@@ -56,7 +56,7 @@ class Parcels {
       status text DEFAULT 'pending', cancelled boolean DEFAULT False,
       sender_address text not null, receiver_address text not null,
       current_location text not null,
-      created_at TIMESTAMP DEFAULT NOW(), 
+      created_at TIMESTAMP DEFAULT NOW(),
       modified_at TIMESTAMP DEFAULT NOW())`;
   db.query(sqlText)
     .then((res) => {

@@ -9,11 +9,11 @@
   <meta name="author" content="Eneojo Omede">
   <title>SendIT | signup</title>
   
-  <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/responsive.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/signin.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/index.css" />
-  <script src="main.js"></script>
+  
+  
 </head>
 <body>
   <header>
@@ -31,8 +31,10 @@
   </header>
   <section id="signup">
     <div class="container">
-        <form  action="orders.html">
+        
+        <form id="create">
             <h1>Create Account <i class="fa fa-plus-circle"></i></a> </h1>
+            <div id="message"></div>
           <div>
             <input type="text" placeholder="Enter Your firstname" name="firstame" id="firstname" required>
           </div>
@@ -46,19 +48,15 @@
           </div>
           
           <div>
-              <input type="email" placeholder="Enter a valid email" name="email" required>
+              <input type="email" placeholder="Enter a valid email" name="email" id="email" required>
           </div>
           
           <div>
-            <input type="tel" name="phone" placeholder="234-80-1111-1111" required>
+            <input type="tel" name="phone" id="phone" placeholder="234-80-1111-1111" required>
           </div>
 
           <div>
-              <input type="password" placeholder="Enter Password" name="password" required>
-          </div>
-          
-          <div>
-              <input type="password" placeholder="Re-enter your Password" name="password1" required>
+              <input type="password" placeholder="Enter Password" name="password" id="password" required>
           </div>
           
           <div>
@@ -71,5 +69,7 @@
   <footer>
       <p>SendIT Copyright&copy; 2018 || <a href="#">Terms of use</a></p>
   </footer>
+
+  <script src="./assets/js/signup.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ class UserValidator {
     const CreateUserRules = {
       firstname: 'required|string',
       lastname: 'required|string',
-      othernames: 'required|string',
+      othernames: 'string',
       email: 'required|email',
       phone: 'required',
       password: 'required'

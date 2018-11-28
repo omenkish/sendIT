@@ -1,8 +1,5 @@
 import db from '../db';
 import Helper from '../helpers/helper';
-import '@babel/polyfill';
-
-
 
 class User {
   /**
@@ -35,7 +32,7 @@ class User {
       if (error.routine === '_bt_check_unique') {
         return response.status(400).json({ status: 400, message: 'User with that EMAIL already exists' })
       }
-      return response.status(400).json({'Error': `${error}`});
+      return response.status(400).json({status:400, message: `${error}`});
     }
   }
 
@@ -59,8 +56,9 @@ class User {
       }
       const token = Helper.generateToken(rows[0].email, rows[0].id);
       return response.status(200).json({status: 200, token: token});
-    }catch(error){
-      return response.status(400).json({status: 400, Error: `${error}`});
+    }
+    catch(error){
+      return response.status(400).json({status: 400, message: `${error}`});
     }
 
   }
@@ -124,7 +122,7 @@ class User {
   
     }
     catch(error){
-      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+      return response.status(400).json({status: 400, Error: `${error}`});
     }
   }
   

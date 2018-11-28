@@ -7,7 +7,9 @@ import Auth from '../middleware/authMiddleware';
 import Validator from '../middleware/validate';
 
 router.route('/:id/parcels')
-.get(Auth, Parcel.getUserParcels);
+.get(Auth, Validator.adminOnly, Validator.getById, Parcel.getUserParcels);
+router.route('/parcels')
+.get(Auth, Parcel.getMyParcels);
 
 router.get('/',Auth, Validator.adminOnly, User.getUsers);
 router.get('/:id', Auth, Validator.adminOnly, Validator.getById, User.getUser)

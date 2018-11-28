@@ -1,4 +1,4 @@
 import Model from '../models/parcels';
 
-Model.dropUsersTable();
+//Model.dropUsersTable();
 Model.dropParcelsTable();

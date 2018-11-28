@@ -9,7 +9,8 @@
     "build": "npx babel server --out-dir dist ",
     "heroku-prebuild": "npm install",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "dev-start": "cross-env NODE_ENV=development nodemon server/server --exec \"node -r @babel/register\""
+    "dev-start": "cross-env NODE_ENV=development nodemon server/server --exec \"node -r @babel/register\"",
+    "drop-tables": "nodemon server/helpers/dropTables --exec \"node -r @babel/register\""
   },
   "nyc": {
     "exclude": [

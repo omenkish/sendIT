@@ -55,12 +55,11 @@ class UserValidator {
 
   static createParcel(request, response, next){
     const CreateParcelRules = {
-      receiver_number: 'required|string',
+      receiver_number: 'required|numeric',
       weight: 'required|numeric',
       weight_metric: 'required|string',
       sender_address: 'required|string',
       receiver_address: 'required|string',
-      current_location: 'required|string'
     }
     
     const validator = new Validator(request.body, CreateParcelRules);

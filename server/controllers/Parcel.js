@@ -3,6 +3,15 @@ import User from './User';
 
 class Parcel {
 
+
+  static randomDigits(length) {
+    const chars = '0123456789abcdefghijklmnopqrstuvwxyz'
+     let result ="py"
+    for (let i = length; i > 0; --i)
+      result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;
+  }
+
   /**
    * 
    * @param {object} request 
@@ -10,24 +19,38 @@ class Parcel {
    * @returns {} parcel order
    */
   static async createParcelOrder(request, response){
+    let order_number =Parcel.randomDigits(6);
+    const price = request.body.weight * 4.7;
+    const getParcelQuery = 'SELECT * FROM parcels WHERE order_number=$1';
+    try{
+      const { rows, rowCount } = await db.query(getParcelQuery, [order_number]);
+      while( rowCount > 0 ){
+        order_number = Parcel.randomDigits(6);
+      }
+    }
+    catch(e){
+      return response.status(400).json({error: 'Something is wrong!'});
+    }
     const current_location = 'warehouse';
-    const createParcelQuery = `INSERT INTO parcels(placed_by, receiver_number, weight, weight_metric, 
-          sender_address, receiver_address, current_location) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`;
+    const createParcelQuery = `INSERT INTO parcels(placed_by, order_number, receiver_number, weight, weight_metric, 
+          sender_address, receiver_address, current_location, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`;
     const values = [
       request.user.id,
+      order_number,
       request.body.receiver_number,
       request.body.weight,
       request.body.weight_metric.toLowerCase(),
       request.body.sender_address.toLowerCase(),
       request.body.receiver_address.toLowerCase(),
-      current_location.toLowerCase()
+      current_location.toLowerCase(),
+      price 
     ];
     try {
       if(!request.user.id){
-        return response.status(401).json({'Status': 401, 'Message': `${error}`});
+        return response.status(401).json({status: 401, message: `${error}`});
       }
       const { rows } = await db.query(createParcelQuery, values);
-      return response.status(201).json({'Status':'201', 'Message':'Parcel inserted successfully', 'Data': rows[0] });
+      return response.status(201).json({status: 201, message:'Parcel order placed successfully' });
     }
     catch(error){
       return response.status(400).json({'Status': 400, 'Error': `${error}`});
@@ -39,33 +62,50 @@ class Parcel {
    * Can be accessed by only the owner
    * @param {object} request 
    * @param {object} response 
-   * @returns {Array} all parcel orders
+   * @returns {Array} all parcel orders by a user
    */
   static async getUserParcels(request, response){
     
-      const id = parseInt(request.params.id);
-      if(id === parseInt(request.user.id)){
-        const getParcelsQuery = 'SELECT * FROM parcels WHERE placed_by=$1';
-        try{
-          const { rows, rowCount} = await db.query(getParcelsQuery, [request.user.id]);
-  
-          if(rowCount === 0){
-            return response.status(404).json({'Status': 404, 'Message': 'No parcels found for this user'});
-          }
-          return response.status(200).json({'Status': 200, Data: rows, 'Count': `${rowCount}`})
-        }
-        catch(error){
-          return response.status(400).json({'Status': 400, 'Error': `${error}`});
-        }
+    const getParcelsQuery = 'SELECT * FROM parcels WHERE placed_by=$1';
+    try{
+      const { rows, rowCount} = await db.query(getParcelsQuery, [request.params.id]);
+
+      if(rowCount === 0){
+        return response.status(404).json({status: 404, message: 'No parcels found for this user'});
       }
-      else{
-        return response.status(404).json({'Status': 404, 'Message': 'specify a valid id'});
-      }
-        
+      return response.status(200).json({status: 200, Data: rows, count: `${rowCount}`})
+    }
+    catch(error){
+      return response.status(400).json({status: 400, 'Error message': `${error}`});
+    }    
   }
 
   /**
-   * method to fetch all parcel orders of a user
+   * method to fetch all parcel orders for a particular user
+   * Can be accessed by only the owner
+   * @param {object} request 
+   * @param {object} response 
+   * @returns {Array} all parcel orders by a user
+   */
+  static async getMyParcels(request, response){
+    
+    const getParcelsQuery = 'SELECT * FROM parcels WHERE placed_by=$1';
+    try{
+      const { rows, rowCount} = await db.query(getParcelsQuery, [request.user.id]);
+
+      if(rowCount === 0){
+        return response.status(404).json({message: 'You currently have no parcel delivery order'});
+      }
+      return response.status(200).json({Data: rows, 'Count': `${rowCount}`})
+    }
+    catch(error){
+      return response.status(400).json({'Error Message': `${error}`});
+    }    
+  }
+
+
+  /**
+   * method to fetch all parcel orders
    *
    * @param {object} request 
    * @param {object} response 
@@ -76,12 +116,12 @@ class Parcel {
     try{
       const { rows, rowCount} = await db.query(getParcelsQuery);
       if(rowCount === 0){
-        return response.status(404).json({'Status':'404', 'message':' You currently have no parcel order'});
+        return response.status(404).json({'message':' You currently have no parcel order'});
       }
-      return response.status(200).json({'Status': 200, 'Data': rows, 'Count': `${rowCount}`})
+      return response.status(200).json({'Data': rows, 'Count': `${rowCount}`})
     }
     catch(error){
-      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+      return response.status(400).json({'Error message': `${error}`});
     }
   }
 
@@ -96,12 +136,12 @@ class Parcel {
     try{
       const { rows, rowCount } = await db.query(getParcelQuery, [request.params.id]);
       if( rowCount === 0 ){
-        return response.status(404).json({'Status':'404', 'message':' Order not found'});
+        return response.status(404).json({status:404, message:' Order not found'});
       }
-      return response.status(200).json({'status': 200, 'Data': rows[0]}) ;     
+      return response.status(200).json({status: 200, Data: rows[0]}) ;     
     }
     catch(error){
-      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+      return response.status(400).json({status: 400, 'Error': `${error}`});
     }
   }
 

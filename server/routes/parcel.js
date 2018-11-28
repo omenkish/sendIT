@@ -8,15 +8,16 @@ import validate from '../middleware/validate';
 router.route('/')
 .all(VerifyToken)
 .post(validate.createParcel, Parcel.createParcelOrder)
-.get(Parcel.getAllParcels)
+.get(validate.adminOnly, Parcel.getAllParcels)
 
 router.route('/:id')
-.get(validate.getById,Parcel.getParcelById)
+.get(VerifyToken, validate.adminOnly, validate.getById,Parcel.getParcelById)
 
 router.put('/:id/cancel', VerifyToken, Parcel.cancelParcelOrder);
-router.put('/:id/location',VerifyToken,validate.getById, validate.adminOnly, Parcel.updateCurrentLocation);
+router.put('/:id/location',VerifyToken, validate.adminOnly, validate.getById, Parcel.updateCurrentLocation);
 router.put('/:id/destination',VerifyToken, validate.getById, Parcel.changeDestination);
-router.put('/:id/deliver', VerifyToken, Parcel.markAsDelivered);
+router.put('/:id/deliver', VerifyToken, validate.adminOnly, Parcel.markAsDelivered);
+router.put('/:id/transit', VerifyToken, validate.adminOnly, Parcel.markAsTransiting);
 
 // update status;
 

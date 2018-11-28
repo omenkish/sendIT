@@ -1,4 +1,18 @@
+.error {
+  background-color: #b22222;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 5px;
+}
 
+.success {
+  background-color: #3cb371;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 5px;
+}
 span#reg  a, #signup h4 a {
   text-decoration: none;
   color:#5f9ea0;

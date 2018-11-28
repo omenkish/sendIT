@@ -7,7 +7,7 @@ class UserValidator {
     const CreateUserRules = {
       firstname: 'required|string',
       lastname: 'required|string',
-      othernames: 'required|string',
+      othernames: 'string',
       email: 'required|email',
       phone: 'required',
       password: 'required'
@@ -37,12 +37,13 @@ class UserValidator {
   } 
 
   static async adminOnly(request, response, next){
+    
     const sqlQuery = "SELECT is_admin FROM users WHERE id=$1";
     try{
       
       const { rows } = await  db.query(sqlQuery, [request.user.id]);
         if(rows[0].is_admin === false){
-        return response.status(401).json({'Status': 401, 'message': 'You do not have permission to access this route!'});
+        return response.status(401).json({status: 401, message: 'You do not have permission to access this route!'});
          }
       return next();
     }
@@ -54,12 +55,11 @@ class UserValidator {
 
   static createParcel(request, response, next){
     const CreateParcelRules = {
-      receiver_number: 'required|string',
+      receiver_number: 'required|numeric',
       weight: 'required|numeric',
       weight_metric: 'required|string',
       sender_address: 'required|string',
       receiver_address: 'required|string',
-      current_location: 'required|string'
     }
     
     const validator = new Validator(request.body, CreateParcelRules);

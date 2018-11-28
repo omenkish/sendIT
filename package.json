@@ -9,8 +9,8 @@
     "build": "npx babel server --out-dir dist ",
     "heroku-prebuild": "npm install",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "dev-start": "nodemon server/server --exec \"node -r @babel/register\"",
-    "dev-db": "nodemon server/models/parcels --exec \"node -r @babel/register\""
+    "dev-start": "cross-env NODE_ENV=development nodemon server/server --exec \"node -r @babel/register\"",
+    "drop-tables": "nodemon server/helpers/dropTables --exec \"node -r @babel/register\""
   },
   "nyc": {
     "exclude": [
@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "cors": "^2.8.5",
     "coveralls": "^3.0.2",
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",

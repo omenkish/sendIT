@@ -5,7 +5,7 @@ import request from 'supertest';
 // local modules
 import server from '../server';
 import ParcelOrder from '../models/parcels';
-import { get } from 'http';
+
 
 const validParcel = {
 
@@ -30,6 +30,13 @@ const signup = {
 }
 
 describe('ROUTES FOR PARCELS', () => {
+
+  before(()=> {
+    // ParcelOrder.dropUsersTable();
+    // ParcelOrder.dropParcelsTable();
+    ParcelOrder.createUsersTable();
+    ParcelOrder.createParcelsTable();
+  })
 
   describe('POST {when a parcel is being created}', () => {
     it('should return status code 201', () =>{

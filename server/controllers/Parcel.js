@@ -121,7 +121,7 @@ class Parcel {
       return response.status(200).json({'Data': rows, 'Count': `${rowCount}`})
     }
     catch(error){
-      return response.status(400).json({'Error message': `${error}`});
+      return response.status(400).json({ message: `${error}`});
     }
   }
 
@@ -141,7 +141,7 @@ class Parcel {
       return response.status(200).json({status: 200, Data: rows[0]}) ;     
     }
     catch(error){
-      return response.status(400).json({status: 400, 'Error': `${error}`});
+      return response.status(400).json({status: 400, message: `${error}`});
     }
   }
 
@@ -158,16 +158,18 @@ class Parcel {
           modified_at=NOW() WHERE id=$1 returning *`;
     try{
         const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id, request.user.id]);
-      if(rowCount === 1){
-        return response.status(404).json({'Status': 404,'Message': 'No order with the specified id exists for the user'});
+      if(rowCount === 0){
+        return response.status(404).json({status: 404, message: 'No order with the specified id exists for the user'});
       }
-
+      if(rows[0].cancelled === true){
+        return response.status(400).json({status:400, message: 'This parcel delivery order is already cancelled'})
+      }
       const result = await db.query(updateParcelQuery, [request.params.id]);
-      return response.status(201).json({'Status': 201,'Data': result.rows[0]});
+      return response.status(200).json({status: 200, message: 'Your order has been cancelled successfully'});
   
     }
     catch(error){
-      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+      return response.status(400).json({status: 400, message: `${error}`});
     }
   }
 
@@ -191,15 +193,15 @@ class Parcel {
     try{
         const { rowCount } = await db.query(findParcelQuery, [request.params.id]);
       if(rowCount === 0){
-        return response.status(404).json({'Status': 404,'Message': 'Order not found'});
+        return response.status(404).json({status: 404, message: 'Order not found'});
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(201).json({'Status': 201,'Message':'Location updated successfully','Data': result.rows[0]});
+      return response.status(201).json({status: 201,message:'Location updated successfully'});
   
     }
     catch(error){
-      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+      return response.status(400).json({status: 400, Error: `${error}`});
     }
    }
 
@@ -226,11 +228,37 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(201).json({'Status': 201,'Message':'destination updated successfully','Data': result.rows[0]});
+      return response.status(200).json({status: 200, message:'destination updated successfully'});
   
     }
     catch(error){
       return response.status(400).json({'Status': 400, 'Error': `${error}`});
+    }
+   }
+
+   static async markAsTransiting(request, response){
+    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1';
+    const updateParcelQuery = `UPDATE parcels SET status='transiting', 
+          modified_at=NOW() WHERE id=$1 returning *`;
+
+    
+    try{
+        const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
+      if(rowCount === 0){
+        return response.status(404).json({status: 404, message: 'Order not found'});
+      }
+      if(rows[0].status === 'transiting'){
+        return response.status(400).json({status:400, message: 'This parcel order is already on transit'})
+      }
+      if(rows[0].cancelled === true){
+        return response.status(400).json({status:400, message: 'Cannot change delivery status of cancelled order!'})
+      }
+      const result = await db.query(updateParcelQuery, [request.params.id]);
+      return response.status(200).json({status: 200, message:'Parcel now on transit...please change the current location'});
+  
+    }
+    catch(error){
+      return response.status(400).json({status: 400, error: `${error}`});
     }
    }
 
@@ -243,17 +271,19 @@ class Parcel {
       request.params.id
     ];
     try{
-        const { rowCount } = await db.query(findParcelQuery, [request.params.id]);
+        const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
       if(rowCount === 0){
-        return response.status(404).json({'Status': 404,'Message': 'Order not found'});
+        return response.status(404).json({'Status': 404, message: 'Order not found or not yet on transit'});
       }
-
+      if(rows[0].cancelled === true){
+        return response.status(400).json({status:400, message: 'Cannot change delivery status of cancelled order!'})
+      }
       const result = await db.query(updateParcelQuery, values);
-      return response.status(201).json({'Status': 201,'Message':'Parcel successfully delivered','Data': result.rows[0]});
+      return response.status(200).json({status: 200, message:'Parcel successfully delivered'});
   
     }
     catch(error){
-      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+      return response.status(400).json({status: 400, error: `${error}`});
     }
    }
 }

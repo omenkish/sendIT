@@ -32,18 +32,23 @@ class Parcel {
       return response.status(400).json({error: 'Something is wrong!'});
     }
     const current_location = 'warehouse';
-    const createParcelQuery = `INSERT INTO parcels(placed_by, order_number, receiver_number, weight, weight_metric, 
-          sender_address, receiver_address, current_location, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`;
+    const createParcelQuery = `INSERT INTO parcels(placed_by, order_number, receiver_number, description,
+                              weight, weight_metric, sender_address, receiver_address, current_location, price, 
+                              zip, state) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) 
+                              RETURNING *`;
     const values = [
       request.user.id,
       order_number,
       request.body.receiver_number,
+      request.body.description,
       request.body.weight,
       request.body.weight_metric.toLowerCase(),
       request.body.sender_address.toLowerCase(),
       request.body.receiver_address.toLowerCase(),
       current_location.toLowerCase(),
-      price 
+      price, 
+      request.body.zip,
+      request.body.state
     ];
     try {
       if(!request.user.id){

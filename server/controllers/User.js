@@ -26,7 +26,7 @@ class User {
     try {
       const { rows } = await db.query(sqltext, values);
       const token = Helper.generateToken(rows[0].email, rows[0].id)
-      return response.status(201).json({status: 201, Data: rows[0],token: token});
+      return response.status(201).json({status: 201, data: rows[0],token: token});
     } 
     catch(error) {
       if (error.routine === '_bt_check_unique') {

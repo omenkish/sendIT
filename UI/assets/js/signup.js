@@ -1,4 +1,4 @@
-const signup = (e) => {
+const signup = (e) =>{
 
   e.preventDefault();
 

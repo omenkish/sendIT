@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/signin.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/index.css" />
-  <script src="main.js"></script>
+  
 </head>
 <body>
     <header>
@@ -29,25 +29,22 @@
       </header>
   <section id="signin">
     <div class="container">
-      <form action="orders.html">
+      <form id="login">
         <div><h1> Sign In <i class="fa fa-arrow-alt-circle-right"></i></h1></div>
+        <div id="message"></div>
         <div>
-         
-            <input type="text" placeholder="Enter Username" name="username" required>
-         
+          <input type="email" placeholder="Enter registered email" id="email" required>
         </div>
         
         <div>
-          
-            <input type="password" placeholder="Enter Password" name="password" required>
-          
+          <input type="password" placeholder="Enter Password" id="password" required>
         </div>
       
         <div>
-            <a href="profile.html"></a><button type="submit"> Login</button></a>
-            <span id="remember">
-              <input type="checkbox" checked="checked" name="Remember"> Remember me
-            </span>
+          <button type="submit"> Login</button>
+          <span id="remember">
+            <input type="checkbox" checked="checked" id="Remember"> Remember me
+          </span>
         </div>
         <div class="bottom-form-area">
           <span id="reg">Not yet registered? <a href="signup.html">Sign up</a></span>
@@ -58,9 +55,11 @@
   </section>
 
   <footer>
-      <div class="container">
-        <p>SendIT Copyright&copy; 2018 || <a href="#">Terms of use</a></p>
-      </div>
-    </footer>
+    <div class="container">
+      <p>SendIT Copyright&copy; 2018 || <a href="#">Terms of use</a></p>
+    </div>
+  </footer>
+
+  <script src="./assets/js/signin.js"></script>
 </body>
 </html>

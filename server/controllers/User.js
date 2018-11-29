@@ -26,7 +26,7 @@ class User {
     try {
       const { rows } = await db.query(sqltext, values);
       const token = Helper.generateToken(rows[0].email, rows[0].id)
-      return response.status(201).json({status: 201, Data: rows[0],token: token});
+      return response.status(201).json({status: 201, data: rows[0],token: token});
     } 
     catch(error) {
       if (error.routine === '_bt_check_unique') {
@@ -52,10 +52,10 @@ class User {
         return response.status(400).json({status: 400, message: 'Username/password incorrect'});
       }
       if(!Helper.comparePassword(rows[0].password, request.body.password)){
-        return response.status(400).json({status: 400, message: 'Username/password incorrect'});
+        return response.status(404).json({status: 404, message: 'Username/password incorrect'});
       }
       const token = Helper.generateToken(rows[0].email, rows[0].id);
-      return response.status(200).json({status: 200, token: token});
+      return response.status(200).json({status: 200, data:rows[0], token: token});
     }
     catch(error){
       return response.status(400).json({status: 400, message: `${error}`});

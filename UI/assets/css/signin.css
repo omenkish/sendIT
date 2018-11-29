@@ -4,14 +4,32 @@
   font-weight: bold;
   color: #ffffff;
   padding: 5px;
+  -webkit-animation-duration: 15s;animation-duration: 15s;
+  -webkit-animation-fill-mode: both;animation-fill-mode: both;
 }
-
 .success {
   background-color: #3cb371;
   text-align: center;
   font-weight: bold;
   color: #ffffff;
   padding: 5px;
+  -webkit-animation-duration: 15s;animation-duration: 15s;
+  -webkit-animation-fill-mode: both;animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
 }
 span#reg  a, #signup h4 a {
   text-decoration: none;
@@ -37,7 +55,7 @@ span#reg  a, #signup h4 a {
 }
 
 
-#signin form input[type=text], #signin form input[type=password]{
+#signin form input[type=email], #signin form input[type=password]{
   margin-left: 8%;
   margin-top: 12px;
   width: 75%;
@@ -162,7 +180,7 @@ span.psw a {
     margin: 8px;
   }
   
-  #signin form input[type=text], #signin form input[type=password] {
+  #signin form input[type=email], #signin form input[type=password] {
     width: 94%;
     margin: 8px;
   }

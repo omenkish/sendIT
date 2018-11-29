@@ -32,18 +32,23 @@ class Parcel {
       return response.status(400).json({error: 'Something is wrong!'});
     }
     const current_location = 'warehouse';
-    const createParcelQuery = `INSERT INTO parcels(placed_by, order_number, receiver_number, weight, weight_metric, 
-          sender_address, receiver_address, current_location, price) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`;
+    const createParcelQuery = `INSERT INTO parcels(placed_by, order_number, receiver_number, description,
+                              weight, weight_metric, sender_address, receiver_address, current_location, price, 
+                              zip, state) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) 
+                              RETURNING *`;
     const values = [
       request.user.id,
       order_number,
       request.body.receiver_number,
+      request.body.description,
       request.body.weight,
       request.body.weight_metric.toLowerCase(),
       request.body.sender_address.toLowerCase(),
       request.body.receiver_address.toLowerCase(),
       current_location.toLowerCase(),
-      price 
+      price, 
+      request.body.zip,
+      request.body.state
     ];
     try {
       if(!request.user.id){
@@ -96,10 +101,10 @@ class Parcel {
       if(rowCount === 0){
         return response.status(404).json({message: 'You currently have no parcel delivery order'});
       }
-      return response.status(200).json({Data: rows, 'Count': `${rowCount}`})
+      return response.status(200).json({data: rows, count: rowCount})
     }
     catch(error){
-      return response.status(400).json({'Error Message': `${error}`});
+      return response.status(400).json({ message: `${error}`});
     }    
   }
 
@@ -116,12 +121,12 @@ class Parcel {
     try{
       const { rows, rowCount} = await db.query(getParcelsQuery);
       if(rowCount === 0){
-        return response.status(404).json({'message':' You currently have no parcel order'});
+        return response.status(404).json({status: 404, message:' No parcel delivery order in the system!'});
       }
-      return response.status(200).json({'Data': rows, 'Count': `${rowCount}`})
+      return response.status(200).json({status: 200, data: rows, count: `${rowCount}`})
     }
     catch(error){
-      return response.status(400).json({ message: `${error}`});
+      return response.status(400).json({ status: 400, message: `${error}`});
     }
   }
 

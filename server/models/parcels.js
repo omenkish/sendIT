@@ -48,14 +48,14 @@ class Parcels {
   static createParcelsTable (){
     const sqlText = `CREATE TABLE IF NOT EXISTS parcels (id SERIAL PRIMARY KEY,
       placed_by INTEGER not null REFERENCES users (id) ON DELETE CASCADE,
-      order_number text not null,
+      order_number text not null, description text not null,
       receiver_number VARCHAR(255) not null,
       weight FLOAT not null, weight_metric text not null,
-      sent_on TIMESTAMP DEFAULT NOW(), delivered_on TIMESTAMP DEFAULT NOW(),
+      sent_on TIMESTAMP DEFAULT NOW(), delivered_on TIMESTAMP DEFAULT null,
       status text DEFAULT 'pending', cancelled boolean DEFAULT False,
       sender_address text not null, receiver_address text not null,
       current_location text not null,
-      price FLOAT not null,
+      price FLOAT not null, zip int not null, state text not null,
       created_at TIMESTAMP DEFAULT NOW(),
       modified_at TIMESTAMP DEFAULT NOW())`;
   db.query(sqlText)

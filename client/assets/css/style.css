@@ -496,7 +496,7 @@ footer a {
 
   #main form {
     text-align: left;
-    width: 90%;
+    width: 100%;
     margin: 0;
   }
 
@@ -519,6 +519,10 @@ footer a {
     width: 40%;
   }
 
+  #main form div.center{
+    margin-left: 8px;
+    width: 100%;
+  }
   #boxes .box {
     float: none;
     display: inline-block;

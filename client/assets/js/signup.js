@@ -43,6 +43,7 @@ const signup = (e) =>{
 
           spann.appendChild(text);
           resultMessage.appendChild(spann);
+          resultMessage.classList.add('fadeOut');
         }
       });
     });

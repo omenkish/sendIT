@@ -39,6 +39,7 @@ const createParcel = (e) => {
       append(resultMessage, span);
       resultMessage.setAttribute('class', 'success');
       document.getElementById('createParcel').reset();
+      resultMessage.classList.add('fadeOut');
     }
     else{
       let span = createNode('span');
@@ -46,6 +47,7 @@ const createParcel = (e) => {
       append(span, text);
       append(resultMessage, span);
       resultMessage.setAttribute('class', 'error');
+      resultMessage.classList.add('fadeOut');
     }
   })
   .catch(error => {

@@ -39,7 +39,39 @@ ul {
   margin: 0;
   padding: 0;
 }
+.error {
+  background-color: #b22222;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 5px;
+  -webkit-animation-duration: 15s;animation-duration: 15s;
+  -webkit-animation-fill-mode: both;animation-fill-mode: both;
+}
+.success {
+  background-color: #3cb371;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 5px;
+  -webkit-animation-duration: 15s;animation-duration: 15s;
+  -webkit-animation-fill-mode: both;animation-fill-mode: both;
+}
 
+@-webkit-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
 /*header*/
 header {
   background: #35424a;
@@ -448,7 +480,8 @@ footer a {
   #sidebar,
   #main,
   #boxes,
-  #deliveries
+  #deliveries,
+  .center
  {
     float: none;
     display: inline-block;
@@ -463,7 +496,7 @@ footer a {
 
   #main form {
     text-align: left;
-    width: 90%;
+    width: 100%;
     margin: 0;
   }
 
@@ -486,6 +519,10 @@ footer a {
     width: 40%;
   }
 
+  #main form div.center{
+    margin-left: 8px;
+    width: 100%;
+  }
   #boxes .box {
     float: none;
     display: inline-block;

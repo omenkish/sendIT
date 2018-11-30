@@ -52,59 +52,60 @@
         <form id="createParcel">
           <fieldset>
             <legend><h2>Create Parcel Delivery Order <i class="fa fa-edit"></i></h2></legend>
-                <div class="form-left">
-                  <div>
-                    <label for="phone"><b>Receiver Number: </b>
-                      <input type="tel" name="phone" placeholder="234-80-1111-1111" id="phone" required>
-                    </label>
-                  </div>
-                    
-                    <div>
-                      <label for="item"><b>Weight: </b>
-                        <input type="number" placeholder="Item Name" id="item" required>
-                      </label>
-                    </div>
-        
-                    <div>
-                      <label for="phone"><b>Weight metric: </b>
-                        <select  name="metric" required id="metric">
-                          <option value="kg">KG</option>
-                        </select>
-                      </label>
-                    </div>
-        
-                    <div>
-                      <label for="description"><b>Item description: </b>
-                        <textarea  name="description"  id="description" required></textarea>
-                      </label>
-                    </div>
-                  </div>
-                  
-                  <div class="form-left">
-                    <div>
-                      <label for="From"><b>Sender Address: </b>
-                        <input type="text" placeholder="Enter sender address" name="from" id="from" required>
-                      </label>
-                    </div>
-                    <div>
-                      <label for="to"><b>Destination Address: </b>
-                        <input type="text"  name="to"  id="to" required>
-                      </label>
-                    </div>
-        
-                    <div>
-                      <label for="zip"><b>Zip Code (Destination): </b>
-                        <input type="number"  name="zip" min="0" step="1" id="zip" required>
-                      </label>
-                    </div>
-        
-                    <div>
-                      <label for="state"><b>State (Destination): </b>
-                        <input type="text"  name="state" id="state" required>
-                      </label>
-                    </div>
-                    
-                  </div>
+            <div id="message"></div>
+          <div class="form-left">
+            <div>
+              <label for="phone"><b>Receiver Number: </b>
+                <input type="tel" name="phone" placeholder="234-80-1111-1111" id="phone" required>
+              </label>
+            </div>
+              
+              <div>
+                <label for="item"><b>Weight: </b>
+                  <input type="number" placeholder="Weight" id="weight" required>
+                </label>
+              </div>
+  
+              <div>
+                <label for="metric"><b>Weight metric: </b>
+                  <select  name="metric" required id="metric">
+                    <option value="kg">KG</option>
+                  </select>
+                </label>
+              </div>
+  
+              <div>
+                <label for="description"><b>Item description: </b>
+                  <textarea  name="description"  id="description" required></textarea>
+                </label>
+              </div>
+            </div>
+                
+            <div class="form-left">
+              <div>
+                <label for="From"><b>Sender Address: </b>
+                  <input type="text" placeholder="Enter sender address" name="from" id="from" required>
+                </label>
+              </div>
+              <div>
+                <label for="to"><b>Destination Address: </b>
+                  <input type="text"  name="to"  id="to" required>
+                </label>
+              </div>
+  
+              <div>
+                <label for="zip"><b>Zip Code (Destination): </b>
+                  <input type="number"  name="zip" min="0" step="1" id="zip" required>
+                </label>
+              </div>
+  
+              <div>
+                <label for="state"><b>State (Destination): </b>
+                  <input type="text"  name="state" id="state" required>
+                </label>
+              </div>
+              
+            </div>
             
             <div class="center">
                 <button class="submitbtn" type="submit"> Create order</button>
@@ -120,5 +121,6 @@
     <footer>
       <p>SendIT Copyright&copy; 2018 || <a href="#">Terms of use</a></p>
     </footer>
+    <script src="./assets//js/createParcel.js"></script>
 	</body>
 </html>

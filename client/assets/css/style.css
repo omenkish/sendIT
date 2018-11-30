@@ -1,0 +1,552 @@
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  position: relative;
+  font:15px/1.5 "Times New Roman", Times, serif;
+  padding:0;
+  margin: 0;
+  min-height: 100%;
+  background-color: #f1f1f1;
+}
+
+/* global*/
+header .container {
+  width: 97%;
+  margin: auto;
+  overflow: hidden;
+}
+.container {
+  width: 75%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.hide{
+  display: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/*header*/
+header {
+  background: #35424a;
+  color: #ffffff;
+  padding-top: 10px;
+  min-height: 30px;
+  border-bottom: #e8491d 3px solid;
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+header li {
+  display: inline;
+  padding: 0 10px 0 20px;
+}
+
+header #branding {
+  float: left;
+}
+
+header #branding h1 {
+  margin: 0;
+}
+header #branding a {
+ font-size: 30px;
+}
+header nav{
+  float: right;
+  margin-top: 6px;
+}
+
+header .highlight, header .current a {
+  color: #e8491d;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: #cccccc;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* Hide the link that should open and close the topnav */
+ header .icon {
+    display: none;
+}
+/* sidebar */
+#left {
+  margin: 0 10px 0 0;
+  float: left;
+  min-height: 91.6vh;
+  padding: 15px;
+  top: 0;
+  bottom: 0;
+  background: #22333d;
+  width: 15%;
+}
+#heading {
+  font:15px/0.9 "Times New Roman", Times, serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  color: #5F9EA0;
+}
+#left hr {
+  color: #CCC;
+  font-weight: bolder;
+}
+#left span {
+  display: block;
+  padding: 12px 10px;
+}
+#sidebar a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: capitalize;
+
+}
+
+#sidebar a:hover {
+  color: #5f9ea0;
+  cursor: pointer;
+}
+
+aside#sidebar { 
+  margin: 8px 0 0 6px;
+}
+
+/* Main section */
+section#main {
+  padding: 12px;
+  margin-top: 2px;
+  padding-bottom: 6%;
+}
+
+#main form {
+  position: relative;
+  padding: 15px;
+  margin: 0 1%;
+  background-color: #ffffff;
+  z-index: 1;
+}
+#main legend {
+  text-align: center;
+  font-weight: bolder;
+  color: #5F9EA0;
+}
+#main div.form-left {
+  float: left;
+  margin: 6px 10px;
+  text-align: left;
+  width: 45%;
+  padding: 10px;
+ 
+}
+/*full width inputs*/
+ input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric'] {
+  width: 100%;
+  padding: 7px 20px;
+  margin: 5px 0;
+  display: block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  
+}
+
+/* Set a style for all buttons */
+#main button, #boxes button {
+  background-color: #e8491d;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  padding: 8px 14px;
+  border-radius: 4px;
+}
+#main form textarea{
+  max-height: 40px;
+}
+#main form div.center{
+  clear: both;
+  margin-left: 30%;
+  width: 100%;
+}
+#main form {
+  margin-left: 0;
+}
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* profile page */
+#profile-title h1 {
+  color: #696969;
+  text-transform: capitalize; 
+}
+
+/* boxes */
+#boxes {
+  margin-top: 8px;
+  padding-bottom: 6%;
+}
+
+#boxes div#pro-box{
+  margin-left: 25%;
+}
+#boxes h3 {
+  color: #696969;
+  text-transform: capitalize;
+}
+
+#boxes #transit {
+  text-align: left;
+}
+
+#boxes #transit a {
+  text-decoration: none;
+  color: #5f9ea0;
+  font-weight: bold;
+  margin: 0 ;
+}
+#boxes .box {
+  float: left;
+  margin: 6px 10px;
+  text-align: center;
+  width: 45%;
+  padding: 10px;
+  border-top: #35424a solid 3px;
+  border-bottom: #35424a solid 3px;
+  border-radius: 2%;
+  background: #ffffff
+
+}
+
+h2#fa-text{
+  background-color: #f1f1f1;
+}
+
+#boxes .box img {
+  width: 150px;
+}
+ 
+.imgcontainer {
+  text-align: center;
+  margin:0;
+  border-bottom: #35424a solid 2px;
+}
+
+img.avatar {
+  height: 20%;
+  width: 25%;
+  border-radius: 50%;
+}
+.submitbtn{
+  float: left;
+}
+#boxes .cancelbtn, #boxes .edit{
+  background-color: #35424a;
+}
+
+#table .tooltip {
+  position: relative;
+  display: inline-block;
+ 
+}
+
+/* Tooltip text */
+#deliveries table span {
+  display: none;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+#deliveries table a:hover span {
+  display: inline;
+}
+
+/* order page */
+#boxes .order {
+  width: 60%;
+  margin: 4% 12%;
+}
+
+#boxes .order form input, textarea{
+  font-size: 15px;
+}
+/* Admin Page */
+#deliveries table {
+  margin: 8px 1px;
+  width: 100%;
+  padding: 5px;
+  
+}
+#deliveries table, th, td {
+  border: 2px solid #ccc;
+  border-collapse: collapse;
+}
+#deliveries table button {
+  width: auto;
+}
+#deliveries table a {
+ text-decoration: none;
+ color: #5f9ea0;
+}
+
+/** Modal area**/
+
+/* Modal Header */
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#myModal .modal-body h3{
+  color: red;
+}
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #35424a;
+  color: white;
+  border-top: #e8491d solid 2px;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px;
+  min-height: 70px
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  top: 25%;
+  border: 1px solid #888;
+  width: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+/* Modal Footer */
+div.modal-footer {
+  padding: 2px 7px;
+  background-color: #35424a;
+  color: white;
+  border-bottom: #e8491d solid 3px;
+}
+
+#myModal button{
+  width: 18%;  
+}
+
+#myModal button#cancelbtn{
+  width: 18%;
+  background-color: #696969;
+  margin-left:50%; 
+  
+}
+#myModal button#delete{
+  background-color: red;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+/* footer area */
+footer {
+  overflow: hidden;
+  position: absolute;
+  width: 85%;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding-left: 0;
+  background: #35424a;
+  max-height: 45px;
+  border-top: #e8491d solid 3px;
+  text-align: center;
+
+}
+footer .container {
+  width: inherit;
+  text-align: center;
+  clear: both;
+  margin-bottom: 12px;
+  padding: 0;
+  width: inherit;
+}
+
+footer p {
+  color: #ffffff;
+  font-weight: bold;
+}
+footer a {
+  color: #e8491d;
+  text-decoration: none;
+}
+/* Change style for span and cancel button on small screen */
+@media screen and (max-width: 764px) {
+  .container,  
+  #left,
+  #sidebar,
+  #main,
+  #boxes,
+  #deliveries
+ {
+    float: none;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    
+  }
+  #left {
+    min-height: inherit;
+    
+  }
+
+  #main form {
+    text-align: left;
+    width: 90%;
+    margin: 0;
+  }
+
+  #main .form-left{
+    width: 100%;
+    margin: 0;
+  }
+
+  #main input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric']{
+    width: 94%;
+  }
+  #boxes input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number],select[name='metric'] {
+    width: 94%;
+  }
+  
+  #main button {
+    width: 94%;
+  }
+  #boxes button {
+    width: 40%;
+  }
+
+  #boxes .box {
+    float: none;
+    display: inline-block;
+    width: 100%;
+    border: none;  
+  }
+  #profile-title h1 {
+    text-align: center;
+  }
+  #boxes .order  {
+    width: 100%;
+    margin: 0 4%;
+    padding-bottom: 20%
+  }
+  #boxes {
+    width: 98%;
+  }
+  #boxes div#pro-box{
+    margin-left: 15px;
+  }
+  #boxes .order button {
+    width: 94%;
+  }
+  #boxes #transit a {
+    margin: 0 15px;
+  }
+
+  #boxes #transit button {
+    width: 29%;
+  }
+
+  #boxes .order form input, textarea, select{
+    font-size: 15px;
+  }
+  #deliveries table{
+    width: 94%;
+  }
+
+  #main div.form-left {
+    float: none;
+    margin: 6px 10px;
+    text-align: lcenter;
+    width: 100%;
+    padding: 10px;
+   
+  }
+  footer{
+    width: 100%;
+  }
+
+  .modal-content {
+    border: 1px solid #888;
+    top: 40%;
+    width: 80%;
+    animation-name: animatetop;
+    animation-duration: 0.6s
+  }
+
+  #myModal button#cancelbtn, button#delete{
+    width: 18%;
+    background-color: #696969;
+    
+  }
+}

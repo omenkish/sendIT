@@ -1,6 +1,6 @@
-const token = sessionStorage.getItem('token');
-const is_admin = sessionStorage.getItem('admin');
-const username = sessionStorage.getItem('username');
+const token = localStorage.getItem('token');
+const is_admin = localStorage.getItem('admin');
+const username = localStorage.getItem('username');
 
 const createParcel = (e) => {
   e.preventDefault();

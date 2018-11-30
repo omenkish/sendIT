@@ -31,9 +31,9 @@ const signup = (e) =>{
         if(result.status === 201) {
           const token = result.token;
 
-          sessionStorage.setItem('token', token);
-          sessionStorage.setItem('username', result.data.firstname);
-          sessionStorage.setItem('admin', result.data.is_admin);
+          localStorage.setItem('token', token);
+          localStorage.setItem('username', result.data.firstname);
+          localStorage.setItem('admin', result.data.is_admin);
           window.location.replace('profile.html');
         }
         else {

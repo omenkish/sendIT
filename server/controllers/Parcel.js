@@ -99,12 +99,12 @@ class Parcel {
       const { rows, rowCount} = await db.query(getParcelsQuery, [request.user.id]);
 
       if(rowCount === 0){
-        return response.status(404).json({message: 'You currently have no parcel delivery order'});
+        return response.status(404).json({status: 404, message: 'You currently have no parcel delivery order'});
       }
-      return response.status(200).json({data: rows, count: rowCount})
+      return response.status(200).json({status: 200, data: rows, count: rowCount})
     }
     catch(error){
-      return response.status(400).json({ message: `${error}`});
+      return response.status(400).json({status: 400, message: `${error}`});
     }    
   }
 

@@ -20,9 +20,9 @@ const login = (e) => {
     if(result.status === 200){
       const token = result.token;
 
-      sessionStorage.setItem('token', token);
-      sessionStorage.setItem('username', result.data.firstname);
-      sessionStorage.setItem('admin', result.data.is_admin);
+      localStorage.setItem('token', token);
+      localStorage.setItem('username', result.data.firstname);
+      localStorage.setItem('admin', result.data.is_admin);
       
       if(result.data.is_admin){
         return window.location.replace('admin.html');
@@ -38,6 +38,14 @@ const login = (e) => {
       resultMessage.classList.add('fadeOut');
     }
     
+  })
+  .catch(error => {
+    let span = document.createElement('span');
+    const text = document.createTextNode('Something is wrong... Please try again later.');
+    span.appendChild(text);
+    resultMessage.appendChild(span);
+    resultMessage.setAttribute('class', 'error');
+    resultMessage.classList.add('fadeOut');
   })
 
 

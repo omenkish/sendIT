@@ -52,13 +52,13 @@ class Parcel {
     ];
     try {
       if(!request.user.id){
-        return response.status(401).json({status: 401, message: `${error}`});
+        return response.status(401).json({status: 401, message: 'Please sign in to access this area'});
       }
       const { rows } = await db.query(createParcelQuery, values);
       return response.status(201).json({status: 201, message:'Parcel order placed successfully' });
     }
     catch(error){
-      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+      return response.status(400).json({status: 400, message: `${error}`});
     }
   }
 

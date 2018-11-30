@@ -448,7 +448,8 @@ footer a {
   #sidebar,
   #main,
   #boxes,
-  #deliveries
+  #deliveries,
+  .center
  {
     float: none;
     display: inline-block;

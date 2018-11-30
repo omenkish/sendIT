@@ -19,8 +19,11 @@ const login = (e) => {
   .then(result => {
     if(result.status === 200){
       const token = result.token;
+
       sessionStorage.setItem('token', token);
-      sessionStorage.setItem('username', result.data.firstname)
+      sessionStorage.setItem('username', result.data.firstname);
+      sessionStorage.setItem('admin', result.data.is_admin);
+      
       if(result.data.is_admin){
         return window.location.replace('admin.html');
       }

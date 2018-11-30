@@ -30,8 +30,11 @@ const signup = (e) =>{
       res.json().then(result => {
         if(result.status === 201) {
           const token = result.token;
+
           sessionStorage.setItem('token', token);
-          window.location.replace('orders.html');
+          sessionStorage.setItem('username', result.data.firstname);
+          sessionStorage.setItem('admin', result.data.is_admin);
+          window.location.replace('profile.html');
         }
         else {
           resultMessage.setAttribute('class', 'error');

@@ -32,17 +32,35 @@ const createParcel = (e) => {
 
   fetch(url, fetchData).then(response => response.json())
   .then(result => {
-    if(status === 201){
-      
+    if(result.status === 201){
+      let span = createNode('span');
+      const text = document.createTextNode(result.message);
+      append(span, text);
+      append(resultMessage, span);
+      resultMessage.setAttribute('class', 'success');
+      document.getElementById('createParcel').reset();
     }
     else{
-
+      let span = createNode('span');
+      const text = document.createTextNode(result.message);
+      append(span, text);
+      append(resultMessage, span);
+      resultMessage.setAttribute('class', 'error');
     }
   })
   .catch(error => {
     console.log('--------------------', error);
   });
 }
+
+function createNode(element) {
+  return document.createElement(element);
+}
+
+function append(parent, el) {
+return parent.appendChild(el);
+}
+
 window.onload = function upAndRunning(){
   if(!token) return window.location = 'signin.html';
 }

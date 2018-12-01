@@ -1,5 +1,6 @@
 
-const getId = () =>{
+const getId = (e) =>{
+  
   document.getElementById('userModal').style.display = 'block';
   let parcelDiv = document.getElementById('userParcel');
   let btn  = document.getElementById

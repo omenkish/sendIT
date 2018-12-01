@@ -143,7 +143,21 @@ class Parcel {
       if( rowCount === 0 ){
         return response.status(404).json({status:404, message:' Order not found'});
       }
-      return response.status(200).json({status: 200, Data: rows[0]}) ;     
+      return response.status(200).json({status: 200, data: rows[0]}) ;     
+    }
+    catch(error){
+      return response.status(400).json({status: 400, message: `${error}`});
+    }
+  }
+
+  static async getUserParcelById(request, response){
+    const getParcelQuery = 'SELECT * FROM parcels WHERE id=$1 and placed_by=$2';
+    try{
+      const { rows, rowCount } = await db.query(getParcelQuery, [request.params.id, request.user.id]);
+      if( rowCount === 0 ){
+        return response.status(404).json({status:404, message:' Order not found'});
+      }
+      return response.status(200).json({status: 200, data: rows[0]}) ;     
     }
     catch(error){
       return response.status(400).json({status: 400, message: `${error}`});

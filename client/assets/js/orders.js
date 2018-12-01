@@ -55,19 +55,10 @@ const userParcels = () => {
                     
                           <td>${parcel.current_location}</td>
                           <td>${parcel.status}</td>
-                          <td> <a id="btn" data-id = '${parcel.id}' href="#?${parcel.id}" onclick="getId();"><i class="fa fa-eye fa-2x"></i></a> &nbsp;
+                          <td> <a id="btn" data-id = "${parcel.id}" href="#" onclick="getId();"><i class="fa fa-eye fa-2x"></i></a> &nbsp;
                           <a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; 
                             <a id="myBtn" href="#" onclick="document.getElementById('myModal').style.display = 'block'"> <i class="fa fa-trash-alt fa-2x" ></i></a>
-                          </td>`;
-        // let span = createNode('span');
-        // let text = document.createTextNode(parcel.id);
-        // append(span, text);
-        // span.setAttribute('id', 'userId');
-        // span.style.display = 'none';
-        // append(tableRow, span);
-        
-        // console.log(document.getElementsByClassName('btn'));
-        
+                          </td>`;     
       });
 
       

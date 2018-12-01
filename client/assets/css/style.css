@@ -414,6 +414,19 @@ img.avatar {
   animation-name: animatetop;
   animation-duration: 0.4s
 }
+
+.modal #userParcel p{
+  margin: 0 12%  ;
+  border-bottom: #888 solid 2px;
+}
+.modal #userParcel label{
+  
+  font-weight: bold;
+} 
+.modal #userParcel span{
+  float: right;
+  
+} 
 /* Modal Footer */
 div.modal-footer {
   padding: 2px 7px;

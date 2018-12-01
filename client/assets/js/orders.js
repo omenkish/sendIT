@@ -22,7 +22,7 @@ const userParcels = () => {
   fetch(url, fetchData)
   .then(response => response.json())
   .then(result => {
-    console.log(result)
+    
     if(result.status === 200){
       const parcels = result.data;  
       let index = 0;
@@ -46,7 +46,8 @@ const userParcels = () => {
         tableRow = tbody.insertRow(-1);
         index  += 1;
         
-        tableRow.innerHTML += `<td>${index}</td>
+        tableRow.innerHTML += `
+                          <td>${index}</td>
                           <td><a href="order.html?rec=${parcel.id}">${parcel.order_number}</a></td>
                           <td>${parcel.price}</td>
                           <td>${parcel.receiver_number}</td>
@@ -54,13 +55,13 @@ const userParcels = () => {
                     
                           <td>${parcel.current_location}</td>
                           <td>${parcel.status}</td>
-                          <td> <a href="order.html?id=${parcel.id}" ><i class="fa fa-eye fa-2x"></i></a> &nbsp;
+                          <td> <a id="btn" data-id = "${parcel.id}" href="#" onclick="getId();"><i class="fa fa-eye fa-2x"></i></a> &nbsp;
                           <a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; 
                             <a id="myBtn" href="#" onclick="document.getElementById('myModal').style.display = 'block'"> <i class="fa fa-trash-alt fa-2x" ></i></a>
-                          </td>`;
-
-        
+                          </td>`;     
       });
+
+      
     }
     else{
       let span = createNode('span');

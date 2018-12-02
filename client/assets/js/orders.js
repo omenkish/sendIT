@@ -1,4 +1,5 @@
 const token = localStorage.getItem('token');
+
 if(!token){
   window.location = 'signin.html';
 }
@@ -55,10 +56,11 @@ const userParcels = () => {
                     
                           <td>${parcel.current_location}</td>
                           <td>${parcel.status}</td>
-                          <td> <a id="btn" data-id = "${parcel.id}" href="#" onclick="getId();"><i class="fa fa-eye fa-2x"></i></a> &nbsp;
+                          <td> <a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);"><i class="fa fa-eye fa-2x"></i></a> &nbsp;
                           <a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; 
-                            <a id="myBtn" href="#" onclick="document.getElementById('myModal').style.display = 'block'"> <i class="fa fa-trash-alt fa-2x" ></i></a>
-                          </td>`;     
+                            <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> <i class="fa fa-trash-alt fa-2x" ></i></a>
+                          </td>`;    
+        tableRow.setAttribute('data-id', `${parcel.id}`);
       });
 
       

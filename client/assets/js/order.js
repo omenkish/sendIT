@@ -1,12 +1,10 @@
 
-const getId = (e) =>{
+const getId = (el) =>{
   
   document.getElementById('userModal').style.display = 'block';
   let parcelDiv = document.getElementById('userParcel');
-  let btn  = document.getElementById
-  ('btn');
-  let id = btn.getAttribute('data-id');
-
+  let id = el.getAttribute('data-id');
+  console.log(id);
   const url = `http://localhost:5000/api/v1/parcels/${id}`;
 
   let fetchData = { 
@@ -20,7 +18,6 @@ const getId = (e) =>{
   fetch(url, fetchData)
   .then(response => response.json())
   .then(result => {
-    console.log(result)
     if(result.status === 200){
       const parcel = result.data;
       let para = createNode('p');

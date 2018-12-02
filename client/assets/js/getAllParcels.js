@@ -20,6 +20,9 @@ const allParcels = () => {
   fetch(url, fetchData)
   .then(response => response.json())
   .then(result => {
+    if(result.status === 401){
+      window.location = 'index.html';
+    }
     if(result.status === 200){
       const parcels = result.data;
       let index = 0;

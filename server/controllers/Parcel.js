@@ -202,8 +202,9 @@ class Parcel {
    static async updateCurrentLocation(request, response){
 
     const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 ';
-    const updateParcelQuery = `UPDATE parcels SET current_location=$1, 
-          modified_at=NOW() WHERE id=$2 returning *`;
+    const updateParcelQuery = `UPDATE parcels SET current_location=$1,
+                              status='transiting', 
+                              modified_at=NOW() WHERE id=$2 returning *`;
 
     const values = [
       request.body.current_location,
@@ -294,13 +295,13 @@ class Parcel {
     try{
         const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
       if(rowCount === 0){
-        return response.status(404).json({'Status': 404, message: 'Order not found or not yet on transit'});
+        return response.status(404).json({status: 404, message: 'Order not found or not yet on transit'});
       }
       if(rows[0].cancelled === true){
         return response.status(400).json({status:400, message: 'Cannot change delivery status of cancelled order!'})
       }
       const result = await db.query(updateParcelQuery, values);
-      return response.status(200).json({status: 200, message:'Parcel successfully delivered'});
+      return response.status(200).json({status: 200, message:'Parcel successfully marked as delivered'});
   
     }
     catch(error){

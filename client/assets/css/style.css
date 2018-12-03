@@ -356,7 +356,7 @@ img.avatar {
 }
 /* Admin Page */
 #deliveries table {
-  margin: 8px 1px;
+  margin: 5px 1px;
   width: 100%;
   padding: 5px;
   
@@ -443,7 +443,10 @@ img.avatar {
   animation-name: animatetop;
   animation-duration: 0.4s
 }
-
+#table button{
+  padding: 5px;
+  margin: 5px;
+}
 .modal #userParcel p{
   margin: 0 12%  ;
   border-bottom: #888 solid 2px;

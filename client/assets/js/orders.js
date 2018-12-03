@@ -56,9 +56,9 @@ const userParcels = () => {
                     
                           <td>${parcel.current_location}</td>
                           <td>${parcel.status}</td>
-                          <td> <a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);"><i class="fa fa-eye fa-2x"></i></a> &nbsp;
-                          <a href="order.html"><i class="fa fa-pen-square fa-2x"></i></a> &nbsp; 
-                            <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> <i class="fa fa-trash-alt fa-2x" ></i></a>
+                          <td> <a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);"><button id="cancelbtn">view</button></i></a> &nbsp;
+                          <a href="order.html"><button id="cancelbtn">Edit</button></a> &nbsp; 
+                            <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> <button id="cancelbtn">cancel</button></a>
                           </td>`;    
         tableRow.setAttribute('data-id', `${parcel.id}`);
       });

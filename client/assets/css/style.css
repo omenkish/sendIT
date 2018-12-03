@@ -205,7 +205,7 @@ section#main {
 
 /* Set a style for all buttons */
 #main button, #boxes button {
-  background-color: #e8491d;
+  background-color: #22333d;
   color: white;
   margin: 8px 0;
   border: none;

@@ -59,9 +59,10 @@
     <div class="container">
       <div class="order">
         <form  class="order-form" id="changeDestination">
+            <div id="message"></div>
           <div>
               <label><strong>Receiver Number: </strong></label>
-              <input type="tel" value="0812345678" id="phone"  disabled>
+              <input type="tel"  id="phone"  disabled>
           </div>
           <div>
               <label><strong>Item Description: </strong></label>
@@ -70,30 +71,30 @@
           
           <div>
             <label><strong>Current location: </strong></label>
-            <input type="text" value="Current location:  Tin can, Westminster"  id="location"  disabled>
+            <input type="text"   id="location"  disabled>
           </div>
           
           <div>
             <label><strong>Price ($): </strong></label>
-            <input type="number" value="100000"  id="price" min="0"   disabled>
+            <input type="number"   id="price" min="0"   disabled>
           </div>
           
           <div>
-              <label><strong>Item Description: </strong></label>
-              <input type="text" value="12.5"  id="weight"   disabled>
+              <label><strong>Delivery Status: </strong></label>
+              <input type="text"   id="status"   disabled>
           </div>
           
           <div>
               <label><strong>Destination: </strong></label>
-              <input type="text"  id="destination" value="Pickup location: Behind Mr Biggs, kaduna road" required>
+              <input type="text"  id="destination"  required>
           </div>
           
 
           <label><strong>Destination Zip Code: </strong></label>
-          <input type="number"  id="zip" value="Destination (City): Asaba" required >
+          <input type="number"  id="zip"  required >
         
           <label><strong>Destination State: </strong></label>
-          <input type="text" value="State : Delta State" id="state" required>
+          <input type="text"  id="state" required>
         
           <div class="center">
             <button class="submitbtn" type="submit"> Change Destination</button>
@@ -105,6 +106,8 @@
     <footer>
         <p>SendIT Copyright&copy; 2018 || <a href="#">Terms of use</a></p>
     </footer>
+
+    <script src="./assets/js/editOrder.js"></script>
 	</body>
 </html>
 

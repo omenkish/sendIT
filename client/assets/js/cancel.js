@@ -1,7 +1,7 @@
 const cancel = () => {
 
   let messageDiv = document.querySelector('#message');
-  let id = document.querySelector('#delete').getAttribute('data-id');
+  const id = document.querySelector('#delete').getAttribute('data-id');
   const url = `http://localhost:5000/api/v1/parcels/${id}/cancel`;
 
   let fetchData = { 

@@ -57,8 +57,8 @@ const userParcels = () => {
                           <td>${parcel.current_location}</td>
                           <td>${parcel.status}</td>
                           <td> <a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);"><button id="cancelbtn">view</button></i></a> &nbsp;
-                          <a href="order.html"><button id="cancelbtn">Edit</button></a> &nbsp; 
-                            <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> <button id="cancelbtn">cancel</button></a>
+                          <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; 
+                            <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> <button id="cancelbtn">Cancel</button></a>
                           </td>`;    
         tableRow.setAttribute('data-id', `${parcel.id}`);
       });
@@ -77,6 +77,7 @@ const userParcels = () => {
     console.log('------------------ Error', error);
   });
 }
+
 
 function createNode(element) {
   return document.createElement(element);

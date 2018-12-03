@@ -46,8 +46,22 @@ const userParcels = () => {
       parcels.forEach(parcel => {
         tableRow = tbody.insertRow(-1);
         index  += 1;
-        
-        tableRow.innerHTML += `
+        if(parcel.status === 'delivered'){
+          tableRow.innerHTML += `
+                          <td>${index}</td>
+                          <td><a href="order.html?rec=${parcel.id}">${parcel.order_number}</a></td>
+                          <td>${parcel.price}</td>
+                          <td>${parcel.receiver_number}</td>
+                          <td>${parcel.receiver_address}</td>
+                    
+                          <td>${parcel.current_location}</td>
+                          <td>${parcel.status}</td>
+                          <td> <a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);"><button id="cancelbtn">view</button></i></a> &nbsp;
+                  
+                          </td>`;   
+        }
+        else {
+          tableRow.innerHTML += `
                           <td>${index}</td>
                           <td><a href="order.html?rec=${parcel.id}">${parcel.order_number}</a></td>
                           <td>${parcel.price}</td>
@@ -59,7 +73,8 @@ const userParcels = () => {
                           <td> <a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);"><button id="cancelbtn">view</button></i></a> &nbsp;
                           <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; 
                             <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> <button id="cancelbtn">Cancel</button></a>
-                          </td>`;    
+                          </td>`;   
+        }
         tableRow.setAttribute('data-id', `${parcel.id}`);
       });
 

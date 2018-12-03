@@ -78,10 +78,10 @@ class Parcel {
       if(rowCount === 0){
         return response.status(404).json({status: 404, message: 'No parcels found for this user'});
       }
-      return response.status(200).json({status: 200, Data: rows, count: `${rowCount}`})
+      return response.status(200).json({status: 200, data: rows, count: `${rowCount}`})
     }
     catch(error){
-      return response.status(400).json({status: 400, 'Error message': `${error}`});
+      return response.status(400).json({status: 400, message: `${error}`});
     }    
   }
 
@@ -117,7 +117,7 @@ class Parcel {
    * @returns {Array} all parcel orders
    */
   static async getAllParcels(request, response){
-    const getParcelsQuery = 'SELECT * FROM parcels';
+    const getParcelsQuery = 'SELECT * FROM parcels ORDER BY created_at DESC';
     try{
       const { rows, rowCount} = await db.query(getParcelsQuery);
       if(rowCount === 0){
@@ -216,11 +216,11 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(201).json({status: 201,message:'Location updated successfully'});
+      return response.status(200).json({status: 200,message:'Location updated successfully'});
   
     }
     catch(error){
-      return response.status(400).json({status: 400, Error: `${error}`});
+      return response.status(400).json({status: 400, message: `${error}`});
     }
    }
 

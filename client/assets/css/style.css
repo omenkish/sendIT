@@ -340,6 +340,20 @@ img.avatar {
 #boxes .order form input, textarea{
   font-size: 15px;
 }
+
+.order form{
+  margin: 12px;
+  padding: 12px;
+  position: relative;
+  background-color: #ffffff;
+  z-index: 4;
+}
+
+#changeDestination .center{
+  clear: both;
+  margin-left: 35%;
+  width: 100%;
+}
 /* Admin Page */
 #deliveries table {
   margin: 8px 1px;
@@ -377,8 +391,15 @@ img.avatar {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-#myModal .modal-body h3, #myModal .modal-body h3{
+#myModal .modal-body h3{
   color: red;
+}
+#myModal .modal-body form button{
+  width: 50%;
+}
+
+#myModal .modal-footer #cancelbtn{
+  margin-left: 80%;
 }
 /* The Close Button */
 .close {
@@ -435,6 +456,14 @@ img.avatar {
   float: right;
   
 } 
+.modal-body form{
+  width: 100%;
+}
+.modal-body input[type=text]{
+  width: 94%;
+  border-radius: 8px;
+  
+}
 /* Modal Footer */
 div.modal-footer {
   padding: 2px 7px;
@@ -605,7 +634,7 @@ footer a {
   #main div.form-left {
     float: none;
     margin: 6px 10px;
-    text-align: lcenter;
+    text-align: center;
     width: 100%;
     padding: 10px;
    
@@ -626,5 +655,10 @@ footer a {
     width: 18%;
     background-color: #696969;
     
+  }
+  #changeDestination .center{
+    clear: both;
+    margin-left: 0;
+    width: 100%;
   }
 }

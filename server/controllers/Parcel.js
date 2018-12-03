@@ -295,7 +295,7 @@ class Parcel {
     try{
         const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
       if(rowCount === 0){
-        return response.status(404).json({status: 404, message: 'Order not found or not yet on transit'});
+        return response.status(404).json({status: 404, message: 'Pending orders cannot be marked as delivered'});
       }
       if(rows[0].cancelled === true){
         return response.status(400).json({status:400, message: 'Cannot change delivery status of cancelled order!'})

@@ -27,7 +27,7 @@ const deliver = (el) => {
     }
     else{
       let span = createNode('span');
-      let text = document.createTextNode('Pending orders cannot be marked as delivered');
+      let text = document.createTextNode(result.message);
       append(span, text);
       append(messageDiv, span);
 

@@ -398,7 +398,7 @@ img.avatar {
   width: 50%;
 }
 
-#myModal .modal-footer #cancelbtn{
+#modal-content .modal-footer #cancelbtn{
   margin-left: 80%;
 }
 /* The Close Button */
@@ -445,7 +445,6 @@ img.avatar {
 }
 #table button{
   padding: 5px;
-  margin: 5px;
 }
 .modal #userParcel p{
   margin: 0 12%  ;

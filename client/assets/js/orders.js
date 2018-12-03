@@ -46,7 +46,7 @@ const userParcels = () => {
       parcels.forEach(parcel => {
         tableRow = tbody.insertRow(-1);
         index  += 1;
-        if(parcel.status = 'delivered'){
+        if(parcel.status === 'delivered'){
           tableRow.innerHTML += `
                           <td>${index}</td>
                           <td><a href="order.html?rec=${parcel.id}">${parcel.order_number}</a></td>

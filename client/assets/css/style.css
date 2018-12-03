@@ -202,7 +202,15 @@ section#main {
   box-sizing: border-box;
   
 }
-
+.order label{
+  padding: 10px;
+  float: left;
+  clear: both;
+}
+.order input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric'] {
+  width: 70%;
+  float: right;
+}
 /* Set a style for all buttons */
 #main button, #boxes button {
   background-color: #22333d;
@@ -510,10 +518,14 @@ footer a {
     
   }
   #left {
-    min-height: inherit;
-    
+    min-height: inherit;    
   }
 
+  #left span {
+    display:inline;
+    padding: 12px 10px;
+    
+  }
   #main form {
     text-align: left;
     width: 100%;
@@ -525,6 +537,11 @@ footer a {
     margin: 0;
   }
 
+  .order label {
+    float: none;
+    clear: none;
+    padding: 5px;
+  }
   #main input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric']{
     width: 94%;
   }
@@ -532,6 +549,10 @@ footer a {
     width: 94%;
   }
   
+  .order input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number],select[name='metric'] {
+    float: none;
+    width: 94%;
+  }
   #main button {
     width: 94%;
   }

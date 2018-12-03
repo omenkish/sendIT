@@ -54,30 +54,48 @@
         </div>
       </aside>
   </section>
-  <div id="profile-title"><h1>Order details</h1></div>
+  <div id="profile-title"><h1>Change Order Destination</h1></div>
   <section id="boxes">
     <div class="container">
       <div class="order">
-        <form action="profile.html" class="order-form" >
-          <input type="text" value="Receiver name: Mr Robert Junior" placeholder="Name" name="name" required disabled>
-      
-          <input type="tel" value="0812345678" name="phone" placeholder="234-80-1111-1111" required disabled>
-      
-          <textarea name="description" required disabled>Parcel Description: 3 iphone X plus</textarea>
-          
-          <input type="text" value="Current location:  Tin can, Westminster" placeholder="Name" name="location" required disabled>
-          
-          <input type="number" value="100000"  name="price" min="0"  required disabled>
-         
-          <input type="number" value="12.5"  name="weight" min="0"  required disabled>
-          
-          <input type="text"  name="pickup" value="Pickup location: Behind Mr Biggs, kaduna road" required>
-
-          <input type="text"  name="city" value="Destination (City): Asaba" required >
-        
-          <input type="text" value="State : Delta State" name="state" required>
-        
+        <form  class="order-form" id="changeDestination">
           <div>
+              <label><strong>Receiver Number: </strong></label>
+              <input type="tel" value="0812345678" id="phone"  disabled>
+          </div>
+          <div>
+              <label><strong>Item Description: </strong></label>
+              <input type="text" id="description"  disabled>
+          </div>
+          
+          <div>
+            <label><strong>Current location: </strong></label>
+            <input type="text" value="Current location:  Tin can, Westminster"  id="location"  disabled>
+          </div>
+          
+          <div>
+            <label><strong>Price ($): </strong></label>
+            <input type="number" value="100000"  id="price" min="0"   disabled>
+          </div>
+          
+          <div>
+              <label><strong>Item Description: </strong></label>
+              <input type="text" value="12.5"  id="weight"   disabled>
+          </div>
+          
+          <div>
+              <label><strong>Destination: </strong></label>
+              <input type="text"  id="destination" value="Pickup location: Behind Mr Biggs, kaduna road" required>
+          </div>
+          
+
+          <label><strong>Destination Zip Code: </strong></label>
+          <input type="number"  id="zip" value="Destination (City): Asaba" required >
+        
+          <label><strong>Destination State: </strong></label>
+          <input type="text" value="State : Delta State" id="state" required>
+        
+          <div class="center">
             <button class="submitbtn" type="submit"> Change Destination</button>
           </div>      
         </form>
@@ -85,9 +103,7 @@
     </div>
     </section>
     <footer>
-      <div class="container">
         <p>SendIT Copyright&copy; 2018 || <a href="#">Terms of use</a></p>
-      </div>
     </footer>
 	</body>
 </html>

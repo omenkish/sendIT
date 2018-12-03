@@ -81,7 +81,6 @@ const loadPage = () => {
   .then(result => {
     if(result.status === 200){
       const parcel = result.data;
-      console.log(parcel);
       phone.setAttribute('value', parcel.receiver_number);
       description.setAttribute('value', parcel.description);
       cLocation.setAttribute('value', parcel.current_location);

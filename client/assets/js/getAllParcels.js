@@ -54,9 +54,8 @@ const allParcels = () => {
                     
                           <td>${parcel.current_location}</td>
                           <td>${parcel.status}</td>
-                          <td> <a href="order.html" ><i class="fa fa-eye fa-2x"></i></a> &nbsp;<a href="order.html">
-                            <i class="fa fa-pen-square fa-2x"></i></a> &nbsp; 
-                            <a id="myBtn" href="#" onclick="document.getElementById('myModal').style.display = 'block'"> <i class="fa fa-trash-alt fa-2x" ></i></a>
+                          <td> <a href="location.html" data-id = "${parcel.id}"><button id="cancelbtn"> Delivered</button></a> 
+                            <a id="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> <button id="cancelbtn">Update</button></a>
                           </td>`;
 
         

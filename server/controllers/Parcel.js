@@ -233,11 +233,13 @@ class Parcel {
 
    static async changeDestination(request, response){
     const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 AND placed_by = $2 AND status != \'delivered\'';
-    const updateParcelQuery = `UPDATE parcels SET receiver_address=$1, 
-          modified_at=NOW() WHERE id=$2 returning *`;
+    const updateParcelQuery = `UPDATE parcels SET receiver_address=$1, zip=$2, state=$3,
+          modified_at=NOW() WHERE id=$4 returning *`;
 
     const values = [
       request.body.receiver_address,
+      request.body.zip,
+      request.body.state,
       request.params.id
     ];
     try{

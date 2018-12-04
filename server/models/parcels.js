@@ -62,11 +62,11 @@ class Parcels {
     .then((res) => {
       console.log('Parcels Table successfully created....');
       console.log('============================== ');
-      pool.end();
+     
     })
     .catch((err) => {
       console.log('=================== ERROR',err);
-      pool.end();
+     
     });
   }
   
@@ -78,32 +78,44 @@ class Parcels {
     pool.query(sql)
       .then((res) => {
          console.log('Parcels table deleted successfully');
-        pool.end();
+      
       })
       .catch((err) => {
         console.log(err);
-        pool.end();
+       
       });
   }
 
-  static clearTables(){
-    const usersTable = 'DELETE * FROM users';
-    const parcelsTable = 'DELETE * FROM parcels';
-    pool.query(parcelsTable)
-      .then(res => {
-        pool.query(usersTable)
-        .then(res=>{
-          console.log('Tables successfully cleared')
-          pool.end();
-        }).catch(err => {
-          console.log('--------------------- deep catch', err);
-          pool.end();
-        });
-       
-      }).catch(err => {
-        console.log('......................outer catch', err);
+  static clearParcelsTable() {
+    const sql = 'DELETE FROM parcels';
+    pool.query(sql)
+      .then((res) => {
+         console.log('Parcels table cleared');
+      
       })
+      .catch((err) => {
+        console.log(err);
+       
+      });
   }
+
+  static clearUsersTable() {
+    const sql = 'DELETE FROM users';
+    pool.query(sql)
+      .then((res) => {
+         console.log('Users table cleared');
+      
+      })
+      .catch((err) => {
+        console.log(err);
+       
+      });
+  }
+  static clearTables(){
+    Parcels.clearParcelsTable();
+    Parcels.clearUsersTable();
+  }
+  
 
 }
 export default Parcels;

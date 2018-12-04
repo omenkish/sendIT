@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test nyc mocha server/test/**/*.js --require @babel/register --timeout 6000 --exit",
-    "start": "node dist/server.js",
+    "start": "@babel/register server/server.js",
     "build": "npx babel server --out-dir dist ",
     "heroku-prebuild": "npm install",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
@@ -16,7 +16,8 @@
     "exclude": [
       "UI",
       "server/test",
-      "server/JSObject"
+      "server/JSObject",
+      "server/models"
     ],
     "require": [
       "@babel/register"

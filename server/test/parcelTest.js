@@ -28,7 +28,8 @@ const signup = {
   othernames: 'kev',
   email: 'omenkish0000@gmail.com',
   phone: '09987654321',
-  password: '123456y'
+  password: '123456y',
+  is_admin: true
 
 }
 
@@ -39,13 +40,13 @@ describe('ROUTES FOR PARCELS', () => {
     const login = await request(server).post('/api/v1/auth/login')
       .send({ email: signup.email, password: signup.password });
     user = login.body;
+
+    ParcelOrder.createUsersTable();
     ParcelOrder.createParcelsTable();
   });
   after('Clear tables', ()=>{
-    
-     ParcelOrder.dropParcelsTable();
-    
-    
+     //ParcelOrder.dropUsersTable();
+     ParcelOrder.dropParcelsTable();  
   })
 
  describe('POST {when a parcel is being created}', () => {
@@ -134,7 +135,7 @@ describe('ROUTES FOR PARCELS', () => {
       
    })
 
-   describe('GET user', () => {
+   describe('GET users', () => {
     it('should fetch all users and return status code 200 ', () => {
       return request(server)
         .get('/api/v1/users')
@@ -146,7 +147,7 @@ describe('ROUTES FOR PARCELS', () => {
     });
 
     it('should fetch a user and return status code 200 ', () => {
-      const id = 2;
+      const id = 1;
       return request(server)
         .get(`/api/v1/users/${id}`)
         .set('Authorization', `Bearer ${user.token}`)

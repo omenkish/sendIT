@@ -1,6 +1,7 @@
 # single test suite, non-parallel build.
 language: node_js
-
+services:
+  - postgresql
 node_js: "stable"
 install: 
   - npm install
@@ -13,6 +14,8 @@ cache:
     - "node_modules"
 branches:
   only:
-    - develop
+    - bg-fix-tests
+before_script:
+  - cp config/database.yml.travis config/database.yml
 after_success:
  - npm run coverage

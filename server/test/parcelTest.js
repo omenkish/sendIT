@@ -31,6 +31,15 @@ const signup = {
   password: '123456y',
   is_admin: true
 
+};
+const signup1 = {
+
+  firstname : 'kev',
+  lastname: 'kev',
+  othernames: 'kev',
+  email: 'omenkish0@gmail.com',
+  phone: '09987654321',
+  password: '123456',
 }
 
 describe('ROUTES FOR PARCELS', () => {
@@ -41,15 +50,13 @@ describe('ROUTES FOR PARCELS', () => {
     const login = await request(server).post('/api/v1/auth/login')
       .send({ email: signup.email, password: signup.password });
     user = login.body;
-
-    
     ParcelOrder.createParcelsTable();
   });
   after('Clear tables', ()=>{
      ParcelOrder.dropParcelsTable();  
   })
 
- describe('POST {when a parcel is being created}', () => {
+ describe('POST route to create Parcel', () => {
       it('should return status code 201', () =>{
         return request(server)
           .post('/api/v1/parcels')
@@ -82,7 +89,7 @@ describe('ROUTES FOR PARCELS', () => {
   
   });
       
-  describe('GET route  for parcels', () => {
+  describe('GET routes to fetch parcel(s)', () => {
     const id = 1;
     it('should return http code 200',() => {
       return request(server)
@@ -105,11 +112,11 @@ describe('ROUTES FOR PARCELS', () => {
       })
     });
 
-    it('should return http code 404 if no token is provided',() => {
+    it('should return http code 401 if no token is provided',() => {
       return request(server)
       .get(`/api/v1/parcels/${id}`)
       .then(res => {
-        expect(res.status).to.equal(404);
+        expect(res.status).to.equal(401);
       
       })
     });
@@ -135,7 +142,7 @@ describe('ROUTES FOR PARCELS', () => {
       
    })
 
-   describe('GET users', () => {
+   describe('GET routes to fetch user(s)', () => {
     it('should fetch all users and return status code 200 ', () => {
       return request(server)
         .get('/api/v1/users')
@@ -198,11 +205,39 @@ describe('ROUTES FOR PARCELS', () => {
         })
       
     });
+    it('should http code 400 on invalid token ', () => {
+      return request(server)
+        .get(`/api/v1/users/${user.data.id}/createadmin`)
+        .set('Authorization', `Bearer iooo`)
+        .then(res => {
+          expect(res.status).to.equal(400);
+        })
+      
+    });
+
+    it('should return http code 404 if id doesnt exist ', () => {
+      return request(server)
+        .get(`/api/v1/users/${user.data.id + 1}/createadmin`)
+        .set('Authorization', `Bearer ${user.token}`)
+        .then(res => {
+          expect(res.status).to.equal(404);
+        })
+      
+    });
+
+    it('should return http code 401 if no token is provided ', () => {
+      return request(server)
+        .get(`/api/v1/users/${user.data.id}/createadmin`)
+        .then(res => {
+          expect(res.status).to.equal(401);
+        })
+      
+    });
 
    
   })
 
-  describe('PUT modify parcels', () => {
+  describe('PUT routes to modify parcels', () => {
     const id = 1;
     it('should cancel an order', () => {
       return request(server)
@@ -228,6 +263,22 @@ describe('ROUTES FOR PARCELS', () => {
         .set('Authorization', `Bearer ${user.token}`)
         .then(res => {
           expect(res.status).to.equal(400);
+        })
+    });
+    it('should return status code 400 on invalid token', () => {
+      return request(server)
+      .put(`/api/v1/parcels/${id}/cancel`)
+        .set('Authorization', `Bearer ppoi8`)
+        .then(res => {
+          expect(res.status).to.equal(400);
+        })
+    });
+
+    it('should return status code 401 if token is not provided', () => {
+      return request(server)
+      .put(`/api/v1/parcels/${id}/cancel`)
+        .then(res => {
+          expect(res.status).to.equal(401);
         })
     });
     it('should update location of an order', () => {
@@ -256,6 +307,109 @@ describe('ROUTES FOR PARCELS', () => {
         })
     });
 
+    it('should return status code 401 if token is not provided', () => {
+      return request(server)
+      .put(`/api/v1/parcels/${id}/location`)
+      .send({
+        current_location:'PortHarcourt'
+      })
+      .then(res => {
+        expect(res.status).to.equal(401);
+        expect(res.body.message).to.contain('You do not have access to this page. Provide a valid token');
+      })
+    });
+    it('should return status code 200 on successful update', () => {
+      return request(server)
+      .put(`/api/v1/parcels/${id}/destination`)
+        .set('Authorization', `Bearer ${user.token}`)
+        .send({
+          receiver_address:'PortHarcourt',
+          zip: 3334444,
+          state: 'Rivers State'
+        })
+        .then(res => {
+          expect(res.status).to.equal(200);
+          expect(res.body.message).to.contain('destination updated successfully');
+        })
+    });
+
+    it('should return status code 404 if order does not exist', () => {
+      return request(server)
+      .put(`/api/v1/parcels/${id + 1}/destination`)
+        .set('Authorization', `Bearer ${user.token}`)
+        .send({
+          receiver_address:'PortHarcourt',
+          zip: 3334444,
+          state: 'Rivers State'
+        })
+        .then(res => {
+          expect(res.status).to.equal(404);
+          
+        })
+    });
+
+    
+    it('should return status code 401 if no token is provided', () => {
+      return request(server)
+      .put(`/api/v1/parcels/${id}/destination`)
+        .send({
+          receiver_address:'PortHarcourt',
+          zip: 3334444,
+          state: 'Rivers State'
+        })
+        .then(res => {
+          expect(res.status).to.equal(401);
+          
+        })
+    });
+
+    it('should return status code 400 if order is cancelled', () => {
+      return request(server)
+      .put(`/api/v1/parcels/${id}/deliver`)
+        .set('Authorization', `Bearer ${user.token}`)
+        .then(res => {
+          expect(res.status).to.equal(400);
+          
+        })
+    });
+
+    it('should return status code 404 if order is not found', () => {
+      return request(server)
+      .put(`/api/v1/parcels/${id + 1}/deliver`)
+        .set('Authorization', `Bearer ${user.token}`)
+        .then(res => {
+          expect(res.status).to.equal(404);
+          
+        })
+    });
+
+    it('should return status code 401 if token is not provided', () => {
+      return request(server)
+      .put(`/api/v1/parcels/${id}/deliver`)
+        .then(res => {
+          expect(res.status).to.equal(401);
+          
+        })
+    });
+
+    it('should return status code 400 if id is not a number', () => {
+      return request(server)
+      .put(`/api/v1/parcels/eert/deliver`)
+        .set('Authorization', `Bearer ${user.token}`)
+        .then(res => {
+          expect(res.status).to.equal(400);          
+        })
+    });
+  })
+
+  describe('GET the home route', () => {
+    it('should return status code 200', () => {
+      return request(server)
+      .get('/')
+      .then(res => {
+        expect(res.status).to.equal(200);
+      })
+    })
   })
 
 

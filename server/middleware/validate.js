@@ -75,7 +75,7 @@ class UserValidator {
 
   static getById(request, response, next){
       if(!Number(request.params.id)){
-        return response.status(400).json({'Status': 400,'ERROR Message':'id must be a number'});
+        return response.status(400).json({status: 400,message:'id must be a number'});
       }
       
       return next();   

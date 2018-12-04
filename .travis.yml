@@ -16,6 +16,6 @@ branches:
   only:
     - bg-fix-tests
 before_script:
-  - cp database.yml.travis database.yml
+  - psql -c 'create database sendittest;' -U postgres
 after_success:
  - npm run coverage

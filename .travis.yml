@@ -1,6 +1,7 @@
 # single test suite, non-parallel build.
 language: node_js
-
+services:
+  - postgresql
 node_js: "stable"
 install: 
   - npm install
@@ -14,5 +15,7 @@ cache:
 branches:
   only:
     - develop
+before_script:
+  - psql -c 'create database sendittest;' -U postgres
 after_success:
  - npm run coverage

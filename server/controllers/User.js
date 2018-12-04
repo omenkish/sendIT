@@ -10,10 +10,16 @@ class User {
  */
   static async createUser(request, response) {
     const hashPassword = Helper.hashPassword(request.body.password);
-
-    const sqltext = `INSERT INTO users(firstname, lastname, othernames, email, phone, password)
-      VALUES($1, $2, $3, $4, $5, $6)
+    let is_admin;
+    const sqltext = `INSERT INTO users(firstname, lastname, othernames, email, phone, password, is_admin)
+      VALUES($1, $2, $3, $4, $5, $6, $7)
       returning *`;
+      if(request.body.is_admin){
+        is_admin = request.body.is_admin;
+      }
+      else{
+        is_admin = false;
+      }
     const values = [
       request.body.firstname.toLowerCase(),
       request.body.lastname.toLowerCase(),
@@ -21,6 +27,7 @@ class User {
       request.body.email.toLowerCase(),
       request.body.phone,
       hashPassword,
+      is_admin
     ];
 
     try {

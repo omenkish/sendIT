@@ -15,7 +15,7 @@ class UserValidator {
     
     const validator = new Validator(request.body, CreateUserRules);
     if (validator.fails()) {
-      return response.status(415).json(validator.errors.all());
+      return response.status(400).json(validator.errors.all());
     }
   
     return next();
@@ -30,7 +30,7 @@ class UserValidator {
     
     const validator = new Validator(request.body, CreateLoginRules);
     if (validator.fails()) {
-      return response.status(415).json(validator.errors.all());
+      return response.status(400).json(validator.errors.all());
     }
   
     return next();
@@ -52,7 +52,7 @@ class UserValidator {
     }
 
   }
-
+  
   static createParcel(request, response, next){
     const CreateParcelRules = {
       receiver_number: 'required|numeric',
@@ -60,11 +60,14 @@ class UserValidator {
       weight_metric: 'required|string',
       sender_address: 'required|string',
       receiver_address: 'required|string',
+      description: 'required|string',
+      zip: 'required',
+      state: 'required|string'
     }
     
     const validator = new Validator(request.body, CreateParcelRules);
     if (validator.fails()) {
-      return response.status(415).json(validator.errors.all());
+      return response.status(400).json(validator.errors.all());
     }
   
     return next();
@@ -72,7 +75,7 @@ class UserValidator {
 
   static getById(request, response, next){
       if(!Number(request.params.id)){
-        return response.status(400).json({'Status': 400,'ERROR Message':'id must be a number'});
+        return response.status(400).json({status: 400,message:'id must be a number'});
       }
       
       return next();   

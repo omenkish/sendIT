@@ -16,6 +16,6 @@ branches:
   only:
     - bg-fix-tests
 before_script:
-  - cp config/database.yml.travis config/database.yml
+  - cp database.yml.travis database.yml
 after_success:
  - npm run coverage

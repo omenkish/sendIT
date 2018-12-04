@@ -258,31 +258,31 @@ class Parcel {
     }
    }
 
-   static async markAsTransiting(request, response){
-    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1';
-    const updateParcelQuery = `UPDATE parcels SET status='transiting', 
-          modified_at=NOW() WHERE id=$1 returning *`;
+  //  static async markAsTransiting(request, response){
+  //   const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1';
+  //   const updateParcelQuery = `UPDATE parcels SET status='transiting', 
+  //         modified_at=NOW() WHERE id=$1 returning *`;
 
     
-    try{
-        const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
-      if(rowCount === 0){
-        return response.status(404).json({status: 404, message: 'Order not found'});
-      }
-      if(rows[0].status === 'transiting'){
-        return response.status(400).json({status:400, message: 'This parcel order is already on transit'})
-      }
-      if(rows[0].cancelled === true){
-        return response.status(400).json({status:400, message: 'Cannot change delivery status of cancelled order!'})
-      }
-      const result = await db.query(updateParcelQuery, [request.params.id]);
-      return response.status(200).json({status: 200, message:'Parcel now on transit...please change the current location'});
+  //   try{
+  //       const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
+  //     if(rowCount === 0){
+  //       return response.status(404).json({status: 404, message: 'Order not found'});
+  //     }
+  //     if(rows[0].status === 'transiting'){
+  //       return response.status(400).json({status:400, message: 'This parcel order is already on transit'})
+  //     }
+  //     if(rows[0].cancelled === true){
+  //       return response.status(400).json({status:400, message: 'Cannot change delivery status of cancelled order!'})
+  //     }
+  //     const result = await db.query(updateParcelQuery, [request.params.id]);
+  //     return response.status(200).json({status: 200, message:'Parcel now on transit...please change the current location'});
   
-    }
-    catch(error){
-      return response.status(400).json({status: 400, error: `${error}`});
-    }
-   }
+  //   }
+  //   catch(error){
+  //     return response.status(400).json({status: 400, error: `${error}`});
+  //   }
+  //  }
 
    static async markAsDelivered(request, response){
     const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 AND status = \'transiting\'';

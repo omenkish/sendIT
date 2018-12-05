@@ -1,6 +1,7 @@
 # Build Status
 
-[![Build Status](https://travis-ci.org/omenkish/sendIT.svg?branch=develop)](https://travis-ci.org/omenkish/sendIT) [![Coverage Status](https://coveralls.io/repos/github/omenkish/sendIT/badge.svg?branch=develop)](https://coveralls.io/github/omenkish/sendIT?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/faf387afa43a5dcebf2c/maintainability)](https://codeclimate.com/github/omenkish/sendIT/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/faf387afa43a5dcebf2c/test_coverage)](https://codeclimate.com/github/omenkish/sendIT/test_coverage)
+[![Build Status](https://travis-ci.org/omenkish/sendIT.svg?branch=develop)](https://travis-ci.org/omenkish/sendIT) 
+[![Coverage Status](https://coveralls.io/repos/github/omenkish/sendIT/badge.svg?branch=develop)](https://coveralls.io/github/omenkish/sendIT?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/faf387afa43a5dcebf2c/maintainability)](https://codeclimate.com/github/omenkish/sendIT/maintainability) 
 
 # sendIT
 ---

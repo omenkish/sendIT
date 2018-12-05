@@ -17,7 +17,8 @@
       "UI",
       "server/test",
       "server/JSObject",
-      "server/models"
+      "server/models",
+      "db"
     ],
     "require": [
       "@babel/register"

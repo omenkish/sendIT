@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const algorithm = 'aes-128-cbc';
-const password = process.env.cryptokey;
+const password = 'secretpassword';
 const text = process.env.EMAIL_PASSWORD;
 
 class Password {

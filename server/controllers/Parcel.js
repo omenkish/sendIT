@@ -1,5 +1,6 @@
 import db from '../db/index';
 import User from './User';
+import email from '../helpers/email';
 
 class Parcel {
 
@@ -151,7 +152,10 @@ class Parcel {
   }
 
   static async getUserParcelById(request, response){
-    const getParcelQuery = 'SELECT * FROM parcels WHERE id=$1 and placed_by=$2';
+    const getParcelQuery = `SELECT parcels.*, users.email, users.firstname,
+                            users.lastname FROM parcels JOIN users 
+                            ON parcels.placed_by=users.id WHERE parcels.id=$1
+                            and placed_by=$2`;
     try{
       const { rows, rowCount } = await db.query(getParcelQuery, [request.params.id, request.user.id]);
       if( rowCount === 0 ){
@@ -201,7 +205,10 @@ class Parcel {
 
    static async updateCurrentLocation(request, response){
 
-    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 ';
+    const findParcelQuery = `SELECT parcels.*, users.email, users.firstname,
+                             users.lastname FROM parcels JOIN users 
+                             ON parcels.placed_by=users.id WHERE parcels.id=$1;`
+
     const updateParcelQuery = `UPDATE parcels SET current_location=$1,
                               status='transiting', 
                               modified_at=NOW() WHERE id=$2 returning *`;
@@ -210,14 +217,22 @@ class Parcel {
       request.body.current_location,
       request.params.id
     ];
+
+    const emailMessage = `<h2>Parcel Location Change</h2>
+                          <p> Your Parcel delivery order is now at 
+                          <strong>${request.body.current_location}</strong><p>
+                          <p> Thanks, SendIT team...<p>
+                          `;
+    const subject = 'Parcel location change';
     try{
-        const { rowCount } = await db.query(findParcelQuery, [request.params.id]);
+        const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
       if(rowCount === 0){
         return response.status(404).json({status: 404, message: 'Order not found'});
       }
 
       const result = await db.query(updateParcelQuery, values);
-      return response.status(200).json({status: 200,message:'Location updated successfully'});
+      email(rows[0].email, subject, emailMessage);
+      return response.status(200).json({status: 200, message:'Location updated successfully'});
   
     }
     catch(error){

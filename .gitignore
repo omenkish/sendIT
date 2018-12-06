@@ -4,3 +4,4 @@ node_modules/
 coverage/
 server/JSObject
 dist/
+helpers/a.js

@@ -20,7 +20,7 @@ class Password {
 
   static decrypt () {
     const decipher = crypto.createDecipher(algorithm, password);
-    let dec = decipher.update(Password.encrypt(), 'hex', 'utf8');
+    let dec = decipher.update(`${Password.encrypt()}`, 'hex', 'utf8');
     dec += decipher.final('utf8');
     return dec;
   }

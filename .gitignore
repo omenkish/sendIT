@@ -3,4 +3,5 @@ node_modules/
 .env
 coverage/
 server/JSObject
-dist
+dist/
+helpers/a.js

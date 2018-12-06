@@ -50,10 +50,13 @@ describe('ROUTES FOR PARCELS', () => {
     const login = await request(server).post('/api/v1/auth/login')
       .send({ email: signup.email, password: signup.password });
     user = login.body;
+    ParcelOrder.createUsersTable();
     ParcelOrder.createParcelsTable();
+    
   });
   after('Clear tables', ()=>{
-     ParcelOrder.dropParcelsTable();  
+     ParcelOrder.dropParcelsTable(); 
+     ParcelOrder.dropUsersTable(); 
   })
 
  describe('POST route to create Parcel', () => {

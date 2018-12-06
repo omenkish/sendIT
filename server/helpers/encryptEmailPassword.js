@@ -13,7 +13,7 @@ const text = process.env.EMAIL_PASSWORD;
 class Password {
   static encrypt()  {
     const cipher = crypto.createCipher(algorithm, password);
-    let crypted = cipher.update(text, 'utf8', 'hex');
+    let crypted = cipher.update(`${text}`, 'utf8', 'hex');
     crypted += cipher.final('hex');
     return crypted;
   }

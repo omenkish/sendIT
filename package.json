@@ -18,8 +18,7 @@
       "server/test",
       "server/JSObject",
       "server/models",
-      "server/client",
-      "server/helpers"
+      "db"
     ],
     "require": [
       "@babel/register"

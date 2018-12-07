@@ -45,18 +45,17 @@ const signup1 = {
 describe('ROUTES FOR PARCELS', () => {
   let user;
   before('add user to db and log him in before test', async () => {
-    await ParcelOrder.createUsersTable();
+    
     await request(server).post('/api/v1/auth/signup').send(signup);
     const login = await request(server).post('/api/v1/auth/login')
       .send({ email: signup.email, password: signup.password });
     user = login.body;
     ParcelOrder.createUsersTable();
     ParcelOrder.createParcelsTable();
-    
+
   });
   after('Clear tables', ()=>{
-     ParcelOrder.dropParcelsTable(); 
-     ParcelOrder.dropUsersTable(); 
+     ParcelOrder.dropParcelsTable();  
   })
 
  describe('POST route to create Parcel', () => {

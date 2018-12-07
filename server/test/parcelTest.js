@@ -51,7 +51,7 @@ describe('ROUTES FOR PARCELS', () => {
       .send({ email: signup.email, password: signup.password });
     user = login.body;
     
-    ParcelOrder.createParcelsTable();
+    await ParcelOrder.createParcelsTable();
     
 
   });

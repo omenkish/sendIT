@@ -33,6 +33,7 @@ const createParcel = (e) => {
   fetch(url, fetchData).then(response => response.json())
   .then(result => {
     if(result.status === 201){
+      console.log('hurray')
       let span = createNode('span');
       const text = document.createTextNode(result.message);
       append(span, text);
@@ -42,6 +43,7 @@ const createParcel = (e) => {
       resultMessage.classList.add('fadeOut');
     }
     else{
+      console.log('nahhh')
       let span = createNode('span');
       const text = document.createTextNode(result.message);
       append(span, text);
@@ -51,7 +53,7 @@ const createParcel = (e) => {
     }
   })
   .catch(error => {
-    console.log('--------------------', error);
+    console.log('--------------------', result);
   });
 }
 

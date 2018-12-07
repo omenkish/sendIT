@@ -50,8 +50,9 @@ describe('ROUTES FOR PARCELS', () => {
     const login = await request(server).post('/api/v1/auth/login')
       .send({ email: signup.email, password: signup.password });
     user = login.body;
-    ParcelOrder.createUsersTable();
+    
     ParcelOrder.createParcelsTable();
+    ParcelOrder.createUsersTable();
 
   });
   after('Clear tables', ()=>{

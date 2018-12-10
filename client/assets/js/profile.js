@@ -22,7 +22,6 @@ const token = localStorage.getItem('token');
   fetch(url, fetchData)
   .then(response => response.json())
   .then(result => {
-    console.log('Here is the result-----', result);
     let user = result.data;
     let othernames = '';
     let formattedDate = formatDate(user.registered_on);
@@ -66,3 +65,45 @@ function createNode(element) {
 function append(parent, element) {
 return parent.appendChild(element);
 }
+
+//  fetch user parcels
+(() => {
+
+  let transit = document.querySelector('#trans');
+  let deliver = document.querySelector('#del');
+
+  const url =  'http://localhost:5000/api/v1/users/parcels';
+  let fetchData = { 
+    method: 'GET', 
+    headers: {
+      'Content-Type': 'Application/json',
+      'Authorization' : `Bearer ${token}`
+    }
+  }
+
+  fetch(url, fetchData)
+  .then(response => response.json())
+  .then(result => {
+    let parcels = result.data;
+    
+    if(parcels){
+      const onTransit = parcels.filter(parcel => parcel.status !== 'delivered');
+      const delivered = parcels.filter(parcel => parcel.status === 'delivered');
+      
+      let span = document.createTextNode(onTransit.length);
+      let span1 = document.createTextNode(delivered.length);
+     
+      append(transit, span);
+      append(deliver, span1);
+      transit.style.color = 'goldenrod';
+      deliver.style.color = 'green';
+    }
+    else{
+
+    }
+
+  })
+  .catch(error => {
+    console.log(error);
+  });
+})();

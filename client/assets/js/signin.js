@@ -21,6 +21,7 @@ const login = (e) => {
       const token = result.token;
 
       localStorage.setItem('token', token);
+      localStorage.setItem('userId', result.data.id);
       localStorage.setItem('username', result.data.firstname);
       localStorage.setItem('admin', result.data.is_admin);
       

@@ -44,7 +44,7 @@
           <a href="#"><i class="fa fa-cog"></i> setting</a>
         </span> -->
         <span>
-        <a href="./index.html"><i class="fa fa-power-off"></i> Logout</a>
+        <a href="#" onclick="logout();"><i class="fa fa-power-off"></i> Logout</a>
         </span>
         
       </div>
@@ -61,7 +61,7 @@
           <span class="fa-stack fa-5x stack">
               <i class="fa fa-square fa-stack-2x"></i>
               <i class="fa fa-shipping-fast fa-stack-1x fa-inverse"></i>
-          </span><h2 id="fa-text">54 on Transit</h2>
+          </span><h2 id="fa-text"><span id="trans"></span> on Transit</h2>
         
         </div>
 
@@ -70,7 +70,7 @@
             <span class="fa-stack fa-5x stack">
                 <i class="fa fa-square fa-stack-2x"></i>
                 <i class="fa fa-clipboard-check fa-stack-1x fa-inverse"></i>
-            </span><h2 id="fa-text">80 Delivered</h2>
+            </span><h2 id="fa-text"><span id="del"></span> Delivered</h2>
           
         </div>
       </div>
@@ -79,15 +79,12 @@
           <img src="./assets/images/top.PNG" alt="top" class = "avatar" >
         </div>
         <div  class="profile-form" id="profile-form" >
-          <p><label><strong>Name: </strong></label> Eneojo Kelvin Omede </p>
-          <p><label><strong>Tel: </strong></label> +2348099988877 </p>
-          <hr>
-          <p><label><strong>Address: </strong></label> Ikwerre Road, PortHarcourt </p>
-          <p><label><strong>City: </strong></label> PortHarcourt </p>
-          <p><label><strong>Zip Code: </strong></label> 100572 </p>
-          <p><label><strong>State: </strong></label> Rivers State </p>
+          <p><label><strong>Full Name: </strong></label><span id="name"></span></p>
+          <p><label><strong>Tel Number: </strong></label><span id="tel"></span> </p>
+          <p><label><strong>Email: </strong></label> <span id="email"></span></p>
+          <p><label><strong>Registration Date: </strong></label><span id="date"></span>  </p>
         
-      </div>
+        </div>
     </div>
   </section>
           
@@ -96,6 +93,8 @@
       <p>SendIT Copyright&copy; 2018 || <a href="#">Terms of use</a></p>
     </div>
   </footer>
+  <script src="./assets/js/logout.js"></script>
+  <script src="./assets/js/profile.js"></script>
 	</body>
 </html>
 

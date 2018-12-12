@@ -40,7 +40,7 @@ class Parcels {
       })
       .catch((err) => {
         console.log(err);
-        pool.end();
+        
       });
   }
 
@@ -64,11 +64,11 @@ class Parcels {
     .then((res) => {
       console.log('Parcels Table successfully created....');
       console.log('============================== ');
-      pool.end();
+      
     })
     .catch((err) => {
       console.log('=================== ERROR',err);
-      pool.end();
+      
     });
   }
   
@@ -80,11 +80,11 @@ class Parcels {
     pool.query(sql)
       .then((res) => {
         console.log('Parcels table deleted successfully');
-        pool.end();
+        
       })
       .catch((err) => {
         console.log(err);
-        pool.end();
+        
       });
   }
 
@@ -93,7 +93,7 @@ class Parcels {
     pool.query(sql)
       .then((res) => {
         console.log('Parcels table cleared');
-        pool.end();
+        
       })
       .catch((err) => {
         console.log(err);
@@ -106,12 +106,12 @@ class Parcels {
     pool.query(sql)
       .then((res) => {
         console.log('Users table cleared');
-        pool.end();
+        
       
       })
       .catch((err) => {
         console.log(err);
-        pool.end();
+        
        
       });
   }

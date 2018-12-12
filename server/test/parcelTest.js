@@ -45,18 +45,18 @@ const signup1 = {
 describe('ROUTES FOR PARCELS', () => {
   let user;
   before('add user to db and log him in before test', async () => {
+    await ParcelOrder.createUsersTable();
+    await ParcelOrder.createParcelsTable();
     
     await request(server).post('/api/v1/auth/signup').send(signup);
     const login = await request(server).post('/api/v1/auth/login')
       .send({ email: signup.email, password: signup.password });
     user = login.body;
-    
-    ParcelOrder.createParcelsTable();
-    ParcelOrder.createUsersTable();
 
   });
-  after('Clear tables', ()=>{
-     ParcelOrder.dropParcelsTable();  
+  after('Clear tables', async ()=>{
+     await ParcelOrder.dropParcelsTable();  
+     await ParcelOrder.dropUsersTable();
   })
 
  describe('POST route to create Parcel', () => {
@@ -208,12 +208,12 @@ describe('ROUTES FOR PARCELS', () => {
         })
       
     });
-    it('should http code 400 on invalid token ', () => {
+    it('should http code 401 on invalid token ', () => {
       return request(server)
         .get(`/api/v1/users/${user.data.id}/createadmin`)
         .set('Authorization', `Bearer iooo`)
         .then(res => {
-          expect(res.status).to.equal(400);
+          expect(res.status).to.equal(401);
         })
       
     });
@@ -268,12 +268,12 @@ describe('ROUTES FOR PARCELS', () => {
           expect(res.status).to.equal(400);
         })
     });
-    it('should return status code 400 on invalid token', () => {
+    it('should return status code 401 on invalid token', () => {
       return request(server)
       .put(`/api/v1/parcels/${id}/cancel`)
         .set('Authorization', `Bearer ppoi8`)
         .then(res => {
-          expect(res.status).to.equal(400);
+          expect(res.status).to.equal(401);
         })
     });
 

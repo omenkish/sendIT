@@ -55,8 +55,10 @@ describe('ROUTES FOR PARCELS', () => {
 
   });
   after('Clear tables', async ()=>{
-     await ParcelOrder.dropParcelsTable();  
-     await ParcelOrder.dropUsersTable();
+    await ParcelOrder.dropParcelsTable();
+    await ParcelOrder.dropUsersTable();
+      
+     
   })
 
  describe('POST route to create Parcel', () => {

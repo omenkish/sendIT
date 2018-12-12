@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 const connectionString = process.env.NODE_ENV === 'test' ? process.env.DATABASE_URL_TEST  :  process.env.DATABASE_URL;
 const pool = new Pool ({connectionString});
-console.log(pool.connectionParameters)
 
 class Parcels {
 
@@ -27,7 +26,7 @@ class Parcels {
         console.log('******************************');
       })
       .catch((err) => {
-        console.log('=================== ERROR',err);
+        console.log('=================== ERROR FOR users table',err);
       });
   }
 
@@ -67,7 +66,7 @@ class Parcels {
       
     })
     .catch((err) => {
-      console.log('=================== ERROR',err);
+      console.log('=================== ERROR for parcels table',err);
       
     });
   }

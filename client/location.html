@@ -7,10 +7,11 @@
     <meta name="description" content="Affordable delivery near me">
     <meta name="keywords" content="Affordable delivery, parcel deliveries near me, parcel delivery">
     <meta name="author" content="Eneojo Omede">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/map.css">
 		<link rel="stylesheet" href="./assets/css/style.css">
-		<link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="./assets/css/nav.css">
     <title>SendIT | Location</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="./assets/js/nav.js"></script>
 	</head>
 	
@@ -56,37 +57,21 @@
         </div>
       </aside>
   </section>
-  <div id="profile-title"><h1>change Order location Section</h1></div>
+  <div id="profile-title"><h1>Order location Section</h1></div>
   <section id="boxes">
     <div class="container">
-      <div class="order">
-        <form action="admin.html" class="order-form" >
-          <input type="text" value="Mr Robert Junior" placeholder="Name" name="name" required disabled>
-      
-          <input type="tel" value="08133235889" name="phone" placeholder="234-80-1111-1111" required disabled>
-      
-          <textarea name="description" required disabled>3 rolex wristwatches and a pair of black leather shoes</textarea>
-          
-          <input type="text" value="Current location: Abuja" placeholder="Name" name="location" required disabled>
-          
-          <input type="number" value="100000"  name="price" min="0"  required disabled>
-         
-          <input type="number" value="12.5"  name="weight" min="0"  required disabled>
-          
-          <input type="text"  name="pickup" value="Current Location: Badagry" required>      
-        
-          <div>
-            <button class="submitbtn" type="submit"> Change location</button>
-          </div>      
-        </form>
-      </div>  
+        <span id="from"></span>
+        <span id="to"></span>
+      <div id="map"></div>
+      <script>
+        console.log(document.querySelector('#from').innerHTML)
+      </script>
+      <script src="./assets/js/map.js"> </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5ClUSuBJwu_AyLCcj-qDia_xuQkcteJI&callback=initMap"
+      async defer></script>
     </div>
     </section>
-    <footer>
-      <div class="container">
-        <p>SendIT Copyright&copy; 2018 || <a href="#">Terms of use</a></p>
-      </div>
-    </footer>
+    
     <script src="./assets/js/logout.js"></script>
 	</body>
 </html>

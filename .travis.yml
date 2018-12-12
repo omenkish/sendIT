@@ -14,7 +14,7 @@ cache:
     - "node_modules"
 branches:
   only:
-    - ch-implement-email-notification-162475947
+    - develop
 before_script:
   - psql -c 'create database sendittest;' -U postgres
 after_success:

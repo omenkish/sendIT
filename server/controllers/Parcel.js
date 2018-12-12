@@ -1,5 +1,6 @@
 import db from '../db/index';
 import User from './User';
+import sendEmail from '../helpers/email';
 
 class Parcel {
 
@@ -214,12 +215,12 @@ class Parcel {
       request.params.id
     ];
 
-    // const emailMessage = `<h2>Parcel Location Change</h2>
-    //                       <p> Your Parcel delivery order is now at 
-    //                       <strong>${request.body.current_location}</strong><p>
-    //                       <p> Thanks, SendIT team...<p>
-    //                       `;
-    // const subject = 'Parcel location change';
+    const emailMessage = `<h2>Parcel Location Change</h2>
+                          <p> Your Parcel delivery order is now at 
+                          <strong>${request.body.current_location}</strong><p>
+                          <p> Thanks, SendIT team...<p>
+                          `;
+    const subject = 'Parcel location change';
     try{
         const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
       if(rowCount === 0){
@@ -227,11 +228,7 @@ class Parcel {
       }
 
       const result = await db.query(updateParcelQuery, values);
-      email(rows[0].email,'Parcel location change', `<h2>Parcel Location Change</h2>
-                          <p> Your Parcel delivery order is now at 
-                          <strong>${request.body.current_location}</strong><p>
-                          <p> Thanks, SendIT team...<p>
-                          `);
+      sendEmail(rows[0].email, subject, emailMessage);
       return response.status(200).json({status: 200, message:'Location updated successfully'});
   
     }

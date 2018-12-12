@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 const connectionString = process.env.NODE_ENV === 'test' ? process.env.DATABASE_URL_TEST  :  process.env.DATABASE_URL;
 const pool = new Pool ({connectionString});
-console.log(pool.connectionParameters)
 
 class Parcels {
 
@@ -27,7 +26,7 @@ class Parcels {
         console.log('******************************');
       })
       .catch((err) => {
-        console.log('=================== ERROR',err);
+        console.log('=================== ERROR FOR users table',err);
       });
   }
 
@@ -40,7 +39,7 @@ class Parcels {
       })
       .catch((err) => {
         console.log(err);
-        pool.end();
+        
       });
   }
 
@@ -64,11 +63,11 @@ class Parcels {
     .then((res) => {
       console.log('Parcels Table successfully created....');
       console.log('============================== ');
-      pool.end();
+      
     })
     .catch((err) => {
-      console.log('=================== ERROR',err);
-      pool.end();
+      console.log('=================== ERROR for parcels table',err);
+      
     });
   }
   
@@ -80,11 +79,11 @@ class Parcels {
     pool.query(sql)
       .then((res) => {
         console.log('Parcels table deleted successfully');
-        pool.end();
+        
       })
       .catch((err) => {
         console.log(err);
-        pool.end();
+        
       });
   }
 
@@ -93,7 +92,7 @@ class Parcels {
     pool.query(sql)
       .then((res) => {
         console.log('Parcels table cleared');
-        pool.end();
+        
       })
       .catch((err) => {
         console.log(err);
@@ -106,12 +105,12 @@ class Parcels {
     pool.query(sql)
       .then((res) => {
         console.log('Users table cleared');
-        pool.end();
+        
       
       })
       .catch((err) => {
         console.log(err);
-        pool.end();
+        
        
       });
   }

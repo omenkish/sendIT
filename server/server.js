@@ -1,13 +1,14 @@
+import '@babel/polyfill';
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
 
-import parcel from './server/routes/parcel';
-import user from './server/routes/user';
-import authUser from './server/routes/auth';
-import ParcelModel from './server/models/parcels';
+import parcel from './routes/parcel';
+import user from './routes/user';
+import authUser from './routes/auth';
+import ParcelModel from './models/parcels';
 dotenv.config();
 
 // Create tables automatically

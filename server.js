@@ -5,10 +5,10 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
 
-import parcel from './routes/parcel';
-import user from './routes/user';
-import authUser from './routes/auth';
-import ParcelModel from './models/parcels';
+import parcel from './server/routes/parcel';
+import user from './server/routes/user';
+import authUser from './server/routes/auth';
+import ParcelModel from './server/models/parcels';
 dotenv.config();
 
 // Create tables automatically
@@ -21,14 +21,14 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/client'));
+app.use(express.static('client'));
 
 app.use('/api/v1/parcels', parcel);
 app.use('/api/v1/users', user);
 app.use('/api/v1/', authUser);
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html')
+  res.sendFile('index.html', { root: __dirname});
 })
 app.get('/api', (req, res) => {
   res.status(200).send('Welcome to my App API')

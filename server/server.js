@@ -28,7 +28,7 @@ app.use('/api/v1/users', user);
 app.use('/api/v1/', authUser);
 
 app.get('/', (req, res) => {
-  res.status(200).sendFile('../client/index.html')
+  res.sendFile('index.html', {root: '../client'})
 })
 app.get('/api', (req, res) => {
   res.status(200).send('Welcome to my App API')

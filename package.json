@@ -4,9 +4,8 @@
   "description": "A courier service app that delivers parcels to different destinations",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm run build",
     "test": "cross-env NODE_ENV=test nyc mocha server/test/**/*.js --require @babel/register --timeout 6000 --exit",
-    "start": "node dist/server.js",
+    "start": "node index.js",
     "build": "babel server/ -s -d dist",
     "heroku-prebuild": "npm install",
     "coverage": "nyc report --reporter=text-lcov | coveralls",

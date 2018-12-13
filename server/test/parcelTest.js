@@ -4,7 +4,7 @@ import request from 'supertest';
 
 
 // local modules
-import server from '../server';
+import server from '../../server';
 import ParcelOrder from '../models/parcels';
 
 const validParcel = {

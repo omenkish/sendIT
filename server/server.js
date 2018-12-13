@@ -27,6 +27,9 @@ app.use('/api/v1/parcels', parcel);
 app.use('/api/v1/users', user);
 app.use('/api/v1/', authUser);
 
+app.get('/', (req, res) => {
+  res.status(200).sendFile('../client/index.html')
+})
 app.get('/api', (req, res) => {
   res.status(200).send('Welcome to my App API')
 });

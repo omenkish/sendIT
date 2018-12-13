@@ -1,6 +1,7 @@
+require('@babel/register');
+require ('@babel/polyfill');
 import express from 'express';
 import bodyParser from 'body-parser';
-import '@babel/polyfill';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';

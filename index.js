@@ -4,4 +4,4 @@ require('@babel/register')({
 });
 require('@babel/polyfill');
 // Import the rest of our application.
-require('./server/server.js');
+require('./server.js');

@@ -6,7 +6,6 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test nyc mocha server/test/**/*.js --require @babel/register --timeout 6000 --exit",
     "start": "node index.js",
-    "build": "babel server/ -s -d dist",
     "heroku-prebuild": "npm install",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dev-start": "cross-env NODE_ENV=development nodemon server --exec \"node -r @babel/register\"",

@@ -2,7 +2,7 @@ const cancel = () => {
 
   let messageDiv = document.querySelector('#message');
   const id = document.querySelector('#delete').getAttribute('data-id');
-  const url = `http://localhost:5000/api/v1/parcels/${id}/cancel`;
+  const url = `https://eneojo-sendit.herokuapp.com/api/v1/parcels/${id}/cancel`;
 
   let fetchData = { 
     method: 'PUT', 

@@ -19,7 +19,7 @@ const createParcel = (e) => {
   const requestData = { description, receiver_number, weight, weight_metric, sender_address, receiver_address, zip, state};
   
   
-  const url = 'http://localhost:5000/api/v1/parcels';
+  const url = 'https://eneojo-sendit.herokuapp.com/api/v1/parcels';
   const header = {
     'Content-Type': 'Application/json',
     'Authorization' : `Bearer ${token}`

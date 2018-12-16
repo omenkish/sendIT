@@ -72,7 +72,7 @@ return parent.appendChild(element);
   let transit = document.querySelector('#trans');
   let deliver = document.querySelector('#del');
 
-  const url =  'http://localhost:5000/api/v1/users/parcels';
+  const url =  'https://eneojo-sendit.herokuapp.com/api/v1/users/parcels';
   let fetchData = { 
     method: 'GET', 
     headers: {
@@ -99,7 +99,13 @@ return parent.appendChild(element);
       deliver.style.color = 'green';
     }
     else{
-
+      let span = document.createTextNode(0);
+      let span1 = document.createTextNode(0);
+     
+      append(transit, span);
+      append(deliver, span1);
+      transit.style.color = 'red';
+      deliver.style.color = 'red';
     }
 
   })

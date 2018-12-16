@@ -30,7 +30,7 @@ class Parcel {
       }
     }
     catch(e){
-      return response.status(400).json({error: 'Something is wrong!'});
+      return response.status(400).json({error: e});
     }
     const current_location = 'warehouse';
     const createParcelQuery = `INSERT INTO parcels(placed_by, order_number, receiver_number, description,

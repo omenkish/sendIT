@@ -4,7 +4,7 @@ const edit = (e) => {
   e.preventDefault();
 
   const id = window.location.search.split('?')[1];
-  const url = `http://localhost:5000/api/v1/parcels/${id}/destination`;
+  const url = `https://eneojo-sendit.herokuapp.com/api/v1/parcels/${id}/destination`;
 
 
   let receiver_address = document.querySelector('#destination').value;

@@ -43,7 +43,7 @@ const createParcel = (e) => {
       resultMessage.classList.add('fadeOut');
     }
     else{
-      console.log('nahhh')
+      console.log(result)
       let span = createNode('span');
       const text = document.createTextNode(result.message);
       append(span, text);

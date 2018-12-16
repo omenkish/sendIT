@@ -99,7 +99,13 @@ return parent.appendChild(element);
       deliver.style.color = 'green';
     }
     else{
-
+      let span = document.createTextNode(0);
+      let span1 = document.createTextNode(0);
+     
+      append(transit, span);
+      append(deliver, span1);
+      transit.style.color = 'red';
+      deliver.style.color = 'red';
     }
 
   })

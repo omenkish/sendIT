@@ -7,7 +7,7 @@ const login = (e) => {
   const resultMessage = document.getElementById('message');
 
   const requestData = {email, password}
-  const url = 'http://localhost:5000/api/v1/auth/login';
+  const url = 'https://eneojo-sendit.herokuapp.com/api/v1/auth/login';
   const header = {'Content-Type': 'Application/json'};
 
   fetch(url, {

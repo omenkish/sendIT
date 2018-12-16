@@ -72,7 +72,7 @@ return parent.appendChild(element);
   let transit = document.querySelector('#trans');
   let deliver = document.querySelector('#del');
 
-  const url =  'http://localhost:5000/api/v1/users/parcels';
+  const url =  'https://eneojo-sendit.herokuapp.com/api/v1/users/parcels';
   let fetchData = { 
     method: 'GET', 
     headers: {

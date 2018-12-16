@@ -8,7 +8,7 @@ const userParcels = () => {
 
   let table = document.getElementById('table');
   let resultMessage = document.getElementById('message');
-  const url = 'http://localhost:5000/api/v1/users/parcels';
+  const url = 'https://eneojo-sendit.herokuapp.com/api/v1/users/parcels';
   
   if(!token) return window.location = 'index.html';
   

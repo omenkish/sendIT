@@ -4,7 +4,7 @@ const getId = (el) =>{
   document.getElementById('userModal').style.display = 'block';
   let parcelDiv = document.getElementById('userParcel');
   let id = el.getAttribute('data-id');
-  const url = `http://localhost:5000/api/v1/parcels/${id}`;
+  const url = `https://eneojo-sendit.herokuapp.com/api/v1/parcels/${id}`;
 
   let fetchData = { 
     method: 'GET', 

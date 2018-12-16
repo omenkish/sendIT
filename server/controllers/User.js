@@ -54,9 +54,9 @@ class User {
     const sqlQuery = 'SELECT * FROM users WHERE email = $1';
 
     try{
-      const { rows } = await db.query(sqlQuery, [request.body.email]);
+      const { rows } = await db.query(sqlQuery, [request.body.email.toLowerCase()]);
       if (!rows[0]) {
-        return response.status(400).json({status: 400, message: 'Username/password incorrect'});
+        return response.status(404).json({status: 404, message: 'Username/password incorrect'});
       }
       if(!Helper.comparePassword(rows[0].password, request.body.password)){
         return response.status(404).json({status: 404, message: 'Username/password incorrect'});

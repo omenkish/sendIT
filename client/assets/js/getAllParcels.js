@@ -2,7 +2,7 @@ const token = localStorage.getItem('token');
 const allParcels = () => {
 
   let table = document.getElementById('table');
-  const url = 'http://localhost:5000/api/v1/parcels';
+  const url = 'https://eneojo-sendit.herokuapp.com/api/v1/parcels';
   
   if(!token) return window.location = 'index.html';
   // const header = new Headers({

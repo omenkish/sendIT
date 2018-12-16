@@ -8,7 +8,7 @@ const token = localStorage.getItem('token');
   let date = document.querySelector('#date');
 
   const id = localStorage.getItem('userId');
-  const url =  `http://localhost:5000/api/v1/users/${id}`;
+  const url =  `https://eneojo-sendit.herokuapp.com/api/v1/users/${id}`;
   
   //const parcelsUrl =  'http://localhost:5000/api/v1/users/parcels';
   let fetchData = { 

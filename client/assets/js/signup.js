@@ -15,7 +15,7 @@ const signup = (e) =>{
   }
   
 
-  const url = 'http://localhost:5000/api/v1/auth/signup';
+  const url = 'https://eneojo-sendit.herokuapp.com/api/v1/auth/signup';
 
   const header = {
     'Content-Type': 'application/json',

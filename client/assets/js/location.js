@@ -3,7 +3,7 @@ const update = (e) => {
   let resultMessage = document.querySelector('#message');
   const current_location = document.querySelector('#current-location').value;
   const id = document.querySelector('#delete').getAttribute('data-id');
-  const url = `http://localhost:5000/api/v1/parcels/${id}/location`;
+  const url = `https://eneojo-sendit.herokuapp.com/api/v1/parcels/${id}/location`;
   console.log(current_location);
 
   let fetchData = { 

@@ -343,10 +343,8 @@ img.avatar {
 
 .order form{
   margin: 12px;
-  padding: 12px;
-  position: relative;
+  padding: 6px;
   background-color: #ffffff;
-  z-index: 4;
 }
 
 #changeDestination .center{

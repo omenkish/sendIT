@@ -3,8 +3,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import path from 'path';
+import swaggerUi from 'swagger-ui-express';
 
+import swaggerDocument from './swagger.json'
 import parcel from './server/routes/parcel';
 import user from './server/routes/user';
 import authUser from './server/routes/auth';
@@ -26,6 +27,7 @@ app.use(express.static('client'));
 app.use('/api/v1/parcels', parcel);
 app.use('/api/v1/users', user);
 app.use('/api/v1/', authUser);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/', (req, res) => {
   res.sendFile('index.html', { root: __dirname});

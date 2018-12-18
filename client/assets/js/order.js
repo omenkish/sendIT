@@ -1,6 +1,6 @@
 
 const getId = (el) =>{
-  
+  let mapbtn = document.querySelector('#forMap');
   document.getElementById('userModal').style.display = 'block';
   let parcelDiv = document.getElementById('userParcel');
   let id = el.getAttribute('data-id');
@@ -84,6 +84,8 @@ const getId = (el) =>{
       append(span5, text6);
       append(para5, span5);
       append(parcelDiv, para5);
+
+      mapbtn.setAttribute('href', `./location.html?${parcel.id}`);
     }
 
   })

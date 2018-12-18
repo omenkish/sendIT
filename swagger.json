@@ -1,0 +1,616 @@
+{
+  "swagger":"2.0",
+  "info": {
+      "version": "1",
+      "title": "SEND IT API",
+      "description": "An API for making and sending parcel delivery orders"
+  },
+  "schemes": ["https"],
+  "host": "https://eneojo-sendit.herokuapp.com",
+  "basePath": "/api/v1/",
+  "tags": [
+      {
+          "name": "Auth",
+          "description": "Authenticate a user"
+      }
+  ],
+  "paths": {
+      "/auth/login": {
+          "post": {
+              "tags": ["Auth"],
+              "summary": "Login to the API to get authentication token",
+              "consumes": ["application/x-www-form-urlencoded"],
+              "parameters": [
+                  {
+                      "name": "email",
+                      "in": "formData",
+                      "description": "The email for login",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "password",
+                      "in": "formData",
+                      "description": "The password for login in text",
+                      "required": true,
+                      "type": "string"
+                  }
+              ],
+              "description": "Returns an authenticated user and authentication token on success.",
+              "responses": {
+                  "200": {
+                      "description":
+                          " Return user details and token"
+                  },
+                  "404": {
+                      "description": "Username/password incorrect"
+                  }
+              }
+          }
+      },
+      "/auth/signup": {
+          "post": {
+              "tags": ["Auth"],
+              "summary": "Create an account for a new user on the API",
+              "description": "Returns HTTP code 201 on success.",
+              "consumes": ["application/x-www-form-urlencoded"],
+              "parameters": [
+                  {
+                      "name": "firstname",
+                      "in": "formData",
+                      "description": "The firstname of the user account to be created",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "lastname",
+                      "in": "formData",
+                      "description": "The lastname for the user account to be created",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "othernames",
+                      "in": "formData",
+                      "description": "The other name of the user to be created",
+                      "required": false,
+                      "type": "string"
+                  },
+                  {
+                      "name": "email",
+                      "in": "formData",
+                      "description": "The email of the user account to be created",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "phone",
+                      "in": "formData",
+                      "description": "The phone number of the user account to be created",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "name": "password",
+                      "in": "formData",
+                      "description": "The password for the user account to be created",
+                      "required": true,
+                      "type": "string"
+                  }
+              ],
+              "responses": {
+                  "201": {
+                      "description": "User created successfully",
+                      "schema": {
+                          "$ref": "#/definitions/User"
+                      }
+                  },
+                  "400": {
+                      "description": "User with that email already exists"
+                  },
+                  "500": {
+                      "description": "Error Saving User"
+                  }
+              }
+          }
+      },
+      "/parcels": {
+          "post": {
+              "tags": ["Parcels"],
+              "summary": "Work with parcel delivery orders",
+              "consumes": ["application/x-www-form-urlencoded"],
+              "parameters": [
+                  {
+                      "name": "Bearer",
+                      "in": "header",
+                      "description": "Authorization token",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                    "name": "receiver_phone",
+                    "in": "formData",
+                    "description": "The phone number of the parcel recipient",
+                    "required": true,
+                    "type": "string"
+                },
+                  {
+                      "name": "weight",
+                      "in": "formData",
+                      "description": "The weight of the parcel order",
+                      "required": true,
+                      "type": "number"
+                  },
+                  {
+                    "name": "weight_metric",
+                    "in": "formData",
+                    "description": "The unit of measuring the weight",
+                    "required": true,
+                    "type": "string"
+                },
+                  {
+                      "name": "sender_address",
+                      "in": "formData",
+                      "description": "The address of the user ",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                    "name": "receiver_address",
+                    "in": "formData",
+                    "description": "The address of the parcel recipient",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "zip",
+                    "in": "formData",
+                    "description": "The zip code of the receiver's address",
+                    "required": true,
+                    "type": "number"
+                  },
+                  {
+                    "name": "state",
+                    "in": "formData",
+                    "description": "The state of the receivers address",
+                    "required": true,
+                    "type": "string"
+                }
+              ],
+              "description": "Create a new parcel delivery order",
+              "responses": {
+                  "201": {
+                      "description": "Parcel order placed Successfully"
+                  },
+                  "400": {
+                      "description": "There Was an Error creating the parcel delivery order"
+                  },
+                  "401": {
+                    "description": "Please sign in to create a parcel delivery order"
+                }
+              }
+          },
+          "get": {
+            "tags": ["Parcels"],
+            "summary": "Get parcel delivery orders",
+            "consumes": ["application/x-www-form-urlencoded"],
+            "parameters": [
+                {
+                    "name": "Bearer",
+                    "in": "header",
+                    "description": "Authorization token",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "description": "Return a parcel delivery order",
+              "responses": {
+                  "200": {
+                      "description": "Return all parcels in the system"
+                  },
+                  "404": {
+                      "description": "No parcel delivery order in the system!"
+                  },
+                  "400": {
+                    "description": "Return server error"
+                }
+            }
+        }
+    },
+    "/parcels/:id": {
+        "get": {
+            "tags": ["Parcels"],
+            "summary": "Get a parcel by it's identity number",
+            "consumes": ["application/x-www-form-urlencoded"],
+            "parameters": [
+                {
+                    "name": "Bearer",
+                    "in": "header",
+                    "description": "Authorization token",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                  "name": "ID",
+                  "in": "path",
+                  "description": "Parcel identity number",
+                  "required": true,
+                  "type": "string"
+                }
+            ]
+        }
+      },
+      
+      "/parcels/:id/cancel": {
+        "put": {
+            "tags": ["Parcels"],
+            "summary": "Cancel a parcel delivery order",
+            "consumes": ["application/x-www-form-urlencoded"],
+            "parameters": [
+                {
+                    "name": "Bearer",
+                    "in": "header",
+                    "description": "Authorization token",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "ID",
+                    "in": "path",
+                    "description": "Parcel identity number",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "description": "cancel a parcel delivery order",
+              "responses": {
+                  "200": {
+                      "description": "Return all parcels in the system"
+                  },
+                  "404": {
+                      "description": "No parcel delivery order in the system!"
+                  },
+                  "400": {
+                    "description": "Return server error"
+                }
+            }
+        }
+    },
+    "/parcels/:id/destination": {
+        "put": {
+            "tags": ["Parcels"],
+            "summary": "Change a parcel delivery order's destination",
+            "consumes": ["application/x-www-form-urlencoded"],
+            "parameters": [
+                {
+                    "name" : "Bearer",
+                    "in": "header",
+                    "description": "Authorization token",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "ID",
+                    "in": "query",
+                    "description": "Parcel identity number",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "receiver_address",
+                    "in": "formData",
+                    "description": "Parcel's new destination",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "zip",
+                    "in": "formData",
+                    "description": "Parcel's new zip code",
+                    "required": true,
+                    "type": "number"
+                },
+                {
+                    "name": "state",
+                    "in": "formData",
+                    "description": "Parcel's new destination state",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "description": "change destination of a parcel delivery order",
+              "responses": {
+                  "200": {
+                      "description": "Destination updated successfully"
+                  },
+                  "404": {
+                      "description": "Order not found"
+                  },
+                  "400": {
+                    "description": "Return server error"
+                }
+            }
+        }
+    },
+    "/parcels/:id/location": {
+        "put": {
+            "tags": ["Parcels"],
+            "summary": "Update a parcel delivery order's current location",
+            "consumes": ["application/x-www-form-urlencoded"],
+            "parameters": [
+                {
+                    "name": "Bearer",
+                    "in": "header",
+                    "description": "Authorization token",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "ID",
+                    "in": "query",
+                    "description": "Parcel identity number",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                "name": "current_location",
+                "in": "formData",
+                "description": "Parcel's current location",
+                "required": true,
+                "type": "string"
+            }
+            ],
+            "description": "Update current location of a parcel delivery order",
+            "responses": {
+                "200": {
+                    "description": "location updated successfully"
+                },
+                "404": {
+                    "description": "Order not found"
+                },
+                "400": {
+                "description": "Return server error"
+                }
+            }
+        }
+    },
+        "/parcels/:id/deliver": {
+            "put": {
+                "tags": ["Parcels"],
+                "summary": "Update a parcel delivery order's status",
+                "consumes": ["application/x-www-form-urlencoded"],
+                "parameters": [
+                    {
+                        "name": "Bearer",
+                        "in": "header",
+                        "description": "Authorization token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ID",
+                        "in": "query",
+                        "description": "Parcel identity number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Update delivery status of a parcel delivery order",
+                "responses": {
+                    "200": {
+                        "description": "parcel successfully marked as delivered"
+                    },
+                    "404": {
+                        "description": "pending order cannot be marked as delivered"
+                    },
+                    "400": {
+                    "description": "Return server error"
+                    }
+                }
+            }
+        },
+        "/users/": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Return an array of all users",
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "Bearer",
+                        "in": "header",
+                        "description": "Authorization token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Return all users",
+                "responses": {
+                    "200": {
+                        "description": "Return an array of users"
+                    },
+                    "400": {
+                    "description": "Return server error"
+                    }
+                }
+            }
+        },
+        "/users/:id": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Fetch a particular user",
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "Bearer",
+                        "in": "header",
+                        "description": "Authorization token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ID",
+                        "in": "query",
+                        "description": "User identity number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Update delivery status of a parcel delivery order",
+                "responses": {
+                    "200": {
+                        "description": "Return the user object"
+                    },
+                    "404": {
+                        "description": "user not found!"
+                    },
+                    "400": {
+                    "description": "Return server error"
+                    }
+                }
+            }
+        },
+        "/users/:id/makeadmin": {
+            "put": {
+                "tags": ["Users"],
+                "summary": "Fetch a particular user",
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "Bearer",
+                        "in": "header",
+                        "description": "Authorization token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ID",
+                        "in": "query",
+                        "description": "User identity number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Update admin status of a user",
+                "responses": {
+                    "200": {
+                        "description": "Return the user object"
+                    },
+                    "404": {
+                        "description": "user not found!"
+                    },
+                    "400": {
+                    "description": "Return server error"
+                    }
+                }
+            }
+        },
+        "/users/:id/parcels": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Fetch all parcels belonging to a particular user",
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "Bearer",
+                        "in": "header",
+                        "description": "Authorization token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ID",
+                        "in": "query",
+                        "description": "User identity number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Fetch parcel orders of a particular user",
+                "responses": {
+                    "200": {
+                        "description": "Return  an array of all orders belonging to the user"
+                    },
+                    "404": {
+                        "description": "No parcels found for this user"
+                    },
+                    "400": {
+                    "description": "Return server error"
+                    }
+                }
+            }
+        },
+        "/users/parcels": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Fetch all parcels belonging to the current user",
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "Bearer",
+                        "in": "header",
+                        "description": "Authorization token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Fetch parcel orders of the current user",
+                "responses": {
+                    "200": {
+                        "description": "Return an array of all orders belonging to the user"
+                    },
+                    "404": {
+                        "description": "You currently have no parcel delivery order"
+                    },
+                    "400": {
+                    "description": "Return server error"
+                    }
+                }
+            }
+        },
+        "/users/parcels/:id": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Fetch a parcel belonging to the current user",
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "Bearer",
+                        "in": "header",
+                        "description": "Authorization token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ID",
+                        "in": "query",
+                        "description": "Parcel identity number",
+                        "required": true,
+                        "type": "string"
+                    },
+                
+                    {
+                        "name": "placed_by",
+                        "in": "query",
+                        "description": "Parcel identity number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Fetch a parcel order of the current user",
+                "responses": {
+                    "200": {
+                        "description": "Return  an object of the particular order"
+                    },
+                    "404": {
+                        "description": "Order not found"
+                    },
+                    "400": {
+                    "description": "Return server error"
+                    }
+                }
+            }
+        }
+        
+
+    }
+}

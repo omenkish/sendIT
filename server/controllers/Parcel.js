@@ -259,7 +259,7 @@ class Parcel {
     try{
         const { rowCount } = await db.query(findParcelQuery, [request.params.id, request.user.id]);
       if(rowCount === 0){
-        return response.status(404).json({'Status': 404,'Message': 'Order not found'});
+        return response.status(404).json({status: 404, message: 'Order not found'});
       }
 
       const result = await db.query(updateParcelQuery, values);
@@ -267,7 +267,7 @@ class Parcel {
   
     }
     catch(error){
-      return response.status(400).json({'Status': 400, 'Error': `${error}`});
+      return response.status(400).json({status: 400, message: `${error}`});
     }
    }
 

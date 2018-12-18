@@ -482,11 +482,14 @@ div.modal-footer {
   margin-left:50%; 
   
 }
-#userModal button#cancelbtn{
-  width: 18%;
-  background-color: #696969;
-  margin-left:80%; 
-  
+#userModal button#cancelbtn{ 
+  margin-left: 60%;
+}
+
+#userModal button#mapbtn{
+  width: auto;
+  background-color: goldenrod;
+     
 }
 #myModal button#delete{
   background-color: red;

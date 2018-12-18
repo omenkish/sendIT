@@ -1,9 +1,9 @@
 {
   "swagger":"2.0",
   "info": {
-      "version": "1",
-      "title": "SEND IT API",
-      "description": "An API for making and sending parcel delivery orders"
+      "version": "1.0.0",
+      "title": "SendIT API",
+      "description": "An API for creating and sending parcel delivery orders"
   },
   "schemes": ["https"],
   "host": "https://eneojo-sendit.herokuapp.com",
@@ -591,7 +591,7 @@
                     {
                         "name": "placed_by",
                         "in": "query",
-                        "description": "Parcel identity number",
+                        "description": "User identity number",
                         "required": true,
                         "type": "string"
                     }

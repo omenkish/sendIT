@@ -5,10 +5,6 @@ const allParcels = () => {
   const url = 'https://eneojo-sendit.herokuapp.com/api/v1/parcels';
   
   if(!token) return window.location = 'index.html';
-  // const header = new Headers({
-  //   'Content-Type': 'Application/json',
-  //   'Authorization' : `Bearer ${token}`
-  // });
   let fetchData = { 
     method: 'GET', 
     headers: {
@@ -32,7 +28,10 @@ const allParcels = () => {
       let tableHeader = table.createTHead();
       
       let tableRow = tableHeader.insertRow(-1);
-
+      let myTable = document.querySelector("#table");
+      let dataTable = new DataTable(myTable);
+      //dataTable.rows().add(result.data);
+      //dataTable.insert(result.data);
       for(let i = 0; i < columnCount; i++){
         let headerCell = createNode('th');
         headerCell.innerHTML = column[i].toUpperCase();
@@ -74,7 +73,8 @@ const allParcels = () => {
                             <a id="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> <button id="cancelbtn">Update</button></a>
                           </td>`;
 
-        }
+        };
+        dataTable.rows().add(tableRow)
 
         
         

@@ -15,7 +15,7 @@ body {
   font:15px/1.5 "Times New Roman", Times, serif;
   padding:0;
   margin: 0;
-  height: 100%;
+  min-height: 91.4%;
   background-color: #f1f1f1;
 }
 
@@ -74,6 +74,9 @@ ul {
 }
 /*header*/
 header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background: #35424a;
   color: #ffffff;
   padding-top: 10px;
@@ -123,7 +126,7 @@ header a:hover {
     display: none;
 }
 /* sidebar */
-#left {
+/* #left {
   margin: 0 10px 0 0;
   float: left;
   height: 100%;
@@ -132,6 +135,18 @@ header a:hover {
   bottom: 0;
   background: #22333d;
   width: 15%;
+} */
+
+#left {
+  position: fixed;
+  height: 94%;
+  padding: 15px;
+  top: 58px;
+  left: 0;
+  background: #22333d;
+  width: 15%;
+  overflow: hidden;
+  z-index: 1;
 }
 #heading {
   font:15px/0.9 "Times New Roman", Times, serif;
@@ -168,8 +183,9 @@ aside#sidebar {
 /* Main section */
 section#main {
   padding: 12px;
-  margin-top: 2px;
+  
   padding-bottom: 6%;
+  margin-left: 15%;
 }
 
 #main form {
@@ -242,14 +258,16 @@ button:hover {
 #profile-title h1 {
   color: #696969;
   text-transform: capitalize; 
+  margin-left: 16%;
+  margin-top: 60px;
 }
 
 /* boxes */
 #boxes {
   margin-top: 8px;
   padding-bottom: 6%;
+  margin-left: 15%;
 }
-
 #boxes div#pro-box{
   margin-left: 25%;
 }
@@ -277,8 +295,18 @@ button:hover {
   border-top: #35424a solid 3px;
   border-bottom: #35424a solid 3px;
   border-radius: 2%;
-  background: #ffffff
-
+  background: #ffffff;
+}
+.order-box{
+  float: left;
+  margin: 6px 5px;
+  text-align: center;
+  width: 45%;
+  padding: 10px;
+  border-top: #35424a solid 3px;
+  border-bottom: #35424a solid 3px;
+  border-radius: 2%;
+  background: #ffffff;
 }
 
 h2#fa-text{
@@ -504,12 +532,10 @@ div.modal-footer {
 /* footer area */
 footer {
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   width: 85%;
   bottom: 0;
   right: 0;
-  margin: 0;
-  padding-left: 0;
   background: #35424a;
   max-height: 45px;
   border-top: #e8491d solid 3px;
@@ -549,8 +575,11 @@ footer a {
     width: 100%;
     
   }
+  header {
+    position: unset;
+  }
   #left {
-
+    position: unset;
     height: 10%;    
   }
 
@@ -558,6 +587,16 @@ footer a {
     display:inline;
     padding: 12px 10px;
     
+  }
+  #profile-title h1 {
+    margin-left: 3%;
+  }
+  #main, #boxes {
+    margin-left: 6px;
+    
+  }
+  #boxes h2{
+    margin-left: 2%;
   }
   #main form {
     text-align: left;

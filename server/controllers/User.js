@@ -129,7 +129,7 @@ class User {
   
     }
     catch(error){
-      return response.status(400).json({status: 400, Error: `${error}`});
+      response.status(400).json({status: 400, error: `${error}`});
     }
   }
   

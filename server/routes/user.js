@@ -14,5 +14,5 @@ router.route('/parcels')
 router.get('/parcels/:id', Auth, Parcel.getUserParcelById)
 router.get('/',Auth, Validator.adminOnly, User.getUsers);
 router.get('/:id', Auth,  Validator.getById, User.getUser)
-router.get('/:id/createadmin',Auth,Validator.adminOnly,Validator.getById, User.makeAdmin);
+router.put('/:id/createadmin',Auth,Validator.adminOnly,Validator.getById, User.makeAdmin);
 export default router;

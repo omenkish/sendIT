@@ -13,7 +13,6 @@ const fetchUsers = () => {
       'Authorization' : `Bearer ${token}`
     }
   }
-  console.log(22222)
   fetch(url, fetchData).then(responese => responese.json())
   .then(result => {
     if(result.data){
@@ -31,8 +30,8 @@ const fetchUsers = () => {
         "S/N": `${index}`,
         "Name": `${user.firstname} ${othernames} ${user.lastname}`,
         "Email": `${user.email}`,
-        "Action": `<a id="btn" data-id = "${user.id}" onclick="makeAdmin(this);"><button id="cancelbtn">Make admin</button></a> 
-        <a id="myBtn" href="#" data-id = "${user.id}" onclick="fetchId(this);"> <button id="cancelbtn">View Parcels</button></a>`
+        "Action": `<a id="btn" data-id = "${user.id}" onclick="fetchId(this);"><button id="cancelbtn">Make admin</button></a> 
+        <a id="myBtn" href="#" data-id = "${user.id}" > <button id="cancelbtn">View Parcels</button></a>`
       })
     });
       //dataTable.rows().add(result.data);

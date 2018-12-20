@@ -28,6 +28,9 @@ const update = (e) => {
       append(resultMessage, span);
       resultMessage.setAttribute('class', 'success');
     }
+    else if(result.message === 'TokenExpiredError: jwt expired}'){
+      window.location = 'signin.html';
+    }
     else{
       let span = createNode('span');
       let text = document.createTextNode(result.message);

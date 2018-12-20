@@ -42,6 +42,9 @@ const createParcel = (e) => {
       document.getElementById('createParcel').reset();
       resultMessage.classList.add('fadeOut');
     }
+    else if(result.message === 'TokenExpiredError: jwt expired}'){
+      window.location = 'signin.html';
+    }
     else{
       console.log(result)
       let span = createNode('span');

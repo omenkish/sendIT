@@ -80,6 +80,9 @@ const allParcels = () => {
         
       });
     }
+    else if(result.message === 'TokenExpiredError: jwt expired}'){
+      window.location = 'signin.html';
+    }
   })
   .catch(error => {
     console.log('------------------ Error', error);

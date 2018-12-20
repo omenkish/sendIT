@@ -87,6 +87,9 @@ const getId = (el) =>{
 
       mapbtn.setAttribute('href', `./location.html?${parcel.id}`);
     }
+    else if(result.message === 'TokenExpiredError: jwt expired}'){
+      window.location = 'signin.html';
+    }
 
   })
   .catch(error => {

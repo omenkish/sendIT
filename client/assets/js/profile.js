@@ -39,8 +39,8 @@ const token = localStorage.getItem('token');
       append(phone, span2);
       append(date, span3);
     }
-    else{
-
+    else if(result.status === 401){
+      window.location = 'signin.html';
     }
 
   })

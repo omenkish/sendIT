@@ -497,7 +497,7 @@ div.modal-footer {
   background-color: goldenrod;
      
 }
-#myModal button#delete{
+#myModal button#delete, button#makeAdmin{
   background-color: red;
 }
 
@@ -674,10 +674,14 @@ footer a {
     animation-duration: 0.6s
   }
 
-  #myModal button#cancelbtn, button#delete{
+  #myModal button#cancelbtn, button#delete, {
     width: 18%;
     background-color: #696969;
     
+  }
+
+  #myModal button#makeAdmin{
+    width: auto;
   }
   #changeDestination .center{
     clear: both;

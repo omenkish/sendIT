@@ -652,6 +652,9 @@ footer a {
     width: 94%;
   }
 
+  #table button{
+    width: 100%;
+  }
   #main div.form-left {
     float: none;
     margin: 6px 10px;
@@ -687,5 +690,9 @@ footer a {
     clear: both;
     margin-left: 0;
     width: 100%;
+  }
+  h1, h2, h3{
+    font-size: 15px;
+    font-weight: unset;
   }
 }

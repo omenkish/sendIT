@@ -23,15 +23,21 @@ const fetchUsers = () => {
     result.data.forEach(user => {
       index += 1;
       let othernames = ' ';
+      let status = 'Normal';
+      let buttons = `<a id="btn" data-id = "${user.id}" onclick="fetchId(this);"><button id="cancelbtn">Make admin</button></a> 
+                    <a id="myBtn" href="#" data-id = "${user.id}" > <button id="cancelbtn">View Parcels</button></a>`;
       if(user.othernames){
         othernames = user.othernames;
       }
+      if(user.is_admin === true){
+        status = 'Admin';
+        buttons = `<a id="myBtn" href="#" data-id = "${user.id}" > <button id="cancelbtn">View Parcels</button></a>`;
+      }
       newData.push({
-        "S/N": `${index}`,
         "Name": `${user.firstname} ${othernames} ${user.lastname}`,
         "Email": `${user.email}`,
-        "Action": `<a id="btn" data-id = "${user.id}" onclick="fetchId(this);"><button id="cancelbtn">Make admin</button></a> 
-        <a id="myBtn" href="#" data-id = "${user.id}" > <button id="cancelbtn">View Parcels</button></a>`
+        "Status": `${status}`,
+        "Action": `${buttons}`
       })
     });
       //dataTable.rows().add(result.data);

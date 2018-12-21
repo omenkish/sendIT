@@ -61,8 +61,6 @@
   <section id="boxes">
       <div class="container">
   
-          <div >
-              <div id="deliveries"> 
                  <!-- The Modal -->
                <div id="myModal" class="modal">
 
@@ -90,11 +88,22 @@
                   </div>
                 
                 </div>
-                <table id="table">
-                  <div id="message1"></div>
-                </table>
-            </div>
-          </div>
+                <div id="message"></div>
+            <table id="table" >
+              <tr>
+                <thead> 
+                  <th>Order No.</th> 
+                  <th>Receiver No.</th> 
+                  <th>Receiver Addr.</th>
+                  <th>Price ($)</th>
+                  <th>Cur. Location</th>
+                  <th>Order Status</th>
+                  <th>Delivery Status</th> 
+                  <th>Action</th>               
+                </thead>
+              </tr>
+            </table>
+           
   
       </div>
     </section>
@@ -106,9 +115,5 @@
     <script src="./assets/js/location.js"></script>
     <script src="./assets/js/markAsDelivered.js"></script>
     <script src="./assets/js/logout.js"></script>
-    <script>
-      let myTable = document.querySelector("#table");
-      let dataTable = new DataTable(myTable);
-    </script>
 	</body>
 </html>

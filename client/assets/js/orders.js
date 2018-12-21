@@ -34,7 +34,11 @@ const userParcels = () => {
         if(parcel.cancelled === true){
           status = 'Cancelled';
         }
-        if(parcel.status === 'delivered'){
+        if(status === 'Cancelled'){
+          deliver = `<a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);">
+                    <button id="cancelbtn">view</button></i></a>`
+        }
+        else if(parcel.status === 'delivered'){
           deliver = `<a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);">
                     <button id="cancelbtn">view</button></i></a> &nbsp;
                     <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; 
@@ -67,6 +71,7 @@ const userParcels = () => {
       window.location = 'signin.html';
     }
     else{
+      myTable.setAttribute('class', 'hide');
       let span = createNode('span');
       let text = document.createTextNode(result.message);
       append(span, text);

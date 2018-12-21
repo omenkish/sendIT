@@ -25,13 +25,13 @@ const fetchUsers = () => {
       let othernames = ' ';
       let status = 'Normal';
       let buttons = `<a id="btn" data-id = "${user.id}" onclick="fetchId(this);"><button id="cancelbtn">Make admin</button></a> 
-                    <a id="myBtn" href="#" data-id = "${user.id}" > <button id="cancelbtn">View Parcels</button></a>`;
+                    <a id="myBtn" href="parcels.html?${user.id}" > <button id="cancelbtn">View Parcels</button></a>`;
       if(user.othernames){
         othernames = user.othernames;
       }
       if(user.is_admin === true){
         status = 'Admin';
-        buttons = `<a id="myBtn" href="#" data-id = "${user.id}" > <button id="cancelbtn">View Parcels</button></a>`;
+        buttons = `<a id="myBtn" href="parcels.html?${user.id}" data-id = "${user.id}" > <button id="cancelbtn">View Parcels</button></a>`;
       }
       newData.push({
         "Name": `${user.firstname} ${othernames} ${user.lastname}`,

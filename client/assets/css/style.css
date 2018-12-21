@@ -340,9 +340,13 @@ img.avatar {
 }
 
 /* order page */
-#boxes .order {
+#boxes #changeDestination {
+  position: relative;
   width: 60%;
-  margin: 4% 12%;
+  margin-left: 20%;
+  padding: 6px 15px;
+  background: #ffffff;
+  z-index: 6;
 }
 
 #boxes .order form input, textarea{
@@ -355,9 +359,9 @@ img.avatar {
   background-color: #ffffff;
 }
 
-#changeDestination .center{
+#changeDestination button{
   clear: both;
-  margin-left: 35%;
+  margin-left: inherit;
   width: 100%;
 }
 /* Admin Page */
@@ -566,7 +570,9 @@ footer a {
   }
   #left {
     position: unset;
-    height: 10%;    
+    height: 10%;  
+    margin-bottom: unset;
+    padding-bottom: unset;   
   }
 
   #left span {
@@ -578,8 +584,7 @@ footer a {
     margin-left: 3%;
   }
   #main, #boxes {
-    margin-left: 6px;
-    
+    margin-left: 6px;    
   }
   #boxes h2{
     margin-left: 2%;
@@ -655,6 +660,18 @@ footer a {
 
   #boxes .order form input, textarea, select{
     font-size: 15px;
+  }
+
+  #boxes #changeDestination {
+    width: 100%;
+    margin-left: unset; 
+  }
+  #boxes #changeDestination button{
+    width: 92%;
+    margin-left: 0;
+    
+   
+     
   }
   #deliveries table{
     width: 94%;

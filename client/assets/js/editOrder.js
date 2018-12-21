@@ -58,11 +58,10 @@ const edit = (e) => {
 
 const loadPage = () => {
   const id = window.location.search.split('?')[1];
-  const url = `http://localhost:5000/api/v1/parcels/${id}`;
+  const url = `https://eneojo-sendit.herokuapp.com/api/v1/parcels/${id}`;
 
   // fetch input tags
   let phone = document.querySelector('#phone');
-  let description = document.querySelector('#description');
   let cLocation = document.querySelector('#location');
   let cost = document.querySelector('#price');
   let status = document.querySelector('#status');
@@ -84,7 +83,6 @@ const loadPage = () => {
     if(result.status === 200){
       const parcel = result.data;
       phone.setAttribute('value', parcel.receiver_number);
-      description.setAttribute('value', parcel.description);
       cLocation.setAttribute('value', parcel.current_location);
       cost.setAttribute('value', parcel.price);
       status.setAttribute('value', parcel.status);

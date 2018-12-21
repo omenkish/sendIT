@@ -12,7 +12,6 @@ const edit = (e) => {
   let state = document.querySelector('#state'). value;
   let resultMessage = document.querySelector('#message');
 
-
   const requestData = { receiver_address, zip, state};
   const header = {
     'Content-Type': 'Application/json',

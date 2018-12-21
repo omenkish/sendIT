@@ -18,10 +18,8 @@ const fetchUsers = () => {
     if(result.data){
       let myTable = document.querySelector("#table");
       let dataTable = new DataTable(myTable);
-      let index = 0;
       let newData = [];
     result.data.forEach(user => {
-      index += 1;
       let othernames = ' ';
       let status = 'Normal';
       let buttons = `<a id="btn" data-id = "${user.id}" onclick="fetchId(this);"><button id="cancelbtn">Make admin</button></a> 
@@ -42,6 +40,9 @@ const fetchUsers = () => {
     });
       //dataTable.rows().add(result.data);
       dataTable.insert(newData);
+    }
+    else if(result.message === 'TokenExpiredError: jwt expired}'){
+      window.location = 'signin.html';
     }
     else{
       console.log(result);

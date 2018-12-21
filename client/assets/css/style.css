@@ -30,10 +30,13 @@ header .container {
   margin: auto;
   overflow: hidden;
 }
-
+#mytable {
+  width: 100%;
+  margin-left: 1%;
+}
 #table {
-  margin: 5%;
-  width: 94%;
+  width: 100%;
+  margin: unset;
 }
 .hide{
   display: none;
@@ -130,17 +133,6 @@ header a:hover {
     display: none;
 }
 /* sidebar */
-/* #left {
-  margin: 0 10px 0 0;
-  float: left;
-  height: 100%;
-  padding: 15px;
-  top: 0;
-  bottom: 0;
-  background: #22333d;
-  width: 15%;
-} */
-
 #left {
   position: fixed;
   height: 94%;
@@ -187,7 +179,7 @@ aside#sidebar {
 /* Main section */
 section#main {
   padding: 12px;
-  
+  overflow-y: auto;
   padding-bottom: 6%;
   margin-left: 15%;
 }
@@ -250,9 +242,7 @@ section#main {
   margin-left: 30%;
   width: 100%;
 }
-#main form {
-  margin-left: 0;
-}
+
 /* Add a hover effect for buttons */
 button:hover {
   opacity: 0.8;
@@ -455,10 +445,7 @@ img.avatar {
   animation-name: animatetop;
   animation-duration: 0.4s
 }
-#table {
-  width: 100%;
-  margin: unset;
-}
+
 #table button{
   padding: 5px;
 }
@@ -590,12 +577,15 @@ footer a {
     margin-left: 2%;
   }
   #main form {
-    text-align: left;
+    position: unset;
+    float: none;
     width: 100%;
     margin: 0;
+    margin-left: 0;
   }
 
   #main .form-left{
+    float: none;
     width: 100%;
     margin: 0;
   }
@@ -635,6 +625,8 @@ footer a {
   }
   #profile-title h1 {
     text-align: center;
+    margin-top: 1%;
+    padding: 1%; 
   }
   #boxes .order  {
     width: 100%;
@@ -676,7 +668,9 @@ footer a {
   #deliveries table{
     width: 94%;
   }
-
+  #table{
+    width: 100%;
+  }
   #table button{
     width: 100%;
   }
@@ -716,8 +710,12 @@ footer a {
     width: 100%;
   }
   h1, h2, h3{
-    margin-top: 3%;
+    margin-top: 1%;
     font-size: 15px;
     font-weight: unset;
+  }
+  #main div.container{
+    margin-left: 0;
+    width: 100%
   }
 }

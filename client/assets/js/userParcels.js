@@ -3,10 +3,13 @@ const admin = localStorage.getItem('admin');
 const fetchUserParcels = () =>{
   if(!token) return window.location = 'index.html';
   if(admin === 'false') return window.location = 'index.html';
+
   let myTable = document.querySelector("#table");
   let messageDiv = document.querySelector('#message1');
+
   const id = window.location.search.split('?')[1];
   const url = `https://eneojo-sendit.herokuapp.com/api/v1/users/${id}/parcels`;
+  
   let fetchData = { 
     method: 'GET', 
     headers: {

@@ -1,5 +1,6 @@
 const token = localStorage.getItem('token');
 
+
 function initMap(){
 
   fetchApi().then(response => response.json())

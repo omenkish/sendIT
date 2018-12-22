@@ -1,5 +1,8 @@
-const createAdmin = () => {
+const token = localStorage.getItem('token');
 
+const createAdmin = () => {
+  if(!token) return window.location = 'signin.html';
+  if(localStorage.getItem('admin') === 'false') return window.location.replace('signin.html');
   let messageDiv = document.querySelector('#message');
   const id = document.querySelector('#makeAdmin').getAttribute('data-id');
   const url = `https://eneojo-sendit.herokuapp.com/api/v1/users/${id}/createadmin`;

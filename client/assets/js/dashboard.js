@@ -3,6 +3,7 @@ const is_admin = localStorage.getItem('admin');
 const username = localStorage.getItem('username');
 
 const createParcel = (e) => {
+  if(!token) return window.location = 'signin.html';
   e.preventDefault();
 
   const receiver_number = document.getElementById('phone').value;
@@ -43,6 +44,10 @@ const createParcel = (e) => {
       resultMessage.classList.add('fadeOut');
     }
     else if(result.message === 'TokenExpiredError: jwt expired}'){
+      localStorage.removeItem('token');
+      localStorage.removeItem('admin');
+      localStorage.removeItem('username');
+      localStorage.removeItem('userId');
       window.location = 'signin.html';
     }
     else{

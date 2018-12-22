@@ -2,10 +2,11 @@ const token = localStorage.getItem('token');
 const admin = localStorage.getItem('admin');
 
 const fetchUsers = () => {
+
+  if(!token) return window.location = 'signin.html';
   if(admin === 'false') window.location = 'index.html';
+
   const url = 'https://eneojo-sendit.herokuapp.com/api/v1/users';
-  
-  if(!token) return window.location = 'index.html';
   let fetchData = { 
     method: 'GET', 
     headers: {
@@ -42,6 +43,10 @@ const fetchUsers = () => {
       dataTable.insert(newData);
     }
     else if(result.message === 'TokenExpiredError: jwt expired}'){
+      localStorage.removeItem('token');
+      localStorage.removeItem('admin');
+      localStorage.removeItem('username');
+      localStorage.removeItem('userId');
       window.location = 'signin.html';
     }
     else{

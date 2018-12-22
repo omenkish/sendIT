@@ -1,5 +1,5 @@
 const token = localStorage.getItem('token');
-
+if(!token) window.location.replace('signin.html');
 (() => {
 
   let name = document.querySelector('#name');

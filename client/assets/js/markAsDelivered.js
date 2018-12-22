@@ -2,7 +2,7 @@
 const deliver = (el) => {
   const id = el.getAttribute('data-id');
  
-  let messageDiv = document.querySelector('#message1');
+  let messageDiv = document.querySelector('#message');
   const url = `https://eneojo-sendit.herokuapp.com/api/v1/parcels/${id}/deliver`;
 
   let fetchData = { 
@@ -22,10 +22,18 @@ const deliver = (el) => {
       let text = document.createTextNode('Order successfully marked as delivered');
       append(span, text);
       append(messageDiv, span);
-
       messageDiv.setAttribute('class', 'success');
     }
-    else{
+    else if(result.status === 404){
+      let span = createNode('span');
+      let text = document.createTextNode('Only transiting orders can be marked as delivered');
+      append(span, text);
+      append(messageDiv, span);
+
+      messageDiv.setAttribute('class', 'error');
+      setTimeout(() => { window.location.reload(true); }, 7000);
+    }
+    else {
       let span = createNode('span');
       let text = document.createTextNode(result.message);
       append(span, text);

@@ -1,3 +1,4 @@
+const token = localStorage.getItem('token');
 const update = (e) => {
   e.preventDefault();
   let resultMessage = document.querySelector('#message');
@@ -29,6 +30,10 @@ const update = (e) => {
       resultMessage.setAttribute('class', 'success');
     }
     else if(result.message === 'TokenExpiredError: jwt expired}'){
+      localStorage.removeItem('token');
+      localStorage.removeItem('admin');
+      localStorage.removeItem('username');
+      localStorage.removeItem('userId');
       window.location = 'signin.html';
     }
     else{

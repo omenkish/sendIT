@@ -1,5 +1,5 @@
 const token = localStorage.getItem('token');
-
+if(!token) window.location = 'signin.html';
 const edit = (e) => {
   e.preventDefault();
 

@@ -1,7 +1,7 @@
-const token = localStorage.getItem('token');
 
 const getId = (el) =>{
   if(!token) return window.location = 'signin.html';
+  
   let mapbtn = document.querySelector('#forMap');
   document.getElementById('userModal').style.display = 'block';
   let parcelDiv = document.getElementById('userParcel');

@@ -31,18 +31,18 @@ const userParcels = () => {
           status = 'Cancelled';
         }
         if(status === 'Cancelled'){
-          deliver = `<a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);">
+          deliver = `<a class="btn" data-id = "${parcel.id}" onclick="getId(this);">
                     <button id="cancelbtn">view</button></i></a>`
         }
         else if(parcel.status === 'delivered'){
-          deliver = `<a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);">
+          deliver = `<a class="btn" data-id = "${parcel.id}" onclick="getId(this);">
                     <button id="cancelbtn">view</button></i></a> &nbsp;
                     <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; 
                     <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> 
                     <button id="cancelbtn">Cancel</button></a>` ;
         }
         else {
-          deliver= `<a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);">
+          deliver= `<a class="btn" data-id = "${parcel.id}"  onclick="getId(this);">
                     <button id="cancelbtn">view</button></i></a> &nbsp;
                     <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; 
                     <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);">

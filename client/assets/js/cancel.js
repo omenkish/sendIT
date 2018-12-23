@@ -1,6 +1,6 @@
 const cancel = () => {
 
-  let messageDiv = document.querySelector('#message');
+  let messageDiv = document.querySelector('#message1');
   const id = document.querySelector('#delete').getAttribute('data-id');
   const url = `https://eneojo-sendit.herokuapp.com/api/v1/parcels/${id}/cancel`;
 

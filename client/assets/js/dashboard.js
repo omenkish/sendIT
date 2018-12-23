@@ -75,5 +75,9 @@ return parent.appendChild(el);
 
 window.onload = function upAndRunning(){
   if(!token) return window.location = 'signin.html';
+  if(is_admin === 'true'){
+    let span = document.querySelector('#adminSpan');
+    span.innerHTML =`<a href="admin.html"><i class="fa fa-home"></i> Admin Home</a>`;
+  }
 }
 document.getElementById('createParcel').addEventListener('submit', createParcel);

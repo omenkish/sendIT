@@ -1,4 +1,9 @@
 const token = localStorage.getItem('token');
+const admin = localStorage.getItem('admin');
+if(admin === 'true'){
+  let span = document.querySelector('#adminSpan');
+  span.innerHTML =`<a href="admin.html"><i class="fa fa-home"></i> Admin Home</a>`;
+}
 
 const userParcels = () => {
 
@@ -24,25 +29,27 @@ const userParcels = () => {
       const parcels = result.data;  
       let dataTable = new DataTable(myTable);
       let newData = [];
-      let status = 'Active';
+      
       let deliver = ``;
       parcels.forEach(parcel => {
+        let status = 'Active';
+        console.log(`Order ${parcel.id} is ${parcel.cancelled}`);
         if(parcel.cancelled === true){
           status = 'Cancelled';
         }
-        if(status === 'Cancelled'){
-          deliver = `<a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);">
-                    <button id="cancelbtn">view</button></i></a>`
+        if(parcel.cancelled === true){
+          status = 'Cancelled';
+          deliver = `<a class="btn" data-id = "${parcel.id}" onclick="getId(this);">
+                    <button id="cancelbtn">view</button></i></a>`;
         }
         else if(parcel.status === 'delivered'){
-          deliver = `<a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);">
+          deliver = `<a class="btn" data-id = "${parcel.id}" onclick="getId(this);">
                     <button id="cancelbtn">view</button></i></a> &nbsp;
-                    <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; 
-                    <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> 
-                    <button id="cancelbtn">Cancel</button></a>` ;
+                    <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; `;
+                
         }
         else {
-          deliver= `<a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);">
+          deliver= `<a class="btn" data-id = "${parcel.id}"  onclick="getId(this);">
                     <button id="cancelbtn">view</button></i></a> &nbsp;
                     <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; 
                     <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);">
@@ -58,9 +65,9 @@ const userParcels = () => {
           "Delivery Status": `${parcel.status}`,
           "Action": `${deliver}`
         })
-        dataTable.insert(newData);
+        
       });
-
+      dataTable.insert(newData);
       
     }
     else if(result.message === 'TokenExpiredError: jwt expired}'){

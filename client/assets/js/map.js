@@ -1,20 +1,24 @@
 const token = localStorage.getItem('token');
-
+const admin = localStorage.getItem('admin');
+if(admin === 'true'){
+  let span = document.querySelector('#adminSpan');
+  span.innerHTML =`<a href="admin.html"><i class="fa fa-home"></i> Admin Home</a>`;
+}
 
 function initMap(){
 
   fetchApi().then(response => response.json())
   .then(result => {
-    geocode(result.data.sender_address, '#from')
+    geocode(result.data.sender_address)
     .then(res1 => {
-      geocode(result.data.receiver_address, '#to')
+      geocode(result.data.receiver_address)
         .then(res2 => {
 
           let fromLat = res1.data.results[0].geometry.location.lat;
           let fromLng = res1.data.results[0].geometry.location.lng;
 
           let toLat = res2.data.results[0].geometry.location.lat;
-          let toLng = res1.data.results[0].geometry.location.lng;
+          let toLng = res2.data.results[0].geometry.location.lng;
 
         //map options
         let options = {
@@ -76,6 +80,9 @@ function geocode(address){
 
 function fetchApi(){
   const id = parseInt(window.location.search.split('?')[1]);
+  if(!id){
+    window.location = 'orders.html';
+  }
   const url = `https://eneojo-sendit.herokuapp.com/api/v1/parcels/${id}`;
   let fetchData = { 
     method: 'GET', 

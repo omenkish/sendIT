@@ -305,6 +305,14 @@ class Parcel {
     const values = [
       request.params.id
     ];
+
+    //sendMail arguments
+    const emailMessage = `<h2>Parcel Delivered</h2>
+                          <p> Your Parcel has been delivered. 
+                          <strong>If there is any issue please contact us within the next 1 working day.</strong><p>
+                          <p> Thanks, Omenkish SendIT team...<p>
+                          `;
+    const subject = 'Your parcel has been delivered';
     try{
         const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
       if(rowCount === 0){
@@ -314,6 +322,7 @@ class Parcel {
         return response.status(400).json({status:400, message: 'Cannot change delivery status of cancelled order!'})
       }
       const result = await db.query(updateParcelQuery, values);
+      sendEmail(rows[0].email, subject, emailMessage);
       return response.status(200).json({status: 200, message:'Parcel successfully marked as delivered'});
   
     }

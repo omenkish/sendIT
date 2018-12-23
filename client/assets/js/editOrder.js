@@ -1,5 +1,12 @@
 const token = localStorage.getItem('token');
 if(!token) window.location = 'signin.html';
+
+const admin = localStorage.getItem('admin');
+if(admin === 'true'){
+  let span = document.querySelector('#adminSpan');
+  span.innerHTML =`<a href="admin.html"><i class="fa fa-home"></i> Admin Home</a>`;
+}
+
 const edit = (e) => {
   e.preventDefault();
 

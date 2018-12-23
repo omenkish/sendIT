@@ -1,5 +1,10 @@
 const token = localStorage.getItem('token');
 if(!token) window.location.replace('signin.html');
+const admin = localStorage.getItem('admin');
+if(admin === 'true'){
+  let span = document.querySelector('#adminSpan');
+  span.innerHTML =`<a href="admin.html"><i class="fa fa-home"></i> Admin Home</a>`;
+}
 (() => {
 
   let name = document.querySelector('#name');
@@ -10,14 +15,13 @@ if(!token) window.location.replace('signin.html');
   const id = localStorage.getItem('userId');
   const url =  `https://eneojo-sendit.herokuapp.com/api/v1/users/${id}`;
   
-  //const parcelsUrl =  'http://localhost:5000/api/v1/users/parcels';
   let fetchData = { 
     method: 'GET', 
     headers: {
       'Content-Type': 'Application/json',
       'Authorization' : `Bearer ${token}`
     }
-  }
+  };
 
   fetch(url, fetchData)
   .then(response => response.json())

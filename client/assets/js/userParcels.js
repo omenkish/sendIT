@@ -28,8 +28,9 @@ const fetchUserParcels = () =>{
       
       let dataTable = new DataTable(myTable);
       let newData = [];
-      let status = 'Active';
+     
       parcels.forEach(parcel => {
+        let status = 'Active';
         if(parcel.cancelled === true){
           status = 'Cancelled';
         }
@@ -41,8 +42,9 @@ const fetchUserParcels = () =>{
           "Order Status": `${status}`,
           "Delivery Status": `${parcel.status}`
         })
-        dataTable.insert(newData);
+        
       });
+      dataTable.insert(newData);
     }
    
     else if(result.status === 404){

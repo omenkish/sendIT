@@ -1,4 +1,4 @@
-const token = localStorage.getItem('token');
+
 const update = (e) => {
   e.preventDefault();
   let resultMessage = document.querySelector('#message');

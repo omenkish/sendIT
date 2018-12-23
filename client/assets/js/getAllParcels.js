@@ -10,7 +10,7 @@ const allParcels = () => {
   
   if(!token) return window.location = 'signin.html';
   if(!admin) return window.location = 'index.html';
-  
+
   let fetchData = { 
     method: 'GET', 
     headers: {
@@ -27,19 +27,20 @@ const allParcels = () => {
     }
     if(result.data){
       const parcels = result.data;
-      console.log(parcels);
+      
       let dataTable = new DataTable(myTable);
       let newData = [];
-      let status = 'Cancelled';
+      
       let buttons = ``;
       parcels.forEach(parcel => {
+        let status = 'Cancelled';
         if(parcel.cancelled === false){
           status = 'Active';
-          console.log(status)
         }
         
-        if(status === 'Cancelled'){
+        if(parcel.cancelled === true){
           buttons = `No action permitted on cancelled order.`;
+          status = 'Cancelled';
         }
         else if(parcel.status === 'delivered'){
           buttons = `Delivered orders cannot be edited.`;

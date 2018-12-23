@@ -2,7 +2,7 @@
 const deliver = (el) => {
   const id = el.getAttribute('data-id');
  
-  let messageDiv = document.querySelector('#message');
+  let messageDiv = document.querySelector('#message1');
   const url = `https://eneojo-sendit.herokuapp.com/api/v1/parcels/${id}/deliver`;
 
   let fetchData = { 

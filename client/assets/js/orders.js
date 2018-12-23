@@ -24,22 +24,24 @@ const userParcels = () => {
       const parcels = result.data;  
       let dataTable = new DataTable(myTable);
       let newData = [];
-      let status = 'Active';
+      
       let deliver = ``;
       parcels.forEach(parcel => {
+        let status = 'Active';
+        console.log(`Order ${parcel.id} is ${parcel.cancelled}`);
         if(parcel.cancelled === true){
           status = 'Cancelled';
         }
-        if(status === 'Cancelled'){
+        if(parcel.cancelled === true){
+          status = 'Cancelled';
           deliver = `<a class="btn" data-id = "${parcel.id}" onclick="getId(this);">
-                    <button id="cancelbtn">view</button></i></a>`
+                    <button id="cancelbtn">view</button></i></a>`;
         }
         else if(parcel.status === 'delivered'){
           deliver = `<a class="btn" data-id = "${parcel.id}" onclick="getId(this);">
                     <button id="cancelbtn">view</button></i></a> &nbsp;
-                    <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; 
-                    <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> 
-                    <button id="cancelbtn">Cancel</button></a>` ;
+                    <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; `;
+                
         }
         else {
           deliver= `<a class="btn" data-id = "${parcel.id}"  onclick="getId(this);">
@@ -58,9 +60,9 @@ const userParcels = () => {
           "Delivery Status": `${parcel.status}`,
           "Action": `${deliver}`
         })
-        dataTable.insert(newData);
+        
       });
-
+      dataTable.insert(newData);
       
     }
     else if(result.message === 'TokenExpiredError: jwt expired}'){

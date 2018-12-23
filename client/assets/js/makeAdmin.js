@@ -1,5 +1,3 @@
-const token = localStorage.getItem('token');
-
 const createAdmin = () => {
   if(!token) return window.location = 'signin.html';
   if(localStorage.getItem('admin') === 'false') return window.location.replace('signin.html');
@@ -39,7 +37,7 @@ const createAdmin = () => {
 
 const fetchId = (element) => {
   let id = element.getAttribute('data-id');
-  document.getElementById('myModal').style.display = 'block';
+  document.querySelector('#myModal').style.display = 'block';
   let btn = document.querySelector('#makeAdmin');
   btn.setAttribute('data-id', id);
 }

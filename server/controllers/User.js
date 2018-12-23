@@ -65,7 +65,7 @@ class User {
       return response.status(200).json({status: 200, data:rows[0], token: token});
     }
     catch(error){
-      return response.status(500).json({status: 500, message: 'Error saving user'});
+      return response.status(400).json({status: 400, message: 'Error saving user'});
     }
 
   }
@@ -129,7 +129,7 @@ class User {
   
     }
     catch(error){
-      return response.status(400).json({status: 400, Error: `${error}`});
+      response.status(400).json({status: 400, error: `${error}`});
     }
   }
   

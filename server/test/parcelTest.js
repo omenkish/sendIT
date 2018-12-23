@@ -203,7 +203,7 @@ describe('ROUTES FOR PARCELS', () => {
 
     it('should make user an admin ', () => {
       return request(server)
-        .get(`/api/v1/users/${user.data.id}/createadmin`)
+        .put(`/api/v1/users/${user.data.id}/createadmin`)
         .set('Authorization', `Bearer ${user.token}`)
         .then(res => {
           expect(res.status).to.equal(201);
@@ -212,7 +212,7 @@ describe('ROUTES FOR PARCELS', () => {
     });
     it('should http code 401 on invalid token ', () => {
       return request(server)
-        .get(`/api/v1/users/${user.data.id}/createadmin`)
+        .put(`/api/v1/users/${user.data.id}/createadmin`)
         .set('Authorization', `Bearer iooo`)
         .then(res => {
           expect(res.status).to.equal(401);
@@ -222,7 +222,7 @@ describe('ROUTES FOR PARCELS', () => {
 
     it('should return http code 404 if id doesnt exist ', () => {
       return request(server)
-        .get(`/api/v1/users/${user.data.id + 1}/createadmin`)
+        .put(`/api/v1/users/${user.data.id + 1}/createadmin`)
         .set('Authorization', `Bearer ${user.token}`)
         .then(res => {
           expect(res.status).to.equal(404);
@@ -232,7 +232,7 @@ describe('ROUTES FOR PARCELS', () => {
 
     it('should return http code 401 if no token is provided ', () => {
       return request(server)
-        .get(`/api/v1/users/${user.data.id}/createadmin`)
+        .put(`/api/v1/users/${user.data.id}/createadmin`)
         .then(res => {
           expect(res.status).to.equal(401);
         })

@@ -1,16 +1,12 @@
 const token = localStorage.getItem('token');
 
-if(!token){
-  window.location = 'signin.html';
-}
-
 const userParcels = () => {
 
-  let table = document.getElementById('table');
+  let myTable = document.querySelector("#table");
   let resultMessage = document.getElementById('message');
   const url = 'https://eneojo-sendit.herokuapp.com/api/v1/users/parcels';
   
-  if(!token) return window.location = 'index.html';
+  if(!token) return window.location = 'signin.html';
   
   let fetchData = { 
     method: 'GET', 
@@ -26,61 +22,56 @@ const userParcels = () => {
     
     if(result.status === 200){
       const parcels = result.data;  
-      let index = 0;
-      let tbody = createNode('tbody')
-      let column = ["S/N", "Order No", "Cost ($)", "Phone","Address","Cur. Location","Status","Action"];
-      let columnCount = column.length;
-      let tableHeader = table.createTHead();
-      
-      let tableRow = tableHeader.insertRow(-1);
-
-      for(let i = 0; i < columnCount; i++){
-        let headerCell = createNode('th');
-        headerCell.innerHTML = column[i].toUpperCase();
-        append(tableRow, headerCell);
-      }
-
-      append(table, tbody);
-
-
+      let dataTable = new DataTable(myTable);
+      let newData = [];
+      let status = 'Active';
+      let deliver = ``;
       parcels.forEach(parcel => {
-        tableRow = tbody.insertRow(-1);
-        index  += 1;
-        if(parcel.status === 'delivered'){
-          tableRow.innerHTML += `
-                          <td>${index}</td>
-                          <td><a href="order.html?rec=${parcel.id}">${parcel.order_number}</a></td>
-                          <td>${parcel.price}</td>
-                          <td>${parcel.receiver_number}</td>
-                          <td>${parcel.receiver_address}</td>
-                    
-                          <td>${parcel.current_location}</td>
-                          <td>${parcel.status}</td>
-                          <td> <a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);"><button id="cancelbtn">view</button></i></a> &nbsp;
-                  
-                          </td>`;   
+        if(parcel.cancelled === true){
+          status = 'Cancelled';
+        }
+        if(status === 'Cancelled'){
+          deliver = `<a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);">
+                    <button id="cancelbtn">view</button></i></a>`
+        }
+        else if(parcel.status === 'delivered'){
+          deliver = `<a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);">
+                    <button id="cancelbtn">view</button></i></a> &nbsp;
+                    <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; 
+                    <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> 
+                    <button id="cancelbtn">Cancel</button></a>` ;
         }
         else {
-          tableRow.innerHTML += `
-                          <td>${index}</td>
-                          <td><a href="order.html?rec=${parcel.id}">${parcel.order_number}</a></td>
-                          <td>${parcel.price}</td>
-                          <td>${parcel.receiver_number}</td>
-                          <td>${parcel.receiver_address}</td>
-                    
-                          <td>${parcel.current_location}</td>
-                          <td>${parcel.status}</td>
-                          <td> <a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);"><button id="cancelbtn">view</button></i></a> &nbsp;
-                          <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; 
-                            <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);"> <button id="cancelbtn">Cancel</button></a>
-                          </td>`;   
+          deliver= `<a class="btn" data-id = "${parcel.id}" href="#" onclick="getId(this);">
+                    <button id="cancelbtn">view</button></i></a> &nbsp;
+                    <a href="order.html?${parcel.id}" ><button id="cancelbtn">Edit</button></a> &nbsp; 
+                    <a class="myBtn" href="#" data-id = "${parcel.id}" onclick="fetchId(this);">
+                     <button id="cancelbtn">Cancel</button></a>`;   
         }
-        tableRow.setAttribute('data-id', `${parcel.id}`);
+        newData.push({
+          "Order No.": `<a href="order.html?${parcel.id}">${parcel.order_number}</a>`,
+          "Receiver No.": `${parcel.receiver_number}`,
+          "Receiver Addr.": `${parcel.receiver_address}`,
+          "Price ($)": `${parcel.price}`,
+          "Cur. Location": `${parcel.current_location}`,
+          "Order Status": `${status}`,
+          "Delivery Status": `${parcel.status}`,
+          "Action": `${deliver}`
+        })
+        dataTable.insert(newData);
       });
 
       
     }
+    else if(result.message === 'TokenExpiredError: jwt expired}'){
+      localStorage.removeItem('token');
+      localStorage.removeItem('admin');
+      localStorage.removeItem('username');
+      localStorage.removeItem('userId');
+      window.location = 'signin.html';
+    }
     else{
+      myTable.setAttribute('class', 'hide');
       let span = createNode('span');
       let text = document.createTextNode(result.message);
       append(span, text);

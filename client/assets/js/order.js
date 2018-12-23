@@ -1,4 +1,3 @@
-
 const getId = (el) =>{
   if(!token) return window.location = 'signin.html';
   

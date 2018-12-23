@@ -158,7 +158,7 @@ span.psw a {
     width: 100%;
   }
   header ul {
-    padding: 20px;
+    padding: 5px;
     margin: 8px;
   }
   #signin form, #signup form {
@@ -176,24 +176,24 @@ span.psw a {
   }
 
   #signup form input[type=text], #signup form input[type=password], #signup form input[type=email], #signup form input[type=tel],#signup form input[type=tel], #signup form textarea, #signup form input[type=number]{
-    width: 94%;
-    margin: 8px;
+    width: 100%;
+    margin: 8px 8px 8px 4px;
   }
   
   #signin form input[type=email], #signin form input[type=password] {
-    width: 94%;
-    margin: 8px;
+    width: 100%;
+    margin: 8px 8px 8px 4px;
   }
   
   #signin form button {
     background-color: #35424a;
-    margin: 8px 8px 8px 0;
-    width: 50%;
+    margin: 8px 8px 8px 4px;
+    width: 100%;
   }
 
   #signup button {
-    margin: 8px;
-    width: 94%;
+    margin: 8px 8px 8px 4px;
+    width: 100%;
   }
   
   #signin .bottom-form-area {

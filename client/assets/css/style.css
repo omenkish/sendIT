@@ -21,12 +21,18 @@ body {
 
 /* global*/
 header .container {
-  width: 97%;
+  width: 100%;
   margin: auto;
   overflow: hidden;
 }
 .container {
   width: 96%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.dashboardContainer {
+  width: 94%;
   margin: auto;
   overflow: hidden;
 }
@@ -41,7 +47,6 @@ header .container {
 .hide{
   display: none;
 }
-
 ul {
   margin: 0;
   padding: 0;
@@ -74,10 +79,14 @@ ul {
   0% {opacity: 1;}
   100% {opacity: 0;}
 }
-
 .fadeOut {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
+}
+
+.tableContainer {
+  width: 94%;
+  margin-left: 3%;
 }
 /*header*/
 header {
@@ -160,14 +169,12 @@ header a:hover {
   display: block;
   padding: 12px 10px;
 }
-#sidebar a {
+#left a {
   color: #ffffff;
   text-decoration: none;
   text-transform: capitalize;
-
 }
-
-#sidebar a:hover {
+#left a:hover {
   color: #5f9ea0;
   cursor: pointer;
 }
@@ -539,7 +546,6 @@ footer a {
 /* Change style for span and cancel button on small screen */
 @media screen and (max-width: 764px) {
   .container,  
-  #left,
   #sidebar,
   #main,
   #boxes,
@@ -552,21 +558,20 @@ footer a {
     width: 100%;
     
   }
+
+  .tableContainer {
+    width: 100%;
+    overflow: auto;
+  }
+  .dashboardContainer {
+    width: 100%;
+    margin: 2px;
+    overflow: auto;
+  }
   header {
     position: unset;
   }
-  #left {
-    position: unset;
-    height: 10%;  
-    margin-bottom: unset;
-    padding-bottom: unset;   
-  }
-
-  #left span {
-    display:inline;
-    padding: 12px 10px;
-    
-  }
+  
   #profile-title h1 {
     margin-left: 3%;
   }
@@ -576,20 +581,7 @@ footer a {
   #boxes h2{
     margin-left: 2%;
   }
-  #main form {
-    position: unset;
-    float: none;
-    width: 100%;
-    margin: 0;
-    margin-left: 0;
-  }
-
-  #main .form-left{
-    float: none;
-    width: 100%;
-    margin: 0;
-  }
-
+  
   .order label {
     float: none;
     clear: none;
@@ -723,5 +715,11 @@ footer a {
   #main div.container{
     margin-left: 0;
     width: 100%
+  }
+  section#main {
+    padding: 5px;
+    overflow-y: none;
+    padding-bottom: 0;
+    margin-left: 0;
   }
 }

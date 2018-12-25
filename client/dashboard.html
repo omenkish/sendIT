@@ -9,27 +9,35 @@
     <meta name="author" content="Eneojo Omede">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 		<link rel="stylesheet" href="./assets/css/style.css">
-		<link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="./assets/css/sidebar.css">
     <title>SendIT | dashboard</title>
-		<script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/sidebar.js"></script>
+    
 	</head>
 	
 	<body>
-      <header>
+    <header>
 			
-          <div class="container">
-            <div id="branding">
-              <h1><a href="index.html" class="brand"><span class="highlight">Send</span>IT <i class="fa fa-shipping-fast"></i></a></h1>
-            </div>
-            <nav class="topnav" id="myTopnav">
-              <ul>
-                <li><a href="index.html">Home <i class="fa fa-home"></i></a></li>
-                <li><a href="services.html">Services</a></li>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-              </ul>
-            </nav>
-          </div>			
-        </header>
+      <div class="container">
+        <div id="branding">
+          <h1><a href="index.html" class="brand"><span class="highlight">Send</span>IT <i class="fa fa-shipping-fast"></i></a></h1>
+        </div>
+        <nav class="topnav" id="myTopnav">
+          <ul>
+            <li class="current"><a href="index.html">Home <i class="fa fa-home"></i></a></li>
+            <li><a href="services.html">Services</a></li>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+          </ul>
+        </nav>
+      </div>			
+    </header>
+    <div class="iconDiv hide">
+        <a href="javascript:void(0);" class="sidebarIcon" id="sidebarIcon" onmouseover="sidebarFunction();" onclick="sidebarFunction();">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
     <section id="left">
       <aside id="sidebar">
         <span id="adminSpan"></span>
@@ -46,10 +54,11 @@
         <a href="#" onclick="logout();"><i class="fa fa-power-off"></i> Logout</a>
         </span>
       </aside>
+
   </section>
   <div id="profile-title"><h1>Create Order Section</h1></div>
   <section id="main">
-    <div class="container">
+    <div class="dashboardContainer">
         <form id="createParcel">
           <fieldset>
             <legend><h2>Create Parcel Delivery Order <i class="fa fa-edit"></i></h2></legend>

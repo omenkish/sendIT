@@ -15,6 +15,7 @@
     <title>SendIT | Profile</title>
     <script src="./assets/js/custom.js"></script>
     <script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/sidebar.js"></script>
 	</head>
 	
 	<body>
@@ -33,6 +34,11 @@
           </nav>
         </div>			
       </header>
+      <div class="iconDiv hide">
+        <a href="javascript:void(0);" class="sidebarIcon" id="sidebarIcon" onmouseover="sidebarFunction();" onclick="sidebarFunction();">
+            <i class="fa fa-bars"></i>
+        </a>
+      </div>
     <section id="left">
       <aside id="sidebar">
         <div class="">
@@ -99,20 +105,23 @@
       </div>
 
       <div id="message"></div>
-      <table id="table" >
-        <tr>
-          <thead> 
-            <th>Order No.</th> 
-            <th>Receiver No.</th> 
-            <th>Receiver Addr.</th>
-            <th>Price ($)</th>
-            <th>Cur. Location</th>
-            <th>Order Status</th>
-            <th>Delivery Status</th> 
-            <th>Action</th>               
-          </thead>
-        </tr>
-      </table>
+      <div class="tableContainer">
+        <table id="table" >
+          <tr>
+            <thead> 
+              <th>Order No.</th> 
+              <th>Receiver No.</th> 
+              <th>Receiver Addr.</th>
+              <th>Price ($)</th>
+              <th>Cur. Location</th>
+              <th>Order Status</th>
+              <th>Delivery Status</th> 
+              <th>Action</th>               
+            </thead>
+          </tr>
+        </table>
+      </div>
+      
     </div>
     
   </section>

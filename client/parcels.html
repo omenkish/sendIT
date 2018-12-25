@@ -15,6 +15,7 @@
     <title>SendIT|users</title>
     <script src="./assets/js/nav.js"></script>
     <script src="./assets/js/custom.js"></script>
+    <script src="./assets/js/sidebar.js"></script>
 	</head>
 	
 	<body>
@@ -33,6 +34,11 @@
         </nav>
       </div>			
     </header>
+    <div class="iconDiv hide">
+        <a href="javascript:void(0);" class="sidebarIcon" id="sidebarIcon" onmouseover="sidebarFunction();" onclick="sidebarFunction();">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
     <section id="left">
       <aside id="sidebar">
         <span>
@@ -59,20 +65,23 @@
   <section id="boxes">
     
     <div id="message1"></div>
-    <table id="table">
-      <tr>
-        <thead> 
-          <th>Order No.</th> 
-          <th>Receiver No.</th> 
-          <th>Receiver Addr.</th>
-          <th>Cur. Location</th>
-          <th>Order Status</th>
-          <th>Delivery Status</th>                
-        </thead>
-      </tr>
-    </table>
-          
-      </div>
+    <div class="tableContainer">
+      <table id="table">
+        <tr>
+          <thead> 
+            <th>Order No.</th> 
+            <th>Receiver No.</th> 
+            <th>Receiver Addr.</th>
+            <th>Cur. Location</th>
+            <th>Order Status</th>
+            <th>Delivery Status</th>                
+          </thead>
+        </tr>
+      </table>
+            
+    </div>
+    
+    </div>
     </section>
     <footer>
       <p>SendIT Copyright&copy; 2018 || <a href="#">Terms of use</a></p>

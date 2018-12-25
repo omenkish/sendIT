@@ -240,22 +240,36 @@ footer a {
   position: relative;
    padding-bottom: 20px;
  }
+ header .container{
+   width: 100%;
+ }
  header nav, header nav li{
   float: none;
  }
  header ul {
-  padding: 5px;
-  margin: 8px;
+   width: 100%;
+  padding: 0;
+  margin: 0;
 }
  header nav ul{
-  text-align: center;
+  text-align: left;
+  padding: 0;
+  margin: 4px;
+  margin-left: 0;
  }
  header nav a{
   text-decoration:none;
  }
+ header nav li{
+  margin-left: 0px;
+  padding: 5px 5px;
+ }
+ #branding h1{
+   font-size: 20px;
+ }
  h1, h2, h3{
   margin-top: 1%;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: unset;
 }
  #showcase h1 {

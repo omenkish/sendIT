@@ -2,24 +2,12 @@ const token = localStorage.getItem('token');
 const admin = localStorage.getItem('admin');
 let nav = document.querySelector('#navbar');
 if(token){
-  let servicesLi = createNode('li');
-  let servicesLink = createNode('a');
-  let servicesFont = createNode('i');
-  let servicesLinkText = document.createTextNode('services ');
-  servicesFont.setAttribute('class', 'fa fa-book-open');
-  servicesLink.setAttribute('href', './services.html');
-
   let profileLi = createNode('li');
   let profileLink = createNode('a');
   let profileFont = createNode('i');
   let profileLinkText = document.createTextNode('profile ');
   profileFont.setAttribute('class', 'fa fa-user');
   profileLink.setAttribute('href', './profile.html');
-
-  append(servicesLink, servicesLinkText);
-  append(servicesLink, servicesFont);
-  append(servicesLi, servicesLink);
-  append(nav, servicesLi);
 
   append(profileLink, profileLinkText);
   append(profileLink, profileFont);
@@ -41,8 +29,7 @@ if(token){
     }
 }
 else{
-  nav.innerHTML = `<li class="current"><a href="index.html">Home</a></li>
-                <li><a href="./services.html">Services</a></li>
+  nav.innerHTML += `
                 <li ><a href="./signin.html">Login</a> </li>  
                 <li ><a href="./signup.html">Register</a></li>`;
 }

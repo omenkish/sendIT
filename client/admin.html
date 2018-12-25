@@ -9,7 +9,8 @@
     <meta name="author" content="Eneojo Omede">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 		<link rel="stylesheet" href="./assets/css/style.css">
-		<link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="./assets/css/sidebar.css">
     <title>SendIT | Admin</title>
     <script src="./assets/js/nav.js"></script>
     <script src="./assets/js/sidebar.js"></script>
@@ -63,49 +64,51 @@
   </section>
   <div id="profile-title"><h1>Admin section</h1></div>
   <section id="boxes">
-    <div class="container">
+    <div class="container middle">
 
-      <div class="box">
-        <h3>all Orders on transit</h3>
-        <div id="transit"> 
-          <p>1. Order ID : <a href="location.html">py1234ty  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button class="location" type="button"> update location</button></a> </p>
-          <p>2. Order ID : <a href="location.html?id=id">ztwer457  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button class="location" type="button"> update location</button></a></p>
+      <div class="admin-box">
+        <div class="container">
+            <a href="users.html">
+                <span class="fa-stack fa-4x stack">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+                </span><h2 id="fa-text"> Users</h2>
+            </a>
         </div>
       </div>
-      
-      <div class="box">
-        <h3>all Orders </h3>
-        <div id="deliveries"> 
-          <table id="table">
-            <thead>
-              <tr>
-                <th>S/n</th>
-                <th>Order no</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>1.</td>
-                <td><a href="order.html?id=id">py1234ty</a></td>
-                <td>Completed</td>
-                <td><a><button class="location" type="button"> change status</button></a></td>
-              </tr>
-              <tr>
-                <td>2.</td>
-                <td><a href="order.html?id=id">ztwer457</a></td>
-                <td>Transit</td>
-                <td><button class="location" type="button" onclick="changeStatus();"> change status</button></td>
-                </tr>
-            </tbody>
-
-          </table>
-
+      <div class="admin-box">
+          <div class="container">
+              <a href="users.html">
+                <span class="fa-stack fa-4x stack">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i class="fa fa-folder fa-stack-1x fa-inverse"></i>
+                </span><h2 id="fa-text"> All Parcels</h2>
+              </a>
+          </div>
         </div>
+      <div class="admin-box">
+        <div class="container">
+          <a href="dashboard.html">
+            <span class="fa-stack fa-4x stack">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+            </span><h2 id="fa-text"> Create Order</h2>
+          </a>
+        </div>
+        
       </div>
-
+      <div class="admin-box">
+          <div class="container">
+            <a href="orders.html">
+              <span class="fa-stack fa-4x stack">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-folder-open fa-stack-1x fa-inverse"></i>
+              </span><h2 id="fa-text"> my Parcels</h2>
+            </a>
+          </div>
+          
+        </div>
+  
       
     </div>
   </section>

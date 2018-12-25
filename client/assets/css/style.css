@@ -30,7 +30,27 @@ header .container {
   margin: auto;
   overflow: hidden;
 }
-
+.admin-box {
+  float: left;
+  margin: 6px 5px;
+  text-align: center;
+  width: 23%;
+  padding: 10px;
+  box-shadow: 0 5px 10px #ccc;
+  border-radius: 10px;
+  background: #ffffff;
+}
+.middle{
+  margin-top: 10%;
+}
+#table td a{
+  text-decoration: none;
+  color: #5f9ea0;
+}
+.admin-box a{
+  text-decoration: none;
+  color: #35424a;
+}
 .dashboardContainer {
   width: 94%;
   margin: auto;
@@ -287,6 +307,7 @@ button:hover {
   font-weight: bold;
   margin: 0 ;
 }
+
 #boxes .box {
   float: left;
   margin: 6px 10px;
@@ -612,18 +633,24 @@ footer a {
   #boxes .box {
     float: none;
     display: inline-block;
-    width: 100%;
-    border: none;  
+    width: 94%;
+    border: none; 
+    margin-left: 0; 
   }
   #profile-title h1 {
     text-align: center;
     margin-top: 1%;
     padding: 1%; 
   }
-  #boxes .order  {
+  #boxes .order{
     width: 100%;
-    margin: 0 4%;
+    margin: 0 4% 0 0;
     padding-bottom: 20%
+  }
+  #profile-box  .fa-stack{
+    width: 90%;
+    text-align: center;
+    margin-left: 0;
   }
   #boxes {
     width: 98%;
@@ -709,7 +736,7 @@ footer a {
   }
   h1, h2, h3{
     margin-top: 1%;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: unset;
   }
   #main div.container{
@@ -720,6 +747,20 @@ footer a {
     padding: 5px;
     overflow-y: none;
     padding-bottom: 0;
+    margin-left: 0;
+  }
+
+  .admin-box {
+    float: none;
+    display: block;
+    margin-left: 1%;
+    width: 98%;
+    max-height: 10%;
+   
+  }
+
+  .admin-box .container{
+    max-width: 60%;
     margin-left: 0;
   }
 }

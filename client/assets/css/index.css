@@ -252,7 +252,7 @@ footer a {
   margin: 0;
 }
  header nav ul{
-  text-align: left;
+  text-align: center;
   padding: 0;
   margin: 4px;
   margin-left: 0;
@@ -265,7 +265,7 @@ footer a {
   padding: 5px 5px;
  }
  #branding h1{
-   font-size: 20px;
+   font-size: 25px;
  }
  h1, h2, h3{
   margin-top: 1%;

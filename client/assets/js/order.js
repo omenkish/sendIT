@@ -20,11 +20,8 @@ const getId = (el) =>{
   .then(response => response.json())
   .then(result => {
     if(result.status === 200){
-      if(result.data.status === 'pending'){
-        mapButton.style.display = 'none';
-      }
-      else{
-        mapButton.style.display = 'inline';
+      if(result.data.status != 'pending'){
+        mapButton.classList.remove('hide');
       }
       const parcel = result.data;
       let para = createNode('p');

@@ -4,6 +4,7 @@ const getId = (el) =>{
   let mapbtn = document.querySelector('#forMap');
   document.getElementById('userModal').style.display = 'block';
   let parcelDiv = document.getElementById('userParcel');
+  let mapButton = document.querySelector('#forMap');
   let id = el.getAttribute('data-id');
   const url = `https://eneojo-sendit.herokuapp.com/api/v1/parcels/${id}`;
 
@@ -19,6 +20,9 @@ const getId = (el) =>{
   .then(response => response.json())
   .then(result => {
     if(result.status === 200){
+      if(result.data.status != 'pending'){
+        mapButton.classList.remove('hide');
+      }
       const parcel = result.data;
       let para = createNode('p');
       let label = createNode('label');

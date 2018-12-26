@@ -11,10 +11,12 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <link href="https://unpkg.com/vanilla-datatables@1.6.16/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./assets/css/style.css">
-		<link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="./assets/css/sidebar.css">
     <title>SendIT|users</title>
     <script src="./assets/js/nav.js"></script>
     <script src="./assets/js/custom.js"></script>
+    <script src="./assets/js/sidebar.js"></script>
 	</head>
 	
 	<body>
@@ -33,6 +35,11 @@
         </nav>
       </div>			
     </header>
+    <div class="iconDiv hide">
+        <a href="javascript:void(0);" class="sidebarIcon" id="sidebarIcon" onmouseover="sidebarFunction();" onclick="sidebarFunction();">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
     <section id="left">
       <aside id="sidebar">
         <span>
@@ -59,20 +66,23 @@
   <section id="boxes">
     
     <div id="message1"></div>
-    <table id="table">
-      <tr>
-        <thead> 
-          <th>Order No.</th> 
-          <th>Receiver No.</th> 
-          <th>Receiver Addr.</th>
-          <th>Cur. Location</th>
-          <th>Order Status</th>
-          <th>Delivery Status</th>                
-        </thead>
-      </tr>
-    </table>
-          
-      </div>
+    <div class="tableContainer">
+      <table id="table">
+        <tr>
+          <thead> 
+            <th>Order No.</th> 
+            <th>Receiver No.</th> 
+            <th>Receiver Addr.</th>
+            <th>Cur. Location</th>
+            <th>Order Status</th>
+            <th>Delivery Status</th>                
+          </thead>
+        </tr>
+      </table>
+            
+    </div>
+    
+    </div>
     </section>
     <footer>
       <p>SendIT Copyright&copy; 2018 || <a href="#">Terms of use</a></p>

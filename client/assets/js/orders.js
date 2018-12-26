@@ -33,7 +33,6 @@ const userParcels = () => {
       let deliver = ``;
       parcels.forEach(parcel => {
         let status = 'Active';
-        console.log(`Order ${parcel.id} is ${parcel.cancelled}`);
         if(parcel.cancelled === true){
           status = 'Cancelled';
         }

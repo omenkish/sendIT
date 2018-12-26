@@ -21,12 +21,38 @@ body {
 
 /* global*/
 header .container {
-  width: 97%;
+  width: 100%;
   margin: auto;
   overflow: hidden;
 }
 .container {
   width: 96%;
+  margin: auto;
+  overflow: hidden;
+}
+.admin-box {
+  float: left;
+  margin: 6px 5px;
+  text-align: center;
+  width: 23%;
+  padding: 10px;
+  box-shadow: 0 5px 10px #ccc;
+  border-radius: 10px;
+  background: #ffffff;
+}
+.middle{
+  margin-top: 10%;
+}
+#table td a{
+  text-decoration: none;
+  color: #5f9ea0;
+}
+.admin-box a{
+  text-decoration: none;
+  color: #35424a;
+}
+.dashboardContainer {
+  width: 94%;
   margin: auto;
   overflow: hidden;
 }
@@ -41,7 +67,6 @@ header .container {
 .hide{
   display: none;
 }
-
 ul {
   margin: 0;
   padding: 0;
@@ -74,10 +99,14 @@ ul {
   0% {opacity: 1;}
   100% {opacity: 0;}
 }
-
 .fadeOut {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
+}
+
+.tableContainer {
+  width: 94%;
+  margin-left: 3%;
 }
 /*header*/
 header {
@@ -160,14 +189,12 @@ header a:hover {
   display: block;
   padding: 12px 10px;
 }
-#sidebar a {
+#left a {
   color: #ffffff;
   text-decoration: none;
   text-transform: capitalize;
-
 }
-
-#sidebar a:hover {
+#left a:hover {
   color: #5f9ea0;
   cursor: pointer;
 }
@@ -280,6 +307,7 @@ button:hover {
   font-weight: bold;
   margin: 0 ;
 }
+
 #boxes .box {
   float: left;
   margin: 6px 10px;
@@ -336,7 +364,7 @@ img.avatar {
   margin-left: 20%;
   padding: 6px 15px;
   background: #ffffff;
-  z-index: 6;
+  z-index: 1;
 }
 
 #boxes .order form input, textarea{
@@ -363,12 +391,14 @@ img.avatar {
 }
 #table button {
   width: auto;
+  padding: 12px;
 }
 #deliveries table, th, td {
   border-collapse: collapse;
 }
 #deliveries table button {
   width: auto;
+  padding: 12px;
 }
 #deliveries table a {
  text-decoration: none;
@@ -400,9 +430,9 @@ img.avatar {
   width: 50%;
 }
 
-#modal-content .modal-footer #cancelbtn{
+/* #modal-content .modal-footer #cancelbtn, .modal-footer #cancelbtn{
   margin-left: 80%;
-}
+} */
 /* The Close Button */
 .close {
   color: #aaa;
@@ -450,7 +480,7 @@ img.avatar {
   padding: 5px;
 }
 .modal #userParcel p{
-  margin: 0 12%  ;
+  margin: 0 8%  ;
   border-bottom: #888 solid 2px;
 }
 .modal #userParcel label{
@@ -481,22 +511,21 @@ div.modal-footer {
   width: 18%;  
 }
 
-#myModal button#cancelbtn, #userModal button#cancelbtn{
-  width: 18%;
-  background-color: #696969;
-  margin-left:50%; 
-  
-}
+/* #myModal button#deletebtn, #userModal button#deletebtn{
+  background-color: #696969;  
+} */
 #userModal button#cancelbtn{ 
   margin-left: 60%;
 }
-
+.modal-footer #cancelbtn {
+  background-color: #888;
+  margin-left: 50%;
+}
 #userModal button#mapbtn{
   width: auto;
-  background-color: goldenrod;
-     
+  background-color: goldenrod; 
 }
-#myModal button#delete, button#makeAdmin{
+#myModal button#delete, button#makeAdmin, #userModal button#delete{
   background-color: red;
 }
 
@@ -539,7 +568,6 @@ footer a {
 /* Change style for span and cancel button on small screen */
 @media screen and (max-width: 764px) {
   .container,  
-  #left,
   #sidebar,
   #main,
   #boxes,
@@ -552,21 +580,20 @@ footer a {
     width: 100%;
     
   }
+
+  .tableContainer {
+    width: 100%;
+    overflow: auto;
+  }
+  .dashboardContainer {
+    width: 100%;
+    margin: 2px;
+    overflow: auto;
+  }
   header {
     position: unset;
   }
-  #left {
-    position: unset;
-    height: 10%;  
-    margin-bottom: unset;
-    padding-bottom: unset;   
-  }
-
-  #left span {
-    display:inline;
-    padding: 12px 10px;
-    
-  }
+  
   #profile-title h1 {
     margin-left: 3%;
   }
@@ -576,20 +603,7 @@ footer a {
   #boxes h2{
     margin-left: 2%;
   }
-  #main form {
-    position: unset;
-    float: none;
-    width: 100%;
-    margin: 0;
-    margin-left: 0;
-  }
-
-  #main .form-left{
-    float: none;
-    width: 100%;
-    margin: 0;
-  }
-
+  
   .order label {
     float: none;
     clear: none;
@@ -620,18 +634,24 @@ footer a {
   #boxes .box {
     float: none;
     display: inline-block;
-    width: 100%;
-    border: none;  
+    width: 94%;
+    border: none; 
+    margin-left: 0; 
   }
   #profile-title h1 {
     text-align: center;
     margin-top: 1%;
     padding: 1%; 
   }
-  #boxes .order  {
+  #boxes .order{
     width: 100%;
-    margin: 0 4%;
+    margin: 0 4% 0 0;
     padding-bottom: 20%
+  }
+  #profile-box  .fa-stack{
+    width: 90%;
+    text-align: center;
+    margin-left: 0;
   }
   #boxes {
     width: 98%;
@@ -691,25 +711,44 @@ footer a {
   .modal-content {
     border: 1px solid #888;
     top: 30%;
-    width: 80%;
+    width: 90%;
     animation-name: animatetop;
     animation-duration: 0.6s
   }
 
-  #myModal button#cancelbtn, button#delete, {
-    width: 18%;
+  #myModal button#cancelbtn, #myModal button#delete,#userModal button#cancelbtn, #userModal button#delete {
+    width: 25%;
     background-color: #696969;
+  }
+  #userModal button#delete{
+    background-color: red;
   }
 
   #myModal button#makeAdmin{
     width: auto;
   }
 
+  .modal-body #userParcel{
+    width: 100%;
+  }
   .modal #userParcel p{
     margin: 0 ;
+    display: block;
+    text-align: left;
    
   }
-
+  .modal-footer #cancelbtn {
+    
+    margin-left: unset;
+  }
+  .modal-footer #delete {
+    background-color: red;
+    margin-left: unset;
+  }
+  #userModal button#cancelbtn{
+    float: none;
+    margin-left: unset; 
+  }
   #changeDestination .center{
     clear: both;
     margin-left: 0;
@@ -717,11 +756,34 @@ footer a {
   }
   h1, h2, h3{
     margin-top: 1%;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: unset;
   }
   #main div.container{
     margin-left: 0;
     width: 100%
+  }
+  section#main {
+    padding: 5px;
+    overflow-y: none;
+    padding-bottom: 0;
+    margin-left: 0;
+  }
+
+  .admin-box {
+    float: none;
+    display: block;
+    margin-left: 1%;
+    width: 98%;
+    max-height: 10%;
+   
+  }
+
+  .admin-box .container{
+    max-width: 60%;
+    margin-left: 0;
+  }
+  .middle{
+    margin-top: 4%;
   }
 }

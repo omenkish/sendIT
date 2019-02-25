@@ -15,7 +15,7 @@ body {
   font:15px/1.5 "Times New Roman", Times, serif;
   padding:0;
   margin: 0;
-  min-height: 91.4%;
+  min-height: 100%;
   background-color: #f1f1f1;
 }
 
@@ -39,6 +39,12 @@ header .container {
   box-shadow: 0 5px 10px #ccc;
   border-radius: 10px;
   background: #ffffff;
+}
+.page-content{
+  padding-top: 60px;
+  
+  width: 100%;
+  overflow: auto;
 }
 .middle{
   margin-top: 10%;
@@ -115,7 +121,7 @@ header {
   width: 100%;
   background: #35424a;
   color: #ffffff;
-  padding-top: 10px;
+  padding: 10px;
   min-height: 30px;
   border-bottom: #e8491d 3px solid;
 }
@@ -164,14 +170,14 @@ header a:hover {
 /* sidebar */
 #left {
   position: fixed;
-  height: 94%;
-  padding: 15px;
-  top: 58px;
+  height: 100%;
+  padding: 15px 15px 0 15px;
+  top: 68px;
   left: 0;
-  background: #22333d;
+  background: #35424a;
   width: 15%;
   overflow: hidden;
-  z-index: 1;
+  z-index: 0;
 }
 #heading {
   font:15px/0.9 "Times New Roman", Times, serif;
@@ -280,7 +286,7 @@ button:hover {
   color: #696969;
   text-transform: capitalize; 
   margin-left: 16%;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 /* boxes */

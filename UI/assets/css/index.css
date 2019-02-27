@@ -8,6 +8,7 @@ html {
 *:after {
   box-sizing: inherit;
 }
+
 body {
   position: relative;
   font:15px/1.5 "Times New Roman", Times, serif;
@@ -23,7 +24,10 @@ body {
   margin: auto;
   overflow: hidden;
 }
-
+.current{
+  color: #e8491d;
+  font-weight: bold;
+}
 ul {
   margin: 0;
   padding: 0;

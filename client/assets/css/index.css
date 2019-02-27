@@ -23,7 +23,10 @@ body {
   margin: auto;
   overflow: hidden;
 }
-
+.current{
+  color: #e8491d;
+  font-weight: bold;
+}
 ul {
   margin: 0;
   padding: 0;

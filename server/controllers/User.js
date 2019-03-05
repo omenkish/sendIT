@@ -32,14 +32,14 @@ class User {
 
     try {
       const { rows } = await db.query(sqltext, values);
-      const token = Helper.generateToken(rows[0].email, rows[0].id)
+      const token = Helper.generateToken(rows[0].email, rows[0].id, rows[0].is_admin)
       return response.status(201).json({status: 201, data: rows[0],token: token});
     } 
     catch(error) {
       if (error.routine === '_bt_check_unique') {
         return response.status(400).json({ status: 400, message: 'User with that EMAIL already exists' })
       }
-      return response.status(400).json({status:400, message: `${error}`});
+      return response.status(500).json({status:500, message: `${error}`});
     }
   }
 
@@ -61,11 +61,11 @@ class User {
       if(!Helper.comparePassword(rows[0].password, request.body.password)){
         return response.status(404).json({status: 404, message: 'Username/password incorrect'});
       }
-      const token = Helper.generateToken(rows[0].email, rows[0].id);
+      const token = Helper.generateToken(rows[0].email, rows[0].id, rows[0].is_admin);
       return response.status(200).json({status: 200, data:rows[0], token: token});
     }
     catch(error){
-      return response.status(400).json({status: 400, message: 'Error saving user'});
+      return response.status(500).json({status: 500, message: `${error}`});
     }
 
   }
@@ -84,7 +84,7 @@ class User {
       return response.status(200).json({status: 200, data: rows, count: rowCount });
     }
     catch(error){
-      response.status(400).json({status: 400, error: `${error}}`});
+      response.status(500).json({status: 500, message: `${error}}`});
     }
   }
 
@@ -100,7 +100,7 @@ class User {
       return response.status(200).json({status: 200, data: rows[0] });
     }
     catch(error){
-      response.status(400).json({status: 400, error: `${error}}`});
+      response.status(500).json({status: 500, message: `${error}}`});
     }
   }
 
@@ -129,7 +129,7 @@ class User {
   
     }
     catch(error){
-      response.status(400).json({status: 400, error: `${error}`});
+      response.status(500).json({status: 500, message: `${error}`});
     }
   }
   

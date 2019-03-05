@@ -30,7 +30,7 @@ class Parcel {
       }
     }
     catch(e){
-      return response.status(400).json({error: e});
+      return response.status(500).json({error: e});
     }
     const current_location = 'warehouse';
     const createParcelQuery = `INSERT INTO parcels(placed_by, order_number, receiver_number, description,
@@ -59,7 +59,7 @@ class Parcel {
       return response.status(201).json({status: 201, message:'Parcel order placed successfully' });
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({status: 500, message: `${error}`});
     }
   }
 
@@ -82,7 +82,7 @@ class Parcel {
       return response.status(200).json({status: 200, data: rows, count: `${rowCount}`})
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({status: 500, message: `${error}`});
     }    
   }
 
@@ -105,7 +105,7 @@ class Parcel {
       return response.status(200).json({status: 200, data: rows, count: rowCount})
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({status: 500, message: `${error}`});
     }    
   }
 
@@ -127,7 +127,7 @@ class Parcel {
       return response.status(200).json({status: 200, data: rows, count: `${rowCount}`})
     }
     catch(error){
-      return response.status(400).json({ status: 400, message: `${error}`});
+      return response.status(500).json({ status: 500, message: `${error}`});
     }
   }
 
@@ -147,7 +147,7 @@ class Parcel {
       return response.status(200).json({status: 200, data: rows[0]}) ;     
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({status: 500, message: `${error}`});
     }
   }
 
@@ -161,7 +161,7 @@ class Parcel {
       return response.status(200).json({status: 200, data: rows[0]}) ;     
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({status: 500, message: `${error}`});
     }
   }
 
@@ -189,7 +189,7 @@ class Parcel {
   
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({status: 500, message: `${error}`});
     }
   }
 
@@ -233,7 +233,7 @@ class Parcel {
   
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({status: 500, message: `${error}`});
     }
    }
 
@@ -267,7 +267,7 @@ class Parcel {
   
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({status: 500, message: `${error}`});
     }
    }
 
@@ -286,12 +286,6 @@ class Parcel {
 
     //sendMail arguments
     let parcelOrderNo = '';
-    const emailMessage = `<h2>Parcel Delivered</h2>
-                          <p> Your Parcel with order number ${parcelOrderNo} has been delivered. 
-                          <strong>If there is any issue please contact us within the next 1 working day.</strong><p>
-                          <p> Thanks, Omenkish SendIT team...<p>
-                          `;
-    const subject = 'Parcel Delivery Confirmation';
     try{
         const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
       if(rows[0].status === 'pending'){
@@ -313,7 +307,7 @@ class Parcel {
   
     }
     catch(error){
-      return response.status(400).json({status: 400, error: `${error}`});
+      return response.status(500).json({status: 500, message: `${error}`});
     }
    }
 }

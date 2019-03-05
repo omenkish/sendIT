@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import AppRouter from './routers/AppRouters.jsx';
-import '../client/assets/css/index.css';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import AppRouter from './AppRouters';
 
-
-ReactDOM.render(<AppRouter/>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><AppRouter/></Provider>, document.getElementById('root'));
+module.hot.accept();

@@ -267,7 +267,7 @@ describe('ROUTES FOR PARCELS', () => {
       .put('/api/v1/parcels/uuyy/cancel')
         .set('Authorization', `Bearer ${user.token}`)
         .then(res => {
-          expect(res.status).to.equal(400);
+          expect(res.status).to.equal(500);
         })
     });
     it('should return status code 401 on invalid token', () => {

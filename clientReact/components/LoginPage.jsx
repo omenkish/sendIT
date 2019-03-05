@@ -1,11 +1,13 @@
 import React from 'react';
-
-const LoginPage = (props) => {
-  console.log(props);
+import FormContainer from '../components/container/LoginFormContainer';
+import styles from '../assets/css/signin.css';
+const LoginPage = () => {
   return (
-    <div>
-      Login Page
+    <section id={styles.signin}>
+    <div className="container">
+      <FormContainer/>
     </div>
+  </section>
   );
 }
 export default LoginPage;

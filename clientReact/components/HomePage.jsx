@@ -1,24 +1,26 @@
 import React from 'react';
 import SectionCard from '../components/indexPartials/Card';
+import styles from '../assets/css/index.css';
+
 const HomePage = () => (
   <div>
-    <section id="showcase">
-      <div className="container">
+    <section id={styles.showcase}>
+    <div className={styles.container}>
         <h1> Affordable Parcel Delivery worldwide</h1>
         <p><i>Send it.....with convenience!</i></p>
       </div>
     </section>
-    <section id="search">
-      <div className="container">
+    <section id={styles.search}>
+      <div className={styles.container}>
         <h3>Search for an order</h3>
         <form>
           <input type="search" placeholder="Enter Order number ...."/>
-          <button type="submit" className="button1">search</button>
+          <button type="submit" className={styles.button1}>search</button>
         </form>
       </div>
     </section>
-    <section id="boxes">
-    <div className="container">
+    <section id={styles.boxes}>
+    <div className={styles.container}>
       <SectionCard  
         src ={require("../../client/assets/images/final.jpg")}
         title = 'World Wide Service'

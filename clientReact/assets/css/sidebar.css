@@ -1,0 +1,52 @@
+
+@media screen and (max-width: 600px) {
+  #left{
+    position: absolute;
+    top: 100px;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    padding: 8px;
+    height: 80vh;
+    z-index: 4;
+    width: 0;
+    background: transparent;
+  }
+  
+  .iconDiv {
+    width: 100%;
+    float: left;
+    display: block;
+    background:#35424a;
+  }
+
+  /* Position the content inside the overlay */
+#sidebar {
+  position: relative;
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  transition: 0.5s;
+}
+
+/* The navigation links inside the overlay */
+#left span {
+  padding: 8px;
+  text-decoration: none;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+  text-align: left;
+}
+
+/* When you mouse over the navigation links, change their color */
+#left a:hover, #left a:focus {
+  color: #5F9EA0;
+}
+
+/* Position the close button (top right corner) */
+.iconDiv .sidebarIcon {
+  text-decoration: none;
+  color: #ffffff;  
+  font-size: 25px;
+}
+
+
+}

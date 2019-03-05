@@ -1,0 +1,795 @@
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  position: relative;
+  font:15px/1.5 "Times New Roman", Times, serif;
+  padding:0;
+  margin: 0;
+  min-height: 100%;
+  background-color: #f1f1f1;
+}
+
+/* global*/
+header .container {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+.container {
+  width: 96%;
+  margin: auto;
+  overflow: hidden;
+}
+.admin-box {
+  float: left;
+  margin: 6px 5px;
+  text-align: center;
+  width: 23%;
+  padding: 10px;
+  box-shadow: 0 5px 10px #ccc;
+  border-radius: 10px;
+  background: #ffffff;
+}
+.page-content{
+  padding-top: 60px;
+  
+  width: 100%;
+  overflow: auto;
+}
+.middle{
+  margin-top: 10%;
+}
+#table td a{
+  text-decoration: none;
+  color: #5f9ea0;
+}
+.admin-box a{
+  text-decoration: none;
+  color: #35424a;
+}
+.dashboardContainer {
+  width: 94%;
+  margin: auto;
+  overflow: hidden;
+}
+#mytable {
+  width: 100%;
+  margin-left: 1%;
+}
+#table {
+  width: 100%;
+  margin: unset;
+}
+.hide{
+  display: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+.error {
+  background-color: #b22222;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 5px;
+  -webkit-animation-duration: 15s;animation-duration: 15s;
+  -webkit-animation-fill-mode: both;animation-fill-mode: both;
+}
+.success {
+  background-color: #3cb371;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 5px;
+  -webkit-animation-duration: 15s;animation-duration: 15s;
+  -webkit-animation-fill-mode: both;animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+.tableContainer {
+  width: 94%;
+  margin-left: 3%;
+}
+/*header*/
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #35424a;
+  color: #ffffff;
+  padding: 10px;
+  min-height: 30px;
+  border-bottom: #e8491d 3px solid;
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+header li {
+  display: inline;
+  padding: 0 10px 0 20px;
+}
+
+header #branding {
+  float: left;
+}
+
+header #branding h1 {
+  margin: 0;
+}
+header #branding a {
+ font-size: 30px;
+}
+header nav{
+  float: right;
+  margin-top: 6px;
+}
+
+header .highlight, header .current a {
+  color: #e8491d;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: #cccccc;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* Hide the link that should open and close the topnav */
+ header .icon {
+    display: none;
+}
+/* sidebar */
+#left {
+  position: fixed;
+  height: 100%;
+  padding: 15px 15px 0 15px;
+  top: 68px;
+  left: 0;
+  background: #35424a;
+  width: 15%;
+  overflow: hidden;
+  z-index: 0;
+}
+#heading {
+  font:15px/0.9 "Times New Roman", Times, serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  color: #5F9EA0;
+}
+#left hr {
+  color: #CCC;
+  font-weight: bolder;
+}
+#left span {
+  display: block;
+  padding: 12px 10px;
+}
+#left a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+#left a:hover {
+  color: #5f9ea0;
+  cursor: pointer;
+}
+
+aside#sidebar { 
+  margin: 8px 0 0 6px;
+}
+
+/* Main section */
+section#main {
+  padding: 12px;
+  overflow-y: auto;
+  padding-bottom: 6%;
+  margin-left: 15%;
+}
+
+#main form {
+  position: relative;
+  padding: 15px;
+  margin: 0 1%;
+  background-color: #ffffff;
+  z-index: 1;
+}
+#main legend {
+  text-align: center;
+  font-weight: bolder;
+  color: #5F9EA0;
+}
+#main div.form-left {
+  float: left;
+  margin: 6px 10px;
+  text-align: left;
+  width: 45%;
+  padding: 10px;
+ 
+}
+/*full width inputs*/
+ input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric'] {
+  width: 100%;
+  padding: 7px 20px;
+  margin: 5px 0;
+  display: block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  
+}
+.order label{
+  padding: 10px;
+  float: left;
+  clear: both;
+}
+/* .order input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric'] {
+  width: 70%;
+  float: right;
+} */
+/* Set a style for all buttons */
+#main button, #boxes button {
+  background-color: #22333d;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  padding: 8px 14px;
+  border-radius: 4px;
+}
+#main form textarea{
+  max-height: 40px;
+}
+#main form div.center{
+  clear: both;
+  margin-left: 30%;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* profile page */
+#profile-title h1 {
+  color: #696969;
+  text-transform: capitalize; 
+  margin-left: 16%;
+  margin-top: 20px;
+}
+
+/* boxes */
+#boxes {
+  margin-top: 8px;
+  padding-bottom: 6%;
+  margin-left: 15%;
+}
+#boxes div#pro-box{
+  margin-left: 25%;
+}
+#boxes h3 {
+  color: #696969;
+  text-transform: capitalize;
+}
+
+#boxes #transit {
+  text-align: left;
+}
+
+#boxes #transit a {
+  text-decoration: none;
+  color: #5f9ea0;
+  font-weight: bold;
+  margin: 0 ;
+}
+
+#boxes .box {
+  float: left;
+  margin: 6px 10px;
+  text-align: center;
+  width: 45%;
+  padding: 10px;
+  border-top: #35424a solid 3px;
+  border-bottom: #35424a solid 3px;
+  border-radius: 2%;
+  background: #ffffff;
+}
+.order-box{
+  float: left;
+  margin: 6px 5px;
+  text-align: center;
+  width: 45%;
+  padding: 10px;
+  border-top: #35424a solid 3px;
+  border-bottom: #35424a solid 3px;
+  border-radius: 2%;
+  background: #ffffff;
+}
+
+h2#fa-text{
+  background-color: #f1f1f1;
+}
+
+#boxes .box img {
+  width: 150px;
+}
+ 
+.imgcontainer {
+  text-align: center;
+  margin:0;
+  border-bottom: #35424a solid 2px;
+}
+
+img.avatar {
+  height: 20%;
+  width: 25%;
+  border-radius: 50%;
+}
+.submitbtn{
+  float: left;
+}
+#boxes .cancelbtn, #boxes .edit{
+  background-color: #35424a;
+}
+
+/* order page */
+#boxes #changeDestination {
+  position: relative;
+  width: 60%;
+  margin-left: 20%;
+  padding: 6px 15px;
+  background: #ffffff;
+  z-index: 1;
+}
+
+#boxes .order form input, textarea{
+  font-size: 15px;
+}
+
+.order form{
+  margin: 12px;
+  padding: 6px;
+  background-color: #ffffff;
+}
+
+#changeDestination button{
+  clear: both;
+  margin-left: inherit;
+  width: 100%;
+}
+/* Admin Page */
+#deliveries table {
+  margin: 5px 1px;
+  width: 100%;
+  padding: 5px;
+  
+}
+#table button {
+  width: auto;
+  padding: 12px;
+}
+#deliveries table, th, td {
+  border-collapse: collapse;
+}
+#deliveries table button {
+  width: auto;
+  padding: 12px;
+}
+#deliveries table a {
+ text-decoration: none;
+ color: #5f9ea0;
+}
+
+/** Modal area**/
+
+/* Modal Header */
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#myModal .modal-body h3{
+  color: red;
+}
+#myModal .modal-body form button{
+  width: 50%;
+}
+
+/* #modal-content .modal-footer #cancelbtn, .modal-footer #cancelbtn{
+  margin-left: 80%;
+} */
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  text-align: center;
+  padding: 2px 16px;
+  background-color: #35424a;
+  color: white;
+  border-top: #e8491d solid 2px;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px;
+  min-height: 70px
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  top: 25%;
+  border: 1px solid #888;
+  width: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+#table button{
+  padding: 5px;
+}
+.modal #userParcel p{
+  margin: 0 8%  ;
+  border-bottom: #888 solid 2px;
+}
+.modal #userParcel label{
+  
+  font-weight: bold;
+} 
+.modal #userParcel span{
+  float: right;
+  
+} 
+.modal-body form{
+  width: 100%;
+}
+.modal-body input[type=text]{
+  width: 94%;
+  border-radius: 8px;
+  
+}
+/* Modal Footer */
+div.modal-footer {
+  padding: 2px 7px;
+  background-color: #35424a;
+  color: white;
+  border-bottom: #e8491d solid 3px;
+}
+
+#myModal button, #userModal button{
+  width: 18%;  
+}
+
+/* #myModal button#deletebtn, #userModal button#deletebtn{
+  background-color: #696969;  
+} */
+#userModal button#cancelbtn{ 
+  margin-left: 60%;
+}
+.modal-footer #cancelbtn {
+  background-color: #888;
+  margin-left: 50%;
+}
+#userModal button#mapbtn{
+  width: auto;
+  background-color: goldenrod; 
+}
+#myModal button#delete, button#makeAdmin, #userModal button#delete{
+  background-color: red;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+/* footer area */
+footer {
+  overflow: hidden;
+  position: absolute;
+  width: 85%;
+  bottom: 0;
+  right: 0;
+  background: #35424a;
+  max-height: 45px;
+  border-top: #e8491d solid 3px;
+  text-align: center;
+
+}
+footer .container {
+  width: inherit;
+  text-align: center;
+  clear: both;
+  margin-bottom: 12px;
+  padding: 0;
+  width: inherit;
+}
+
+footer p {
+  color: #ffffff;
+  font-weight: bold;
+}
+footer a {
+  color: #e8491d;
+  text-decoration: none;
+}
+/* Change style for span and cancel button on small screen */
+@media screen and (max-width: 764px) {
+  .container,  
+  #sidebar,
+  #main,
+  #boxes,
+  #deliveries,
+  .center
+ {
+    float: none;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    
+  }
+
+  .tableContainer {
+    width: 100%;
+    overflow: auto;
+  }
+  .dashboardContainer {
+    width: 100%;
+    margin: 2px;
+    overflow: auto;
+  }
+  header {
+    position: unset;
+  }
+  
+  #profile-title h1 {
+    margin-left: 3%;
+  }
+  #main, #boxes {
+    margin-left: 6px;    
+  }
+  #boxes h2{
+    margin-left: 2%;
+  }
+  
+  .order label {
+    float: none;
+    clear: none;
+    padding: 5px;
+  }
+  #main input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric']{
+    width: 94%;
+  }
+  #boxes input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number],select[name='metric'] {
+    width: 94%;
+  }
+  
+  .order input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number],select[name='metric'] {
+    float: none;
+    width: 94%;
+  }
+  #main button {
+    width: 94%;
+  }
+  #boxes button {
+    width: 40%;
+  }
+
+  #main form div.center{
+    margin-left: 8px;
+    width: 100%;
+  }
+  #boxes .box {
+    float: none;
+    display: inline-block;
+    width: 94%;
+    border: none; 
+    margin-left: 0; 
+  }
+  #profile-title h1 {
+    text-align: center;
+    margin-top: 1%;
+    padding: 1%; 
+  }
+  #boxes .order{
+    width: 100%;
+    margin: 0 4% 0 0;
+    padding-bottom: 20%
+  }
+  #profile-box  .fa-stack{
+    width: 90%;
+    text-align: center;
+    margin-left: 0;
+  }
+  #boxes {
+    width: 98%;
+  }
+  #boxes div#pro-box{
+    margin-left: 15px;
+  }
+  #boxes .order button {
+    width: 94%;
+  }
+  #boxes #transit a {
+    margin: 0 15px;
+  }
+
+  #boxes #transit button {
+    width: 29%;
+  }
+
+  #boxes .order form input, textarea, select{
+    font-size: 15px;
+  }
+
+  #boxes #changeDestination {
+    width: 100%;
+    margin-left: unset; 
+  }
+  #boxes #changeDestination button{
+    width: 92%;
+    margin-left: 0;
+    
+   
+     
+  }
+  #deliveries table{
+    width: 94%;
+  }
+  #table{
+    width: 100%;
+  }
+  #table button{
+    width: 100%;
+  }
+  #main div.form-left {
+    float: none;
+    margin: 6px 10px;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+   
+  }
+  footer{
+    display: none;
+    /* position: sticky;
+    width: 100%; */
+  }
+
+  .modal-content {
+    border: 1px solid #888;
+    top: 30%;
+    width: 90%;
+    animation-name: animatetop;
+    animation-duration: 0.6s
+  }
+
+  #myModal button#cancelbtn, #myModal button#delete,#userModal button#cancelbtn, #userModal button#delete {
+    width: 25%;
+    background-color: #696969;
+  }
+  #userModal button#delete{
+    background-color: red;
+  }
+
+  #myModal button#makeAdmin{
+    width: auto;
+  }
+
+  .modal-body #userParcel{
+    width: 100%;
+  }
+  .modal #userParcel p{
+    margin: 0 ;
+    display: block;
+    text-align: left;
+   
+  }
+  .modal-footer #cancelbtn {
+    
+    margin-left: unset;
+  }
+  .modal-footer #delete {
+    background-color: red;
+    margin-left: unset;
+  }
+  #userModal button#cancelbtn{
+    float: none;
+    margin-left: unset; 
+  }
+  #changeDestination .center{
+    clear: both;
+    margin-left: 0;
+    width: 100%;
+  }
+  h1, h2, h3{
+    margin-top: 1%;
+    font-size: 16px;
+    font-weight: unset;
+  }
+  #main div.container{
+    margin-left: 0;
+    width: 100%
+  }
+  section#main {
+    padding: 5px;
+    overflow-y: none;
+    padding-bottom: 0;
+    margin-left: 0;
+  }
+
+  .admin-box {
+    float: none;
+    display: block;
+    margin-left: 1%;
+    width: 98%;
+    max-height: 10%;
+   
+  }
+
+  .admin-box .container{
+    max-width: 60%;
+    margin-left: 0;
+  }
+  .middle{
+    margin-top: 4%;
+  }
+}

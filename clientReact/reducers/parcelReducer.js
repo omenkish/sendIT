@@ -1,29 +1,44 @@
-const initialState = {
-  parcels: []
-};
+import {
+  ADD_PARCEL,
+  GET_PARCELS,
+  GET_PARCEL,
+  DELETE_PARCEL,
+  PARCEL_LOADING
+} from '../actions/types';
 
-export default (state=initialState, action) => {
+const initialState = {
+  parcels: [],
+  parcel: {},
+  loading: false
+};
+export default function(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_PARCEL':
+    case PARCEL_LOADING:
       return {
         ...state,
-        parcels:action.payload
+        loading: true
       };
-    case 'ADD_PARCEL_FAIL':
+    case GET_PARCELS:
       return {
         ...state,
-        errorMessage: action.payload
+        parcels: action.payload,
+        loading: false
       };
-      case 'SIGNUP_USER':
+    case GET_PARCEL:
       return {
         ...state,
-        isAuthenticated: true, // check(action.payload)
-        user:action.payload
+        parcel: action.payload,
+        loading: false
       };
-    case 'SIGNUP_USER_FAIL':
+    case ADD_PARCEL:
       return {
         ...state,
-        errorMessage: action.payload
+        parcels: [action.payload, ...state.parcels]
+      };
+    case DELETE_PARCEL:
+      return {
+        ...state,
+        parcels: state.parcels.filter(parcel => parcel._id !== action.payload)
       };
     default:
       return state;

@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Input from '../common/Input';
 import { postRequest } from '../../actions/authAction';
+import styles from '../../assets/css/signin.css';
 
 class RegisterFormContainer extends Component {
-  
+  // Initial state of user
    state = {
       firstname: '',
       lastname: '',
@@ -23,7 +24,7 @@ class RegisterFormContainer extends Component {
   handleSubmit =  async (event) => {
     event.preventDefault();
     const signupData = this.state;
-    this.props.postRequest(signupData, '/auth/signup', {type: 'SIGNUP_USER'}, {type:'SIGNUP_USER_FAIL'});
+    this.props.postRequest(signupData, 'auth/signup', {type: 'SIGNUP_USER'}, {type:'SIGNUP_USER_FAIL'});
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -40,7 +41,7 @@ class RegisterFormContainer extends Component {
   render() {
     const { firstname, lastname:lastName, othernames:otherNames, phone, email, password, error } = this.state;
     return (
-      <form id="create" onSubmit={this.handleSubmit}>
+      <form id={styles.create} onSubmit={this.handleSubmit}>
          <h1>Create Account <i className="fa fa-plus-circle"></i> </h1>
             {error && <div id="message">{error}</div>}
           <Input 
@@ -93,7 +94,7 @@ class RegisterFormContainer extends Component {
           />
 
           <div>
-            <button type="submit"> Create Account</button><span className="spa"> Already a member? <Link to="/login">Sign in</Link></span>
+            <button type="submit"> Create Account</button><span className={styles.spa}> Already a member? <Link to="/login">Sign in</Link></span>
           </div>
       </form>
     );

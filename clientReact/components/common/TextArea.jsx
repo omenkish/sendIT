@@ -1,26 +1,24 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-const Input = ({ label, text, placeholder, type, id, value, handleChange, required}) => (
+const TextArea = ({ label, text, placeholder, id, value, handleChange}) => (
   <div className="">
     <label htmlFor={label}><b>{text}</b></label>
-    <input 
-      type={type}
+    <textarea 
       id={id}
       value={value}
       placeholder={placeholder}
       onChange={handleChange}
-      required={required}
-    />
+      required
+    ></textarea>
   </div>
 );
 
-Input.propTypes = {
-  type: PropTypes.string.isRequired,
+TextArea.propTypes = {
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
   placeholder: PropTypes.string,
   handleChange: PropTypes.func,
-  required: PropTypes.bool,
 }
-export default Input;
+
+export default TextArea;

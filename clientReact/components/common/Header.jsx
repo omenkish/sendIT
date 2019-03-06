@@ -18,7 +18,7 @@ const Header = () => {
               <li ><NavLink to="/services" activeClassName={styles.current}>Services <i className="fa fa-book-open"></i></NavLink></li>
               {isLoggedIn() && 
               <Fragment>
-                <li ><NavLink to="/dashboard" activeClassName={styles.current} exact>Dashboard: {console.log(decodeToken().is_admin)}<i className="fa fa-lock"></i></NavLink></li>
+                <li ><NavLink to="/dashboard" activeClassName={styles.current} exact>Dashboard <i className="fa fa-lock"></i></NavLink></li>
                 <li style={{cursor: 'pointer'}} onClick={() => logout() }>Logout <i className="fa fa-power-off"></i></li>
               </Fragment>
               

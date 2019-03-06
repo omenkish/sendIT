@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postRequest } from '../../actions/authAction';
 import Input from '../common/Input';
-import styles from '../../assets/css/signin.css';
+import '../../assets/css/signin.css';
 
 class FormContainer extends Component {
     state = {
@@ -18,7 +18,7 @@ class FormContainer extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.postRequest(this.state, '/auth/login', {type: 'LOGIN_USER'}, {type:'LOGIN_USER_FAIL'});
+    this.props.postRequest(this.state, 'auth/login', {type: 'LOGIN_USER'}, {type:'LOGIN_USER_FAIL'});
   };
 
   componentWillReceiveProps(nextProps){
@@ -32,7 +32,7 @@ class FormContainer extends Component {
   render() {
     const { email, password, error } = this.state;
     return (
-      <form id={styles.login} onSubmit={this.handleSubmit}>
+      <form id="login" onSubmit={this.handleSubmit}>
         <div><h1> Sign In <i className="fa fa-arrow-alt-circle-right"></i></h1></div>
           <div id="message">{this.state.error}</div>
           <Input 
@@ -55,12 +55,12 @@ class FormContainer extends Component {
         <div>
           <button type="submit"> Login</button>
           <span id="remember">
-            <input type="checkbox" defaultChecked id="Remember" /> Remember me
+            <Input type="checkbox" defaultChecked id="Remember" /> Remember me
           </span>
         </div>
         <div className="bottom-form-area">
-          <span id={styles.reg}>Not yet registered? <Link to="/register">Sign up</Link></span>
-          <span className={styles.psw}> <Link to="#">Forgot password?</Link></span>
+          <span id="reg">Not yet registered? <Link to="/register">Sign up</Link></span>
+          <span className="psw"> <Link to="#">Forgot password?</Link></span>
         </div>
       </form>
     );

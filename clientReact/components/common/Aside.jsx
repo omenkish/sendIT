@@ -12,7 +12,10 @@ class Aside extends Component {
             <NavLink to="/profile"><i className="fa fa-user"></i> Profile</NavLink>
           </span>
           <span>
-            <NavLink to="/dashboard"><i className="fa fa-plus"></i> Create order</NavLink>
+            <NavLink to="/create"><i className="fa fa-plus"></i> Create order</NavLink>
+          </span>
+          <span>
+            <NavLink to="/dashboard"><i className="fa fa-plus"></i> My orders</NavLink>
           </span>
           <span>
             <NavLink to="/orders"><i className="fa fa-folder-open"></i> Manage Orders</NavLink>

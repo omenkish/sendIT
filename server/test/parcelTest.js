@@ -8,7 +8,7 @@ import server from '../../server';
 import ParcelOrder from '../models/parcels';
 
 const validParcel = {
-
+  number: 1,
   placed_by: 1,
   receiver_number: '08138106482',
   description: 'Sample parcel',
@@ -20,7 +20,19 @@ const validParcel = {
   zip: 111222,
   state: 'my home'
 };
-
+const validParcel2 = {
+  number: 2,
+  placed_by: 1,
+  receiver_number: '08138106482',
+  description: 'Sample parcel',
+  weight: 12.7,
+  weight_metric: 'kg',
+  sender_address: 'home',
+  receiver_address: 'his home',
+  current_location: 'aba',
+  zip: 111222,
+  state: 'my home'
+};
 const signup = {
 
   firstname : 'kev',
@@ -43,12 +55,14 @@ const signup1 = {
 }
 
 describe('ROUTES FOR PARCELS', () => {
-  let user;
+  let user, signupUser;
   before('add user to db and log him in before test', async () => {
     await ParcelOrder.createUsersTable();
     await ParcelOrder.createParcelsTable();
     
     await request(server).post('/api/v1/auth/signup').send(signup);
+    // const signupUserObj = await request(server).post('/api/v1/auth/signup').send(signup1);
+    // signupUser = signupUserObj.body;
     const login = await request(server).post('/api/v1/auth/login')
       .send({ email: signup.email, password: signup.password });
     user = login.body;
@@ -56,6 +70,7 @@ describe('ROUTES FOR PARCELS', () => {
   });
   after('Clear tables', async ()=>{
     await ParcelOrder.dropParcelsTable();
+    await ParcelOrder.dropUsersTable();
     await ParcelOrder.dropUsersTable();
       
      
@@ -96,30 +111,30 @@ describe('ROUTES FOR PARCELS', () => {
       
   describe('GET routes to fetch parcel(s)', () => {
     const id = 1;
-    it('should return http code 200',() => {
+    it('should fetch all parcels',() => {
       return request(server)
       .get('/api/v1/parcels')
       .set('Authorization', `Bearer ${user.token}`)
       .then(res => {
         expect(res.status).to.equal(200);
-        expect(res.body.data).to.be.an('array');
+        expect(res.body.parcels).to.be.an('array');
       })
     });
 
     it('should fetch a particular parcel and return http code 200',() => {
       return request(server)
-      .get(`/api/v1/parcels/${id}`)
+      .get(`/api/v1/parcels/${validParcel.number}`)
       .set('Authorization', `Bearer ${user.token}`)
       .then(res => {
         expect(res.status).to.equal(200);
-        expect(res.body.data).to.be.an('object');
+        expect(res.body.parcel).to.be.an('object');
       
       })
     });
 
     it('should return http code 401 if no token is provided',() => {
       return request(server)
-      .get(`/api/v1/parcels/${id}`)
+      .get(`/api/v1/parcels/${validParcel.number}`)
       .then(res => {
         expect(res.status).to.equal(401);
       
@@ -140,7 +155,7 @@ describe('ROUTES FOR PARCELS', () => {
       .get(`/api/v1/parcels/wert`)
       .set('Authorization', `Bearer ${user.token}`)
       .then(res => {
-        expect(res.status).to.equal(400);
+        expect(res.status).to.equal(404);
       
       })
     });
@@ -201,18 +216,29 @@ describe('ROUTES FOR PARCELS', () => {
       
     });
 
-    it('should make user an admin ', () => {
+    // it('should make user an admin ', () => {
+    //   return request(server)
+    //     .patch(`/api/v1/users/${signupUser.userTest.id}/createadmin`)
+    //     .set('Authorization', `Bearer ${user.token}`)
+    //     .then(res => {
+    //       expect(res.status).to.equal(200);
+    //       expect(res.body.message).to.equal('Admin created successfully');
+    //     })
+      
+    // });
+    it('should return an error if user is already an admin ', () => {
       return request(server)
-        .put(`/api/v1/users/${user.data.id}/createadmin`)
+        .patch(`/api/v1/users/${user.user.id}/createadmin`)
         .set('Authorization', `Bearer ${user.token}`)
         .then(res => {
-          expect(res.status).to.equal(201);
+          expect(res.status).to.equal(400);
+          expect(res.body.message).to.equal('User already an admin!');
         })
       
     });
     it('should http code 401 on invalid token ', () => {
       return request(server)
-        .put(`/api/v1/users/${user.data.id}/createadmin`)
+        .patch(`/api/v1/users/${user.user.id}/createadmin`)
         .set('Authorization', `Bearer iooo`)
         .then(res => {
           expect(res.status).to.equal(401);
@@ -222,7 +248,7 @@ describe('ROUTES FOR PARCELS', () => {
 
     it('should return http code 404 if id doesnt exist ', () => {
       return request(server)
-        .put(`/api/v1/users/${user.data.id + 1}/createadmin`)
+        .patch(`/api/v1/users/99/createadmin`)
         .set('Authorization', `Bearer ${user.token}`)
         .then(res => {
           expect(res.status).to.equal(404);
@@ -232,7 +258,7 @@ describe('ROUTES FOR PARCELS', () => {
 
     it('should return http code 401 if no token is provided ', () => {
       return request(server)
-        .put(`/api/v1/users/${user.data.id}/createadmin`)
+        .patch(`/api/v1/users/${user.user.id}/createadmin`)
         .then(res => {
           expect(res.status).to.equal(401);
         })
@@ -244,35 +270,19 @@ describe('ROUTES FOR PARCELS', () => {
 
   describe('PUT routes to modify parcels', () => {
     const id = 1;
-    it('should cancel an order', () => {
-      return request(server)
-      .put(`/api/v1/parcels/${id}/cancel`)
-        .set('Authorization', `Bearer ${user.token}`)
-        .then(res => {
-          expect(res.status).to.equal(200);
-        })
-    });
-
+    
     it('should return status code 404 if order is not found', () => {
       return request(server)
-      .put(`/api/v1/parcels/${id + 1}/cancel`)
+      .patch(`/api/v1/parcels/${id + 1}`)
         .set('Authorization', `Bearer ${user.token}`)
         .then(res => {
           expect(res.status).to.equal(404);
         })
     });
 
-    it('should return status code 400 on invalid id', () => {
-      return request(server)
-      .put('/api/v1/parcels/uuyy/cancel')
-        .set('Authorization', `Bearer ${user.token}`)
-        .then(res => {
-          expect(res.status).to.equal(400);
-        })
-    });
     it('should return status code 401 on invalid token', () => {
       return request(server)
-      .put(`/api/v1/parcels/${id}/cancel`)
+      .patch(`/api/v1/parcels/${id}`)
         .set('Authorization', `Bearer ppoi8`)
         .then(res => {
           expect(res.status).to.equal(401);
@@ -281,14 +291,14 @@ describe('ROUTES FOR PARCELS', () => {
 
     it('should return status code 401 if token is not provided', () => {
       return request(server)
-      .put(`/api/v1/parcels/${id}/cancel`)
+      .patch(`/api/v1/parcels/${id}`)
         .then(res => {
           expect(res.status).to.equal(401);
         })
     });
     it('should update location of an order', () => {
       return request(server)
-      .put(`/api/v1/parcels/${id}/location`)
+      .patch(`/api/v1/parcels/${id}/location`)
         .set('Authorization', `Bearer ${user.token}`)
         .send({
           current_location:'PortHarcourt'
@@ -301,7 +311,7 @@ describe('ROUTES FOR PARCELS', () => {
 
     it('should return status code 404 if order does not exist', () => {
       return request(server)
-      .put(`/api/v1/parcels/${id+1}/location`)
+      .patch(`/api/v1/parcels/${id+1}/location`)
         .set('Authorization', `Bearer ${user.token}`)
         .send({
           current_location:'PortHarcourt'
@@ -314,7 +324,7 @@ describe('ROUTES FOR PARCELS', () => {
 
     it('should return status code 401 if token is not provided', () => {
       return request(server)
-      .put(`/api/v1/parcels/${id}/location`)
+      .patch(`/api/v1/parcels/${id}/location`)
       .send({
         current_location:'PortHarcourt'
       })
@@ -325,7 +335,7 @@ describe('ROUTES FOR PARCELS', () => {
     });
     it('should return status code 200 on successful update', () => {
       return request(server)
-      .put(`/api/v1/parcels/${id}/destination`)
+      .patch(`/api/v1/parcels/${validParcel.number}/destination`)
         .set('Authorization', `Bearer ${user.token}`)
         .send({
           receiver_address:'PortHarcourt',
@@ -340,7 +350,7 @@ describe('ROUTES FOR PARCELS', () => {
 
     it('should return status code 404 if order does not exist', () => {
       return request(server)
-      .put(`/api/v1/parcels/${id + 1}/destination`)
+      .patch(`/api/v1/parcels/${id + 1}/destination`)
         .set('Authorization', `Bearer ${user.token}`)
         .send({
           receiver_address:'PortHarcourt',
@@ -356,7 +366,7 @@ describe('ROUTES FOR PARCELS', () => {
     
     it('should return status code 401 if no token is provided', () => {
       return request(server)
-      .put(`/api/v1/parcels/${id}/destination`)
+      .patch(`/api/v1/parcels/${id}/destination`)
         .send({
           receiver_address:'PortHarcourt',
           zip: 3334444,
@@ -368,41 +378,71 @@ describe('ROUTES FOR PARCELS', () => {
         })
     });
 
-    it('should return status code 400 if order is cancelled', () => {
+    it('should create a second order', () =>{
       return request(server)
-      .put(`/api/v1/parcels/${id}/deliver`)
+        .post('/api/v1/parcels')
         .set('Authorization', `Bearer ${user.token}`)
+        .send(validParcel2)
+        
         .then(res => {
-          expect(res.status).to.equal(400);
-          
-        })
+          expect(res.status).to.equal(201);
+        })  
     });
-
     it('should return status code 404 if order is not found', () => {
       return request(server)
-      .put(`/api/v1/parcels/${id + 1}/deliver`)
+      .patch(`/api/v1/parcels/${validParcel2.number + 10}/deliver`)
         .set('Authorization', `Bearer ${user.token}`)
         .then(res => {
           expect(res.status).to.equal(404);
+          
+        }).catch(error => console.log(error));
+    });
+
+    it('should update location of second order', () => {
+      return request(server)
+      .patch(`/api/v1/parcels/${validParcel2.number}/location`)
+        .set('Authorization', `Bearer ${user.token}`)
+        .send({
+          current_location:'PortHarcourt'
+        })
+        .then(res => {
+          expect(res.status).to.equal(200);
+          expect(res.body.message).to.contain('Location updated successfully');
+        })
+    });
+    it('should mark an order as delivered', () => {
+      return request(server)
+      .patch(`/api/v1/parcels/${validParcel2.number}/deliver`)
+      .set('Authorization', `Bearer ${user.token}`)
+        .then(res => {
+          expect(res.status).to.equal(200);
           
         })
     });
 
     it('should return status code 401 if token is not provided', () => {
       return request(server)
-      .put(`/api/v1/parcels/${id}/deliver`)
+      .patch(`/api/v1/parcels/${validParcel2.number}/deliver`)
         .then(res => {
           expect(res.status).to.equal(401);
           
         })
     });
-
-    it('should return status code 400 if id is not a number', () => {
+    it('should cancel an order', () => {
       return request(server)
-      .put(`/api/v1/parcels/eert/deliver`)
+      .patch(`/api/v1/parcels/${validParcel.number}`)
         .set('Authorization', `Bearer ${user.token}`)
         .then(res => {
-          expect(res.status).to.equal(400);          
+          expect(res.status).to.equal(200);
+        })
+    });
+    it('should return status code 400 if order is cancelled', () => {
+      return request(server)
+      .patch(`/api/v1/parcels/${id}/deliver`)
+        .set('Authorization', `Bearer ${user.token}`)
+        .then(res => {
+          expect(res.status).to.equal(400);
+          
         })
     });
   })
@@ -411,6 +451,14 @@ describe('ROUTES FOR PARCELS', () => {
     it('should return status code 200', () => {
       return request(server)
       .get('/')
+      .then(res => {
+        expect(res.status).to.equal(200);
+      })
+    });
+
+    it('should return status code 200', () => {
+      return request(server)
+      .get('/api')
       .then(res => {
         expect(res.status).to.equal(200);
       })

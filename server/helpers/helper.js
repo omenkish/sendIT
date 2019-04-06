@@ -27,9 +27,9 @@ class Helper {
    * @param {string} email
    * @returns {Object} token
    */
-  static generateToken(email, id) {
+  static generateToken(email, id, is_admin) {
     const token = jwt.sign({
-      email, id
+      email, id, is_admin
     },
       process.env.JWT_SECRET, { expiresIn: '2d' }
     );

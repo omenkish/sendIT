@@ -20,46 +20,42 @@ class Parcel {
    * @returns {} parcel order
    */
   static async createParcelOrder(request, response){
-    let order_number =Parcel.randomDigits(6);
+    
+    let number = Parcel.randomDigits(6);
     const price = request.body.weight * 4.7;
     const getParcelQuery = 'SELECT * FROM parcels WHERE order_number=$1';
-    try{
-      const { rows, rowCount } = await db.query(getParcelQuery, [order_number]);
-      while( rowCount > 0 ){
-        order_number = Parcel.randomDigits(6);
-      }
-    }
-    catch(e){
-      return response.status(400).json({error: e});
-    }
+
     const current_location = 'warehouse';
     const createParcelQuery = `INSERT INTO parcels(placed_by, order_number, receiver_number, description,
                               weight, weight_metric, sender_address, receiver_address, current_location, price, 
                               zip, state) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) 
                               RETURNING *`;
-    const values = [
-      request.user.id,
-      order_number,
-      request.body.receiver_number,
-      request.body.description,
-      request.body.weight,
-      request.body.weight_metric.toLowerCase(),
-      request.body.sender_address.toLowerCase(),
-      request.body.receiver_address.toLowerCase(),
-      current_location.toLowerCase(),
-      price, 
-      request.body.zip,
-      request.body.state
-    ];
+    
     try {
-      if(!request.user.id){
-        return response.status(401).json({status: 401, message: 'Please sign in to access this area'});
+      const { rowCount } = await db.query(getParcelQuery, [number]);
+      while( rowCount > 0 ){
+        number = Parcel.randomDigits(6);
       }
+      const order_number = request.body.number ? request.body.number : number;
+      const values = [
+        request.user.id,
+        order_number,
+        request.body.receiver_number,
+        request.body.description,
+        request.body.weight,
+        request.body.weight_metric.toLowerCase(),
+        request.body.sender_address.toLowerCase(),
+        request.body.receiver_address.toLowerCase(),
+        current_location.toLowerCase(),
+        price, 
+        request.body.zip,
+        request.body.state
+      ];
       const { rows } = await db.query(createParcelQuery, values);
-      return response.status(201).json({status: 201, message:'Parcel order placed successfully' });
+        return response.status(201).json({message:'Parcel order placed successfully', parcel: rows[0] });
     }
-    catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+    catch(error) {
+      return response.status(500).json({message: `${error}`});
     }
   }
 
@@ -72,17 +68,18 @@ class Parcel {
    */
   static async getUserParcels(request, response){
     
-    const getParcelsQuery = 'SELECT * FROM parcels WHERE placed_by=$1';
+    const getParcelsQuery = 'SELECT * FROM parcels WHERE placed_by=$1 ORDER BY created_at DESC';
+    const findUser = 'SELECT * FROM users WHERE id=$1';
     try{
-      const { rows, rowCount} = await db.query(getParcelsQuery, [request.params.id]);
-
-      if(rowCount === 0){
-        return response.status(404).json({status: 404, message: 'No parcels found for this user'});
+      const { rowCount: userCount } = await db.query(findUser, [request.params.id]);
+      if(userCount === 0) {
+        return response.status(404).json({ message: 'User not found'});
       }
-      return response.status(200).json({status: 200, data: rows, count: `${rowCount}`})
+      const { rows, rowCount} = await db.query(getParcelsQuery, [request.params.id]);
+      return response.status(200).json({ parcels: rows, count: `${rowCount}`})
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({ message: `${error}`});
     }    
   }
 
@@ -93,22 +90,17 @@ class Parcel {
    * @param {object} response 
    * @returns {Array} all parcel orders by a user
    */
-  static async getMyParcels(request, response){
+  static async getCurrentUserParcels(request, response){
     
-    const getParcelsQuery = 'SELECT * FROM parcels WHERE placed_by=$1';
+    const getParcelsQuery = 'SELECT * FROM parcels WHERE placed_by=$1 ORDER BY created_at DESC';
     try{
       const { rows, rowCount} = await db.query(getParcelsQuery, [request.user.id]);
-
-      if(rowCount === 0){
-        return response.status(404).json({status: 404, message: 'You currently have no parcel delivery order'});
-      }
-      return response.status(200).json({status: 200, data: rows, count: rowCount})
+      return response.status(200).json({parcels: rows, count: rowCount})
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({ message: `${error}`});
     }    
   }
-
 
   /**
    * method to fetch all parcel orders
@@ -121,13 +113,10 @@ class Parcel {
     const getParcelsQuery = 'SELECT * FROM parcels ORDER BY created_at DESC';
     try{
       const { rows, rowCount} = await db.query(getParcelsQuery);
-      if(rowCount === 0){
-        return response.status(404).json({status: 404, message:' No parcel delivery order in the system!'});
-      }
-      return response.status(200).json({status: 200, data: rows, count: `${rowCount}`})
+      return response.status(200).json({parcels: rows, count: `${rowCount}`})
     }
     catch(error){
-      return response.status(400).json({ status: 400, message: `${error}`});
+      return response.status(500).json({ message: `${error}`});
     }
   }
 
@@ -138,16 +127,16 @@ class Parcel {
    * @returns {object} particular parcel
    */
   static async getParcelById(request, response){
-    const getParcelQuery = 'SELECT * FROM parcels WHERE id=$1';
+    const getParcelQuery = 'SELECT * FROM parcels WHERE order_number=$1';
     try{
       const { rows, rowCount } = await db.query(getParcelQuery, [request.params.id]);
       if( rowCount === 0 ){
-        return response.status(404).json({status:404, message:' Order not found'});
+        return response.status(404).json({message:' Order not found'});
       }
-      return response.status(200).json({status: 200, data: rows[0]}) ;     
+      return response.status(200).json({ parcel: rows[0]}) ;     
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({message: `${error}`});
     }
   }
 
@@ -156,12 +145,12 @@ class Parcel {
     try{
       const { rows, rowCount } = await db.query(getParcelQuery, [request.params.id, request.user.id]);
       if( rowCount === 0 ){
-        return response.status(404).json({status:404, message:' Order not found'});
+        return response.status(404).json({ message:' Order not found'});
       }
-      return response.status(200).json({status: 200, data: rows[0]}) ;     
+      return response.status(200).json({parcel: rows[0]}) ;     
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({message: `${error}`});
     }
   }
 
@@ -173,23 +162,23 @@ class Parcel {
    */
 
   static async cancelParcelOrder(request, response){
-    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 AND placed_by=$2';
+    const findParcelQuery = 'SELECT * FROM parcels WHERE order_number = $1 AND placed_by=$2';
     const updateParcelQuery = `UPDATE parcels SET cancelled=true, 
-          modified_at=NOW() WHERE id=$1 returning *`;
+          modified_at=NOW() WHERE order_number=$1 returning *`;
     try{
         const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id, request.user.id]);
       if(rowCount === 0){
-        return response.status(404).json({status: 404, message: 'No order with the specified id exists for the user'});
+        return response.status(404).json({ message: 'You have no order with this id'});
       }
       if(rows[0].cancelled === true){
-        return response.status(400).json({status:400, message: 'This parcel delivery order is already cancelled'})
+        return response.status(400).json({ message: 'This parcel delivery order is already cancelled'})
       }
-      const result = await db.query(updateParcelQuery, [request.params.id]);
-      return response.status(200).json({status: 200, message: 'Your order has been cancelled successfully'});
+      const {rows: result} = await db.query(updateParcelQuery, [request.params.id]);
+      return response.status(200).json({message: 'Your order has been cancelled successfully', parcel: result[0]});
   
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({message: `${error}`});
     }
   }
 
@@ -204,11 +193,11 @@ class Parcel {
 
     const findParcelQuery = `SELECT parcels.*, users.email, users.firstname,
                              users.lastname FROM parcels JOIN users 
-                             ON parcels.placed_by=users.id WHERE parcels.id=$1;`
+                             ON parcels.placed_by=users.id WHERE parcels.order_number=$1;`
 
     const updateParcelQuery = `UPDATE parcels SET current_location=$1,
                               status='transiting', 
-                              modified_at=NOW() WHERE id=$2 returning *`;
+                              modified_at=NOW() WHERE order_number=$2 returning *`;
 
     const values = [
       request.body.current_location,
@@ -224,16 +213,16 @@ class Parcel {
     try{
         const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
       if(rowCount === 0){
-        return response.status(404).json({status: 404, message: 'Order not found'});
+        return response.status(404).json({ message: 'Order not found'});
       }
 
       const result = await db.query(updateParcelQuery, values);
       sendEmail(rows[0].email, subject, emailMessage);
-      return response.status(200).json({status: 200, message:'Location updated successfully'});
+      return response.status(200).json({ message:'Location updated successfully', parcel: result.rows[0]});
   
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({ message: `${error}`});
     }
    }
 
@@ -246,9 +235,9 @@ class Parcel {
    */
 
    static async changeDestination(request, response){
-    const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 AND placed_by = $2 AND status != \'delivered\'';
+    const findParcelQuery = 'SELECT * FROM parcels WHERE order_number = $1 AND placed_by = $2 AND status != \'delivered\'';
     const updateParcelQuery = `UPDATE parcels SET receiver_address=$1, zip=$2, state=$3,
-          modified_at=NOW() WHERE id=$4 returning *`;
+          modified_at=NOW() WHERE order_number=$4 returning *`;
 
     const values = [
       request.body.receiver_address,
@@ -259,61 +248,53 @@ class Parcel {
     try{
         const { rowCount } = await db.query(findParcelQuery, [request.params.id, request.user.id]);
       if(rowCount === 0){
-        return response.status(404).json({status: 404, message: 'Order not found'});
+        return response.status(404).json({message: 'Order not found'});
       }
 
-      const result = await db.query(updateParcelQuery, values);
-      return response.status(200).json({status: 200, message:'destination updated successfully'});
+      const { rows } = await db.query(updateParcelQuery, values);
+      return response.status(200).json({ message:'destination updated successfully', parcel: rows[0]});
   
     }
     catch(error){
-      return response.status(400).json({status: 400, message: `${error}`});
+      return response.status(500).json({message: `${error}`});
     }
    }
 
   
    static async markAsDelivered(request, response){
-    //const findParcelQuery = 'SELECT * FROM parcels WHERE id = $1 AND status = \'transiting\'';
+
     const findParcelQuery =  `SELECT parcels.*, users.email, users.firstname,
                               users.lastname FROM parcels JOIN users 
-                              ON parcels.placed_by=users.id WHERE parcels.id=$1`;
+                              ON parcels.placed_by=users.id WHERE parcels.order_number=$1`;
     const updateParcelQuery = `UPDATE parcels SET status='delivered', 
-          modified_at=NOW() WHERE id=$1 returning *`;
+          modified_at=NOW() WHERE order_number=$1 returning *`;
 
     const values = [
       request.params.id
     ];
 
-    //sendMail arguments
-    let parcelOrderNo = '';
-    const emailMessage = `<h2>Parcel Delivered</h2>
-                          <p> Your Parcel with order number ${parcelOrderNo} has been delivered. 
-                          <strong>If there is any issue please contact us within the next 1 working day.</strong><p>
-                          <p> Thanks, Omenkish SendIT team...<p>
-                          `;
-    const subject = 'Parcel Delivery Confirmation';
     try{
-        const { rows, rowCount } = await db.query(findParcelQuery, [request.params.id]);
+        const { rows } = await db.query(findParcelQuery, [request.params.id]);
       if(rows[0].status === 'pending'){
-        return response.status(404).json({status: 404, message: 'Pending orders cannot be marked as delivered'});
+        return response.status(400).json({message: 'Pending orders cannot be marked as delivered'});
       }
       if(rows[0].cancelled === true){
-        return response.status(400).json({status:400, message: 'Cannot change delivery status of cancelled order!'})
+        return response.status(400).json({message: 'Cannot change delivery status of cancelled order!'})
       }
-      parcelOrderNo = rows[0].order_number;
+      const parcelOrderNo = rows[0].order_number;
       const emailMessage = `<h2>Parcel Delivered</h2>
                           <p> Your Parcel with order number <a href="#">${parcelOrderNo}</a> has been delivered.<br/> 
                           <strong>If there is any issue please contact us within the next 1 working day.</strong><p>
                           <p> Thanks, Omenkish SendIT team...<p>
                           `;
       const subject = 'Parcel Delivery Confirmation';
-      const result = await db.query(updateParcelQuery, values);
+      const {rows:result} = await db.query(updateParcelQuery, values);
       sendEmail(rows[0].email, subject, emailMessage);
-      return response.status(200).json({status: 200, message:'Parcel successfully marked as delivered'});
+      return response.status(200).json({message:'Parcel successfully marked as delivered', parcel: result[0]});
   
     }
     catch(error){
-      return response.status(400).json({status: 400, error: `${error}`});
+      return response.status(500).json({message: `${error}`});
     }
    }
 }

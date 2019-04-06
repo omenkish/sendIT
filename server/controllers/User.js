@@ -10,6 +10,7 @@ class User {
  */
   static async createUser(request, response) {
     const hashPassword = Helper.hashPassword(request.body.password);
+    const othernames = request.body.othernames? request.body.othernames.toLowerCase() : null;
     let is_admin;
     const sqltext = `INSERT INTO users(firstname, lastname, othernames, email, phone, password, is_admin)
       VALUES($1, $2, $3, $4, $5, $6, $7)
@@ -23,7 +24,7 @@ class User {
     const values = [
       request.body.firstname.toLowerCase(),
       request.body.lastname.toLowerCase(),
-      request.body.othernames.toLowerCase(),
+      othernames,
       request.body.email.toLowerCase(),
       request.body.phone,
       hashPassword,
@@ -33,13 +34,13 @@ class User {
     try {
       const { rows } = await db.query(sqltext, values);
       const token = Helper.generateToken(rows[0].email, rows[0].id)
-      return response.status(201).json({status: 201, data: rows[0],token: token});
+      return response.status(201).json({message: 'Account created successfully', token: token, userTest: rows[0]});
     } 
     catch(error) {
       if (error.routine === '_bt_check_unique') {
-        return response.status(400).json({ status: 400, message: 'User with that EMAIL already exists' })
+        return response.status(400).json({ message: 'User with that EMAIL already exists' })
       }
-      return response.status(400).json({status:400, message: `${error}`});
+      return response.status(500).json({ message: `${error}`});
     }
   }
 
@@ -55,17 +56,14 @@ class User {
 
     try{
       const { rows } = await db.query(sqlQuery, [request.body.email.toLowerCase()]);
-      if (!rows[0]) {
-        return response.status(404).json({status: 404, message: 'Username/password incorrect'});
+      if (!rows[0] || !Helper.comparePassword(rows[0].password, request.body.password)) {
+        return response.status(404).json({ message: 'Username/password incorrect'});
       }
-      if(!Helper.comparePassword(rows[0].password, request.body.password)){
-        return response.status(404).json({status: 404, message: 'Username/password incorrect'});
-      }
-      const token = Helper.generateToken(rows[0].email, rows[0].id);
-      return response.status(200).json({status: 200, data:rows[0], token: token});
+      const token = Helper.generateToken(rows[0].email, rows[0].id, rows[0].is_admin);
+      return response.status(200).json({message:'login successful', token: token, user: rows[0]});
     }
     catch(error){
-      return response.status(400).json({status: 400, message: 'Error saving user'});
+      return response.status(500).json({ message: `${error}`});
     }
 
   }
@@ -81,14 +79,14 @@ class User {
                           registered_on, modified_on FROM users`; 
     try {
       const { rows, rowCount } = await db.query(findUsersSql);
-      return response.status(200).json({status: 200, data: rows, count: rowCount });
+      return response.status(200).json({ users: rows, count: rowCount });
     }
     catch(error){
-      response.status(400).json({status: 400, error: `${error}}`});
+      response.status(500).json({ message: `${error}`});
     }
   }
 
-  static async getUser(request, response) {
+  static async getUserById(request, response) {
     
     const  findUsersSql = `SELECT id, firstname, lastname, othernames, email, phone, is_admin,
              registered_on, modified_on FROM users WHERE id=$1`; 
@@ -97,10 +95,10 @@ class User {
       if(rowCount === 0){
         return response.status(404).json({status: 404, message: 'User not found!'});
       }
-      return response.status(200).json({status: 200, data: rows[0] });
+      return response.status(200).json({message: 'User fetched successfully', user: rows[0] });
     }
     catch(error){
-      response.status(400).json({status: 400, error: `${error}}`});
+      response.status(500).json({status: 500, error: `${error}}`});
     }
   }
 
@@ -118,18 +116,18 @@ class User {
     try{
         const { rows, rowCount } = await db.query(findUserQuery, [request.params.id]);
       if(rowCount === 0){
-        return response.status(404).json({status: 404, message: 'User not found!'});
+        return response.status(404).json({message: 'User not found!'});
       }
       if(rows[0].is_admin === true){
-        return response.status(201).json({status: 201, message: 'User already an admin!'});
+        return response.status(400).json({message: 'User already an admin!'});
       }
       const result = await db.query(updateUserQuery, [request.params.id]);
       
-      return response.status(200).json({status: 200, data: result.rows[0]});
+      return response.status(200).json({message: 'Admin created successfully', user: result.rows[0]});
   
     }
     catch(error){
-      response.status(400).json({status: 400, error: `${error}`});
+      response.status(400).json({status: 400, message: `${error}`});
     }
   }
   

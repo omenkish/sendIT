@@ -140,20 +140,6 @@ class Parcel {
     }
   }
 
-  static async getUserParcelById(request, response){
-    const getParcelQuery = 'SELECT * FROM parcels WHERE id=$1 and placed_by=$2';
-    try{
-      const { rows, rowCount } = await db.query(getParcelQuery, [request.params.id, request.user.id]);
-      if( rowCount === 0 ){
-        return response.status(404).json({ message:' Order not found'});
-      }
-      return response.status(200).json({parcel: rows[0]}) ;     
-    }
-    catch(error){
-      return response.status(500).json({message: `${error}`});
-    }
-  }
-
   /**
    * method to cancel a parcel delivery order
    * @param {object} request 

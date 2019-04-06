@@ -47,6 +47,7 @@
     "@babel/preset-env": "^7.1.5",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.4.3",
+    "@babel/plugin-transform-runtime": "^7.4.3",
     "babel-plugin-istanbul": "^5.1.0",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
@@ -66,7 +67,6 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
-    "@babel/plugin-transform-runtime": "^7.4.3",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
     "eslint": "^5.8.0",
